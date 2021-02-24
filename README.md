@@ -19,7 +19,7 @@ MVC: ExpressJS
 
  []project-catwalk
   |
-  |---client[]
+  +---client[]
   |          |
   |          |---dist[]
   |          |        |---bundle.js
@@ -27,12 +27,12 @@ MVC: ExpressJS
   |          |        |---styles.css
   |          |---src[]
   |                  |---index.js
-  |---node_modules[]
-  |---server[]
+  +---node_modules[]
+  +---server[]
   |          |---server.js
-  |---.gitgnore
-  |---package-lock.json
-  |---package.json
-  |---README.md
-  |---webpack.config.js
+  +---.gitgnore
+  +---package-lock.json
+  +---package.json
+  +---README.md
+  +---webpack.config.js
   |
