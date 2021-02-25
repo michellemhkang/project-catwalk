@@ -7,5 +7,5 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Listening at http://localhost:${port}`);
 });
