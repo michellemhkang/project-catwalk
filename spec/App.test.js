@@ -8,3 +8,5 @@ configure({ adapter: new Adapter() });
 it('renders without crashing', () => {
   const wrapper = shallow(<App />);
 });
+
+// comment
