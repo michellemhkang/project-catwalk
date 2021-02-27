@@ -17,9 +17,9 @@ class App extends React.Component {
     return (
       <div>
         <OverviewSect/>
+        <RelatedProductsSect/>
         <QuestionsAnswersSect/>
         <RatingsAndReviewsSect/>
-        <RelatedProductsSect/>
       </div>
     );
   }
