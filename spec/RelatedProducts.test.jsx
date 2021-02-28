@@ -17,13 +17,13 @@ test('RelatedProductsSect renders without crashing', ()=> {
 //Related Products List
 test('Related Products List has a header on the list', ()=> {
   const wrapper = shallow(<RelatedProductsList/>);
-  console.log(wrapper.find('#RelatedProductsList').text());
-  expect(wrapper.find('#RelatedProductsList').text()).toBe('Related Products');
+  // console.log(wrapper.find('#RelatedProductsListTitle').text());
+  expect(wrapper.find('#RelatedProductsListTitle').text()).toBe('Related Products');
 })
 
 //Your Outfits List
 test('Your Outfits List has a header on the list', () => {
   const wrapper = shallow(<YourOutfitsList/>);
-  console.log(wrapper.find('#YourOutfitsList').text());
-  expect(wrapper.find('#YourOutfitsList').text()).toBe('Your Outfits');
+  // console.log(wrapper.find('#YourOutfitsListTitle').text());
+  expect(wrapper.find('#YourOutfitsListTitle').text()).toBe('Your Outfits');
 })
