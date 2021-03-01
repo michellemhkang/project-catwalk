@@ -18,6 +18,25 @@ RelatedProductsRouteHandler.get('/RelatedProducts', (req,res) => {
   axios(options)
   .then(response =>{
     console.log(response.data)
+    for(let i = 0; i < response.data.length; i++) {
+      axios({url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${response.data[i]}`,
+      method: 'GET',
+      headers : {
+        'User-Agent': 'request',
+        'Authorization': key
+      }}).then(resagain =>{
+        console.log(resagain.data)
+        relatedArr.push(resagain.data)
+        console.log('this is i', i)
+        if(relatedArr.length === response.data.length) {
+          res.send(relatedArr)
+        }
+      }
+      )
+      .catch(err => res.send(err))
+
+
+    }
     // for(let i = 0; i< response.data.length; i++) {
     //   console.log(i)
     //   let options = {
@@ -37,7 +56,7 @@ RelatedProductsRouteHandler.get('/RelatedProducts', (req,res) => {
     //        }
     //     }).catch(err=> console.log(err))
     // }
-    res.send(response.data)
+    // res.send(response.data)
   })
   .catch(err => res.send(err))
 })
