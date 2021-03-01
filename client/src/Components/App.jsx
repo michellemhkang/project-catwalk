@@ -10,24 +10,10 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      arrayOfId: [],
-      id: 0
+      id: 14931
     };
   }
-  componentDidMount(){
-    axios.get('/api/data').then(response => {
-      var array = [];
-      for(var i = 0; i < response.data.length; i++ ){
-        array.push(response.data[i].id)
-      }
-      this.setState({
-        arrayOfId: array,
-        id: array[0]
-      })
 
-    })
-
-  }
   render() {
     return (
       <div>
