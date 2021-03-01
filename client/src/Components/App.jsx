@@ -22,7 +22,7 @@ class App extends React.Component {
       }
       this.setState({
         arrayOfId: array,
-        id: [array[0]]
+        id: array[0]
       })
 
     })
