@@ -3,3 +3,7 @@
     height: 80px;
     width: 80px
 }
+.strikethrough {
+    text-decoration: line-through;
+    color: red
+}

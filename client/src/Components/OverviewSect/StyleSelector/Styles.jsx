@@ -4,15 +4,15 @@ import styles from './Thumbnails.css';
 class Styles extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-
-        }
+        this.state = {}
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(e) {
         e.preventDefault();
-        this.props.changeStyle(e.target['alt']);
+        // console.log(e.target.alt);
+        this.props.changeStyle(e.target.alt);
+        // this.props.reset();
     }
 
     render() {
