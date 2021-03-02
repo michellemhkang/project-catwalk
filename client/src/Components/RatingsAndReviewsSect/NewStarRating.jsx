@@ -6,15 +6,18 @@ class NewStarRating extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rating: '',
+      rating: 0,
       hoverIndex: 0
     }
     this.handleStarClick = this.handleStarClick.bind(this);
+    this.handleStarHover = this.handleStarHover.bind(this);
+    this.handleStarLeave = this.handleStarLeave.bind(this);
   }
 
   handleStarClick(rating) {
     this.setState({
-      rating: rating
+      rating: rating,
+      hoverIndex: rating
     })
   }
 
@@ -24,10 +27,23 @@ class NewStarRating extends React.Component {
     })
   }
 
+  handleStarLeave() {
+    if (!this.state.rating) {
+      this.setState({
+        hoverIndex: 0
+      })
+    }
+  }
+
   renderStars() {
     let stars = [];
+    let hoverIndex = this.state.hoverIndex;
+    let hovered = false;
     for (let i = 1; i < 6; i++) {
-      stars.push(<IndividualStar key={i} starNum={i} handleStarClick={this.handleStarClick}/>)
+      if (i <= hoverIndex) {
+        hovered = true;
+      }
+      stars.push(<IndividualStar key={i} hoverIndex={hoverIndex} handleStarHover={this.handleStarHover} handleStarLeave={this.handleStarLeave} starNum={i} handleStarClick={this.handleStarClick}/>)
     }
     return stars;
   }
