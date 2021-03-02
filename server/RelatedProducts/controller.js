@@ -15,7 +15,7 @@ module.exports = {
     }
     axios(options)
     .then(response =>{res.send(response.data)})
-    .then(err => console.log(err, 'rel id req'))
+    .catch(err => console.log(err, 'rel id req'))
   },
   //gets product info from api
   getProds: (req, res) => {
