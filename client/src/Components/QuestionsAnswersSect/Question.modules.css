@@ -1,0 +1,73 @@
+.Qlist {
+list-style-type: none;
+margin: 0 0 3px 0;
+
+}
+.quest{
+  display: inline;
+
+}
+
+.button{
+  padding: 0;
+  border: none;
+  background: none;
+  text-decoration:underline;
+  display: inline;
+  outline:none;
+}
+.button:hover{
+  text-decoration: none;
+}
+.help{
+  display: inline;
+}
+.helpNum{
+  display: inline;
+}
+.userbyA{
+  display: inline;
+}
+.helpfulA{
+  display: inline;
+}
+.helpfulQ{
+  display: inline;
+}
+.buttonQ{
+  padding: 0;
+  border: none;
+  background: none;
+  text-decoration:underline;
+  display: inline;
+  outline:none;
+}
+.buttonQ:hover{
+  text-decoration:none;
+}
+.helpDiv{
+  float: right;
+}
+.SearchQnA{
+height: 30px;
+width: 500px;
+}
+.searhGlass{
+  height: 35px;
+  padding: 0;
+  border: none;
+  background: none;
+  display: inline;
+  outline:none;
+}
+.image{
+  width:140px; /* you can use % */
+  height: auto;
+}
+
+.a{
+    display: inline;
+}
+.answer{
+  display: inline;
+}
