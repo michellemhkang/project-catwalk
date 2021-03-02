@@ -1,5 +1,5 @@
 .reviewsContainer {
-  font-family: helvetica;
+  font-family: arial;
   font-size: .7em;
   color: black;
   display: flex;
@@ -10,8 +10,9 @@
 }
 
 .sectionTitle {
-  margin: 10px;
+  margin: 0px;
   font-size: 1em;
+  font-weight: lighter;
 }
 
 .reviewsGrid {
