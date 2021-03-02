@@ -15,16 +15,17 @@ class RatingsAndReviewsSect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // reviewList: dummyReviewListData.results,
       reviewList: [],
       reviewCount: '',
       currentProductId: this.props.id,
       averageRating: 0,
-      recsPercentage: 0
+      recsPercentage: 0,
+      addReview: false
     };
 
     this.getReviews = this.getReviews.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
+    this.handleAddReview = this.handleAddReview.bind(this);
   }
 
   getReviews() {
@@ -61,6 +62,12 @@ class RatingsAndReviewsSect extends React.Component {
     this.setState({averageRating: averageRating, recsPercentage: recsPercentage});
   }
 
+  handleAddReview() {
+    this.setState({
+      addReview: !this.state.addReview
+    })
+  }
+
   componentDidMount() {
     this.getReviews();
   }
@@ -79,7 +86,7 @@ class RatingsAndReviewsSect extends React.Component {
             <List reviewList={this.state.reviewList}/>
             <span className={styles.listButtons}>
               <MoreReviewsButton />
-              <AddReviewButton />
+              <AddReviewButton handleAddReview={this.handleAddReview}/>
             </span>
           </div>
         </div>
