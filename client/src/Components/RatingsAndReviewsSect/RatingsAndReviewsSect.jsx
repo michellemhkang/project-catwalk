@@ -7,6 +7,7 @@ import List from './List.jsx';
 import AvgRatings from './AvgRatings.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';
 import AddReviewButton from './AddReviewButton.jsx';
+import WriteYourReview from './WriteYourReview.jsx';
 import dummyReviewListData from './dummyData/dummyReviewListData.js';
 import styles from './reviews.module.css';
 
@@ -18,7 +19,7 @@ class RatingsAndReviewsSect extends React.Component {
       reviewList: [],
       reviewCount: '',
       currentProductId: this.props.id,
-      averageRating: 0,
+      averageRating: '',
       recsPercentage: 0,
       addReview: false
     };
@@ -90,6 +91,7 @@ class RatingsAndReviewsSect extends React.Component {
             </span>
           </div>
         </div>
+        {!this.state.addReview ? null : <WriteYourReview addReview={this.state.addReview} />}
       </div>
     )
   }

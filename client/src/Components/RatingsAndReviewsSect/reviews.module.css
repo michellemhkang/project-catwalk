@@ -110,3 +110,29 @@ button:hover {
   cursor: pointer;
   background-color: lightgray;
 }
+
+/* NEW REVIEW STYLES */
+
+.newReview {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.newReviewTitle {
+  margin: 0px;
+}
+
+.newReviewAbout {
+  margin: 0px;
+}
+
+.star:hover{
+  color: red;
+}
+
+.starRow {
+  display: flex;
+  flex-direction: row;
+}
