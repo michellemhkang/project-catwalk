@@ -7,7 +7,7 @@ class StyleSelector extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedStyle: this.props.productStyles
+            selectedStyle: null
         }
     }
 
@@ -20,7 +20,7 @@ class StyleSelector extends React.Component {
         return (
             <div>
                 <h3>Style: {this.state.selectedStyle}</h3>
-                <ul>
+                {/* <ul>
 
                     {this.props.productStyles.map((style, index) => {
                     <Styles styleName={style.name} styleId={style.style_id} thumbnail={style.photos[0].thumbnail_url} key={index} />
@@ -28,7 +28,7 @@ class StyleSelector extends React.Component {
                 }
                     {/* <Styles styles={this.props.productStyles[1]}/> */}
                     {/* <p>{displayStyles}</p> */}
-                </ul>
+                {/* </ul> */}
             </div>
         )
     }

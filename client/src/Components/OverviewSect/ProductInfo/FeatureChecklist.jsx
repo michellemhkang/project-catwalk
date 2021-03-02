@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AddToCart extends React.Component {
+class FeatureChecklist extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -9,9 +9,9 @@ class AddToCart extends React.Component {
     }
     render() {
         return (
-            <button>Add to Cart</button>
+            <li>{this.props.features.feature}</li>
         )
     }
 }
 
-export default AddToCart;
+export default FeatureChecklist;
