@@ -15,11 +15,11 @@ test('RelatedProductsSect renders without crashing', ()=> {
 
 
 //Related Products List
-test('Related Products List has a header on the list', ()=> {
-  const wrapper = shallow(<RelatedProductsList/>);
-  // console.log(wrapper.find('#RelatedProductsListTitle').text());
-  expect(wrapper.find('#RelatedProductsListTitle').text()).toBe('Related Products');
-})
+// test('Related Products List has a header on the list', ()=> {
+//   const wrapper = shallow(<RelatedProductsList/>);
+//   // console.log(wrapper.find('#RelatedProductsListTitle').text());
+//   expect(wrapper.find('#RelatedProductsListTitle').text()).toBe('Related Products');
+// })
 
 //Your Outfits List
 test('Your Outfits List has a header on the list', () => {

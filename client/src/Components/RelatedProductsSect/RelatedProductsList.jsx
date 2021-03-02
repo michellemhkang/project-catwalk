@@ -20,7 +20,7 @@ class RelatedProductsList extends React.Component {
   }
 
   render() {
-    if(this.props.RelatedProductsDisplay) {
+    if(this.props) {
       this.state.RelatedProductsDisplay = this.props.RelatedProductsList.slice(0,5)
     }
     return (
