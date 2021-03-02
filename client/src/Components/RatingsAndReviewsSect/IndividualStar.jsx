@@ -4,10 +4,6 @@ import styles from './reviews.module.css'
 class IndividualStar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // hovered: this.props.hovered,
-      // value: this.props.starNum
-    }
     this.handleClick = this.handleClick.bind(this);
     this.handleHover = this.handleHover.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
@@ -18,12 +14,10 @@ class IndividualStar extends React.Component {
   }
 
   handleHover(e) {
-    // this.setState({hovered: !this.state.hovered})
     this.props.handleStarHover(this.props.starNum)
   }
 
   handleLeave(e) {
-    // this.setState({hovered: !this.state.hovered})
     this.props.handleStarLeave()
   }
 

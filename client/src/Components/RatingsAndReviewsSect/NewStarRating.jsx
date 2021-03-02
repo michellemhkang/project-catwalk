@@ -6,7 +6,7 @@ class NewStarRating extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rating: 0,
+      rating: '',
       hoverIndex: 0
     }
     this.handleStarClick = this.handleStarClick.bind(this);
@@ -17,7 +17,6 @@ class NewStarRating extends React.Component {
   handleStarClick(rating) {
     this.setState({
       rating: rating,
-      hoverIndex: rating
     })
   }
 
@@ -50,7 +49,7 @@ class NewStarRating extends React.Component {
 
   render() {
     return (
-      <span className={styles.starRow}>
+      <span className={styles.newStarRow}>
         {this.renderStars()}
       </span>
     )

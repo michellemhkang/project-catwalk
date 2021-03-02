@@ -13,7 +13,7 @@ class WriteYourReview extends React.Component {
         <h3 className={styles.newReviewTitle}>Write Your Review</h3>
         <h4 className={styles.newReviewAbout}>About the product</h4>
         <span className={styles.starRow}>
-          <p>Rating:</p>
+          <p>Rating: </p>
           <NewStarRating />
         </span>
         <span className={styles.starRow}>
