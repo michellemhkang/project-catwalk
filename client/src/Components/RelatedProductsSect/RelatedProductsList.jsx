@@ -20,10 +20,12 @@ class RelatedProductsList extends React.Component {
   }
 
   render() {
-    this.state.RelatedProductsDisplay = this.props.RelatedProductsList.slice(0,5)
+    if(this.props.RelatedProductsDisplay) {
+      this.state.RelatedProductsDisplay = this.props.RelatedProductsList.slice(0,5)
+    }
     return (
       <div>
-        <h2>Related Products</h2>
+        <h2 id='RelatedProductsListTitle'>Related Products</h2>
         <ul id={Styles.RelatedProductsList}>
           <button>left (no func)</button>
            {this.state.RelatedProductsDisplay.map(product => <RelatedProductsEntry key={product} prod={product}/> )}
@@ -33,6 +35,7 @@ class RelatedProductsList extends React.Component {
     )
   }
 }
+
 
 
 
