@@ -2,9 +2,17 @@
   border: solid 1px black;
 }
 
+.leftArrow {
+  float:left
+}
+
+.rightArrow {
+  float: right
+}
+
 .CardEntry {
   border: solid 1px black;
-  width: 15%;
+  width: 10%;
   padding: 1%;
   margin: 2%;
   display: inline-block;

@@ -19,17 +19,19 @@ class RelatedProductsList extends React.Component {
 
   }
 
+
   render() {
-    if(this.props) {
+  {  if(this.props) {
       this.state.RelatedProductsDisplay = this.props.RelatedProductsList.slice(0,5)
     }
+  }
     return (
       <div>
         <h2 id='RelatedProductsListTitle'>Related Products</h2>
         <ul id={Styles.RelatedProductsList}>
-          <button>left (no func)</button>
-           {this.state.RelatedProductsDisplay.map(product => <RelatedProductsEntry key={product} prod={product}/> )}
-           <button>right (no func)</button>
+          <button className={Styles.leftArrow}>left (no func)</button>
+           {this.state.RelatedProductsDisplay.map(product => <RelatedProductsEntry key={product} prod={product} changePage={this.props.changePage}/> )}
+           <button className={Styles.rightArrow}>right (no func)</button>
         </ul>
       </div>
     )

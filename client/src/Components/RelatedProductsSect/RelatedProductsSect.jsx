@@ -8,27 +8,42 @@ class RelatedProductsSect extends React.Component {
     super(props);
     this.state = {
       RelatedProductsList: [],
-      YourOutfitsList: []
+      YourOutfitsList: [],
+      cachedinfo: [],
+      previouslyCached : []
     };
+    this.addToYourOutfits = this.addToYourOutfits.bind(this);
   }
 
-  addToYourOutfits(itemid) {
-    this.setState({YourOutfitsList: [...this.state.YourOutfitsList, itemid]})
+  addToYourOutfits() {
+    this.setState({YourOutfitsList: [...this.state.YourOutfitsList, this.props.id]})
+    console.log(this.state.YourOutfitsList)
   }
 
-  componentDidMount() {
-    axios.get('/RelatedProducts', {params: {itemid: this.props.id}})
-    .then((res) => {
-      this.setState({RelatedProductsList: res.data})
-    })
-  }
+  // componentDidMount() {
+  //   axios.get('/RelatedProducts', {params: {itemid: this.props.id}})
+  //   .then((res) => {
+  //     this.setState({RelatedProductsList: res.data}, ()=>{
+  //       //do the thing
+  //     })
+  //   })
+  // }
 
   render() {
+    {
+      if(!this.state.previouslyCached.includes(this.props.id)){
+        this.state.previouslyCached.push(this.props.id)
+        axios.get('/RelatedProducts', {params: {itemid: this.props.id}})
+        .then((res) => {
+          this.setState({RelatedProductsList: res.data})
+        })
+      }
+    }
     return(
     <div>
       <h1>Related Products Section</h1>
-      <RelatedProductsList RelatedProductsList={this.state.RelatedProductsList}/>
-      <YourOutfitsList/>
+      <RelatedProductsList RelatedProductsList={this.state.RelatedProductsList} changePage={this.props.changePage}/>
+      <YourOutfitsList YourOutfitsList={this.state.YourOutfitsList} addToYourOutfits={this.addToYourOutfits}/>
     </div>
     )
   }
