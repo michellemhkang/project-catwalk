@@ -5,6 +5,8 @@ import AvgRecs from './AvgRecs.jsx';
 import ReviewCount from './ReviewCount.jsx';
 import List from './List.jsx';
 import AvgRatings from './AvgRatings.jsx';
+import MoreReviewsButton from './MoreReviewsButton.jsx';
+import AddReviewButton from './AddReviewButton.jsx';
 import dummyReviewListData from './dummyData/dummyReviewListData.js';
 import styles from './reviews.module.css';
 
@@ -75,6 +77,10 @@ class RatingsAndReviewsSect extends React.Component {
           <div className={styles.gridCol2}>
             <ReviewCount reviewCount={this.state.reviewCount}/>
             <List reviewList={this.state.reviewList}/>
+            <span className={styles.listButtons}>
+              <MoreReviewsButton />
+              <AddReviewButton />
+            </span>
           </div>
         </div>
       </div>

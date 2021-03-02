@@ -47,3 +47,37 @@
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
+.reviewListEntry {
+  padding-top: 10px;
+}
+
+.reviewBody {
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+.separatorLine, hr {
+  height: 1px;
+  border: 0;
+  color: #333;
+  background-color: #333;
+  width: 100%;
+}
+
+.listButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+button {
+  padding: 1em 2em 1em 2em;
+  background-color: lightgray;
+  border-style: none;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
