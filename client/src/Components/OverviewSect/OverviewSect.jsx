@@ -28,7 +28,7 @@ class OverviewSect extends React.Component {
   render() {
     return (
       <div>
-        <ProductInfo productInfo={this.state.productInfo} />
+        <ProductInfo productInfo={this.state.productInfo} styleInfo={this.state.productStyles} />
         <StyleSelector productStyles={this.state.productStyles} />
         <AddToCart />
         <ImageGallery />

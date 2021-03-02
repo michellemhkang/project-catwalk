@@ -2,33 +2,33 @@ import React from 'react';
 import Styles from './Styles.jsx';
 
 // Props being passed here: Array of objects of styles for this product
-
 class StyleSelector extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedStyle: null
+            selectedStyle: this.props.productStyles[0].name
         }
+        this.changeStyle = this.changeStyle.bind(this);
+    }
+
+    changeStyle(style) {
+        this.setState({
+            selectedStyle: style
+        })
     }
 
     render() {
 
-        // const displayStyles = this.props.productStyles.map((style, index) => {
-        //     <Styles style={style} key={index} /> 
-        // })
+        // console.log('props:', this.props.productStyles);
+        const stylesInfo = this.props.productStyles.map((style, index) => {
+            // console.log('style:', style);
+            return <Styles name={style.name} photos={style.photos} id={style.style_id} key={index} changeStyle={this.changeStyle} /> 
+        })
 
         return (
             <div>
                 <h3>Style: {this.state.selectedStyle}</h3>
-                {/* <ul>
-
-                    {this.props.productStyles.map((style, index) => {
-                    <Styles styleName={style.name} styleId={style.style_id} thumbnail={style.photos[0].thumbnail_url} key={index} />
-                    })
-                }
-                    {/* <Styles styles={this.props.productStyles[1]}/> */}
-                    {/* <p>{displayStyles}</p> */}
-                {/* </ul> */}
+                <div>{stylesInfo}</div>
             </div>
         )
     }

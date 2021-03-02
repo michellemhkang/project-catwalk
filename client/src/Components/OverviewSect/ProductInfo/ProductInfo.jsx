@@ -1,4 +1,5 @@
 import React from 'react';  
+import styles from './ProductInfo.css';
 
 class ProductInfo extends React.Component {
     constructor(props) {
@@ -6,7 +7,8 @@ class ProductInfo extends React.Component {
         this.state = {
             category: this.props.productInfo.category,
             expandedName: this.props.productInfo.name,
-            defaultPrice: this.props.productInfo.default_price
+            defaultPrice: this.props.productInfo.default_price,
+            salePrice: this.props.styleInfo.sale_price
         }
     }
 
@@ -16,9 +18,9 @@ class ProductInfo extends React.Component {
     render() {
         return (
             <div>
-                <h3>{(this.state.category).toUpperCase()}</h3>
-                <h1>{this.state.expandedName}</h1>
-                <h4>${this.state.defaultPrice}</h4>
+                <h3 className={styles.category}>{(this.state.category).toUpperCase()}</h3>
+                <h1 className={styles.name}>{this.state.expandedName}</h1>
+                <h4 className={styles.price}>${this.state.defaultPrice}</h4>
             </div>
         )
     }
