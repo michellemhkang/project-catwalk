@@ -6,7 +6,8 @@ class NewStarRating extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rating: ''
+      rating: '',
+      hoverIndex: 0
     }
     this.handleStarClick = this.handleStarClick.bind(this);
   }
@@ -14,6 +15,12 @@ class NewStarRating extends React.Component {
   handleStarClick(rating) {
     this.setState({
       rating: rating
+    })
+  }
+
+  handleStarHover(index) {
+    this.setState({
+      hoverIndex: index
     })
   }
 
