@@ -1,10 +1,13 @@
 import React from 'react';
+import axios from 'axios';
+
+import AvgRecs from './AvgRecs.jsx';
 import ReviewCount from './ReviewCount.jsx';
 import List from './List.jsx';
 import AvgRatings from './AvgRatings.jsx';
 import dummyReviewListData from './dummyData/dummyReviewListData.js';
 import styles from './reviews.module.css';
-import axios from 'axios';
+
 
 class RatingsAndReviewsSect extends React.Component {
   constructor(props) {
@@ -14,20 +17,15 @@ class RatingsAndReviewsSect extends React.Component {
       reviewList: [],
       reviewCount: '',
       currentProductId: this.props.id,
-      averageRating: ''
+      averageRating: 0,
+      recsPercentage: 0
     };
 
     this.getReviews = this.getReviews.bind(this);
+    this.calculateAverageRating = this.calculateAverageRating.bind(this);
   }
 
   getReviews() {
-    // http request to server
-    // receives with array of objects of reviews for given product
-    // updates reviewList state
-
-    // use example data for now
-    // NOTE: currently, avgRatings only receives props when they are passed in originally, not when they are passed in during componentDidMount
-
     let id = this.state.currentProductId;
     axios.get('/reviews', {
       params: {
@@ -35,19 +33,30 @@ class RatingsAndReviewsSect extends React.Component {
       }
     })
     .then((response) => {
-      console.log(response);
+      console.log('data from server ', response.data.results)
       this.setState({
         reviewList: response.data.results,
         reviewCount: response.data.results.length
-      })
+      }, this.calculateAverageRating)
     })
     .catch(error => {
       console.error(error)
     });
+  }
 
-    // this.setState({
-    //   reviewCount: this.state.reviewList.length,
-    // });
+  calculateAverageRating() {
+    let ratingsTotal = 0;
+    let recsTotal = 0;
+    this.state.reviewList.forEach(review => {
+      ratingsTotal += review.rating;
+      if (review.recommend) {
+        recsTotal += review.recommend
+      }
+    });
+
+    let averageRating = Math.round((ratingsTotal / this.state.reviewList.length) * 10) / 10;
+    let recsPercentage = recsTotal / this.state.reviewList.length * 100;
+    this.setState({averageRating: averageRating, recsPercentage: recsPercentage});
   }
 
   componentDidMount() {
@@ -59,10 +68,11 @@ class RatingsAndReviewsSect extends React.Component {
       <div className={styles.reviewsContainer}>
         <h1 className={styles.sectionTitle}>Ratings And Reviews</h1>
         <div className={styles.reviewsGrid}>
-          <div className={styles.gridCol2}>
-            {/* <AvgRatings reviewList={this.state.reviewList}/> */}
-          </div>
           <div className={styles.gridCol1}>
+            <AvgRatings averageRating={this.state.averageRating}/>
+            <AvgRecs averageRec={this.state.recsPercentage} />
+          </div>
+          <div className={styles.gridCol2}>
             <ReviewCount reviewCount={this.state.reviewCount}/>
             <List reviewList={this.state.reviewList}/>
           </div>

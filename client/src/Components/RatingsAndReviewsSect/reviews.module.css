@@ -1,19 +1,12 @@
 .reviewsContainer {
   font-family: helvetica;
+  font-size: .7em;
   color: black;
   display: flex;
   flex-direction: column;
   width: 66%;
   height: 100%;
   margin: auto;
-}
-
-.gridCol1 {
-  text-align: center;
-}
-
-.gridCol2 {
-  text-align: left;
 }
 
 .sectionTitle {
@@ -24,9 +17,32 @@
 .reviewsGrid {
   display: grid;
   grid-template-columns: 33% 66%;
-  align-content: center;
+  column-gap: .5em;
+}
+
+.gridCol1 {
+  color: black;
+  text-align: left;
+}
+
+.gridCol2 {
+  color: black;
+  text-align: left;
+}
+
+.reviewCounter {
+  margin-top: 0px;
+}
+
+.averageRating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .averageRatingNumber {
-  font-size: 2em;
+  font-size: 4em;
+  margin-right: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
