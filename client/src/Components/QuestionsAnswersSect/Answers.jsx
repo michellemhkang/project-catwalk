@@ -11,7 +11,32 @@ class Answers extends React.Component{
 
     }
     this.Yes = this.Yes.bind(this)
+    this.formatDate = this.formatDate.bind(this);
   }
+
+
+formatDate(isoDate){
+  let date = new Date(isoDate);
+    let months = {
+      1: 'January',
+      2: 'February',
+      3: 'March',
+      4: 'April',
+      5: 'May',
+      6: 'June',
+      7: 'July',
+      8: 'August',
+      9: 'September',
+      10: 'October',
+      11: 'November',
+      12: 'December'
+    }
+
+    let month = (date.getMonth() + 1).toString();
+    date = `${months[month]} ${date.getDate()}, ${date.getFullYear()}`;
+    return date;
+}
+
   Yes(){
     if(!this.state.pushed ){
       var truth = !this.state.pushed
@@ -28,15 +53,13 @@ class Answers extends React.Component{
         helpfulness: num
       })
     }
-
-
   }
 
 
   render(){
 
-    const event = new Date(this.props.answers.date);
-    var date = event.toString().substring(0,16);
+
+
 
     return (
       <>
@@ -47,7 +70,7 @@ class Answers extends React.Component{
           return <Pictures url={url} key={i}/>
         })}
         <br></br>
-      <p className={styles.userbyA}>by {this.props.answers.answerer_name} on {date} </p>
+      <p className={styles.userbyA}>by {this.props.answers.answerer_name} on {this.formatDate(this.props.answers.date.toString())} </p>
       <p className={styles.help} >| Helpful? </p>
       <button className={styles.button} onClick={this.Yes}> Yes </button> <p className={styles.helpNum}>({this.state.helpfulness})</p>
       <br></br>

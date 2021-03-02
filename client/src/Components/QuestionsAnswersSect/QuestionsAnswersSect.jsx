@@ -41,15 +41,17 @@ class QuestionsAnswersSect extends React.Component {
 
   MoreQuestions(){
       var array = []
-    for(var i = 0; i < this.state.QnAlist.length + 2; i++ ){
+      var currentLength = this.state.QnAlist.length
 
-      if(this.state.QnADB[i] !== undefined){
-      array.push(this.state.QnADB[i])
+    while(currentLength < this.state.QnAlist.length + 2 ){
+      if(this.state.QnADB[currentLength] !== undefined){
+        array.push(this.state.QnADB[currentLength])
       }
+      currentLength++
     }
 
     this.setState({
-      QnAlist: array
+      QnAlist: [...this.state.QnAlist, ...array]
     })
   }
 
@@ -76,7 +78,6 @@ class QuestionsAnswersSect extends React.Component {
   }
 
   render() {
-
     return(
       <>
       <h1>Questions Answers Section</h1>

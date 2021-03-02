@@ -15,15 +15,22 @@ class Question extends React.Component{
     this.addAns= this.addAns.bind(this)
     this.Yes = this.Yes.bind(this)
   }
+
   addAns(){
     var array = [];
-    for(var i = 0; i < this.state.Answers.length + 2; i++){
-      array.push(this.state.AnswersDB[i])
+    var currentLength = this.state.Answers.length;
+
+    while(currentLength < this.state.Answers.length + 2){
+      if(this.state.AnswersDB[currentLength] !== undefined){
+        array.push(this.state.AnswersDB[currentLength])
+      }
+      currentLength++;
     }
+
     this.setState({
-      Answers: array
+      Answers: [...this.state.Answers, ...array]
     })
-    this.Yes = this.Yes.bind(this);
+
   }
 
 Yes(){
