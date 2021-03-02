@@ -9,7 +9,7 @@ class AddToCart extends React.Component {
     }
     render() {
         return (
-            <h2>I will add you to my cart</h2>
+            // <button>Add to Cart</button>
         )
     }
 }

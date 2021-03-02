@@ -1,4 +1,6 @@
-const DummyData = {
+// Dummy Data for Product 14931 - includes key product information
+
+const DummyProductData = {
     "id": 14931,
     "campus": "hr-sfo",
     "name": "Manuela Pants",
@@ -20,4 +22,4 @@ const DummyData = {
     ]
 }
 
-export default DummyData;
+export default DummyProductData;
