@@ -1,22 +1,34 @@
 import React from 'react';
 import Styles from './RelatedProductsSect.module.css';
+import RelatedProductsEntry from './RelatedProductsEntry.jsx'
 
 class RelatedProductsList extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      RelatedProductsFullList: this.props.RelatedProductsList,
+      RelatedProductsDisplay: []
+    };
+  }
+
+  leftbutton(){
+
+  }
+
+  rightbutton(){
+
   }
 
   render() {
+    {console.log('list', this.props)}
+    this.state.RelatedProductsDisplay = this.props.RelatedProductsList.slice(0,5)
     return (
       <div>
-        <h2 id='RelatedProductsListTitle'>Related Products</h2>
+        <h2>Related Products</h2>
         <ul id={Styles.RelatedProductsList}>
-          <li>hello</li>
-          <li>I'm</li>
-          <li>here</li>
-          <li>4</li>
-          <li>last</li>
+          <button>left (no func)</button>
+           {this.state.RelatedProductsDisplay.map(product => <RelatedProductsEntry key={product.id} prod={product}/> )}
+           <button>right (no func)</button>
         </ul>
       </div>
     )
