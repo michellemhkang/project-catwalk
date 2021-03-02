@@ -20,7 +20,7 @@ class NewStarRating extends React.Component {
   renderStars() {
     let stars = [];
     for (let i = 1; i < 6; i++) {
-      stars.push(<IndividualStar starNum={i} handleStarClick={this.handleStarClick}/>)
+      stars.push(<IndividualStar key={i} starNum={i} handleStarClick={this.handleStarClick}/>)
     }
     return stars;
   }

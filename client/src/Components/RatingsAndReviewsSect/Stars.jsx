@@ -8,7 +8,7 @@ let Stars = (props) => {
   let renderRatingStars = (rating) => {
     let stars = [];
     for (var i = 0; i < rating; i++) {
-      stars.push(<i className="fas fa-star"></i>);
+      stars.push(<i className="fas fa-star" key={i}></i>);
     }
     return stars;
   }
