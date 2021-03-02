@@ -7,8 +7,8 @@ import OverviewSect from './OverviewSect/OverviewSect.jsx'
 import axios from 'axios'
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       id: 14931
     };
