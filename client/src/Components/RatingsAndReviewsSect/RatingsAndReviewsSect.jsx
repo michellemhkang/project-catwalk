@@ -1,28 +1,48 @@
 import React from 'react';
 import ReviewCount from './ReviewCount.jsx';
 import List from './List.jsx';
+import AvgRatings from './AvgRatings.jsx';
 import dummyReviewListData from './dummyData/dummyReviewListData.js';
+import styles from './reviews.module.css';
+import axios from 'axios';
 
 class RatingsAndReviewsSect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewList: [],
-      reviewCount: 0,
-      CurrentProductId: this.props.id
+      reviewList: dummyReviewListData.results,
+      reviewCount: '',
+      surrentProductId: this.props.id,
+      averageRating: ''
     };
+
+    this.getReviews = this.getReviews.bind(this);
   }
 
-  getReviews () {
+  getReviews() {
     // http request to server
     // receives with array of objects of reviews for given product
     // updates reviewList state
 
     // use example data for now
-    this.setState({
-      reviewList: dummyReviewListData.results,
-      reviewCount: this.state.reviewList.length
-    });
+    // NOTE: currently, avgRatings only receives props when they are passed in originally, not when they are passed in during componentDidMount
+
+    axios.get('/reviews', {
+      params: {
+        id: this.state.currentProductId
+      }
+    })
+    .then(response => {
+      console.log(response);
+      this.setState({
+        reviewList: response.data,
+        reviewCount: response.data.length
+      })
+    })
+
+    // this.setState({
+    //   reviewCount: this.state.reviewList.length,
+    // });
   }
 
   componentDidMount() {
@@ -31,10 +51,17 @@ class RatingsAndReviewsSect extends React.Component {
 
   render() {
     return(
-      <div>
-        <h1>Ratings And Reviews Section</h1>
-        <ReviewCount reviewCount={this.state.reviewCount}/>
-        <List reviewList={this.state.reviewList}/>
+      <div className={styles.reviewsContainer}>
+        <h1 className={styles.sectionTitle}>Ratings And Reviews</h1>
+        <div className={styles.reviewsGrid}>
+          <div className={styles.gridCol2}>
+            {/* <AvgRatings reviewList={this.state.reviewList}/> */}
+          </div>
+          <div className={styles.gridCol1}>
+            <ReviewCount reviewCount={this.state.reviewCount}/>
+            <List reviewList={this.state.reviewList}/>
+          </div>
+        </div>
       </div>
     )
   }

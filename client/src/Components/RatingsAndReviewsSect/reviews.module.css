@@ -1,0 +1,32 @@
+.reviewsContainer {
+  font-family: helvetica;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+  height: 100%;
+  margin: auto;
+}
+
+.gridCol1 {
+  text-align: center;
+}
+
+.gridCol2 {
+  text-align: left;
+}
+
+.sectionTitle {
+  margin: 10px;
+  font-size: 1em;
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: 33% 66%;
+  align-content: center;
+}
+
+.averageRatingNumber {
+  font-size: 2em;
+}
