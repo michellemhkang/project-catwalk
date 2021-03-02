@@ -9,7 +9,6 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/Q&A/data', (req,res)=>{
-  console.log(req.query.id)
   let options = {
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions?product_id=' + req.query.id,
     method: 'GET',
