@@ -70,6 +70,7 @@ class RatingsAndReviewsSect extends React.Component {
   }
 
   componentDidMount() {
+    // move this into render function so that every time the app id state changes, it will fetch new data
     this.getReviews();
   }
 
