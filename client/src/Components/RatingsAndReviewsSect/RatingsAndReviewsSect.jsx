@@ -10,9 +10,10 @@ class RatingsAndReviewsSect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewList: dummyReviewListData.results,
+      // reviewList: dummyReviewListData.results,
+      reviewList: [],
       reviewCount: '',
-      surrentProductId: this.props.id,
+      currentProductId: this.props.id,
       averageRating: ''
     };
 
@@ -27,18 +28,22 @@ class RatingsAndReviewsSect extends React.Component {
     // use example data for now
     // NOTE: currently, avgRatings only receives props when they are passed in originally, not when they are passed in during componentDidMount
 
+    let id = this.state.currentProductId;
     axios.get('/reviews', {
       params: {
-        id: this.state.currentProductId
+        id: id
       }
     })
-    .then(response => {
+    .then((response) => {
       console.log(response);
       this.setState({
-        reviewList: response.data,
-        reviewCount: response.data.length
+        reviewList: response.data.results,
+        reviewCount: response.data.results.length
       })
     })
+    .catch(error => {
+      console.error(error)
+    });
 
     // this.setState({
     //   reviewCount: this.state.reviewList.length,
