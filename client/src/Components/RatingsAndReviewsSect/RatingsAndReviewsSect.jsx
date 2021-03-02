@@ -35,7 +35,7 @@ class RatingsAndReviewsSect extends React.Component {
       }
     })
     .then((response) => {
-      console.log('data from server ', response.data.results)
+      // console.log('data from server ', response.data.results)
       this.setState({
         reviewList: response.data.results,
         reviewCount: response.data.results.length

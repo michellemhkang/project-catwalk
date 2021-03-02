@@ -28,11 +28,17 @@ let ReviewListEntry = ({review}) => {
 
   return (
     <div className={styles.reviewListEntry}>
-      <Stars rating={review.rating}/>
-      <h4 className="review-title">{review.summary}</h4>
-      <span className="name-date">{review.reviewer_name} | {formatDate(review.date)}</span>
+      <span className={styles.starsAndDate}>
+        <Stars rating={review.rating}/>
+        <span className={styles.nameDate}>{review.reviewer_name}, {formatDate(review.date)}</span>
+      </span>
+      <h4 className={styles.reviewTitle}>{review.summary}</h4>
       <h5 className={styles.reviewBody}>{review.body}</h5>
-      <hr className={styles.separatorLine} />
+      <span className={styles.helpfulRow}>
+        <p className={styles.nameDate}>Helpful?</p>
+        <p className={styles.nameDate}>Yes (10) </p>
+        <p className={styles.nameDate}>| Report</p>
+      </span>
     </div>
   )
 }
