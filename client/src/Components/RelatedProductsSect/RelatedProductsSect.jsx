@@ -15,15 +15,12 @@ class RelatedProductsSect extends React.Component {
   addToYourOutfits(itemid) {
     this.setState({YourOutfitsList: [...this.state.YourOutfitsList, itemid]})
   }
-  //   axios.get('/RelatedProducts', {params: {itemid: this.props.id}})
-  //     .then(res => console.log(res.data))
+
   componentDidMount() {
     axios.get('/RelatedProducts', {params: {itemid: this.props.id}})
     .then((res) => {
       this.setState({RelatedProductsList: res.data})
-      console.log('state changed',this.state.RelatedProductsList)
     })
-    // console.log(this.props)
   }
 
   render() {

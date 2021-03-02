@@ -5,7 +5,6 @@ let axios = require('axios')
 module.exports = {
   getIds: (req, res) => {
     // make an axios request to Atelier API
-    console.log(req.query)
     let options = {
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${req.query.itemid}/related`,
       method: 'GET',
@@ -15,10 +14,8 @@ module.exports = {
       }
     }
     axios(options)
-    .then(response =>{
-      res.send(response.data)
-      }
-    )
+    .then(response =>{res.send(response.data)})
+    .then(err => console.log(err, 'rel id req'))
   },
   //gets product info from api
   getProds: (req, res) => {
@@ -32,7 +29,7 @@ module.exports = {
     }
     axios(options)
       .then(basicinfo => res.send(basicinfo.data))
-      .catch(err => console.log(err))
+      .catch(err => console.log(err, 'info req'))
   },
   getImg: (req, res) => {
     let options = {
@@ -45,7 +42,7 @@ module.exports = {
     }
     axios(options)
       .then(img => res.send(img.data))
-      .catch(err => console.log('ahh'))
+      .catch(err => console.log(err, 'img req'))
   },
   getRating: (req, res) => {
     let options = {
@@ -58,6 +55,6 @@ module.exports = {
     }
     axios(options)
       .then(rating => res.send(rating.data))
-      .catch(err => console.log('noooo'))
+      .catch(err => console.log(err, 'ratings req'))
   }
 };

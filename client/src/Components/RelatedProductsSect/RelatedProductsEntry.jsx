@@ -17,12 +17,10 @@ class RelatedProductsEntry extends React.Component {
   }
 
   showCompares() {
-    console.log('okay')
+    console.log('do hover things')
   }
 
   componentDidMount() {
-    console.log('i mounted?')
-    console.log(this.props.prod)
     //img axios req
     axios.get('./RelatedProducts/img', {params: {itemid: this.props.prod}})
       .then(res=> {this.setState({defaultimg: res.data.results[0].photos[0].url})})
@@ -37,11 +35,8 @@ class RelatedProductsEntry extends React.Component {
     //ratings axios request
     axios.get('./RelatedProducts/ratings', {params: {itemid: this.props.prod}})
       .then(res => {
-        console.log(res.data.results)
         let ratinglist = res.data.results.length;
         if(ratinglist === 0) {
-          // this.setState({prodrating: ''})
-          // console.log(this)
         } else {
 
           let rating = 0
@@ -49,7 +44,6 @@ class RelatedProductsEntry extends React.Component {
             rating += res.data.results[i].rating
           }
           rating = rating/ratinglist
-          console.log(rating);
           this.setState({prodrating: rating});
         }
       })
