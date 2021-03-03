@@ -7,6 +7,7 @@ class WriteYourReview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      rating: '',
       recommend: true,
       summary: '',
       body: '',
@@ -19,6 +20,11 @@ class WriteYourReview extends React.Component {
     this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleNicknameChange = this.handleNicknameChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleRatingChange = this.handleRatingChange.bind(this);
+  }
+
+  handleRatingChange(newRating) {
+    this.setState({rating: newRating})
   }
 
   handleRecommendChange(e) {
@@ -46,6 +52,15 @@ class WriteYourReview extends React.Component {
     // you will send this object in with the post request
   }
 
+  handleSubmit(e) {
+    this.formatCharacteristics();
+    let reviewData = {
+      rating: this.state.rating,
+
+    }
+    this.props.sendNewReview();
+  }
+
   render() {
     return (
       <div className={styles.newReview}>
@@ -53,7 +68,7 @@ class WriteYourReview extends React.Component {
         <h4 className={styles.newReviewAbout}>About the product</h4>
         <span className={styles.alignedRow}>
           Rating:
-          <NewStarRating />
+          <NewStarRating handleRatingChange={this.handleRatingChange}/>
         </span>
         <span className={styles.alignedRow}>
           <p>Do you recommend this product?</p>
@@ -96,6 +111,7 @@ class WriteYourReview extends React.Component {
             Email:
             <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange} />
         </div>
+        <button>Submit</button>
       </div>
     )
   }

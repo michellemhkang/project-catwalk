@@ -178,3 +178,35 @@ textarea {
 }
 
 /* Characteristics */
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.radioRow {
+  display: flex;
+  flex-direction: row;
+  font-size: .5em;
+  justify-content: left;
+  margin-bottom: 10px;
+}
+
+.radioRow input[type=radio] {
+  display: block;
+  margin: 0 auto;
+  padding-right: 30px;
+}
+
+.radioRow label {
+  display: inline-block;
+  padding-right: 30px;
+}
+
+.radioCatTitle {
+  font-size: 2em;
+  font-weight: bolder;
+  margin: 0px;
+  padding-right: 40px;
+}

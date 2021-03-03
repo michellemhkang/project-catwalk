@@ -17,7 +17,7 @@ class NewStarRating extends React.Component {
   handleStarClick(rating) {
     this.setState({
       rating: rating,
-    })
+    }, this.props.handleRatingChange(rating))
   }
 
   handleStarHover(index) {
@@ -42,7 +42,13 @@ class NewStarRating extends React.Component {
       if (i <= hoverIndex) {
         hovered = true;
       }
-      stars.push(<IndividualStar key={i} hoverIndex={hoverIndex} handleStarHover={this.handleStarHover} handleStarLeave={this.handleStarLeave} starNum={i} handleStarClick={this.handleStarClick}/>)
+      stars.push(<IndividualStar
+        key={i}
+        hoverIndex={hoverIndex}
+        handleStarHover={this.handleStarHover}
+        handleStarLeave={this.handleStarLeave}
+        starNum={i}
+        handleStarClick={this.handleStarClick}/>)
     }
     return stars;
   }
