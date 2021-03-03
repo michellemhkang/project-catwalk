@@ -14,6 +14,22 @@ class Question extends React.Component{
     }
     this.addAns= this.addAns.bind(this)
     this.Yes = this.Yes.bind(this)
+    this.rerender = this.rerender.bind(this)
+  }
+
+  rerender(){
+    var array = [];
+    for(var key in this.props.quest.answers){
+      array.push(this.props.quest.answers[key])
+    }
+    var array2 = [];
+    array2.push(array[0])
+    array2.push(array[1])
+    this.setState({
+      AnswersDB: array,
+      Answers: array2,
+      question_helpfulness: this.props.quest.question_helpfulness
+    })
   }
 
   addAns(){
@@ -75,7 +91,6 @@ this.setState({
 
 
   render(){
-
 if(this.state.AnswersDB.length <= 2){
 
     return(

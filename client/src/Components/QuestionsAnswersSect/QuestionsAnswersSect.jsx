@@ -15,6 +15,10 @@ class QuestionsAnswersSect extends React.Component {
     this.changefilter = this.changefilter.bind(this);
     this.MoreQuestions = this.MoreQuestions.bind(this);
     this.SearchQnA = this.SearchQnA.bind(this);
+    this.rerender = this.rerender.bind(this);
+  }
+  rerender(){
+
   }
 
   SearchQnA(){
