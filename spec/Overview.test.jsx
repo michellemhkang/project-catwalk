@@ -5,7 +5,7 @@ import OverviewSect from '../client/src/Components/OverviewSect/OverviewSect.jsx
 
 configure({ adapter: new Adapter() });
 
-test('RelatedProdctsSect renders without crashing', ()=> {
-  const wrapper = shallow(<OverviewSect/>);
-  expect(wrapper.exists()).toBe(true);
-})
+// test('RelatedProdctsSect renders without crashing', ()=> {
+//   const wrapper = shallow(<OverviewSect/>);
+//   expect(wrapper.exists()).toBe(true);
+// })
