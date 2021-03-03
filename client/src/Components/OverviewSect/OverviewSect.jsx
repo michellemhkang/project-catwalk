@@ -9,7 +9,7 @@ import ImageGallery from './ImageGallery/ImageGallery.jsx';
 import DummyProductData from './DummyData/DummyProductData.js';
 import DummyStyleData from './DummyData/DummyStyleData.js';
 import styling from './Overview.module.css';
-// import authorizationKey from '../../../../config.js';
+// import authKey from '../../../../config.js';
 
 class OverviewSect extends React.Component {
   constructor(props) {
@@ -22,42 +22,6 @@ class OverviewSect extends React.Component {
       productStyles: DummyStyleData.results
     };
   }
-
-  // componentDidMount() {
-  //   this.getProductInfo();
-  // }
-
-  // getProductInfo() {
-  //   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/14931', {
-  //     headers:
-  //     {Authorization: `${authorizationKey.key}`}
-  //   }).then((response) => {
-  //     console.log(response.data);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   })
-
-    // var config = {
-    //   method: 'get',
-    //   url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/14931',
-    //   headers: { 
-    //     'Authorization': authorizationKey.key
-    //   }
-    // };
-    
-    // axios(config)
-    // .then(function (response) {
-    //   // console.log(JSON.stringify(response.data));
-    //   console.log(response.data);
-    //   this.setState({
-    //     productInfo: response.data
-    //   })
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-  // }
 
   render() {
     return (

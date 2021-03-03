@@ -14,4 +14,10 @@ import React from 'react';
 //     }
 // }
 
+const FeatureChecklist = (props) => {
+    return (
+        <li>{props.feature}</li>
+    )
+}
+
 export default FeatureChecklist;

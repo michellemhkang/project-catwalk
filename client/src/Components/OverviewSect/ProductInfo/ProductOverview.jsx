@@ -1,4 +1,5 @@
 import React from 'react';
+import FeatureChecklist from './FeatureChecklist.jsx';
 
 class ProductOverview extends React.Component {
     constructor(props) {
@@ -12,18 +13,18 @@ class ProductOverview extends React.Component {
     }
     render() {
 
-        console.log(this.state.features);
+        // console.log(this.state.features);
         const featureList = this.state.features.map((feature, index) => {
-            console.log(feature);
-            console.log(feature.feature);
-            return <li feature={feature.feature} key={index} />
+            // console.log(feature);
+            // console.log(feature.feature);
+            return <FeatureChecklist feature={feature.feature} key={index} />
         })
 
         return (
             <div>
                 <h3>{this.state.slogan}</h3>
                 <p>{this.state.description}</p>
-                <ul>{featureList}</ul>
+                <div>{featureList}</div>
                 {/* <FeatureChecklist features={this.state.features} /> */}
             </div>
         )
