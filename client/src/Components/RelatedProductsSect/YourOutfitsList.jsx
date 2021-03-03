@@ -10,11 +10,22 @@ class YourOutfitsList extends React.Component {
       YourOutfitsDisplayList: [],
       YourOutfitsFullList: []
     };
+    this.leftbutton = this.leftbutton.bind(this);
+    this.rightbutton = this.rightbutton.bind(this);
   }
 
+  leftbutton(){
+    console.log('hello')
+  }
+
+  rightbutton(){
+    console.log('goodbye')
+  }
   render() {
     {
       if(this.props) {
+        {console.log(this.state)}
+        this.state.YourOutfitsFullList = this.props.YourOutfitsList
         this.state.YourOutfitsDisplayList = this.props.YourOutfitsList.slice(0,4)
       }
     }
@@ -22,10 +33,10 @@ class YourOutfitsList extends React.Component {
       <div>
         <h2 id='YourOutfitsListTitle'>Your Outfits</h2>
         <ul id={Styles.RelatedProductsList}>
-          <button className={Styles.leftArrow}>left (no func)</button>
+          <div className={Styles.leftArrow} onClick={this.leftbutton}>left</div>
           <YourOutfitAddCard addToYourOutfits={this.props.addToYourOutfits}/>
            {this.state.YourOutfitsDisplayList.map(product => <YourOutfitEntry key={product.id} outfitEntry={product}/> )}
-           <button className={Styles.rightArrow}>right (no func)</button>
+           <div className={Styles.rightArrow} onClick={this.rightbutton}>right</div>
         </ul>
       </div>
     )

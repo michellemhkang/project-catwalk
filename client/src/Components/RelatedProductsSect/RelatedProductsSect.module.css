@@ -3,11 +3,14 @@
 }
 
 .leftArrow {
-  float:left
+  float:left;
+  align-self: center;
 }
 
 .rightArrow {
-  float: right
+  float: right;
+  align-items: center;
+
 }
 
 .CardEntry {

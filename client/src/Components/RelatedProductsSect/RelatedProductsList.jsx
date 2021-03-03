@@ -9,7 +9,11 @@ class RelatedProductsList extends React.Component {
       RelatedProductsFullList: this.props.RelatedProductsList,
       RelatedProductsDisplay: []
     };
+    this.leftbutton = this.leftbutton.bind(this);
+    this.rightbutton = this.rightbutton.bind(this);
   }
+
+
 
   leftbutton(){
 
@@ -22,6 +26,7 @@ class RelatedProductsList extends React.Component {
 
   render() {
   {  if(this.props) {
+      console.log(this.state)
       this.state.RelatedProductsDisplay = this.props.RelatedProductsList.slice(0,5)
     }
   }
@@ -29,9 +34,9 @@ class RelatedProductsList extends React.Component {
       <div>
         <h2 id='RelatedProductsListTitle'>Related Products</h2>
         <ul id={Styles.RelatedProductsList}>
-          <button className={Styles.leftArrow}>left (no func)</button>
+          <div className={Styles.leftArrow}>left (no func)</div>
            {this.state.RelatedProductsDisplay.map(product => <RelatedProductsEntry key={product} prod={product} changePage={this.props.changePage}/> )}
-           <button className={Styles.rightArrow}>right (no func)</button>
+           <div className={Styles.rightArrow}>right (no func)</div>
         </ul>
       </div>
     )

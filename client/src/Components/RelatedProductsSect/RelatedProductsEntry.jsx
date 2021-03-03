@@ -73,7 +73,7 @@ class RelatedProductsEntry extends React.Component {
   //some cover thumbnail: {this.state.defaultimg}
 
   render() {
-    {console.log(this.state)}
+    // {console.log(this.state)}
     return(
       <li className={Styles.CardEntry}>
         <div onClick={this.pageChanger}>Go to this product</div>

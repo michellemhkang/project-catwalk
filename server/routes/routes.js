@@ -18,5 +18,6 @@ projectCatwalk.get('/RelatedProducts/img', relatedProductsController.getImg)
 projectCatwalk.get('/RelatedProducts/ratings', relatedProductsController.getRating)
 
 
+projectCatwalk.get('/Q&A/data', questionsAnswersController.getData)
 // this exports our middleware routing system
 module.exports.projectCatwalk = projectCatwalk;
