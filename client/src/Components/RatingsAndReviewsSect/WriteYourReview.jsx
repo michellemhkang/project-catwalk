@@ -8,11 +8,15 @@ class WriteYourReview extends React.Component {
     this.state = {
       recommend: true,
       summary: '',
-      body: ''
+      body: '',
+      nickname: '',
+      email: ''
     }
     this.handleRecommendChange = this.handleRecommendChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
     this.handleBodyChange = this.handleBodyChange.bind(this);
+    this.handleNicknameChange = this.handleNicknameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
   }
 
   handleRecommendChange(e) {
@@ -25,6 +29,14 @@ class WriteYourReview extends React.Component {
 
   handleBodyChange(e) {
     this.setState({body: e.target.value})
+  }
+
+  handleNicknameChange(e) {
+    this.setState({nickname: e.target.value})
+  }
+
+  handleEmailChange(e) {
+    this.setState({email: e.target.value})
   }
 
   render() {
@@ -71,7 +83,13 @@ class WriteYourReview extends React.Component {
             value={this.state.body}
             onChange={this.handleBodyChange}
           />
-      </div>
+        </div>
+        <div className={styles.inlineForm}>
+            Nickname:
+            <input type="text" placeholder="Nickname" value={this.state.nickname} onChange={this.handleNicknameChange} />
+            Email:
+            <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange} />
+        </div>
       </div>
     )
   }
