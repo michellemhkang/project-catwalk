@@ -1,6 +1,6 @@
 import React from 'react';
 
-class QuantitySelector extends React.Component {
+class SizeSelector extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -30,7 +30,7 @@ class QuantitySelector extends React.Component {
         return (
             <div>
                 <button onClick={this.showMenu}>
-                    Quantity Selector
+                    Size Selector
                 </button>
 
 
@@ -38,10 +38,10 @@ class QuantitySelector extends React.Component {
                 this.state.showMenu
                 ? (
                     <div className="menu" ref={(element) => {this.dropdownMenu = element;}}>
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button>4</button>
+                        <button>XS</button>
+                        <button>S</button>
+                        <button>M</button>
+                        <button>L</button>
                     </div>    
                 )
                 : (
@@ -53,4 +53,4 @@ class QuantitySelector extends React.Component {
     }
 }
 
-export default QuantitySelector;
+export default SizeSelector;
