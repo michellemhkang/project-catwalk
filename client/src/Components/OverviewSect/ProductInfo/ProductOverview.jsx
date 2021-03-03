@@ -12,11 +12,20 @@ class ProductOverview extends React.Component {
         }
     }
     render() {
+
+        console.log(this.state.features);
+        const featureList = this.state.features.map((feature, index) => {
+            console.log(feature);
+            console.log(feature.feature);
+            return <li feature={feature.feature} key={index} />
+        })
+
         return (
             <div>
                 <h3>{this.state.slogan}</h3>
                 <p>{this.state.description}</p>
-                <FeatureChecklist features={this.state.features} />
+                <ul>{featureList}</ul>
+                {/* <FeatureChecklist features={this.state.features} /> */}
             </div>
         )
     }
