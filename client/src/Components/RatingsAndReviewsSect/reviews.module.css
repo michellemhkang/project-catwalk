@@ -176,3 +176,10 @@ textarea {
   align-items: center;
   justify-content: space-between;
 }
+
+/* Characteristics */
+
+.characteristics{
+  display: flex;
+  flex-direction: column;
+}

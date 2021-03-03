@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './reviews.module.css';
 import NewStarRating from './NewStarRating.jsx';
+import Characteristics from './Characteristics.jsx'
 
 class WriteYourReview extends React.Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class WriteYourReview extends React.Component {
       summary: '',
       body: '',
       nickname: '',
-      email: ''
+      email: '',
+      characteristics: {}
     }
     this.handleRecommendChange = this.handleRecommendChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
@@ -39,6 +41,11 @@ class WriteYourReview extends React.Component {
     this.setState({email: e.target.value})
   }
 
+  formatCharacteristics() {
+    // grab states from characteristics and format to an object
+    // you will send this object in with the post request
+  }
+
   render() {
     return (
       <div className={styles.newReview}>
@@ -56,7 +63,6 @@ class WriteYourReview extends React.Component {
                   type="radio"
                   value="true"
                   checked={this.state.recommend === "true"}
-                  onChange={this.handleChange}
                 />
                 Yes
             </label>
@@ -65,12 +71,12 @@ class WriteYourReview extends React.Component {
                   type="radio"
                   value="false"
                   checked={this.state.recommend === "false"}
-                  onChange={this.handleChange}
                 />
                 No
             </label>
           </div>
          </span>
+        <Characteristics />
         <div className={styles.reviewInput}>
             Review Summary:
             <input type="text" placeholder="Example: 'Best Purchase Ever!'" value={this.state.summary} onChange={this.handleSummaryChange} />
