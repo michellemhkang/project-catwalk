@@ -4,13 +4,13 @@ class ImageGallery extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            currentImage: this.props.productInfo[0].photos[0].url
         }
     }
     render() {
         return (
             <div>
-                <h2>I will show you my images</h2>
+                <img src={this.state.currentImage}></img>
             </div>
         )
     }

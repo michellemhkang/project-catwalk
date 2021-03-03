@@ -1,5 +1,5 @@
 import React from 'react';  
-import styles from './ProductInfo.css';
+import styling from './ProductInfo.css';
 // import Price from '../StyleSelector/Price.jsx';
 
 class ProductInfo extends React.Component {
@@ -17,8 +17,8 @@ class ProductInfo extends React.Component {
     render() {
         return (
             <div>
-                <h3 className={styles.category}>{(this.state.category).toUpperCase()}</h3>
-                <h1 className={styles.name}>{this.state.expandedName}</h1>
+                <h3 className={styling.category}>{(this.state.category).toUpperCase()}</h3>
+                <h1 className={styling.name}>{this.state.expandedName}</h1>
                 {/* <h4 className={styles.price}>${this.state.defaultPrice}</h4> */}
             </div>
         )
