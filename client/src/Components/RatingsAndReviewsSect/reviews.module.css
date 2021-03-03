@@ -156,5 +156,16 @@ button:hover {
 }
 
 input[type="text"] {
+  font-family: arial;
+  font-size: .8em;
+  font-weight: lighter;
   width: 66%;
+  margin-bottom: 10px;
+}
+
+textarea {
+  font-family: arial;
+  font-weight: lighter;
+  font-size: .8em;
+  margin-bottom: 10px;
 }

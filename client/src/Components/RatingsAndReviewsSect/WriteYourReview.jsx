@@ -7,10 +7,12 @@ class WriteYourReview extends React.Component {
     super(props);
     this.state = {
       recommend: true,
-      summary: ''
+      summary: '',
+      body: ''
     }
     this.handleRecommendChange = this.handleRecommendChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
   }
 
   handleRecommendChange(e) {
@@ -21,13 +23,17 @@ class WriteYourReview extends React.Component {
     this.setState({summary: e.target.value})
   }
 
+  handleBodyChange(e) {
+    this.setState({body: e.target.value})
+  }
+
   render() {
     return (
       <div className={styles.newReview}>
-        <h3 className={styles.newReviewTitle}>Write Your Review</h3>
+        <h3 className={styles.newReviewTitle}>WRITE YOUR REVIEW</h3>
         <h4 className={styles.newReviewAbout}>About the product</h4>
         <span className={styles.starRow}>
-          <p>Rating: </p>
+          Rating:
           <NewStarRating />
         </span>
         <span className={styles.starRow}>
@@ -54,9 +60,18 @@ class WriteYourReview extends React.Component {
           </div>
          </span>
         <div className={styles.reviewInput}>
-            Summary:
+            Review Summary:
             <input type="text" placeholder="Example: 'Best Purchase Ever!'" value={this.state.summary} onChange={this.handleSummaryChange} />
         </div>
+        <div className={styles.reviewInput}>
+          Review Body:
+          <textarea
+            cols="30" rows="5"
+            placeholder="'Why did you like the product or not?'"
+            value={this.state.body}
+            onChange={this.handleBodyChange}
+          />
+      </div>
       </div>
     )
   }
