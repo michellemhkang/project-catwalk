@@ -18,7 +18,7 @@
 .reviewsGrid {
   display: grid;
   grid-template-columns: 33% 66%;
-  column-gap: .5em;
+  column-gap: 2em;
 }
 
 .gridCol1 {
@@ -118,16 +118,17 @@ button:hover {
   background-color: lightgray;
   display: flex;
   flex-direction: column;
-  text-align: center;
   padding: 10px;
 }
 
 .newReviewTitle {
   margin: 0px;
+  text-align: center;
 }
 
 .newReviewAbout {
   margin: 0px;
+  text-align: center;
 }
 
 .star:hover{
@@ -145,4 +146,15 @@ button:hover {
   flex-direction: row;
   align-items: center;
   margin-left: 5px;
+}
+
+.reviewInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: left;
+}
+
+input[type="text"] {
+  width: 66%;
 }
