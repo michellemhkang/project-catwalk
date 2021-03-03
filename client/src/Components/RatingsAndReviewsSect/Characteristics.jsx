@@ -21,14 +21,13 @@ class Characteristics extends React.Component {
 
   renderSizeOptions() {
     return(
-      <span onChange={this.handleInputChange}>
+      <span className={styles.radioGroup} onChange={this.handleInputChange}>
         <label>
           <input
             type="radio"
             value="1"
             checked={this.state.size === "1"}
             name="size"
-            // onChange={this.handleInputChange}
           />
           A size too small
         </label>
@@ -38,7 +37,6 @@ class Characteristics extends React.Component {
             value="2"
             checked={this.state.size === "2"}
             name="size"
-            // onChange={this.handleInputChange}
           />
           1/2 a size too small
         </label>
@@ -48,7 +46,6 @@ class Characteristics extends React.Component {
             value="3"
             checked={this.state.size === "3"}
             name="size"
-            // onChange={this.handleInputChange}
           />
           Perfect
         </label>
@@ -58,7 +55,6 @@ class Characteristics extends React.Component {
             value="4"
             checked={this.state.size === "4"}
             name="size"
-            // onChange={this.handleInputChange}
           />
           1/2 a size too big
         </label>
@@ -68,7 +64,6 @@ class Characteristics extends React.Component {
             value="5"
             checked={this.state.size === "5"}
             name="size"
-            // onChange={this.handleInputChange}
           />
           A size too big
         </label>

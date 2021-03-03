@@ -135,7 +135,7 @@ button:hover {
   color: red;
 }
 
-.starRow {
+.alignedRow {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -178,8 +178,3 @@ textarea {
 }
 
 /* Characteristics */
-
-.characteristics{
-  display: flex;
-  flex-direction: column;
-}

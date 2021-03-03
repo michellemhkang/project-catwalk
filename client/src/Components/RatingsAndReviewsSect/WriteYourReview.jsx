@@ -51,11 +51,11 @@ class WriteYourReview extends React.Component {
       <div className={styles.newReview}>
         <h3 className={styles.newReviewTitle}>WRITE YOUR REVIEW</h3>
         <h4 className={styles.newReviewAbout}>About the product</h4>
-        <span className={styles.starRow}>
+        <span className={styles.alignedRow}>
           Rating:
           <NewStarRating />
         </span>
-        <span className={styles.starRow}>
+        <span className={styles.alignedRow}>
           <p>Do you recommend this product?</p>
           <div onChange={this.handleRecommendChange}>
               <label>
