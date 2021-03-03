@@ -1,5 +1,4 @@
 import React from 'react';
-import FeatureChecklist from './FeatureChecklist.jsx';
 
 class ProductOverview extends React.Component {
     constructor(props) {

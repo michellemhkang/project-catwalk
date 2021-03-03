@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Thumbnails.css';
+import styling from './Thumbnails.module.css';
 
 class Styles extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class Styles extends React.Component {
     render() {
         return (
             <div>
-                <img src={this.props.photos[0].thumbnail_url} alt={this.props.name} onClick={this.handleClick} className={styles.thumbnail} />
+                <img src={this.props.photos[0].thumbnail_url} alt={this.props.name} onClick={this.handleClick} className={styling.thumbnail} />
             </div>
         )
     }
