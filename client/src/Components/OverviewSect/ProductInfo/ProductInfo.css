@@ -1,0 +1,18 @@
+.category {
+    display: flex;
+    
+    /* margin: 150px */
+}
+
+/* .name {
+    display: flex;
+    float: right;
+    margin-right: 150px
+    /* margin: 150px */
+ 
+
+/* .price {
+    display: flex;
+    float: right;
+    margin-right: 150px
+    /* margin: 150px */
