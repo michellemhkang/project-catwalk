@@ -53,16 +53,22 @@ class WriteYourReview extends React.Component {
   }
 
   handleSubmit(e) {
-    this.formatCharacteristics();
+    let formattedCharacteristics = this.formatCharacteristics();
     let reviewData = {
       rating: this.state.rating,
-
+      summary: this.state.summary,
+      body: this.state.body,
+      recommend: this.state.recommend,
+      name: this.state.nickname,
+      email: this.state.email,
+      characteristics: formattedCharacteristics
     }
-    this.props.sendNewReview();
+    this.props.sendNewReview(reviewData);
   }
 
   render() {
     return (
+      <>
       <div className={styles.newReview}>
         <h3 className={styles.newReviewTitle}>WRITE YOUR REVIEW</h3>
         <h4 className={styles.newReviewAbout}>About the product</h4>
@@ -107,12 +113,16 @@ class WriteYourReview extends React.Component {
         </div>
         <div className={styles.inlineForm}>
             Nickname:
-            <input type="text" placeholder="Nickname" value={this.state.nickname} onChange={this.handleNicknameChange} />
+            <input className={styles.nickname} type="text" placeholder="Nickname" value={this.state.nickname} onChange={this.handleNicknameChange} />
             Email:
             <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange} />
         </div>
-        <button>Submit</button>
+        <div className={styles.buttonRow}>
+      <button className={styles.submitReviewButton} onClick={this.handleSubmit}>Submit</button>
+     </div>
       </div>
+
+     </>
     )
   }
 }

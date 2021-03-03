@@ -21,12 +21,14 @@ class RatingsAndReviewsSect extends React.Component {
       currentProductId: this.props.id,
       averageRating: '',
       recsPercentage: 0,
-      addReview: false
+      addReview: false,
+      characteristics: {}
     };
 
     this.getReviews = this.getReviews.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
     this.handleAddReview = this.handleAddReview.bind(this);
+    this.sendNewReview = this.sendNewReview.bind(this);
   }
 
   getReviews() {
@@ -69,6 +71,12 @@ class RatingsAndReviewsSect extends React.Component {
     })
   }
 
+  sendNewReview(reviewData) {
+    reviewData.product_id = this.state.currentProductId
+    console.log('review data to send: ', reviewData)
+    axios.post()
+  }
+
   componentDidMount() {
     // move this into render function so that every time the app id state changes, it will fetch new data
     this.getReviews();
@@ -92,7 +100,7 @@ class RatingsAndReviewsSect extends React.Component {
             </span>
           </div>
         </div>
-        {!this.state.addReview ? null : <WriteYourReview addReview={this.state.addReview} />}
+        {!this.state.addReview ? null : <WriteYourReview sendNewReview={this.sendNewReview} addReview={this.state.addReview} />}
       </div>
     )
   }

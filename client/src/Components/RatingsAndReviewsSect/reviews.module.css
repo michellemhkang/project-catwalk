@@ -161,6 +161,9 @@ input[type="text"] {
   font-size: .8em;
   font-weight: lighter;
   width: 66%;
+}
+
+.nickname {
   margin-right: 10px;
 }
 
@@ -209,4 +212,14 @@ textarea {
   font-weight: bolder;
   margin: 0px;
   padding-right: 40px;
+}
+
+.buttonRow {
+  text-align: right;
+  padding-top: 10px;
+}
+
+.submitReviewButton {
+  width: 25%;
+  padding: 10px;
 }
