@@ -20,15 +20,16 @@ class RelatedProductsEntry extends React.Component {
     this.test = this.test.bind(this)
   }
 
-  test() {
+  test(e) {
     console.log('ahh')
   }
 
-  showCompares() {
+  showCompares(e) {
     console.log('do hover things')
   }
 
-  pageChanger() {
+  pageChanger(e) {
+    e.stopPropagation()
     this.props.changePage(this.props.prod)
   }
 
