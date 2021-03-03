@@ -4,52 +4,54 @@ import RelatedProductsSect from './RelatedProductsSect/RelatedProductsSect.jsx';
 import RatingsAndReviewsSect from './RatingsAndReviewsSect/RatingsAndReviewsSect.jsx';
 import QuestionsAnswersSect from './QuestionsAnswersSect/QuestionsAnswersSect.jsx';
 import OverviewSect from './OverviewSect/OverviewSect.jsx';
+import axios from 'axios';
+import authKey from '../../../config.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 14931
-      // productInfo: {},
-      // styleInfo: []
+      id: 14931,
+      productInfo: {},
+      styleInfo: []
     };
     this.changePage = this.changePage.bind(this);
-    // this.getProductInfo = this.getProductInfo.bind(this);
-    // this.getStyleInfo = this.getStyleInfo.bind(this);
+    this.getProductInfo = this.getProductInfo.bind(this);
+    this.getStyleInfo = this.getStyleInfo.bind(this);
   }
 
   changePage(newid) {
     this.setState({ id: newid })
   }
 
-  // getProductInfo(productId) {
-  //   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productId}`, {
-  //     headers:
-  //       {Authorization: `${authKey.key}`}
-  //   })
-  //     .then((response) => {
-  //       this.setState({
-  //         id: productId,
-  //         productInfo: response.data})
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-  // };
+  getProductInfo(productId) {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productId}`, {
+      headers:
+        {Authorization: `${authKey.key}`}
+    })
+      .then((response) => {
+        this.setState({
+          id: productId,
+          productInfo: response.data})
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  };
 
-  // getStyleInfo(productId) {
-  //   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productId}`, {
-  //     headers:
-  //     {Authorization: `${authKey.key}`}
-  //   })
-  //   .then((response) => {
-  //     this.setState({
-  //       styleInfo: response.data.results})
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   })
-  // }
+  getStyleInfo(productId) {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productId}`, {
+      headers:
+      {Authorization: `${authKey.key}`}
+    })
+    .then((response) => {
+      this.setState({
+        styleInfo: response.data.results})
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
 
   // From Postman-------
   // If we do it using Postman's, we could possibly store config and reuse it for both product and styles request
@@ -76,8 +78,8 @@ class App extends React.Component {
   // --------------------
 
   render() {
-    // this.getProductInfo(productId = 14931);
-    // this.getStyleInfo(productId = 14931);
+    this.getProductInfo(productId = 14931);
+    this.getStyleInfo(productId = 14931);
     // I was thinking we could have state id equal to a default productId and this default parameter be this.state.id,
     // Or have state id equal to null and this default parameter as it is right now
 
