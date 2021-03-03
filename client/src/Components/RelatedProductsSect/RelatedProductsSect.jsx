@@ -13,11 +13,20 @@ class RelatedProductsSect extends React.Component {
       previouslyCached : []
     };
     this.addToYourOutfits = this.addToYourOutfits.bind(this);
+    this.addToCache = this.addToCache.bind(this);
   }
 
   addToYourOutfits() {
     this.setState({YourOutfitsList: [...this.state.YourOutfitsList, this.props.id]})
     console.log(this.state.YourOutfitsList)
+  }
+
+  addToCache(obj) {
+    if(this.state.cachedinfo.filter(product => {product.id === obj.id}).length > 0) {
+    } else {
+      this.state.cachedinfo.push(obj);
+      console.log('cache', this.state.cachedinfo);
+    }
   }
 
   // componentDidMount() {
@@ -42,7 +51,8 @@ class RelatedProductsSect extends React.Component {
     return(
     <div>
       <h1>Related Products Section</h1>
-      <RelatedProductsList RelatedProductsList={this.state.RelatedProductsList} changePage={this.props.changePage}/>
+      <RelatedProductsList RelatedProductsList={this.state.RelatedProductsList} changePage={this.props.changePage} addToCache={this.addToCache}
+      cachedinfo={this.state.cachedinfo}/>
       <YourOutfitsList YourOutfitsList={this.state.YourOutfitsList} addToYourOutfits={this.addToYourOutfits}/>
     </div>
     )
