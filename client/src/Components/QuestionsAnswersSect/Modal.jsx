@@ -16,12 +16,10 @@ class Modal extends React.Component {
       return null
     }
     return <>
-    <div className ={styles.imageDiv}>
-
+    <div className ={styles.imageDiv} >
       <div className ={styles.imageModal}>
       <button onClick={(event)=>{this.props.selectModal() }} className={styles.Mbutton} > ✖ </button>
       <a onClick={(event)=>{this.props.selectModal() }}><img className={styles.imageM} src={this.props.url} /></a>
-
       </div>
       </div>
       </>

@@ -115,3 +115,39 @@ width: 500px;
 .Mbutton:hover{
   color: lightgray;
 }
+
+.addAnswerBtn{
+  position: relative;
+  left: 150px;
+}
+
+.less{
+position: relative;
+left: 200px;
+}
+
+.qDiv{
+  position: relative;
+  top: 15%;
+  background-color: white;
+  margin: 0 auto;
+  padding: 20px;
+  width: 70%;
+  height: 50%;
+}
+.Qbutton{
+  padding: 0;
+  border: none;
+  background: none;
+  display: inline;
+  outline:none;
+  font-size: 16px;
+
+ left: 84%;
+ position:relative;
+ left: 1600px;
+
+}
+.Qbutton:hover{
+  color: lightgray;
+}
