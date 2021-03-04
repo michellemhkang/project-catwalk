@@ -1,0 +1,9 @@
+.thumbnail {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px
+}
+.strikethrough {
+    text-decoration: line-through;
+    color: red
+}
