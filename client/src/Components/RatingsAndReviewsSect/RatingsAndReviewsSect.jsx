@@ -25,7 +25,6 @@ class RatingsAndReviewsSect extends React.Component {
       characteristics: {},
       ratings: {},
       recommended: {},
-      characteristics: {}
     };
 
     this.getReviews = this.getReviews.bind(this);
@@ -59,7 +58,7 @@ class RatingsAndReviewsSect extends React.Component {
       }
     })
     .then((response) => {
-      console.log('metadata from server ', response.data)
+      // console.log('metadata from server ', response.data)
       this.setState({
         characteristics: response.data.characteristics,
         recommended: response.data.recommended,
@@ -108,6 +107,7 @@ class RatingsAndReviewsSect extends React.Component {
     // check whether id has changed and re-fetch data
     if (prevProps.id !== this.props.id) {
       this.getReviews(this.props.id);
+      this.getMetadata(this.props.id);
     }
   }
 
