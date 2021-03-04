@@ -97,7 +97,7 @@ class WriteYourReview extends React.Component {
             </label>
           </div>
          </span>
-        <Characteristics />
+        <Characteristics characteristics={this.props.characteristics} />
         <div className={styles.reviewInput}>
             Review Summary:
             <input type="text" placeholder="Example: 'Best Purchase Ever!'" value={this.state.summary} onChange={this.handleSummaryChange} />

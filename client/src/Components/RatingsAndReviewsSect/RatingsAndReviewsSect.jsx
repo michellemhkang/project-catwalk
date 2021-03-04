@@ -161,7 +161,7 @@ class RatingsAndReviewsSect extends React.Component {
             </span>
           </div>
         </div>
-        {!this.state.addReview ? null : <WriteYourReview sendNewReview={this.sendNewReview} addReview={this.state.addReview} />}
+        {!this.state.addReview ? null : <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} addReview={this.state.addReview} />}
       </div>
     )
   }

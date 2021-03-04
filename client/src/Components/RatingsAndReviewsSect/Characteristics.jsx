@@ -341,12 +341,12 @@ class Characteristics extends React.Component {
     return (
       <div className={styles.radioGroup}>
         <p>Characteristics</p>
-        {this.renderSizeOptions()}
-        {this.renderWidthOptions()}
-        {this.renderComfortOptions()}
-        {this.renderQualityOptions()}
-        {this.renderLengthOptions()}
-        {this.renderFitOptions()}
+        {this.props.characteristics.Size ? this.renderSizeOptions() : null}
+        {this.props.characteristics.Width ? this.renderWidthOptions() : null}
+        {this.props.characteristics.Comfort ? this.renderComfortOptions() : null}
+        {this.props.characteristics.Quality ? this.renderQualityOptions() : null}
+        {this.props.characteristics.Length ? this.renderLengthOptions() : null}
+        {this.props.characteristics.Fit ? this.renderFitOptions() : null}
       </div>
     )
   }
