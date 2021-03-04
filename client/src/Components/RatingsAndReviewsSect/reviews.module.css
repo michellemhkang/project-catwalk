@@ -84,13 +84,6 @@
   font-weight: normal;
 }
 
-hr {
-  height: 1px;
-  border: 0;
-  background-color: #333;
-  width: 100%;
-}
-
 .listButtons {
   display: flex;
   flex-direction: row;
