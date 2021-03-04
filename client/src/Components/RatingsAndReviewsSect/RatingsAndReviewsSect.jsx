@@ -63,7 +63,7 @@ class RatingsAndReviewsSect extends React.Component {
         characteristics: response.data.characteristics,
         recommended: response.data.recommended,
         ratings: response.data.ratings
-      }, this.calculateAverageRating)
+      }, this.calculateAvgAndPercent)
     })
     .catch(error => {
       console.error(error)
@@ -92,22 +92,35 @@ class RatingsAndReviewsSect extends React.Component {
     for (var key in this.state.ratings) {
       this.state.ratings[key] = Number(this.state.ratings[key]);
       totalRatings += this.state.ratings[key]
-      console.log(totalRatings)
       avg += (this.state.ratings[key] * Number(key))
     }
 
     avg /= totalRatings;
-
     avg = Math.round((avg * 10) / 10)
     this.setState({averageRating: avg})
-
+    this.props.getAverageRating(avg);
     return avg;
+  }
+
+  calculatePercentageRecommended() {
+    let yes = Number(this.state.recommended.true);
+    let no = Number(this.state.recommended.false);
+
+    let percentageRec = (yes / (yes + no)) * 100;
+    percentageRec = Math.round((percentageRec * 10) / 10)
+    this.setState({recsPercentage: percentageRec});
+    return percentageRec;
   }
 
   handleAddReview() {
     this.setState({
       addReview: !this.state.addReview
     })
+  }
+
+  calculateAvgAndPercent() {
+    this.calculateAverageRating();
+    this.calculatePercentageRecommended();
   }
 
   sendNewReview(reviewData) {
