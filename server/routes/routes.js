@@ -10,6 +10,8 @@ let projectCatwalk = express.Router();
 // Put your routes here. Follow the pattern: projectCatwalk.<http request type>('<URL>', <controller>);
 // projectCatwalk.get('/products', overviewController.getProducts);
 projectCatwalk.get('/reviews', reviewsController.getReviews);
+projectCatwalk.get('/reviews/meta', reviewsController.getMetadata)
+projectCatwalk.post('/reviews', reviewsController.sendReview)
 
 
 //Related products and your outfit requests

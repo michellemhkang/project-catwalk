@@ -7,6 +7,7 @@ import List from './List.jsx';
 import AvgRatings from './AvgRatings.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';
 import AddReviewButton from './AddReviewButton.jsx';
+import WriteYourReview from './WriteYourReview.jsx';
 import dummyReviewListData from './dummyData/dummyReviewListData.js';
 import styles from './reviews.module.css';
 
@@ -15,20 +16,24 @@ class RatingsAndReviewsSect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // reviewList: dummyReviewListData.results,
       reviewList: [],
       reviewCount: '',
       currentProductId: this.props.id,
-      averageRating: 0,
-      recsPercentage: 0
+      averageRating: '',
+      recsPercentage: 0,
+      addReview: false,
+      characteristics: {},
+      ratings: {},
+      recommended: {},
     };
 
     this.getReviews = this.getReviews.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
+    this.handleAddReview = this.handleAddReview.bind(this);
+    this.sendNewReview = this.sendNewReview.bind(this);
   }
 
-  getReviews() {
-    let id = this.state.currentProductId;
+  getReviews(id) {
     axios.get('/reviews', {
       params: {
         id: id
@@ -39,30 +44,112 @@ class RatingsAndReviewsSect extends React.Component {
       this.setState({
         reviewList: response.data.results,
         reviewCount: response.data.results.length
-      }, this.calculateAverageRating)
+      })
     })
     .catch(error => {
       console.error(error)
     });
   }
 
-  calculateAverageRating() {
-    let ratingsTotal = 0;
-    let recsTotal = 0;
-    this.state.reviewList.forEach(review => {
-      ratingsTotal += review.rating;
-      if (review.recommend) {
-        recsTotal += review.recommend
+  getMetadata(id) {
+    axios.get('/reviews/meta', {
+      params: {
+        id: id
       }
+    })
+    .then((response) => {
+      // console.log('metadata from server ', response.data)
+      this.setState({
+        characteristics: response.data.characteristics,
+        recommended: response.data.recommended,
+        ratings: response.data.ratings
+      }, this.calculateAvgAndPercent)
+    })
+    .catch(error => {
+      console.error(error)
     });
+  }
 
-    let averageRating = Math.round((ratingsTotal / this.state.reviewList.length) * 10) / 10;
-    let recsPercentage = recsTotal / this.state.reviewList.length * 100;
-    this.setState({averageRating: averageRating, recsPercentage: recsPercentage});
+  // calculateAverageRating() {
+  //   let ratingsTotal = 0;
+  //   let recsTotal = 0;
+  //   this.state.reviewList.forEach(review => {
+  //     ratingsTotal += review.rating;
+  //     if (review.recommend) {
+  //       recsTotal += review.recommend
+  //     }
+  //   });
+
+  //   let averageRating = Math.round((ratingsTotal / this.state.reviewList.length) * 10) / 10;
+  //   let recsPercentage = recsTotal / this.state.reviewList.length * 100;
+  //   this.setState({averageRating: averageRating, recsPercentage: recsPercentage});
+  // }
+
+  calculateAverageRating() {
+    let totalRatings = 0;
+    let avg = 0;
+
+    for (var key in this.state.ratings) {
+      this.state.ratings[key] = Number(this.state.ratings[key]);
+      totalRatings += this.state.ratings[key]
+      avg += (this.state.ratings[key] * Number(key))
+    }
+
+    avg /= totalRatings;
+    avg = Math.round((avg * 10) / 10)
+    this.setState({averageRating: avg})
+    this.props.getAverageRating(avg);
+    return avg;
+  }
+
+  calculatePercentageRecommended() {
+    let yes = Number(this.state.recommended.true);
+    let no = Number(this.state.recommended.false);
+
+    let percentageRec = (yes / (yes + no)) * 100;
+    percentageRec = Math.round((percentageRec * 10) / 10)
+    this.setState({recsPercentage: percentageRec});
+    return percentageRec;
+  }
+
+  handleAddReview() {
+    this.setState({
+      addReview: !this.state.addReview
+    })
+  }
+
+  calculateAvgAndPercent() {
+    this.calculateAverageRating();
+    this.calculatePercentageRecommended();
+  }
+
+  sendNewReview(reviewData) {
+    reviewData.product_id = this.state.currentProductId
+    axios({
+      method: 'post',
+      url: '/reviews',
+      data: reviewData
+    })
+    .then(response => {
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.error(error)
+    })
   }
 
   componentDidMount() {
-    this.getReviews();
+    // move this into render function so that every time the app id state changes, it will fetch new data
+    this.getReviews(this.state.currentProductId);
+    this.getMetadata(this.state.currentProductId);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // check whether id has changed and re-fetch data
+    if (prevProps.id !== this.props.id) {
+      this.getReviews(this.props.id);
+      this.getMetadata(this.props.id);
+    }
   }
 
   render() {
@@ -79,10 +166,11 @@ class RatingsAndReviewsSect extends React.Component {
             <List reviewList={this.state.reviewList}/>
             <span className={styles.listButtons}>
               <MoreReviewsButton />
-              <AddReviewButton />
+              <AddReviewButton handleAddReview={this.handleAddReview}/>
             </span>
           </div>
         </div>
+        {!this.state.addReview ? null : <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} addReview={this.state.addReview} />}
       </div>
     )
   }
