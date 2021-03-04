@@ -44,7 +44,7 @@ class RatingsAndReviewsSect extends React.Component {
       this.setState({
         reviewList: response.data.results,
         reviewCount: response.data.results.length
-      }, this.calculateAverageRating)
+      })
     })
     .catch(error => {
       console.error(error)
@@ -63,26 +63,45 @@ class RatingsAndReviewsSect extends React.Component {
         characteristics: response.data.characteristics,
         recommended: response.data.recommended,
         ratings: response.data.ratings
-      })
+      }, this.calculateAverageRating)
     })
     .catch(error => {
       console.error(error)
     });
   }
 
-  calculateAverageRating() {
-    let ratingsTotal = 0;
-    let recsTotal = 0;
-    this.state.reviewList.forEach(review => {
-      ratingsTotal += review.rating;
-      if (review.recommend) {
-        recsTotal += review.recommend
-      }
-    });
+  // calculateAverageRating() {
+  //   let ratingsTotal = 0;
+  //   let recsTotal = 0;
+  //   this.state.reviewList.forEach(review => {
+  //     ratingsTotal += review.rating;
+  //     if (review.recommend) {
+  //       recsTotal += review.recommend
+  //     }
+  //   });
 
-    let averageRating = Math.round((ratingsTotal / this.state.reviewList.length) * 10) / 10;
-    let recsPercentage = recsTotal / this.state.reviewList.length * 100;
-    this.setState({averageRating: averageRating, recsPercentage: recsPercentage});
+  //   let averageRating = Math.round((ratingsTotal / this.state.reviewList.length) * 10) / 10;
+  //   let recsPercentage = recsTotal / this.state.reviewList.length * 100;
+  //   this.setState({averageRating: averageRating, recsPercentage: recsPercentage});
+  // }
+
+  calculateAverageRating() {
+    let totalRatings = 0;
+    let avg = 0;
+
+    for (var key in this.state.ratings) {
+      this.state.ratings[key] = Number(this.state.ratings[key]);
+      totalRatings += this.state.ratings[key]
+      console.log(totalRatings)
+      avg += (this.state.ratings[key] * Number(key))
+    }
+
+    avg /= totalRatings;
+
+    avg = Math.round((avg * 10) / 10)
+    this.setState({averageRating: avg})
+
+    return avg;
   }
 
   handleAddReview() {
