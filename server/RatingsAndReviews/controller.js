@@ -29,7 +29,7 @@ module.exports = {
     let options = {
       params: {
         product_id: productId,
-      }
+      },
       headers: {Authorization: API_KEY}
     }
 

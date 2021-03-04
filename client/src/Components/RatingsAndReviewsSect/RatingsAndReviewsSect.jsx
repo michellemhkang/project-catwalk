@@ -22,6 +22,9 @@ class RatingsAndReviewsSect extends React.Component {
       averageRating: '',
       recsPercentage: 0,
       addReview: false,
+      characteristics: {},
+      ratings: {},
+      recommended: {},
       characteristics: {}
     };
 
@@ -50,17 +53,18 @@ class RatingsAndReviewsSect extends React.Component {
   }
 
   getMetadata(id) {
-    axios.get('/reviews', {
+    axios.get('/reviews/meta', {
       params: {
         id: id
       }
     })
     .then((response) => {
-      // console.log('data from server ', response.data.results)
+      console.log('metadata from server ', response.data)
       this.setState({
-        reviewList: response.data.results,
-        reviewCount: response.data.results.length
-      }, this.calculateAverageRating)
+        characteristics: response.data.characteristics,
+        recommended: response.data.recommended,
+        ratings: response.data.ratings
+      })
     })
     .catch(error => {
       console.error(error)
@@ -97,6 +101,7 @@ class RatingsAndReviewsSect extends React.Component {
   componentDidMount() {
     // move this into render function so that every time the app id state changes, it will fetch new data
     this.getReviews(this.state.currentProductId);
+    this.getMetadata(this.state.currentProductId);
   }
 
   componentDidUpdate(prevProps, prevState) {
