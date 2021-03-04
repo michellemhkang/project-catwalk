@@ -3,11 +3,14 @@
 }
 
 .leftArrow {
-  float:left
+  float:left;
+  align-self: center;
 }
 
 .rightArrow {
-  float: right
+  float: right;
+  align-items: center;
+
 }
 
 .CardEntry {
@@ -16,7 +19,8 @@
   padding: 1%;
   margin: 2%;
   display: inline-block;
-  height: 200px;
+  height: 80%;
+  min-height: 100%;
 }
 
 .prodcompare {
