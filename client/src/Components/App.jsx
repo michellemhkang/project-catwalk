@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       id: 14931,
-      avgRating: 0
+      avgRating: 0,
       productInfo: {},
       styleInfo: []
     };
