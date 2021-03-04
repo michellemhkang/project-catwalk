@@ -63,9 +63,3 @@ class NewStarRating extends React.Component {
 }
 
 export default NewStarRating;
-
-{/* <i className={`${styles.star} far fa-star`} title="1" onClick={this.handleStarClick}></i>
-<i className={`${styles.star} far fa-star`} title="2" onClick={this.handleStarClick}></i>
-<i className={`${styles.star} far fa-star`} title="3" onClick={this.handleStarClick}></i>
-<i className={`${styles.star} far fa-star`} title="4" onClick={this.handleStarClick}></i>
-<i className={`${styles.star} far fa-star`} title="5" onClick={this.handleStarClick}></i> */}

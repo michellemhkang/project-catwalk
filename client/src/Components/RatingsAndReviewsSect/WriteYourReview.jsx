@@ -118,7 +118,7 @@ class WriteYourReview extends React.Component {
             <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange} />
         </div>
         <div className={styles.buttonRow}>
-      <button className={styles.submitReviewButton} onClick={this.handleSubmit}>Submit</button>
+      <button className={`${styles.button} ${styles.submitReviewButton}`} onClick={this.handleSubmit}>Submit</button>
      </div>
       </div>
 

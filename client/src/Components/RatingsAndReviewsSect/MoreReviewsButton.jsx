@@ -3,7 +3,7 @@ import styles from './reviews.module.css';
 
 let MoreReviewsButton = (props) => {
   return (
-    <button>MORE REVIEWS</button>
+    <button className={styles.button}>MORE REVIEWS</button>
   )
 }
 export default MoreReviewsButton;

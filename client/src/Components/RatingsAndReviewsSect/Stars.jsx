@@ -15,7 +15,6 @@ let Stars = (props) => {
 
   return(
     <span>
-    {/* <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i> */}
     {renderRatingStars(rating)}
     </span>
   )
