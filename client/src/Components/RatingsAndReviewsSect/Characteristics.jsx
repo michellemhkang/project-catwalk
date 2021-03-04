@@ -5,18 +5,22 @@ class Characteristics extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      size: '',
-      width: '',
-      comfort: '',
-      quality: '',
-      length: '',
-      fit: ''
+      Size: '',
+      Width: '',
+      Comfort: '',
+      Quality: '',
+      Length: '',
+      Fit: ''
     }
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
   handleInputChange(e) {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({[e.target.name]: e.target.value});
+    let charId = this.props.characteristics[e.target.name].id;
+    let charValue = e.target.value;
+    let charObj = {[charId]: Number(charValue)};
+    this.props.updateCharacteristic(charObj);
   }
 
   renderSizeOptions() {
@@ -27,8 +31,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="1"
-            checked={this.state.size === "1"}
-            name="size"
+            checked={this.state.Size === "1"}
+            name="Size"
           />
           A size too small
         </label>
@@ -36,8 +40,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="2"
-            checked={this.state.size === "2"}
-            name="size"
+            checked={this.state.Size === "2"}
+            name="Size"
           />
           1/2 a size too small
         </label>
@@ -45,8 +49,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="3"
-            checked={this.state.size === "3"}
-            name="size"
+            checked={this.state.Size === "3"}
+            name="Size"
           />
           Perfect
         </label>
@@ -54,8 +58,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="4"
-            checked={this.state.size === "4"}
-            name="size"
+            checked={this.state.Size === "4"}
+            name="Size"
           />
           1/2 a size too big
         </label>
@@ -63,8 +67,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="5"
-            checked={this.state.size === "5"}
-            name="size"
+            checked={this.state.Size === "5"}
+            name="Size"
           />
           A size too big
         </label>
@@ -80,8 +84,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="1"
-            checked={this.state.width === "1"}
-            name="width"
+            checked={this.state.Width === "1"}
+            name="Width"
           />
           Too Narrow
         </label>
@@ -89,8 +93,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="2"
-            checked={this.state.width === "2"}
-            name="width"
+            checked={this.state.Width === "2"}
+            name="Width"
           />
           Slightly Narrow
         </label>
@@ -98,8 +102,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="3"
-            checked={this.state.width === "3"}
-            name="width"
+            checked={this.state.Width === "3"}
+            name="Width"
           />
           Perfect
         </label>
@@ -107,8 +111,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="4"
-            checked={this.state.width === "4"}
-            name="width"
+            checked={this.state.Width === "4"}
+            name="Width"
           />
           Slightly wide
         </label>
@@ -116,8 +120,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="5"
-            checked={this.state.width === "5"}
-            name="width"
+            checked={this.state.Width === "5"}
+            name="Width"
           />
           Too wide
         </label>
@@ -133,8 +137,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="1"
-            checked={this.state.comfort === "1"}
-            name="comfort"
+            checked={this.state.Comfort === "1"}
+            name="Comfort"
           />
           Uncomfortable
         </label>
@@ -142,8 +146,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="2"
-            checked={this.state.comfort === "2"}
-            name="comfort"
+            checked={this.state.Comfort === "2"}
+            name="Comfort"
           />
           Slightly uncomfortable
         </label>
@@ -151,8 +155,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="3"
-            checked={this.state.comfort === "3"}
-            name="comfort"
+            checked={this.state.Comfort === "3"}
+            name="Comfort"
           />
           Ok
         </label>
@@ -160,8 +164,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="4"
-            checked={this.state.comfort === "4"}
-            name="comfort"
+            checked={this.state.Comfort === "4"}
+            name="Comfort"
           />
           Comfortable
         </label>
@@ -169,8 +173,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="5"
-            checked={this.state.comfort === "5"}
-            name="comfort"
+            checked={this.state.Comfort === "5"}
+            name="Comfort"
           />
           Perfect
         </label>
@@ -186,8 +190,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="1"
-            checked={this.state.quality === "1"}
-            name="quality"
+            checked={this.state.Quality === "1"}
+            name="Quality"
           />
           Poor
         </label>
@@ -195,8 +199,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="2"
-            checked={this.state.quality === "2"}
-            name="quality"
+            checked={this.state.Quality === "2"}
+            name="Quality"
           />
           Below Average
         </label>
@@ -204,8 +208,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="3"
-            checked={this.state.quality === "3"}
-            name="quality"
+            checked={this.state.Quality === "3"}
+            name="Quality"
           />
           What I expected
         </label>
@@ -213,8 +217,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="4"
-            checked={this.state.quality === "4"}
-            name="quality"
+            checked={this.state.Quality === "4"}
+            name="Quality"
           />
           Pretty great
         </label>
@@ -222,8 +226,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="5"
-            checked={this.state.quality === "5"}
-            name="quality"
+            checked={this.state.Quality === "5"}
+            name="Quality"
           />
           Perfect
         </label>
@@ -239,8 +243,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="1"
-            checked={this.state.length === "1"}
-            name="length"
+            checked={this.state.Length === "1"}
+            name="Length"
           />
           Runs short
         </label>
@@ -248,8 +252,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="2"
-            checked={this.state.length === "2"}
-            name="length"
+            checked={this.state.Length === "2"}
+            name="Length"
           />
           Runs slightly short
         </label>
@@ -257,8 +261,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="3"
-            checked={this.state.length === "3"}
-            name="length"
+            checked={this.state.Length === "3"}
+            name="Length"
           />
           Perfect
         </label>
@@ -266,8 +270,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="4"
-            checked={this.state.length === "4"}
-            name="length"
+            checked={this.state.Length === "4"}
+            name="Length"
           />
           Runs slightly long
         </label>
@@ -275,8 +279,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="5"
-            checked={this.state.length === "5"}
-            name="length"
+            checked={this.state.Length === "5"}
+            name="Length"
           />
           Runs long
         </label>
@@ -292,8 +296,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="1"
-            checked={this.state.fit === "1"}
-            name="fit"
+            checked={this.state.Fit === "1"}
+            name="Fit"
           />
           Runs tight
         </label>
@@ -301,8 +305,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="2"
-            checked={this.state.fit === "2"}
-            name="fit"
+            checked={this.state.Fit === "2"}
+            name="Fit"
           />
           Runs slightly tight
         </label>
@@ -310,8 +314,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="3"
-            checked={this.state.fit === "3"}
-            name="fit"
+            checked={this.state.Fit === "3"}
+            name="Fit"
           />
           Perfect
         </label>
@@ -319,8 +323,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="4"
-            checked={this.state.fit === "4"}
-            name="fit"
+            checked={this.state.Fit === "4"}
+            name="Fit"
           />
           Runs slightly long
         </label>
@@ -328,8 +332,8 @@ class Characteristics extends React.Component {
           <input
             type="radio"
             value="5"
-            checked={this.state.fit === "5"}
-            name="fit"
+            checked={this.state.Fit === "5"}
+            name="Fit"
           />
           Runs long
         </label>

@@ -13,14 +13,13 @@ class WriteYourReview extends React.Component {
       body: '',
       nickname: '',
       email: '',
-      characteristics: {}
+      ratedCharacteristics: []
     }
     this.handleRecommendChange = this.handleRecommendChange.bind(this);
-    this.handleSummaryChange = this.handleSummaryChange.bind(this);
-    this.handleBodyChange = this.handleBodyChange.bind(this);
-    this.handleNicknameChange = this.handleNicknameChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
+    this.updateCharacteristic = this.updateCharacteristic.bind(this);
+    this.handleFormChange = this.handleFormChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleRatingChange(newRating) {
@@ -31,37 +30,32 @@ class WriteYourReview extends React.Component {
     this.setState({recommend: e.target.value})
   }
 
-  handleSummaryChange(e) {
-    this.setState({summary: e.target.value})
+  handleFormChange(e) {
+    this.setState({[e.target.name]: e.target.value})
   }
 
-  handleBodyChange(e) {
-    this.setState({body: e.target.value})
-  }
+  updateCharacteristic(userCharObject) {
+    // let currentRatedChars = this.state.ratedCharacteristics
+    // console.log('current state ', currentRatedChars)
+    // let updatedCharacteristics = Object.assign(currentRatedChars, userCharObject)
+    // console.log('updatedCharacteristics ', updatedCharacteristics)
+    // this.setState({ratedCharacteristics: updatedCharacteristics}, console.log('new state ', this.state.ratedCharacteristics))
 
-  handleNicknameChange(e) {
-    this.setState({nickname: e.target.value})
-  }
-
-  handleEmailChange(e) {
-    this.setState({email: e.target.value})
-  }
-
-  formatCharacteristics() {
-    // grab states from characteristics and format to an object
-    // you will send this object in with the post request
+    this.setState({ratedCharacteristics: [userCharObject, ...this.state.ratedCharacteristics]});
   }
 
   handleSubmit(e) {
-    let formattedCharacteristics = this.formatCharacteristics();
+    let recommendBool = this.state.recommend === 'true';
+    let characteristics = Object.assign({}, [...this.state.ratedCharacteristics]);
+    console.log('characteristics ', characteristics)
     let reviewData = {
       rating: this.state.rating,
       summary: this.state.summary,
       body: this.state.body,
-      recommend: this.state.recommend,
+      recommend: recommendBool,
       name: this.state.nickname,
       email: this.state.email,
-      characteristics: formattedCharacteristics
+      characteristics: this.state.ratedCharacteristics
     }
     this.props.sendNewReview(reviewData);
   }
@@ -97,10 +91,10 @@ class WriteYourReview extends React.Component {
             </label>
           </div>
          </span>
-        <Characteristics characteristics={this.props.characteristics} />
+        <Characteristics updateCharacteristic={this.updateCharacteristic} characteristics={this.props.characteristics} />
         <div className={styles.reviewInput}>
             Review Summary:
-            <input type="text" placeholder="Example: 'Best Purchase Ever!'" value={this.state.summary} onChange={this.handleSummaryChange} />
+            <input type="text" placeholder="Example: 'Best Purchase Ever!'" value={this.state.summary} name="summary" onChange={this.handleFormChange} />
         </div>
         <div className={styles.reviewInput}>
           Review Body:
@@ -108,14 +102,14 @@ class WriteYourReview extends React.Component {
             cols="30" rows="5"
             placeholder="'Why did you like the product or not?'"
             value={this.state.body}
-            onChange={this.handleBodyChange}
+            name="body" onChange={this.handleFormChange}
           />
         </div>
         <div className={styles.inlineForm}>
             Nickname:
-            <input className={styles.nickname} type="text" placeholder="Nickname" value={this.state.nickname} onChange={this.handleNicknameChange} />
+            <input className={styles.nickname} type="text" placeholder="Nickname" name="nickname" value={this.state.nickname} onChange={this.handleFormChange} />
             Email:
-            <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange} />
+            <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleFormChange} />
         </div>
         <div className={styles.buttonRow}>
       <button className={`${styles.button} ${styles.submitReviewButton}`} onClick={this.handleSubmit}>Submit</button>
