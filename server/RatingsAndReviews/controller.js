@@ -41,5 +41,23 @@ module.exports = {
       console.error(err);
       res.status(400)
     });
+  },
+
+  sendReview: (req, res) => {
+    let reviewData = req.body;
+    axios({
+      method: 'post',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/',
+      data: reviewData,
+      headers: {Authorization: API_KEY}
+    })
+    .then(response => {
+      console.log('response from api ', response)
+      res.status(201).send('Review successfully sent to Atelier API')
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(400)
+    })
   }
 };

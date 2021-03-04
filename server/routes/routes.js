@@ -11,6 +11,6 @@ let projectCatwalk = express.Router();
 // projectCatwalk.get('/products', overviewController.getProducts);
 projectCatwalk.get('/reviews', reviewsController.getReviews);
 projectCatwalk.get('/reviews/meta', reviewsController.getMetadata)
-
+projectCatwalk.post('/reviews', reviewsController.sendReview)
 // This exports our middleware routing system
 module.exports.projectCatwalk = projectCatwalk;

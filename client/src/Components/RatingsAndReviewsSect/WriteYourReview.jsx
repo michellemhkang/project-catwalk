@@ -35,19 +35,12 @@ class WriteYourReview extends React.Component {
   }
 
   updateCharacteristic(userCharObject) {
-    // let currentRatedChars = this.state.ratedCharacteristics
-    // console.log('current state ', currentRatedChars)
-    // let updatedCharacteristics = Object.assign(currentRatedChars, userCharObject)
-    // console.log('updatedCharacteristics ', updatedCharacteristics)
-    // this.setState({ratedCharacteristics: updatedCharacteristics}, console.log('new state ', this.state.ratedCharacteristics))
-
     this.setState({ratedCharacteristics: [userCharObject, ...this.state.ratedCharacteristics]});
   }
 
   handleSubmit(e) {
     let recommendBool = this.state.recommend === 'true';
-    let characteristics = Object.assign({}, [...this.state.ratedCharacteristics]);
-    console.log('characteristics ', characteristics)
+    let characteristics = Object.assign({}, ...this.state.ratedCharacteristics);
     let reviewData = {
       rating: this.state.rating,
       summary: this.state.summary,
@@ -55,7 +48,7 @@ class WriteYourReview extends React.Component {
       recommend: recommendBool,
       name: this.state.nickname,
       email: this.state.email,
-      characteristics: this.state.ratedCharacteristics
+      characteristics: characteristics
     }
     this.props.sendNewReview(reviewData);
   }

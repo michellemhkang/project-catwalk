@@ -125,8 +125,17 @@ class RatingsAndReviewsSect extends React.Component {
 
   sendNewReview(reviewData) {
     reviewData.product_id = this.state.currentProductId
-    console.log('review data to send: ', reviewData)
-    // axios.post()
+    axios({
+      method: 'post',
+      url: '/reviews',
+      data: reviewData
+    })
+    .then(response => {
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.error(error)
+    })
   }
 
   componentDidMount() {
