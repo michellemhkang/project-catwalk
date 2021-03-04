@@ -8,6 +8,7 @@ let questionsAnswersController = require('../QuestionsAnswers/controller.js');
 let projectCatwalk = express.Router();
 
 // Put your routes here. Follow the pattern: projectCatwalk.<http request type>('<URL>', <controller>);
+// projectCatwalk.get('/products', overviewController.getProducts);
 projectCatwalk.get('/reviews', reviewsController.getReviews);
 
 
@@ -20,4 +21,5 @@ projectCatwalk.get('/RelatedProducts/ratings', relatedProductsController.getRati
 
 projectCatwalk.get('/Q&A/data', questionsAnswersController.getData)
 // this exports our middleware routing system
+// This exports our middleware routing system
 module.exports.projectCatwalk = projectCatwalk;
