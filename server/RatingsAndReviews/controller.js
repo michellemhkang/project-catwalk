@@ -9,7 +9,6 @@ module.exports = {
       params: {
         product_id: productId,
         page: 1,
-        count: 3,
         sort: 'relevant'
       },
       headers: {Authorization: API_KEY}
@@ -24,4 +23,23 @@ module.exports = {
       res.status(400)
     });
   },
+
+  getMetadata: (req, res) => {
+    let productId = req.query.id;
+    let options = {
+      params: {
+        product_id: productId,
+      }
+      headers: {Authorization: API_KEY}
+    }
+
+    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/meta', options)
+    .then(response => {
+      res.status(200).send(response.data)
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(400)
+    });
+  }
 };

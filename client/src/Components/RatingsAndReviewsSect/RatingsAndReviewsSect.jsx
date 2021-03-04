@@ -31,8 +31,25 @@ class RatingsAndReviewsSect extends React.Component {
     this.sendNewReview = this.sendNewReview.bind(this);
   }
 
-  getReviews() {
-    let id = this.state.currentProductId;
+  getReviews(id) {
+    axios.get('/reviews', {
+      params: {
+        id: id
+      }
+    })
+    .then((response) => {
+      // console.log('data from server ', response.data.results)
+      this.setState({
+        reviewList: response.data.results,
+        reviewCount: response.data.results.length
+      }, this.calculateAverageRating)
+    })
+    .catch(error => {
+      console.error(error)
+    });
+  }
+
+  getMetadata(id) {
     axios.get('/reviews', {
       params: {
         id: id
@@ -79,7 +96,14 @@ class RatingsAndReviewsSect extends React.Component {
 
   componentDidMount() {
     // move this into render function so that every time the app id state changes, it will fetch new data
-    this.getReviews();
+    this.getReviews(this.state.currentProductId);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // check whether id has changed and re-fetch data
+    if (prevProps.id !== this.props.id) {
+      this.getReviews(this.props.id);
+    }
   }
 
   render() {

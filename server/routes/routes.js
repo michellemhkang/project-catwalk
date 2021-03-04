@@ -9,6 +9,7 @@ let projectCatwalk = express.Router();
 
 // Put your routes here. Follow the pattern: projectCatwalk.<http request type>('<URL>', <controller>);
 projectCatwalk.get('/reviews', reviewsController.getReviews);
+projectCatwalk.get('/reviews/meta', reviewsController.getMetadata)
 
 //Related products and your outfit requests
 projectCatwalk.get('/RelatedProducts', relatedProductsController.getIds);
