@@ -1,0 +1,48 @@
+#RelatedProductsList {
+  border: solid 1px black;
+}
+
+.leftArrow {
+  float:left
+}
+
+.rightArrow {
+  float: right
+}
+
+.CardEntry {
+  border: solid 1px black;
+  width: 10%;
+  padding: 1%;
+  margin: 2%;
+  display: inline-block;
+  height: 200px;
+}
+
+.prodcompare {
+  float:right;
+  color:purple;
+}
+
+.prodimg{
+  color: red;
+  width:100%;
+  height: 100px;
+  object-fit: contain;
+}
+
+.prodcategory {
+  color: orange
+}
+
+.prodname {
+  color: black;
+}
+
+.prodprice {
+  color: green;
+}
+
+.prodrating {
+  color: blue;
+}
