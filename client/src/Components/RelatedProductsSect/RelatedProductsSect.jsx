@@ -25,7 +25,7 @@ class RelatedProductsSect extends React.Component {
     if(this.state.cachedinfo.filter(product => {product.id === obj.id}).length > 0) {
     } else {
       this.state.cachedinfo.push(obj);
-      console.log('cache', this.state.cachedinfo);
+      // console.log('cache', this.state.cachedinfo);
     }
   }
 

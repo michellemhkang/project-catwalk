@@ -15,8 +15,6 @@ class App extends React.Component {
       styleInfo: []
     };
     this.changePage = this.changePage.bind(this);
-    this.getProductInfo = this.getProductInfo.bind(this);
-    this.getStyleInfo = this.getStyleInfo.bind(this);
   }
 
   changePage(newid) {
