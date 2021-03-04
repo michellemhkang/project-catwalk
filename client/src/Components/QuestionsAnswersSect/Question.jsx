@@ -14,6 +14,33 @@ class Question extends React.Component{
     }
     this.addAns= this.addAns.bind(this)
     this.Yes = this.Yes.bind(this)
+    this.rerender = this.rerender.bind(this)
+    this.less = this.less.bind(this)
+  }
+
+  less(){
+    var array =[];
+    array.push(this.state.AnswersDB[0])
+    array.push(this.state.AnswersDB[1])
+    this.setState({
+      Answers: array
+    })
+
+  }
+
+  rerender(){
+    var array = [];
+    for(var key in this.props.quest.answers){
+      array.push(this.props.quest.answers[key])
+    }
+    var array2 = [];
+    array2.push(array[0])
+    array2.push(array[1])
+    this.setState({
+      AnswersDB: array,
+      Answers: array2,
+      question_helpfulness: this.props.quest.question_helpfulness
+    })
   }
 
   addAns(){
@@ -58,25 +85,12 @@ this.setState({
 
 
  componentDidMount(){
-   var array = [];
-  for(var key in this.props.quest.answers){
-    array.push(this.props.quest.answers[key])
-  }
-  var array2 = [];
-  array2.push(array[0])
-  array2.push(array[1])
-  this.setState({
-    AnswersDB: array,
-    Answers: array2,
-    question_helpfulness: this.props.quest.question_helpfulness
-  })
-
+  this.rerender()
  }
 
 
   render(){
-
-if(this.state.AnswersDB.length <= 2){
+if(this.state.AnswersDB.length <= 2  || this.state.Answers.length === this.state.AnswersDB.length){
 
     return(
       <>
@@ -92,6 +106,8 @@ if(this.state.AnswersDB.length <= 2){
           return <Answers answers={answers} key ={i}/>
         }
         })}
+        <button className={styles.addAnswerBtn}>Add Answers</button>
+        <button className={styles.less} onClick={(event) => {this.less()}}>less</button>
         </li>
         <br></br>
       </>
@@ -113,6 +129,8 @@ if(this.state.AnswersDB.length <= 2){
             })}
             <br></br>
             <button onClick={this.addAns} >Load more answers</button>
+            <button className={styles.addAnswerBtn}>Add Answers</button>
+            <button className={styles.less} onClick={(event) => {this.less()}}>less</button>
             </li>
             <br></br>
           </>
