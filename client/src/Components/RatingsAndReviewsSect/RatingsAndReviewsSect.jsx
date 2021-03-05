@@ -8,6 +8,8 @@ import AvgRatings from './AvgRatings.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';
 import AddReviewButton from './AddReviewButton.jsx';
 import WriteYourReview from './WriteYourReview.jsx';
+import RatingBreakdown from './RatingBreakdown.jsx';
+import CharacteristicsSummary from './CharacteristicsSummary.jsx';
 import dummyReviewListData from './dummyData/dummyReviewListData.js';
 import styles from './reviews.module.css';
 
@@ -25,6 +27,7 @@ class RatingsAndReviewsSect extends React.Component {
       characteristics: {},
       ratings: {},
       recommended: {},
+      ratingsCount: 0
     };
 
     this.getReviews = this.getReviews.bind(this);
@@ -70,33 +73,23 @@ class RatingsAndReviewsSect extends React.Component {
     });
   }
 
-  // calculateAverageRating() {
-  //   let ratingsTotal = 0;
-  //   let recsTotal = 0;
-  //   this.state.reviewList.forEach(review => {
-  //     ratingsTotal += review.rating;
-  //     if (review.recommend) {
-  //       recsTotal += review.recommend
-  //     }
-  //   });
-
-  //   let averageRating = Math.round((ratingsTotal / this.state.reviewList.length) * 10) / 10;
-  //   let recsPercentage = recsTotal / this.state.reviewList.length * 100;
-  //   this.setState({averageRating: averageRating, recsPercentage: recsPercentage});
-  // }
 
   calculateAverageRating() {
-    let totalRatings = 0;
+    let count = 0;
     let avg = 0;
+
+    if (!this.state.ratings) {
+      this.setState({averageRating: avg})
+    }
 
     for (var key in this.state.ratings) {
       this.state.ratings[key] = Number(this.state.ratings[key]);
-      totalRatings += this.state.ratings[key]
+      count += this.state.ratings[key]
       avg += (this.state.ratings[key] * Number(key))
     }
 
-    avg /= totalRatings;
-    avg = Math.round((avg * 10) / 10)
+    this.setState({totalRatings: count})
+    avg = Math.round(avg/count * 10) / 10
     this.setState({averageRating: avg})
     this.props.getAverageRating(avg);
     return avg;
@@ -160,6 +153,8 @@ class RatingsAndReviewsSect extends React.Component {
           <div className={styles.gridCol1}>
             <AvgRatings averageRating={this.state.averageRating}/>
             <AvgRecs recsPercentage={this.state.recsPercentage} />
+            <RatingBreakdown totalRatings={this.state.totalRatings} ratings={this.state.ratings} />
+            <CharacteristicsSummary characteristics={this.state.characteristics} />
           </div>
           <div className={styles.gridCol2}>
             <ReviewCount reviewCount={this.state.reviewCount}/>
