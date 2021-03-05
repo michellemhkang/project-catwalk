@@ -37,7 +37,8 @@ let ReviewListEntry = ({review}) => {
       <span className={styles.helpfulRow}>
         <p className={styles.nameDate}>Helpful?</p>
         <p className={styles.nameDate}>Yes (10) </p>
-        <p className={styles.nameDate}>| Report</p>
+        <p className={styles.nameDate}>|</p>
+        <p className={styles.nameDate}>Report</p>
       </span>
     </div>
   )
