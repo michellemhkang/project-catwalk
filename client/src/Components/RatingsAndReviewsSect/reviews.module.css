@@ -48,6 +48,8 @@
   margin-bottom: 0px;
 }
 
+/* Ratings Breakdown Graph */
+
 .distribution {
   display: flex;
   justify-content: space-between;
@@ -74,51 +76,72 @@
 .barGraph {
   flex-grow: 1;
   margin: 0 10px;
-  /* background-color: #767677; */
   background-color: black;
-  /* border-radius: 2px; */
   box-sizing: border-box;
   height: .5em;
 }
 
 .barFill {
   height: .5em;
-  /* border-radius: 2px; */
   background-color: #2ada71;
 }
 
-/* .graphContainer {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: white;
-  text-align: center;
-  color: white;
-}
+.bar {width: 0%; height: 7px; padding-left: 10px; background-color: rgb(66, 63, 63);}
 
-.graphRow {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-  color: black;
-  padding: 5px;
-  align-items: center;
-}
+/* Characteristics Breakdown Graph */
 
-.ratingSide {
-  float: left;
-  width: 15%;
-  margin-top:10px;
-}
-
-.graphBetween {
-  margin-top:10px;
-  float: left;
-  width: 70%;
+/* .comparisonBarWrapper {
+  position: relative;
+  display: block;
 } */
 
-.bar {width: 0%; height: 7px; padding-left: 10px; background-color: rgb(66, 63, 63);}
+.characteristicsContainer {
+  margin-top: 15px;
+}
+
+.comparisonBarWrapper {
+  display: grid;
+}
+
+.comparisonBarWrapper, .comparisonTriangle {
+  grid-area: 1 / 1;
+  /* padding-bottom: 20px; */
+}
+
+.comparisonBarTitle {
+  font-size: 1em;
+  font-weight: bolder;
+  padding-bottom: 7px;
+  margin-top: 5px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 7.5px 0 7.5px;
+  border-color: #2ada71 transparent transparent transparent;
+  z-index: 10;
+}
+
+.comparisonBarLabels {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0px;
+}
+
+.comparisonBarLine {
+  background-color: #ebedee;
+  height: 5px;
+  overflow: visible;
+  position: relative;
+}
+
+.comparisonTriangle {
+  margin-top: -3px;
+  position: absolute;
+  left: 50%;
+}
 
 .reviewListEntry {
   padding-top: 10px;
@@ -245,7 +268,7 @@ textarea {
   justify-content: space-between;
 }
 
-/* Characteristics */
+/* New Review Characteristics */
 
 .radioGroup {
   display: flex;

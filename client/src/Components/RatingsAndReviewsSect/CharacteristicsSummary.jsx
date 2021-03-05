@@ -1,21 +1,21 @@
-import react from 'React';
+import React from 'React';
 import styles from './reviews.module.css';
 import CharacteristicGraph from './CharacteristicGraph.jsx'
 
-let CharacteristicsBreakdown = ({characteristics}) => {
+let CharacteristicsSummary = ({characteristics}) => {
   let renderCharacteristicsGraphs = (characteristics) => {
     let graphs = [];
     for (let characteristic in characteristics) {
-      graphs.push(<CharacteristicGraph key={characteristics[characteristic].id} name={characteristics[characteristic]} value={characteristics[characteristics].value} />)
+      graphs.push(<CharacteristicGraph key={characteristics[characteristic].id} name={characteristic} value={characteristics[characteristic].value} />)
     }
     return graphs;
   }
 
   return (
-    <div className={styles.graphContainer}>
+    <div className={styles.characteristicsContainer}>
       {renderCharacteristicsGraphs(characteristics)}
     </div>
   )
 }
 
-export default CharacteristicsBreakdown
+export default CharacteristicsSummary;
