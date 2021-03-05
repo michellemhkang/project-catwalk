@@ -76,7 +76,7 @@
 .barGraph {
   flex-grow: 1;
   margin: 0 10px;
-  background-color: black;
+  background-color: #ebedee;
   box-sizing: border-box;
   height: .5em;
 }
