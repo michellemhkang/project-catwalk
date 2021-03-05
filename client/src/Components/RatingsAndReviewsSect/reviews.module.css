@@ -48,6 +48,78 @@
   margin-bottom: 0px;
 }
 
+.distribution {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.ratingLabel {
+  align-items: center;
+  border-radius: 0;
+  display: inline-flex;
+  justify-content: flex-start;
+  background-color: transparent;
+    color: #000;
+    line-height: 17px;
+    min-height: 0;
+    padding: 2px;
+    padding-bottom: 3px;
+    text-align: left;
+    text-decoration: underline;
+    white-space: unset;
+}
+
+.barGraph {
+  flex-grow: 1;
+  margin: 0 10px;
+  /* background-color: #767677; */
+  background-color: black;
+  /* border-radius: 2px; */
+  box-sizing: border-box;
+  height: .5em;
+}
+
+.barFill {
+  height: .5em;
+  /* border-radius: 2px; */
+  background-color: #2ada71;
+}
+
+/* .graphContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  color: white;
+}
+
+.graphRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  color: black;
+  padding: 5px;
+  align-items: center;
+}
+
+.ratingSide {
+  float: left;
+  width: 15%;
+  margin-top:10px;
+}
+
+.graphBetween {
+  margin-top:10px;
+  float: left;
+  width: 70%;
+} */
+
+.bar {width: 0%; height: 7px; padding-left: 10px; background-color: rgb(66, 63, 63);}
+
 .reviewListEntry {
   padding-top: 10px;
   border-bottom: 1px solid black;

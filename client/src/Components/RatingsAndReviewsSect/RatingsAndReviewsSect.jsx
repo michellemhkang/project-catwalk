@@ -8,6 +8,7 @@ import AvgRatings from './AvgRatings.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';
 import AddReviewButton from './AddReviewButton.jsx';
 import WriteYourReview from './WriteYourReview.jsx';
+import RatingBreakdown from './RatingBreakdown.jsx';
 import dummyReviewListData from './dummyData/dummyReviewListData.js';
 import styles from './reviews.module.css';
 
@@ -25,6 +26,7 @@ class RatingsAndReviewsSect extends React.Component {
       characteristics: {},
       ratings: {},
       recommended: {},
+      totalRatings: 0
     };
 
     this.getReviews = this.getReviews.bind(this);
@@ -95,6 +97,7 @@ class RatingsAndReviewsSect extends React.Component {
       avg += (this.state.ratings[key] * Number(key))
     }
 
+    this.setState({totalRatings: totalRatings})
     avg /= totalRatings;
     avg = Math.round((avg * 10) / 10)
     this.setState({averageRating: avg})
@@ -160,6 +163,7 @@ class RatingsAndReviewsSect extends React.Component {
           <div className={styles.gridCol1}>
             <AvgRatings averageRating={this.state.averageRating}/>
             <AvgRecs recsPercentage={this.state.recsPercentage} />
+            <RatingBreakdown totalRatings={this.state.totalRatings} ratings={this.state.ratings} />
           </div>
           <div className={styles.gridCol2}>
             <ReviewCount reviewCount={this.state.reviewCount}/>
