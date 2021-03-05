@@ -25,7 +25,8 @@ class RelatedProductsEntry extends React.Component {
   }
 
   showCompares(e) {
-    console.log('do hover things')
+    e.stopPropagation()
+    console.log('show comparasion modal')
   }
 
   pageChanger(e) {
@@ -94,7 +95,7 @@ class RelatedProductsEntry extends React.Component {
               for(let i = 0; i < ratinglist; i++) {
                 rating += res.data.results[i].rating
               }
-              rating = rating/ratinglist
+              rating = Math.round(rating/ratinglist * 10) / 10
               this.setState({prodrating: rating});
             }
             this.state.completedreq += 1;
@@ -106,7 +107,6 @@ class RelatedProductsEntry extends React.Component {
     }
 
 
-
   }
 
   //some cover thumbnail: {this.state.defaultimg}
@@ -115,14 +115,19 @@ class RelatedProductsEntry extends React.Component {
     // {console.log('entry props', this.props)}
     // {console.log(this.state)}
     return(
-      <li className={Styles.CardEntry} onClick={this.test}>
-        <div onClick={this.pageChanger}>Go</div>
-        <div className={Styles.prodcompare} onMouseOver={this.showCompares}>compare</div>
-        <img className={Styles.prodimg} src={this.state.defaultimg}></img>
-        <div className={Styles.prodcategory}>{this.state.prodcategory}</div>
-        <div className={Styles.prodname}>{this.state.prodname}</div>
-        <div className={Styles.prodprice}> Price {this.state.prodprice} {this.state.saleprice}</div>
-        <div className={Styles.prodrating}>{this.state.prodrating}</div>
+      <li className={Styles.CardEntry} onClick={this.pageChanger}>
+        {/* <div className={Styles.Go}onClick={this.pageChanger}>Go</div> */}
+        <div className={Styles.prodcompare} onClick={this.showCompares}>compare</div>
+        <div className={Styles.prodimgdiv}>
+          <img className={Styles.prodimg} src={this.state.defaultimg}></img>
+        </div>
+        <div className={Styles.infobox}>
+          <div className={Styles.prodcategory}>{this.state.prodcategory}</div>
+          <div className={Styles.prodname}>{this.state.prodname}</div>
+          <div className={Styles.prodprice}> Price {this.state.prodprice} {this.state.saleprice}</div>
+          <div className={Styles.prodrating}>{this.state.prodrating}</div>
+
+        </div>
       </li>
     )
   }

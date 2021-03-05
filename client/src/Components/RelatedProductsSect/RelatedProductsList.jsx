@@ -54,11 +54,15 @@ class RelatedProductsList extends React.Component {
     return (
       <div>
         <h2 id='RelatedProductsListTitle'>Related Products</h2>
-        <ul id={Styles.RelatedProductsList}>
+        <div id={Styles.RelatedProductsList}>
           <div className={Styles.leftArrow} onClick={this.leftbutton}>left</div>
-           {this.state.RelatedProductsDisplay.map(product => <RelatedProductsEntry key={product} prod={product} changePage={this.props.changePage} addToCache={this.props.addToCache} cachedinfo={this.props.cachedinfo}/> )}
-           <div className={Styles.rightArrow} onClick={this.rightbutton}>right</div>
-        </ul>
+            <div id='testcara'>
+              <figure>
+                {this.props.RelatedProductsList.map(product => <RelatedProductsEntry key={product} prod={product} changePage={this.props. changePage} addToCache={this.props.addToCache} cachedinfo={this.props.cachedinfo}/> )}
+              </figure>
+            </div>
+           <button className={Styles.rightArrow} onClick={this.rightbutton} >right</button>
+        </div>
       </div>
     )
   }
@@ -69,3 +73,6 @@ class RelatedProductsList extends React.Component {
 
 
 export default RelatedProductsList;
+
+
+

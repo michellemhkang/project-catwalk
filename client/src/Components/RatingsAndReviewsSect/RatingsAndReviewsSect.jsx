@@ -96,7 +96,9 @@ class RatingsAndReviewsSect extends React.Component {
     }
 
     avg /= totalRatings;
-    avg = Math.round((avg * 10) / 10)
+    avg = Math.round(avg * 10)/10
+    console.log('what is avg', avg)
+    console.log('what is obj', this.state.ratings)
     this.setState({averageRating: avg})
     this.props.getAverageRating(avg);
     return avg;

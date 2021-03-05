@@ -17,7 +17,7 @@ class RelatedProductsSect extends React.Component {
   }
 
   addToYourOutfits() {
-    this.setState({YourOutfitsList: [...this.state.YourOutfitsList, this.props.id]})
+    this.setState({YourOutfitsList: [...this.state.YourOutfitsList, {id: this.props.id, avgRating: this.props.avgRating}]})
     console.log(this.state.YourOutfitsList)
   }
 
@@ -32,13 +32,12 @@ class RelatedProductsSect extends React.Component {
   // componentDidMount() {
   //   axios.get('/RelatedProducts', {params: {itemid: this.props.id}})
   //   .then((res) => {
-  //     this.setState({RelatedProductsList: res.data}, ()=>{
-  //       //do the thing
+  //     this.setState({RelatedProductsList: res.data}
   //     })
   //   })
   // }
 
-  render() {
+  componentDidUpdate() {
     {
       if(!this.state.previouslyCached.includes(this.props.id)){
         this.state.previouslyCached.push(this.props.id)
@@ -48,6 +47,22 @@ class RelatedProductsSect extends React.Component {
         })
       }
     }
+  }
+
+  // componentDidUnmount() {
+
+  // }
+
+  render() {
+    // {
+    //   if(!this.state.previouslyCached.includes(this.props.id)){
+    //     this.state.previouslyCached.push(this.props.id)
+    //     axios.get('/RelatedProducts', {params: {itemid: this.props.id}})
+    //     .then((res) => {
+    //       this.setState({RelatedProductsList: res.data})
+    //     })
+    //   }
+    // }
     return(
     <div>
       <h1>Related Products Section</h1>

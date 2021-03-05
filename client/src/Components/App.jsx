@@ -27,13 +27,17 @@ class App extends React.Component {
     this.setState({avgRating: average})
   }
 
+  componentDidMount() {
+  this.setState({id: 14931})
+  }
+
   render() {
     return (
       <div>
-        <OverviewSect id={this.state.id} />
-        <RelatedProductsSect id={this.state.id} changePage={this.changePage} />
-        <QuestionsAnswersSect id={this.state.id} />
-        <RatingsAndReviewsSect id={this.state.id} getAverageRating={this.getAverageRating} />
+        {/* <OverviewSect id={this.state.id} /> */}
+        <RelatedProductsSect id={this.state.id} changePage={this.changePage} avgRating={this.state.avgRating}/>
+        {/* <QuestionsAnswersSect id={this.state.id} /> */}
+        {/* <RatingsAndReviewsSect id={this.state.id} getAverageRating={this.getAverageRating} /> */}
       </div>
     );
   }

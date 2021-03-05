@@ -56,7 +56,7 @@ class YourOutfitsList extends React.Component {
         <ul id={Styles.RelatedProductsList}>
           <div className={Styles.leftArrow} onClick={this.leftbutton}>left</div>
           <YourOutfitAddCard addToYourOutfits={this.props.addToYourOutfits}/>
-           {this.state.YourOutfitsDisplayList.map(product => <YourOutfitEntry key={product.id} outfitEntry={product}/> )}
+           {this.state.YourOutfitsDisplayList.map((product,i) => <YourOutfitEntry key={i} outfitEntry={product}/> )}
            <div className={Styles.rightArrow} onClick={this.rightbutton}>right</div>
         </ul>
       </div>

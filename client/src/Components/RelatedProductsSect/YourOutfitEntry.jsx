@@ -11,7 +11,8 @@ class YourOutfitEntry extends React.Component {
   render() {
     return(
       <li className={Styles.CardEntry}>
-         <div>{this.props.outfitEntry}</div>
+         <div>{this.props.outfitEntry.id}</div>
+         <div>{this.props.outfitEntry.avgRating}</div>
       </li>
     )
   }
