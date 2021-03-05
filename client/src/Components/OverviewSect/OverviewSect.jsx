@@ -29,12 +29,14 @@ class OverviewSect extends React.Component {
       params: {id: id}
     })
     .then((response) => {
+      console.log('getting product');
       this.props.getProductInfo(response.data);
       // response.data should be an object
       this.setState({productInfo: response.data})
     })
     .catch((error) => {
-      console.log(error);
+      console.log('Here is an error');
+      // console.log(error);
     })
   }
 
@@ -43,7 +45,8 @@ class OverviewSect extends React.Component {
       params: {id: id}
     })
     .then((response) => {
-      this.props.setState({productStyles: response.data.results})
+      console.log('getting styles')
+      this.setState({productStyles: response.data.results})
       // response.data should be an array
     })
     .catch((error) => {
@@ -52,6 +55,7 @@ class OverviewSect extends React.Component {
   }
 
   componentDidMount() {
+    console.log('component mounted');
     this.getProduct(this.state.currentId);
     this.getStyles(this.state.currentId);
   }
@@ -61,8 +65,8 @@ class OverviewSect extends React.Component {
       <div className={styling.rowContainer}>
         <ImageGallery productInfo={this.state.productStyles}/>
         <div className={styling.colContainer}> 
-          <ProductInfo productInfo={this.state.productInfo} styleInfo={this.state.productStyles} getSelectedStyle={this.props.getStyleInfo} />
-          <StyleSelector styles={this.state.productStyles} />
+          <ProductInfo productInfo={this.state.productInfo} styleInfo={this.state.productStyles} />
+          <StyleSelector styles={this.state.productStyles} getSelectedStyle={this.props.getStyleInfo} />
           <SizeSelector />
           <QuantitySelector />
           <AddToCart />

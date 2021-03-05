@@ -4,8 +4,6 @@ import RelatedProductsSect from './RelatedProductsSect/RelatedProductsSect.jsx';
 import RatingsAndReviewsSect from './RatingsAndReviewsSect/RatingsAndReviewsSect.jsx';
 import QuestionsAnswersSect from './QuestionsAnswersSect/QuestionsAnswersSect.jsx';
 import OverviewSect from './OverviewSect/OverviewSect.jsx';
-import axios from 'axios';
-import authKey from '../../../config.js';
 
 class App extends React.Component {
   constructor(props) {
