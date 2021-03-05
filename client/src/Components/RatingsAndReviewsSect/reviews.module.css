@@ -10,10 +10,21 @@
   margin: auto;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
 .sectionTitle {
+  display: flex;
+  flex-direction: row;
   margin: 0px;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: lighter;
+}
+
+.dynamicUnderline:hover {
+  text-decoration: underline;
 }
 
 .reviewsGrid {
@@ -34,6 +45,7 @@
 
 .reviewCounter {
   margin-top: 0px;
+  margin-right: 3px;
 }
 
 .averageRating {

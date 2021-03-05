@@ -132,13 +132,11 @@ class RatingsAndReviewsSect extends React.Component {
   }
 
   componentDidMount() {
-    // move this into render function so that every time the app id state changes, it will fetch new data
     this.getReviews(this.state.currentProductId);
     this.getMetadata(this.state.currentProductId);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // check whether id has changed and re-fetch data
     if (prevProps.id !== this.props.id) {
       this.getReviews(this.props.id);
       this.getMetadata(this.props.id);
@@ -148,9 +146,9 @@ class RatingsAndReviewsSect extends React.Component {
   render() {
     return(
       <div className={styles.reviewsContainer}>
-        <h1 className={styles.sectionTitle}>RATINGS AND REVIEWS</h1>
         <div className={styles.reviewsGrid}>
           <div className={styles.gridCol1}>
+            <h1 className={styles.sectionTitle}>RATINGS AND REVIEWS</h1>
             <AvgRatings averageRating={this.state.averageRating}/>
             <AvgRecs recsPercentage={this.state.recsPercentage} />
             <RatingBreakdown totalRatings={this.state.totalRatings} ratings={this.state.ratings} />
