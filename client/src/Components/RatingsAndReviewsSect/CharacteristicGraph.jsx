@@ -2,7 +2,16 @@ import React from 'react';
 import styles from './reviews.module.css';
 
 let CharacteristicGraph = ({name, value}) => {
-  console.log('value ', value)
+  // create object with key being name and labels as an array property at that key
+  let labels = {
+    Size: ['Too small', 'Perfect', 'Too Big'],
+    Width: ['Too narrow', 'Perfect', 'Too wide'],
+    Comfort: ['Uncomfortable', 'Ok', 'Perfect'],
+    Quality: ['Poor', 'What I Expected', 'Perfect'],
+    Length: ['Runs Short', 'Perfect', 'Runs Long'],
+    Fit: ['Tight', 'Perfect', 'Runs Long']
+  }
+
   return (
     <div className={styles.comparisonBarWrapper}>
       <div className={styles.comparisonBarTitle}>{name}</div>
@@ -11,9 +20,9 @@ let CharacteristicGraph = ({name, value}) => {
         </div>
       </div>
       <div className={styles.comparisonBarLabels}>
-        <label className={styles.comparisonBarLabels}>Too small</label>
-        <label className={styles.comparisonBarLabels}>Perfect</label>
-        <label className={styles.comparisonBarLabels}>Too large</label>
+        <label className={styles.comparisonBarLabels}>{labels[name][0]}</label>
+        <label className={styles.comparisonBarLabels}>{labels[name][1]}</label>
+        <label className={styles.comparisonBarLabels}>{labels[name][2]}</label>
       </div>
     </div>
   )
