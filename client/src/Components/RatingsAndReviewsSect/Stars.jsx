@@ -59,8 +59,6 @@ let Stars = (props) => {
     return stars;
   }
 
-
-
   return(
     <span>
     {renderRatingStars(rating)}
