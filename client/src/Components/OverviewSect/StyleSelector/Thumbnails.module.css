@@ -1,9 +1,11 @@
 .thumbnail {
     border-radius: 50%;
-    height: 80px;
-    width: 80px
+    height: 90px;
+    width: 90px
 }
 .strikethrough {
     text-decoration: line-through;
+}
+.salePrice {
     color: red
 }
