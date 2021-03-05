@@ -52,7 +52,6 @@ let Stars = (props) => {
       index--;
     }
 
-    console.log(stars.length)
     for (var i = stars.length; i < 5; i++) {
       stars.push(<i className="far fa-star"></i>)
     }
