@@ -72,20 +72,6 @@ class RatingsAndReviewsSect extends React.Component {
     });
   }
 
-  // calculateAverageRating() {
-  //   let ratingsTotal = 0;
-  //   let recsTotal = 0;
-  //   this.state.reviewList.forEach(review => {
-  //     ratingsTotal += review.rating;
-  //     if (review.recommend) {
-  //       recsTotal += review.recommend
-  //     }
-  //   });
-
-  //   let averageRating = Math.round((ratingsTotal / this.state.reviewList.length) * 10) / 10;
-  //   let recsPercentage = recsTotal / this.state.reviewList.length * 100;
-  //   this.setState({averageRating: averageRating, recsPercentage: recsPercentage});
-  // }
 
   calculateAverageRating() {
     let totalRatings = 0;
@@ -164,6 +150,7 @@ class RatingsAndReviewsSect extends React.Component {
             <AvgRatings averageRating={this.state.averageRating}/>
             <AvgRecs recsPercentage={this.state.recsPercentage} />
             <RatingBreakdown totalRatings={this.state.totalRatings} ratings={this.state.ratings} />
+            <CharacteristicsBreakdown characteristics={this.state.characteristics} />
           </div>
           <div className={styles.gridCol2}>
             <ReviewCount reviewCount={this.state.reviewCount}/>
