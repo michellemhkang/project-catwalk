@@ -51,17 +51,20 @@ class YourOutfitsList extends React.Component {
       }
     }
     return (
-      <div>
+      <div className={Styles.head}>
         <h2 id='YourOutfitsListTitle'>Your Outfits</h2>
-        <ul id={Styles.RelatedProductsList}>
           <div className={Styles.leftArrow} onClick={this.leftbutton}>left</div>
-          <YourOutfitAddCard addToYourOutfits={this.props.addToYourOutfits}/>
-           {this.state.YourOutfitsDisplayList.map((product,i) => <YourOutfitEntry key={i} outfitEntry={product}/> )}
+            <div id={Styles.theCara}>
+              <ul id={Styles.testcaraul}>
+                  <YourOutfitAddCard addToYourOutfits={this.props.addToYourOutfits}/>
+                   {this.state.YourOutfitsDisplayList.map((product,i) => <YourOutfitEntry key={i} outfitEntry={product}/> )}
+              </ul>
+            </div>
            <div className={Styles.rightArrow} onClick={this.rightbutton}>right</div>
-        </ul>
       </div>
     )
   }
 }
 
 export default YourOutfitsList;
+

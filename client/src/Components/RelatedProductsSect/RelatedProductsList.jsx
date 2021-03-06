@@ -52,17 +52,15 @@ class RelatedProductsList extends React.Component {
   }
   // {console.log('checking props',this.props)}
     return (
-      <div>
+      <div className={Styles.head}>
         <h2 id='RelatedProductsListTitle'>Related Products</h2>
-        <div id={Styles.RelatedProductsList}>
-          <div className={Styles.leftArrow} onClick={this.leftbutton}>left</div>
-            <div id='testcara'>
-              <figure>
+          <button className={Styles.leftArrow} onClick={this.leftbutton}>left</button>
+        <div id={Styles.theCara}>
+            <ul id={Styles.testcaraul}>
                 {this.props.RelatedProductsList.map(product => <RelatedProductsEntry key={product} prod={product} changePage={this.props. changePage} addToCache={this.props.addToCache} cachedinfo={this.props.cachedinfo}/> )}
-              </figure>
-            </div>
-           <button className={Styles.rightArrow} onClick={this.rightbutton} >right</button>
+            </ul>
         </div>
+           <button className={Styles.rightArrow} onClick={this.rightbutton} >right</button>
       </div>
     )
   }

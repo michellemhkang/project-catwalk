@@ -1,5 +1,6 @@
 import React from 'react';
 import RelatedProductsList from './RelatedProductsList.jsx'
+import RelatedProductsList2 from './RelatedProductsList2.jsx'
 import YourOutfitsList from './YourOutfitsList.jsx'
 import axios from 'axios';
 
@@ -64,7 +65,7 @@ class RelatedProductsSect extends React.Component {
     //   }
     // }
     return(
-    <div>
+    <div id="firstdiv">
       <h1>Related Products Section</h1>
       <RelatedProductsList RelatedProductsList={this.state.RelatedProductsList} changePage={this.props.changePage} addToCache={this.addToCache}
       cachedinfo={this.state.cachedinfo}/>

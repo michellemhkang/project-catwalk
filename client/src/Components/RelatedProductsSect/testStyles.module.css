@@ -1,0 +1,51 @@
+.listheader {
+  position:relative;
+  height:600px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.testimg {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.testcara {
+  background: blue;
+  height: 100%;
+  position: relative;
+}
+
+.testcaraul {
+  /* background: blue; */
+  /* padding: 10px; */
+  padding: 0;
+  list-style:none;
+  margin: 0;
+}
+
+.imgent {
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+ }
+
+ .leftbutton {
+   position: absolute;
+   top:50%;
+   transform: translateY(-50%);
+   background: transparent;
+   /* border: 0; */
+   left: -50px;
+ }
+
+ .rightbutton{
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  background: transparent;
+  /* border: 0; */
+  right: -50px;
+ }
