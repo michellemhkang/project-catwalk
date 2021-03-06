@@ -48,6 +48,18 @@
   margin-right: 3px;
 }
 
+.sortText {
+  font-weight: bold;
+}
+
+.arrow {
+  font-weight: normal;
+}
+
+.sortText.pointer {
+  cursor: pointer;
+}
+
 .averageRating {
   display: flex;
   flex-direction: row;
@@ -59,6 +71,10 @@
   margin-right: 15px;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.recText {
+  font-size: .5em;
 }
 
 /* Ratings Breakdown Graph */
@@ -158,6 +174,7 @@
 }
 
 .reviewListEntry {
+  font-size: .5em;
   padding-top: 10px;
   border-bottom: 1px solid black;
 }
