@@ -33,7 +33,7 @@
 .reviewsGrid {
   display: grid;
   grid-template-columns: 33% 66%;
-  column-gap: 3em;
+  column-gap: 4em;
 }
 
 .gridCol1 {
@@ -47,7 +47,7 @@
 }
 
 .reviewCounter {
-  margin-top: 0px;
+  margin-top: 25px;
   margin-right: 3px;
 }
 
