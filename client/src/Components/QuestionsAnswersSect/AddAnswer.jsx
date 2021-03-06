@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Question.modules.css';
 
-class addAnswer extends React.Component {
+class AddAnswer extends React.Component {
   constructor(props){
     super(props)
     this.state={
@@ -9,15 +9,27 @@ class addAnswer extends React.Component {
     }
   }
   render(){
+    console.log(this.props)
+    if(!this.props.add){
+  return(
+    null
+    )}
 
-    return(
+      return (<>
+      <div className ={styles.imageDiv}>
+      <div className ={styles.qDiv}>
+      <form>
+      <button onClick={(event)=>{this.props.addAans()}}>KILL ME </button>
 
+      </form>
+      </div>
+      </div>
+      </>
+      )
 
-
-
-    )
-
-  }
 
 
 }
+}
+
+export default AddAnswer

@@ -1,10 +1,14 @@
 .Qlist {
 list-style-type: none;
 margin: 0 0 3px 0;
+font-family: 'Open Sans',sans-serif;
 
 }
 .quest{
   display: inline;
+  position: relative;
+  left: 100px;
+
 
 }
 
@@ -41,16 +45,21 @@ margin: 0 0 3px 0;
   text-decoration:underline;
   display: inline;
   outline:none;
+  font-size: 16px;
 }
 .buttonQ:hover{
   text-decoration:none;
+  color: lightslategray;
 }
 .helpDiv{
   float: right;
 }
 .SearchQnA{
 height: 30px;
-width: 500px;
+width: 550px;
+border: none;
+background: none;
+outline:none;
 }
 .searhGlass{
   height: 35px;
@@ -61,15 +70,33 @@ width: 500px;
   outline:none;
 }
 .image{
-  width:140px; /* you can use % */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+
+
+  display: block;
+  max-width:730px;
+  max-height:160px;
+  width: auto;
   height: auto;
+  display: inline;
+}
+.image:hover{
+  transform: scale(1.2);
+  border: 2px solid rgb(78, 78, 78);
 }
 
 .a{
     display: inline;
+    position: relative;
+
 }
 .answer{
+  position: relative;
   display: inline;
+
+
 }
 .imageDiv{
   position: fixed;
@@ -80,6 +107,7 @@ width: 500px;
   width: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
 }
 
 
@@ -119,11 +147,57 @@ width: 500px;
 .addAnswerBtn{
   position: relative;
   left: 150px;
+  color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 10px;
+  border: 4px solid #494949 !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+
 }
+.addAnswerBtn:hover{
+  color: #ffffff !important;
+  background: #494949 !important;
+  border-color:  #494949 !important;
+  transition: all 0.4s ease 0s;
+}
+.load{
+  color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 10px;
+  border: 4px solid #494949 !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+.load:hover{
+  color: #ffffff !important;
+  background: #494949 !important;
+  border-color:  #494949 !important;
+  transition: all 0.4s ease 0s;
+}
+
 
 .less{
 position: relative;
 left: 200px;
+color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 10px;
+  border: 4px solid #494949 !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s
+}
+.less:hover{
+  color: #ffffff !important;
+  background: #494949 !important;
+  border-color:  #494949 !important;
+  transition: all 0.4s ease 0s;
 }
 
 .qDiv{
@@ -132,7 +206,7 @@ left: 200px;
   background-color: white;
   margin: 0 auto;
   padding: 20px;
-  width: 70%;
+  width: 50%;
   height: 50%;
 }
 .Qbutton{
@@ -150,4 +224,125 @@ left: 200px;
 }
 .Qbutton:hover{
   color: lightgray;
+}
+  .pagebody{
+    width: 1200px;
+    position: relative;
+    left: 400px;
+
+    margin-bottom: 30px;
+  }
+.tittle{
+  width: 1000px;
+    position: relative;
+    left: 500px;
+    font-family: 'Open Sans',sans-serif;
+}
+.searchborderQ{
+  width: 1000px;
+    position: relative;
+    left: 500px;
+}
+.formsearch{
+  width: 581px;
+  border: groove;
+}
+
+.questBody{
+display: inline;
+
+position: relative;
+left: 100px;
+font-size: large;
+
+}
+.container{
+  background-color:none;
+  width: 600px;
+  height: 220px;
+  position: relative;
+  left: 500px;
+
+}
+.container img{
+  width: 100%;
+  height: auto;
+}
+.MoreQue{
+  position: relative;
+  left: 200px;
+  color: #494949 !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #ffffff;
+padding: 10px;
+border: 4px solid #494949 !important;
+display: inline-block;
+transition: all 0.4s ease 0s;
+}
+.MoreQue:hover{
+  color: #ffffff !important;
+  background: #494949 !important;
+  border-color:  #494949 !important;
+  transition: all 0.4s ease 0s;
+}
+
+
+.Addque{
+  position: relative;
+  left: 287px;
+  color: #494949 !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #ffffff;
+padding: 10px;
+border: 4px solid #494949 !important;
+display: inline-block;
+transition: all 0.4s ease 0s;
+}
+
+.Addque:hover{
+  color: #ffffff !important;
+  background: #494949 !important;
+  border-color:  #494949 !important;
+  transition: all 0.4s ease 0s;
+}
+.AnswersDiv{
+  position: relative;
+
+  max-width:510px;
+  left:200px;
+  word-wrap: break-word;
+  margin-top: 30px;
+}
+
+.questContainer{
+  display: inline;
+  position: relative;
+  margin-top: 5px;
+word-wrap: break-word;
+width: 800px;
+}
+
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+.questbuttons{
+position: relative;
+left: 200px;
+}
+
+.invisible{
+  background: transparent;
+  border: none !important;
+  color: white;
+  outline: none;
+  padding-left: 176px;
+
 }
