@@ -148,7 +148,7 @@ class RatingsAndReviewsSect extends React.Component {
       <div className={styles.reviewsContainer}>
         <div className={styles.reviewsGrid}>
           <div className={styles.gridCol1}>
-            <h1 className={styles.sectionTitle}>RATINGS AND REVIEWS</h1>
+            <h1 className={`${styles.row} ${styles.sectionTitle}`}>RATINGS AND REVIEWS</h1>
             <AvgRatings averageRating={this.state.averageRating}/>
             <AvgRecs recsPercentage={this.state.recsPercentage} />
             <RatingBreakdown totalRatings={this.state.totalRatings} ratings={this.state.ratings} />
