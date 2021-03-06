@@ -229,7 +229,7 @@
 /* NEW REVIEW STYLES */
 
 .newReview {
-  background-color: lightgray;
+  background-color: white;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -353,13 +353,24 @@ textarea {
 
 .modalContent {
   position: relative;
-  background-color: none;
+  background-color: transparent;
   margin: 0 auto;
-  padding: 20px;
   width: 70%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.modalActions {
-  text-align: right;
-  padding-top: 20px;
+.modalCloseButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-style: none;
+  background-color: transparent;
+}
+
+.modalCloseButton:hover {
+  cursor: pointer;
 }

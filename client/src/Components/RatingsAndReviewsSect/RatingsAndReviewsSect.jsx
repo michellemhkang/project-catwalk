@@ -177,7 +177,7 @@ class RatingsAndReviewsSect extends React.Component {
           </div>
         </div>
         <Modal show={this.state.showModal} handleClose={this.hideModal}>
-          <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} addReview={this.state.addReview} />
+          <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} handleClose={this.hideModal} />
         </Modal>
         {/* {!this.state.addReview ? null : <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} addReview={this.state.addReview} />} */}
       </div>
