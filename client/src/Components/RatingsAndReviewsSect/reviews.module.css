@@ -15,9 +15,12 @@
   flex-direction: row;
 }
 
-.sectionTitle {
+.col {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.sectionTitle {
   margin: 0px;
   font-size: 1.5em;
   font-weight: lighter;
@@ -30,7 +33,7 @@
 .reviewsGrid {
   display: grid;
   grid-template-columns: 33% 66%;
-  column-gap: 2em;
+  column-gap: 3em;
 }
 
 .gridCol1 {
@@ -112,12 +115,6 @@
 
 .bar {width: 0%; height: 7px; padding-left: 10px; background-color: rgb(66, 63, 63);}
 
-/* Characteristics Breakdown Graph */
-
-/* .comparisonBarWrapper {
-  position: relative;
-  display: block;
-} */
 
 .characteristicsContainer {
   margin-top: 15px;

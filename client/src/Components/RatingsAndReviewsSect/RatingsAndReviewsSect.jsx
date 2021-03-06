@@ -146,15 +146,17 @@ class RatingsAndReviewsSect extends React.Component {
   render() {
     return(
       <div className={styles.reviewsContainer}>
+        <h1 className={`${styles.row} ${styles.sectionTitle}`}>RATINGS AND REVIEWS</h1>
         <div className={styles.reviewsGrid}>
-          <div className={styles.gridCol1}>
-            <h1 className={`${styles.row} ${styles.sectionTitle}`}>RATINGS AND REVIEWS</h1>
+          {/* <div className={styles.gridCol1}> */}
+          <div className={styles.col}>
             <AvgRatings averageRating={this.state.averageRating}/>
             <AvgRecs recsPercentage={this.state.recsPercentage} />
             <RatingBreakdown totalRatings={this.state.totalRatings} ratings={this.state.ratings} />
             <CharacteristicsSummary characteristics={this.state.characteristics} />
           </div>
-          <div className={styles.gridCol2}>
+          {/* <div className={styles.gridCol2}> */}
+          <div className={styles.col}>
             <ReviewCount reviewCount={this.state.reviewCount}/>
             <List reviewList={this.state.reviewList}/>
             <span className={styles.listButtons}>
