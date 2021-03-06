@@ -10,6 +10,7 @@ import AddReviewButton from './AddReviewButton.jsx';
 import WriteYourReview from './WriteYourReview.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import CharacteristicsSummary from './CharacteristicsSummary.jsx';
+import Modal from './Modal.jsx';
 import dummyReviewListData from './dummyData/dummyReviewListData.js';
 import styles from './reviews.module.css';
 
@@ -23,17 +24,19 @@ class RatingsAndReviewsSect extends React.Component {
       currentProductId: this.props.id,
       averageRating: '',
       recsPercentage: 0,
-      addReview: false,
       characteristics: {},
       ratings: {},
       recommended: {},
-      ratingsCount: 0
+      ratingsCount: 0,
+      showModal: false,
     };
 
     this.getReviews = this.getReviews.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
-    this.handleAddReview = this.handleAddReview.bind(this);
+    // this.handleAddReview = this.handleAddReview.bind(this);
     this.sendNewReview = this.sendNewReview.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   getReviews(id) {
@@ -105,11 +108,11 @@ class RatingsAndReviewsSect extends React.Component {
     return percentageRec;
   }
 
-  handleAddReview() {
-    this.setState({
-      addReview: !this.state.addReview
-    })
-  }
+  // handleAddReview() {
+  //   this.setState({
+  //     showModal: true
+  //   })
+  // }
 
   calculateAvgAndPercent() {
     this.calculateAverageRating();
@@ -130,6 +133,14 @@ class RatingsAndReviewsSect extends React.Component {
       console.error(error)
     })
   }
+
+  showModal = () => {
+    this.setState({showModal: !this.state.showModal });
+  };
+
+  hideModal() {
+    this.setState({showModal: false});
+  };
 
   componentDidMount() {
     this.getReviews(this.state.currentProductId);
@@ -161,11 +172,14 @@ class RatingsAndReviewsSect extends React.Component {
             <List reviewList={this.state.reviewList}/>
             <span className={styles.listButtons}>
               <MoreReviewsButton />
-              <AddReviewButton handleAddReview={this.handleAddReview}/>
+              <AddReviewButton showModal={this.showModal} handleAddReview={this.handleAddReview}/>
             </span>
           </div>
         </div>
-        {!this.state.addReview ? null : <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} addReview={this.state.addReview} />}
+        <Modal show={this.state.showModal} handleClose={this.hideModal}>
+          <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} addReview={this.state.addReview} />
+        </Modal>
+        {/* {!this.state.addReview ? null : <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} addReview={this.state.addReview} />} */}
       </div>
     )
   }

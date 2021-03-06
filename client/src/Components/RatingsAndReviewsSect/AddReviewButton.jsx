@@ -3,7 +3,7 @@ import styles from './reviews.module.css';
 
 let AddReviewButton = (props) => {
   return (
-    <button className={styles.button} onClick={props.handleAddReview}>ADD A REVIEW +</button>
+    <button className={styles.button} onClick={props.showModal}>ADD A REVIEW +</button>
   )
 }
 
