@@ -302,15 +302,23 @@ textarea {
   align-items: left;
 }
 
+.radioGroupTitle {
+  font-size: 1em;
+  font-weight: bolder;
+  margin: 0px;
+}
+
 .radioRow {
   display: flex;
   flex-direction: row;
   font-size: .5em;
   justify-content: left;
+  align-items: center;
   margin-bottom: 10px;
+  flex-shrink: inherit;
 }
 
-.radioRow input[type=radio] {
+/* .radioRow input[type=radio] {
   display: block;
   margin: 0 auto;
   padding-right: 30px;
@@ -319,13 +327,27 @@ textarea {
 .radioRow label {
   display: inline-block;
   padding-right: 30px;
-}
+} */
 
 .radioCatTitle {
   font-size: 2em;
   font-weight: bolder;
   margin: 0px;
-  padding-right: 40px;
+  padding-right: 10px;
+  width: 5em;
+}
+
+.radioPair {
+  display: inline-block;
+  text-align: center;
+  width: 18em;
+  /* min-width: 18em;
+  max-width: 18em; */
+}
+
+.radioPair label {
+  display: block;
+  font-size: 8px;
 }
 
 .buttonRow {
