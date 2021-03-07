@@ -57,15 +57,14 @@ class WriteYourReview extends React.Component {
     return (
       <>
       <div className={`${styles.newReview} ${styles.col}`}>
-        <h3 className={styles.newReviewTitle}>WRITE YOUR REVIEW</h3>
-        <h4 className={styles.newReviewAbout}>About the product</h4>
+          <h3 className={styles.newReviewTitle}>WRITE YOUR REVIEW</h3>
         <span className={`${styles.row} ${styles.center}`}>
           <p className={styles.smallText}>Rating:</p>
           <NewStarRating handleRatingChange={this.handleRatingChange}/>
         </span>
         <span className={`${styles.row} ${styles.center}`}>
           <p className={styles.smallText}>Do you recommend this product?</p>
-          <div className={styles.center} onChange={this.handleRecommendChange}>
+          <div className={styles.center} required onChange={this.handleRecommendChange}>
               <label className={styles.smallText}>
                 <input
                   type="radio"
@@ -95,14 +94,17 @@ class WriteYourReview extends React.Component {
             cols="30" rows="5"
             placeholder="'Why did you like the product or not?'"
             value={this.state.body}
+            minLength="50"
+            maxLength="1000"
+            required
             name="body" onChange={this.handleFormChange}
           />
         </div>
         <div className={`${styles.row} ${styles.center} ${styles.inlineForm} ${styles.textInput}`}>
             Nickname:
-            <input className={styles.nickname} type="text" placeholder="Nickname" name="nickname" value={this.state.nickname} onChange={this.handleFormChange} />
+            <input className={styles.nickname} type="text" placeholder="Nickname" name="nickname" value={this.state.nickname} required onChange={this.handleFormChange} />
             Email:
-            <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleFormChange} />
+            <input type="email" placeholder="Email" value={this.state.email} required name="email" onChange={this.handleFormChange} />
         </div>
         <div className={styles.buttonRow}>
       <button className={`${styles.button} ${styles.submitReviewButton}`} onClick={this.handleSubmit}>Submit</button>

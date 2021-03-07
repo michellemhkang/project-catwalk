@@ -30,6 +30,8 @@
   font-weight: lighter;
 }
 
+.button:focus {outline:0;}
+
 .dynamicUnderline:hover {
   text-decoration: underline;
 }
@@ -114,7 +116,7 @@
 
 .barFill {
   height: .5em;
-  background-color: #2ada71;
+  background-color: #9BB7D4;
 }
 
 .bar {width: 0%; height: 7px; padding-left: 10px; background-color: rgb(66, 63, 63);}
@@ -145,7 +147,7 @@
   height: 0;
   border-style: solid;
   border-width: 15px 7.5px 0 7.5px;
-  border-color: #2ada71 transparent transparent transparent;
+  border-color: #9BB7D4 transparent transparent transparent;
   z-index: 10;
 }
 
@@ -226,14 +228,16 @@
 
 .button:hover {
   cursor: pointer;
-  color: #2ada71;
-  border-color: #2ada71 ;
+  color: #9BB7D4;
+  border-color: #9BB7D4 ;
 }
 
 /* NEW REVIEW STYLES */
 
 .newReview {
+  /* background-color: hsl(210, 16%, 90%); */
   background-color: white;
+  color: black;
   padding: 10px;
 }
 
@@ -241,6 +245,11 @@
   margin: 0px;
   text-align: center;
   font-weight: lighter;
+  font-size: 2em;
+}
+
+.titleRow {
+  width: 100%;
 }
 
 .newReviewAbout {
@@ -282,10 +291,18 @@
   margin-bottom: 10px;
 }
 
-.textInput input[type="text"], textarea {
-  border: 1.5px solid #ccc;
-  border-radius: 2px;
+.textInput input[type="text"], input[type="email"], textarea {
   padding: 10px;
+  /* border: 1px solid black; */
+  border: none;
+  background-color:white;
+  border: 1px solid #9BB7D4;
+  font-family: 'poppins', Arial, Helvetica, sans-serif;
+}
+
+.textInput textarea:focus, input[type="email"]:focus, input[type=text]:focus {
+  outline: none;
+  border: 1px solid #9BB7D4;
 }
 
 input[type="text"] {
@@ -299,10 +316,11 @@ input[type="text"] {
   margin-right: 10px;
 }
 
-textarea {
+.textInput textarea {
   font-family: arial;
   font-weight: lighter;
   font-size: .8em;
+  resize: none;
 }
 
 .inlineForm {
@@ -315,6 +333,8 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: left;
+  border-top: 1px solid #9BB7D4;
+  border-bottom: 1px solid #9BB7D4;
 }
 
 .radioGroupTitle {
@@ -407,7 +427,13 @@ textarea {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
+  box-shadow: 0 10px 25px rgba(0,0,0,.5)!important
 }
+
+/* .modalActions {
+  width: 100%;
+  background-color: red;
+} */
 
 .modalCloseButton {
   position: absolute;
@@ -420,3 +446,22 @@ textarea {
 .modalCloseButton:hover {
   cursor: pointer;
 }
+
+.fadeIn {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.4s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* #2ada71 */
