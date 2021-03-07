@@ -56,17 +56,17 @@ class WriteYourReview extends React.Component {
   render() {
     return (
       <>
-      <div className={styles.newReview}>
+      <div className={`${styles.newReview} ${styles.col}`}>
         <h3 className={styles.newReviewTitle}>WRITE YOUR REVIEW</h3>
         <h4 className={styles.newReviewAbout}>About the product</h4>
-        <span className={styles.alignedRow}>
-          Rating:
+        <span className={`${styles.row} ${styles.center}`}>
+          <p className={styles.smallText}>Rating:</p>
           <NewStarRating handleRatingChange={this.handleRatingChange}/>
         </span>
-        <span className={styles.alignedRow}>
-          <p>Do you recommend this product?</p>
-          <div onChange={this.handleRecommendChange}>
-              <label>
+        <span className={`${styles.row} ${styles.center}`}>
+          <p className={styles.smallText}>Do you recommend this product?</p>
+          <div className={styles.center} onChange={this.handleRecommendChange}>
+              <label className={styles.smallText}>
                 <input
                   type="radio"
                   value="true"
@@ -74,7 +74,7 @@ class WriteYourReview extends React.Component {
                 />
                 Yes
             </label>
-            <label>
+            <label className={styles.smallText}>
                 <input
                   type="radio"
                   value="false"

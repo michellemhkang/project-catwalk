@@ -230,29 +230,37 @@
 
 .newReview {
   background-color: white;
-  display: flex;
-  flex-direction: column;
   padding: 10px;
 }
 
 .newReviewTitle {
   margin: 0px;
   text-align: center;
+  font-weight: lighter;
 }
 
 .newReviewAbout {
   margin: 0px;
   text-align: center;
+  font-weight: lighter;
 }
 
-.star:hover{
-  color: red;
+.smallText {
+  font-size: .5em;
 }
 
-.alignedRow {
+/* .alignedRow {
   display: flex;
   flex-direction: row;
   align-items: center;
+} */
+
+.center {
+  align-items: center
+}
+
+.center label {
+  margin-bottom: 5px;
 }
 
 .newStarRow {
@@ -306,6 +314,7 @@ textarea {
   font-size: 1em;
   font-weight: bolder;
   margin: 0px;
+  margin-top: 10px;
 }
 
 .radioRow {
@@ -331,10 +340,10 @@ textarea {
 
 .radioCatTitle {
   font-size: 2em;
-  font-weight: bolder;
-  margin: 0px;
+  margin: 0px 0px 0px 3px;
   padding-right: 10px;
   width: 5em;
+  text-align: left;
 }
 
 .radioPair {
