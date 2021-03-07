@@ -20,6 +20,10 @@
   flex-direction: column;
 }
 
+.pointer:hover {
+  cursor: pointer;
+}
+
 .sectionTitle {
   margin: 0px;
   font-size: 1.5em;

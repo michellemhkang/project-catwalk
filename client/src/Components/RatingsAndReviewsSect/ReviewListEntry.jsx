@@ -36,10 +36,10 @@ let ReviewListEntry = ({review}) => {
       <h5 className={styles.reviewBody}>{review.body}</h5>
       <span className={styles.helpfulRow}>
         <p className={styles.nameDate}>Helpful?</p>
-        <p className={`${styles.nameDate} ${styles.dynamicUnderline}`}>Yes</p>
+        <p className={`${styles.nameDate} ${styles.dynamicUnderline} ${styles.pointer}`}>Yes</p>
         <p className={styles.nameDate}>({review.helpfulness}) </p>
         <p className={styles.nameDate}>|</p>
-        <p className={`${styles.nameDate} ${styles.dynamicUnderline}`}>Report</p>
+        <p className={`${styles.nameDate} ${styles.dynamicUnderline} ${styles.pointer}`}>Report</p>
       </span>
     </div>
   )
