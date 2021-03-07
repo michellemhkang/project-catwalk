@@ -127,7 +127,7 @@ class RatingsAndReviewsSect extends React.Component {
       data: reviewData
     })
     .then(response => {
-      // console.log(response.data);
+      console.log(response.data);
       this.hideModal();
     })
     .catch(error => {
