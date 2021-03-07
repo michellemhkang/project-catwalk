@@ -1,5 +1,5 @@
 import React from 'react';
-import styling from './Thumbnails.module.css';
+import styling from './Styles.module.css';
 
 class Styles extends React.Component {
     constructor(props) {

@@ -21,7 +21,7 @@ projectCatwalk.get('/RelatedProducts/ratings', relatedProductsController.getRati
 projectCatwalk.get('/Q&A/data', questionsAnswersController.getData);
 projectCatwalk.get('/Q&A/data', questionsAnswersController.getData);
 
-projectCatwalk.get('/overview/products', overviewController.getProducts);
+projectCatwalk.get('/overview/products/:', overviewController.getProducts);
 projectCatwalk.get('/overview/styles', overviewController.getStyles)
 
 // this exports our middleware routing system

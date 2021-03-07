@@ -8,38 +8,45 @@ class StyleSelector extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            styleInfo: this.props.productStyles,
-            // because first is default
-            selectedStyleInfo: this.props.productStyles[0],
-            // this is an object to pass up data to app
-            selectedStyleName: this.props.productStyles[0].name,
-            selectedStyleId: this.props.productStyles[0].id,
-            selectedStyleDefaultPrice: this.props.productStyles[0].original_price,
+            // styleInfo: this.props.productStyles,
+            // // because first is default
+            // selectedStyleInfo: this.props.productStyles[0],
+            // // this is an object to pass up data to app
+            // selectedStyleName: this.props.productStyles[0].name,
+            // selectedStyleId: this.props.productStyles[0].id,
+            // selectedStyleDefaultPrice: this.props.productStyles[0].original_price,
+            // selectedStyleSalePrice: null,
+            // selectedStyleThumbnail: this.props.productStyles[0].photos[0].thumbnail_url,
+            // selectedStylePhoto: this.props.productStyles[0].photos[0].url
+            // styleInfo: {},
+            selectedStyleInfo: {},
+            selectedStyleName: '',
+            selectedStyleId: null,
+            selectedStyleDefaultPrice: null,
             selectedStyleSalePrice: null,
-            selectedStyleThumbnail: this.props.productStyles[0].photos[0].thumbnail_url,
-            selectedStylePhoto: this.props.productStyles[0].photos[0].url
+            selectedStyleThumbnail: '',
+            selectedStylePhoto: ''
         }
         // this.baseState = this.state;
         this.changeStyle = this.changeStyle.bind(this);
-        this.getStyles = this.getStyles.bind(this);
     }
 
     changeStyle(style) {
         this.setState({
             selectedStyleName: style
         })
-        for (var i = 0; i < this.props.productStyles.length; i++) {
-            if (this.props.productStyles[i].name === this.state.selectedStyleName) {
-                // console.log(this.props.productStyles[i].name)
+        for (var i = 0; i < this.props.styles.length; i++) {
+            if (this.props.styles[i].name === this.state.selectedStyleName) {
+                // console.log(this.props.styles[i].name)
                 this.setState({
-                    selectedStyleInfo: this.props.productStyles[i],
-                    selectedStyleId: this.props.productStyles[i].id,
-                    selectedStyleDefaultPrice: this.props.productStyles[i].original_price,
-                    selectedStyleThumbnail: this.props.productStyles[i].photos[0].thumbnail_url,
-                    selectedStylePhoto: this.props.productStyles[i].photos[0].url
+                    selectedStyleInfo: this.props.styles[i],
+                    selectedStyleId: this.props.styles[i].id,
+                    selectedStyleDefaultPrice: this.props.styles[i].original_price,
+                    selectedStyleThumbnail: this.props.styles[i].photos[0].thumbnail_url,
+                    selectedStylePhoto: this.props.styles[i].photos[0].url
                 })
-                if (this.props.productStyles[i].sale_price) {
-                    this.setState({selectedStyleSalePrice: this.props.productStyles[i].sale_price})
+                if (this.props.styles[i].sale_price) {
+                    this.setState({selectedStyleSalePrice: this.props.styles[i].sale_price})
                 }
             }
         }
@@ -52,15 +59,15 @@ class StyleSelector extends React.Component {
     // }
 
     render() {
-        // console.log('props:', this.props.productStyles);
-        const stylesInfo = this.props.productStyles.map((style, index) => {
+        // console.log('props:', this.props.styles);
+        const stylesInfo = this.props.styles.map((style, index) => {
             // console.log('style:', style);
             return <Styles name={style.name} photos={style.photos} id={style.style_id} key={index} changeStyle={this.changeStyle} getStyles={this.getStyles} /> 
         })
 
         return (
             <div>
-                <Price defaultPrice={this.state.selectedStyleDefaultPrice} salePrice={this.state.selectedStyleSalePrice} />
+                <Price defaultPrice={this.props.defaultPrice} salePrice={this.state.selectedStyleSalePrice} />
                 <h3>Style: {this.state.selectedStyleName}</h3>
                 <div>{stylesInfo}</div>
             </div>
