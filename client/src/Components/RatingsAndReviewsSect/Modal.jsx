@@ -8,7 +8,7 @@ const Modal = (props) => {
       : <div className={`${styles.row} ${styles.modal}`}>
           <div className={styles.modalContent}>
             {/* <div className={styles.modalActions}> */}
-              <button className={styles.modalCloseButton} onClick={props.handleClose}><i class="fas fa-times"></i></button>
+              <button className={styles.modalCloseButton} onClick={props.handleClose}><i className="fas fa-times"></i></button>
             {/* </div> */}
               {props.children}
           </div>

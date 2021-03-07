@@ -350,8 +350,10 @@ textarea {
   display: inline-block;
   text-align: center;
   width: 18em;
-  /* min-width: 18em;
-  max-width: 18em; */
+}
+
+.radioPair input[type="radio"]:hover {
+  background-color: #ccc;
 }
 
 .radioPair label {
