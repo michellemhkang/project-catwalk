@@ -282,6 +282,12 @@
   margin-bottom: 10px;
 }
 
+.textInput input[type="text"], textarea {
+  border: 1.5px solid #ccc;
+  border-radius: 2px;
+  padding: 10px;
+}
+
 input[type="text"] {
   font-family: arial;
   font-size: .8em;
@@ -300,9 +306,6 @@ textarea {
 }
 
 .inlineForm {
-  display: flex;
-  flex: row;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -357,7 +360,7 @@ textarea {
 }
 
 .radioPair input[type="radio"]:hover {
-  background-color: #ccc;
+  cursor: pointer;
 }
 
 .radioPair label {
@@ -389,15 +392,21 @@ textarea {
 }
 
 .modalContent {
-  position: relative;
+  /* position: relative;
   background-color: transparent;
   margin: 0 auto;
-  width: 70%;
-  height: auto;
+  width: auto;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 50%;
 }
 
 .modalCloseButton {

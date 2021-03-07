@@ -85,11 +85,11 @@ class WriteYourReview extends React.Component {
           </div>
          </span>
         <Characteristics updateCharacteristic={this.updateCharacteristic} characteristics={this.props.characteristics} />
-        <div className={styles.reviewInput}>
+        <div className={`${styles.reviewInput} ${styles.textInput}`}>
             Review Summary:
             <input type="text" placeholder="Example: 'Best Purchase Ever!'" value={this.state.summary} name="summary" onChange={this.handleFormChange} />
         </div>
-        <div className={styles.reviewInput}>
+        <div className={`${styles.reviewInput} ${styles.textInput}`}>
           Review Body:
           <textarea
             cols="30" rows="5"
@@ -98,7 +98,7 @@ class WriteYourReview extends React.Component {
             name="body" onChange={this.handleFormChange}
           />
         </div>
-        <div className={styles.inlineForm}>
+        <div className={`${styles.row} ${styles.center} ${styles.inlineForm} ${styles.textInput}`}>
             Nickname:
             <input className={styles.nickname} type="text" placeholder="Nickname" name="nickname" value={this.state.nickname} onChange={this.handleFormChange} />
             Email:

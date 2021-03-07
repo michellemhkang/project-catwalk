@@ -127,7 +127,8 @@ class RatingsAndReviewsSect extends React.Component {
       data: reviewData
     })
     .then(response => {
-      console.log(response.data)
+      // console.log(response.data);
+      this.hideModal();
     })
     .catch(error => {
       console.error(error)
@@ -135,11 +136,11 @@ class RatingsAndReviewsSect extends React.Component {
   }
 
   showModal = () => {
-    this.setState({showModal: !this.state.showModal });
+    this.setState({showModal: !this.state.showModal});
   };
 
   hideModal() {
-    this.setState({showModal: false});
+    this.setState({showModal: !this.state.showModal});
   };
 
   componentDidMount() {
