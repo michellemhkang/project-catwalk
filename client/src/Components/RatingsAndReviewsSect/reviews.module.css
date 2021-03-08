@@ -8,6 +8,7 @@
   width: 66%;
   height: 100%;
   margin: auto;
+  margin-top: 20px;
 }
 
 .row {
@@ -124,7 +125,7 @@
 
 .barFill {
   height: .5em;
-  background-color: #9BB7D4;
+  background-color: #f25c54;
 }
 
 .bar {width: 0%; height: 7px; padding-left: 10px; background-color: rgb(66, 63, 63);}
@@ -155,7 +156,7 @@
   height: 0;
   border-style: solid;
   border-width: 15px 7.5px 0 7.5px;
-  border-color: #9BB7D4 transparent transparent transparent;
+  border-color: #f25c54 transparent transparent transparent;
   z-index: 10;
 }
 
@@ -198,14 +199,20 @@
 .nameDate {
   font-size: .4em;
   color: rgb(177, 180, 180);
+  /* color: #f25c54; */
   margin-right: 3px;
   align-items: center
+}
+
+.gray {
+  color: darkgray;
 }
 
 .helpfulRow {
   display: flex;
   flex-direction: row;
   justify-content: left;
+  margin-bottom: 5px;
 }
 
 .helpfulText {
@@ -290,6 +297,7 @@
   flex-direction: row;
   align-items: center;
   margin-left: 5px;
+  font-size: 1.2em;
 }
 
 /* .reviewInput {
@@ -419,6 +427,10 @@
 .radioPair label {
   display: block;
   font-size: 8px;
+}
+
+.radioPair input[type="radio"]:checked+label, .recText input[type="radio"]:checked+label {
+  color: black;
 }
 
 .buttonRow {

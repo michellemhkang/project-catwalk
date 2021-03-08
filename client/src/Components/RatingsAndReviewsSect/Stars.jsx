@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './reviews.module.css';
 
 let Stars = (props) => {
 
@@ -44,16 +45,16 @@ let Stars = (props) => {
     while (index > 0) {
       if (index < 1) {
         if (index >= 0.5) {
-          stars.push(<i className="fas fa-star-half-alt" key={index}></i>)
+          stars.push(<i className={`fas fa-star-half-alt`} key={index}></i>)
         }
       } else {
-        stars.push(<i className="fas fa-star" key={index}></i>);
+        stars.push(<i className={`fas fa-star`} key={index}></i>);
       }
       index--;
     }
 
     for (var i = stars.length; i < 5; i++) {
-      stars.push(<i className="far fa-star"></i>)
+      stars.push(<i className={`far fa-star`}></i>)
     }
     return stars;
   }
