@@ -1,6 +1,6 @@
 .reviewsContainer {
   /* font-family: arial; */
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
   font-size: .7em;
   color: black;
   display: flex;
@@ -82,8 +82,16 @@
   margin-bottom: 0px;
 }
 
-.recText {
-  font-size: .5em;
+.recText input {
+  margin: 0px 3px 0px 7px;
+}
+
+.recText input:hover {
+  cursor: pointer;
+}
+
+.recText label {
+  color: darkgray;
 }
 
 /* Ratings Breakdown Graph */
@@ -228,8 +236,8 @@
 
 .button:hover {
   cursor: pointer;
-  color: #9BB7D4;
-  border-color: #9BB7D4 ;
+  color: white;
+  background-color: black;
 }
 
 /* NEW REVIEW STYLES */
@@ -245,7 +253,8 @@
   margin: 0px;
   text-align: center;
   font-weight: lighter;
-  font-size: 2em;
+  font-size: 1.5em;
+  width: 100%;
 }
 
 .titleRow {
@@ -283,21 +292,53 @@
   margin-left: 5px;
 }
 
-.reviewInput {
+/* .reviewInput {
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: left;
   margin-bottom: 10px;
+} */
+
+.reviewInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.reviewLabelCol {
+  width: 33%;
+  text-align: left;
+  margin: 10px 0px;
+}
+
+.reviewInputCol {
+  width: 66%;
+  text-align: right;
+  margin: 10px 0px;
+}
+
+.reviewInputCol > input[type="email"], input[type="text"], textarea {
+  width: 100%;
+}
+
+.reviewInputCol textarea {
+  min-height: 100px;
+}
+
+.sumAndBody {
+  border-bottom: 1px solid darkgray;
 }
 
 .textInput input[type="text"], input[type="email"], textarea {
-  padding: 10px;
-  /* border: 1px solid black; */
+  font-weight: lighter;
+  font-size: .8em;
+  resize: none;
+  padding: 5px;
+  box-sizing: border-box;
   border: none;
-  background-color:white;
-  border: 1px solid #9BB7D4;
-  font-family: 'poppins', Arial, Helvetica, sans-serif;
+  border: 1px solid #e6e7e8;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .textInput textarea:focus, input[type="email"]:focus, input[type=text]:focus {
@@ -305,22 +346,9 @@
   border: 1px solid #9BB7D4;
 }
 
-input[type="text"] {
-  font-family: arial;
-  font-size: .8em;
-  font-weight: lighter;
-  width: 66%;
-}
-
-.nickname {
-  margin-right: 10px;
-}
-
-.textInput textarea {
-  font-family: arial;
-  font-weight: lighter;
-  font-size: .8em;
-  resize: none;
+.textInput ::placeholder {
+  color: darkgray;
+  opacity: 1;
 }
 
 .inlineForm {
@@ -333,8 +361,8 @@ input[type="text"] {
   display: flex;
   flex-direction: column;
   align-items: left;
-  border-top: 1px solid #9BB7D4;
-  border-bottom: 1px solid #9BB7D4;
+  border-top: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
 }
 
 .radioGroupTitle {
@@ -350,7 +378,8 @@ input[type="text"] {
   font-size: .5em;
   justify-content: left;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   flex-shrink: inherit;
 }
 
@@ -377,6 +406,10 @@ input[type="text"] {
   display: inline-block;
   text-align: center;
   width: 18em;
+}
+
+.radioPair label {
+  color: darkgray;
 }
 
 .radioPair input[type="radio"]:hover {

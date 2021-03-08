@@ -610,7 +610,7 @@ class Characteristics extends React.Component {
   render() {
     return (
       <div className={styles.radioGroup}>
-        <p className={styles.radioGroupTitle}>Characteristics</p>
+        {/* <p className={styles.radioGroupTitle}>Characteristics</p> */}
         {this.props.characteristics.Size ? this.renderSizeOptions() : null}
         {this.props.characteristics.Width ? this.renderWidthOptions() : null}
         {this.props.characteristics.Comfort ? this.renderComfortOptions() : null}
