@@ -239,6 +239,7 @@
   border-width: 1px;
   font-weight: bold;
   margin-bottom: 10px;
+  transition: 0.3s;
 }
 
 .button:hover {
