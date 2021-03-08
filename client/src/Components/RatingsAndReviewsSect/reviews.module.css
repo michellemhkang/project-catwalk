@@ -1,5 +1,6 @@
 .reviewsContainer {
-  font-family: arial;
+  /* font-family: arial; */
+  font-family: 'Poppins', sans-serif;
   font-size: .7em;
   color: black;
   display: flex;
@@ -48,6 +49,102 @@
   margin-bottom: 0px;
 }
 
+/* Ratings Breakdown Graph */
+
+.distribution {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.ratingLabel {
+  align-items: center;
+  border-radius: 0;
+  display: inline-flex;
+  justify-content: flex-start;
+  background-color: transparent;
+    color: #000;
+    line-height: 17px;
+    min-height: 0;
+    padding: 2px;
+    padding-bottom: 3px;
+    text-align: left;
+    text-decoration: underline;
+    white-space: unset;
+}
+
+.barGraph {
+  flex-grow: 1;
+  margin: 0 10px;
+  background-color: #ebedee;
+  box-sizing: border-box;
+  height: .5em;
+}
+
+.barFill {
+  height: .5em;
+  background-color: #2ada71;
+}
+
+.bar {width: 0%; height: 7px; padding-left: 10px; background-color: rgb(66, 63, 63);}
+
+/* Characteristics Breakdown Graph */
+
+/* .comparisonBarWrapper {
+  position: relative;
+  display: block;
+} */
+
+.characteristicsContainer {
+  margin-top: 15px;
+}
+
+.comparisonBarWrapper {
+  display: grid;
+}
+
+.comparisonBarWrapper, .comparisonTriangle {
+  grid-area: 1 / 1;
+  /* padding-bottom: 20px; */
+}
+
+.comparisonBarTitle {
+  font-size: 1em;
+  font-weight: bolder;
+  padding-bottom: 7px;
+  margin-top: 5px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 7.5px 0 7.5px;
+  border-color: #2ada71 transparent transparent transparent;
+  z-index: 10;
+}
+
+.comparisonBarLabels {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0px;
+  font-size: .5em;
+}
+
+.comparisonBarLine {
+  background-color: #ebedee;
+  height: 5px;
+  overflow: visible;
+  position: relative;
+}
+
+.comparisonTriangle {
+  margin-top: -3px;
+  position: absolute;
+  left: 50%;
+}
+
 .reviewListEntry {
   padding-top: 10px;
   border-bottom: 1px solid black;
@@ -66,6 +163,7 @@
 .nameDate {
   font-size: .4em;
   color: rgb(177, 180, 180);
+  margin-right: 3px;
 }
 
 .helpfulRow {
@@ -173,7 +271,7 @@ textarea {
   justify-content: space-between;
 }
 
-/* Characteristics */
+/* New Review Characteristics */
 
 .radioGroup {
   display: flex;
