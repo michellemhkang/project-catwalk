@@ -511,3 +511,32 @@
 }
 
 /* #2ada71 */
+
+@media only screen and (max-width: 768px) {
+  .reviewsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1em;
+    grid-row-gap: 1em;
+  }
+  .modal {
+    display: none;
+  }
+  .modalContent {
+    display: none
+  }
+  .mobileAddReview {
+    display: flex;
+    flex-direction: column;
+  }
+  .radioRow {
+    flex-flow: column;
+  }
+  .submitReviewButton {
+    display: block;
+    width: auto;
+  }
+  .radioCatTitle {
+    text-align: center;
+  }
+}
