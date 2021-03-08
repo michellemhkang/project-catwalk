@@ -499,16 +499,6 @@
     padding: 1em;
     grid-row-gap: 1em;
   }
-  .modal {
-    display: none;
-  }
-  .modalContent {
-    display: none
-  }
-  .mobileAddReview {
-    display: flex;
-    flex-direction: column;
-  }
   .radioRow {
     flex-flow: column;
   }
