@@ -1,7 +1,7 @@
 .reviewsContainer {
   /* font-family: arial; */
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-size: .7em;
+  font-size: 1em;
   color: black;
   display: flex;
   flex-direction: column;
@@ -54,8 +54,9 @@
 }
 
 .reviewCounter {
-  margin-top: 25px;
-  margin-right: 3px;
+  margin-top: 1.8em;
+  margin-right: 0.4em;
+  margin-bottom: 1.9em;
 }
 
 .sortText {
@@ -113,26 +114,33 @@
   color: #000;
   text-align: left;
   text-decoration: underline;
+  margin-bottom: 1em;
 }
 
 .barGraph {
   flex-grow: 1;
-  margin-left: 10px;
+  margin: 0em 0em 1em .8em;
   background-color: #ebedee;
   box-sizing: border-box;
-  height: .5em;
+  height: .4em;
 }
 
 .barFill {
-  height: .5em;
+  height: .4em;
   background-color: #f25c54;
 }
 
-.bar {width: 0%; height: 7px; padding-left: 10px; background-color: rgb(66, 63, 63);}
+.bar {
+  width: 0%;
+  height: 1em;
+  padding-left: 10px;
+  background-color:
+  rgb(66, 63, 63);
+}
 
 
 .characteristicsContainer {
-  margin-top: 15px;
+  margin-top: .8em;
 }
 
 .comparisonBarWrapper {
@@ -146,7 +154,7 @@
 
 .comparisonBarTitle {
   font-size: 1em;
-  font-weight: bolder;
+  font-weight: bold;
   padding-bottom: 7px;
   margin-top: 5px;
 }
@@ -155,7 +163,7 @@
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 15px 7.5px 0 7.5px;
+  border-width: 20px 10px 0 10px;
   border-color: #f25c54 transparent transparent transparent;
   z-index: 10;
 }
@@ -164,24 +172,24 @@
   display: flex;
   justify-content: space-between;
   padding: 5px 0px;
-  font-size: .5em;
+  font-size: .9em;
 }
 
 .comparisonBarLine {
   background-color: #ebedee;
-  height: 5px;
+  height: .4em;
   overflow: visible;
   position: relative;
 }
 
 .comparisonTriangle {
-  margin-top: -3px;
+  margin-top: -.5em;
   position: absolute;
   left: 50%;
 }
 
 .reviewListEntry {
-  font-size: .5em;
+  font-size: 1em;
   padding-top: 10px;
   border-bottom: 1px solid black;
 }
@@ -197,7 +205,7 @@
 }
 
 .nameDate {
-  font-size: .4em;
+  font-size: .8em;
   color: rgb(177, 180, 180);
   /* color: #f25c54; */
   margin-right: 3px;
@@ -233,7 +241,7 @@
 }
 
 .button {
-  padding: 1em 2em 1em 2em;
+  padding: 1.5em 2em;
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
@@ -254,15 +262,23 @@
   /* background-color: hsl(210, 16%, 90%); */
   background-color: white;
   color: black;
-  padding: 10px;
+  padding: .5em;
+  /* height: 100%;
+  width: 100% */
 }
 
 .newReviewTitle {
-  margin: 0px;
+  margin: 1em 0em 0em 0em;
   text-align: center;
   font-weight: lighter;
   font-size: 1.5em;
   width: 100%;
+}
+
+.newReviewSubtitle {
+  font-size: .9em;
+  color: darkgray;
+  margin: 0;
 }
 
 .titleRow {
@@ -276,7 +292,7 @@
 }
 
 .smallText {
-  font-size: .5em;
+  font-size: .8em;
 }
 
 /* .alignedRow {
@@ -297,7 +313,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 5px;
+  margin-left: .5em;
   font-size: 1.2em;
 }
 
@@ -318,13 +334,13 @@
 .reviewLabelCol {
   width: 33%;
   text-align: left;
-  margin: 10px 0px;
+  margin: 1em 0em;
 }
 
 .reviewInputCol {
   width: 66%;
   text-align: right;
-  margin: 10px 0px;
+  margin: 1em 0em;
 }
 
 .reviewInputCol > input[type="email"], input[type="text"], textarea {
@@ -341,7 +357,7 @@
 
 .textInput input[type="text"], input[type="email"], textarea {
   font-weight: lighter;
-  font-size: .8em;
+  font-size: .9em;
   resize: none;
   padding: 5px;
   box-sizing: border-box;
@@ -351,8 +367,7 @@
 }
 
 .textInput textarea:focus, input[type="email"]:focus, input[type=text]:focus {
-  outline: none;
-  border: 1px solid #9BB7D4;
+  outline: 1px solid #f25c54;
 }
 
 .textInput ::placeholder {
@@ -378,17 +393,17 @@
   font-size: 1em;
   font-weight: bolder;
   margin: 0px;
-  margin-top: 10px;
+  margin-top: 1em;
 }
 
 .radioRow {
   display: flex;
   flex-direction: row;
-  font-size: .5em;
+  font-size: .8em;
   justify-content: left;
   align-items: center;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  margin-bottom: 1em;
+  margin-top: .6em;
   flex-shrink: inherit;
 }
 
@@ -404,7 +419,7 @@
 } */
 
 .radioCatTitle {
-  font-size: 2em;
+  font-size: 1em;
   margin: 0px 0px 0px 3px;
   padding-right: 10px;
   width: 5em;
@@ -414,7 +429,7 @@
 .radioPair {
   display: inline-block;
   text-align: center;
-  width: 18em;
+  width: 12em;
 }
 
 .radioPair label {
@@ -427,7 +442,7 @@
 
 .radioPair label {
   display: block;
-  font-size: 8px;
+  font-size: .95em;
 }
 
 .radioPair input[type="radio"]:checked+label, .recText input[type="radio"]:checked+label {
@@ -437,11 +452,12 @@
 .buttonRow {
   text-align: right;
   padding-top: 10px;
+  font-size: 1em;
 }
 
 .submitReviewButton {
   width: 25%;
-  padding: 10px;
+  padding: 1em 1.5em;
 }
 
 /* Modal */
@@ -458,35 +474,27 @@
 }
 
 .modalContent {
-  /* position: relative;
-  background-color: transparent;
-  margin: 0 auto;
-  width: auto;
-  height: 60%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-
-  position: absolute;
+  /* padding: 1.5em; */
+  background-color: white;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
-  box-shadow: 0 10px 25px rgba(0,0,0,.5)!important
+  /* width: 50%; */
+  width: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,.5)!important;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2em;
 }
 
-/* .modalActions {
-  width: 100%;
-  background-color: red;
-} */
-
 .modalCloseButton {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   border-style: none;
   background-color: transparent;
+  padding: .6em;
 }
 
 .modalCloseButton:hover {
