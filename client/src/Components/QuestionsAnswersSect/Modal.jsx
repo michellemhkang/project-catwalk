@@ -19,7 +19,7 @@ class Modal extends React.Component {
     <div className ={styles.imageDiv} >
       <div className ={styles.imageModal}>
       <button onClick={(event)=>{this.props.selectModal() }} className={styles.Mbutton} > ✖ </button>
-      <div className={styles.container}><img className={styles.imageM} src={this.props.url} /></div>
+      <div className={styles.borderDiv}><div className={styles.container}><img className={styles.imageM} src={this.props.url} /></div></div>
       </div>
       </div>
       </>

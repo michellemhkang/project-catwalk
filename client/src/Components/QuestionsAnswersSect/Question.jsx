@@ -11,7 +11,8 @@ class Question extends React.Component{
     Answers: [],
     question_helpfulness: 0,
     pushed: false,
-    add: false
+    add: false,
+    scroll: false
 
     }
     this.addAns= this.addAns.bind(this)
@@ -21,6 +22,56 @@ class Question extends React.Component{
     this.renderless = this.renderless.bind(this)
     this.renderload = this.renderload.bind(this)
     this.AddAanswerToQuestion = this.AddAanswerToQuestion.bind(this)
+    this.LoadAnswersScroll = this.LoadAnswersScroll.bind(this)
+    this.LoadAnswers = this.LoadAnswers.bind(this)
+    this.createAnswer = this.createAnswer.bind(this)
+  }
+  LoadAnswers(){
+    return(
+      <div className={styles.AnswersDiv}>
+            <h3 className = {styles.a}>Answers:</h3>
+
+            { this.state.Answers.map((answers,i) =>{
+              if(answers !== undefined){
+                return <Answers answers={answers} key ={i}/>
+              }
+            })}
+
+            </div>
+    )
+
+  }
+  LoadAnswersScroll(){
+    return(
+      <div className={styles.AnswersDivScroll}>
+            <h3 className = {styles.a}>Answers:</h3>
+
+            { this.state.Answers.map((answers,i) =>{
+              if(answers !== undefined){
+                return <><Answers answers={answers} key ={i}/></>
+              }
+            })}
+
+            </div>
+    )
+  }
+  createAnswer(Abody,arrayOfphotos,email,username){
+    var today = new Date();
+    var today = today.toISOString();
+    console.log(arrayOfphotos)
+  var obj = {
+      body: Abody,
+      date: today,
+      answerer_name: username,
+      helpfulness: 0,
+      photos: arrayOfphotos
+}
+
+  this.setState({
+    AnswersDB:[...this.state.AnswersDB, obj]
+
+  })
+
   }
 
   AddAanswerToQuestion(){
@@ -39,7 +90,7 @@ class Question extends React.Component{
 
   renderless(){
     return(
-      <button className={styles.less} onClick={(event) => {this.less()}}>less</button>
+      <button className={styles.less} onClick={(event) => {this.less()}}>Hide Answers</button>
 
     )
 
@@ -49,7 +100,8 @@ class Question extends React.Component{
     array.push(this.state.AnswersDB[0])
     array.push(this.state.AnswersDB[1])
     this.setState({
-      Answers: array
+      Answers: array,
+      scroll: false
     })
 
   }
@@ -70,18 +122,10 @@ class Question extends React.Component{
   }
 
   addAns(){
-    var array = [];
-    var currentLength = this.state.Answers.length;
-
-    while(currentLength < this.state.Answers.length + 2){
-      if(this.state.AnswersDB[currentLength] !== undefined){
-        array.push(this.state.AnswersDB[currentLength])
-      }
-      currentLength++;
-    }
 
     this.setState({
-      Answers: [...this.state.Answers, ...array]
+      Answers: this.state.AnswersDB,
+      scroll: true
     })
 
   }
@@ -120,7 +164,7 @@ this.setState({
 
 
   render(){
-
+    console.log(this.state.AnswersDB)
         return(
           <>
           <li className={styles.Qlist}>
@@ -133,18 +177,12 @@ this.setState({
             <button className={styles.buttonQ} onClick={this.Yes}> Yes </button>
             <p className={styles.help}> ({this.state.question_helpfulness}) </p>
             </div>
-            <div className={styles.AnswersDiv}>
-            {this.state.Answers.map((answers,i) =>{
-              if(answers !== undefined){
-                return <Answers answers={answers} key ={i}/>
-              }
-            })}
-            </div>
+            {this.state.scroll? this.LoadAnswersScroll() : this.LoadAnswers()}
             <br></br>
             <div className={styles.questbuttons}>
             { this.state.AnswersDB.length > 2 && this.state.AnswersDB.length !== this.state.Answers.length ? this.renderload(): <><button className={styles.invisible}>        </button></>}
             <button className={styles.addAnswerBtn} onClick={(event)=>{this.AddAanswerToQuestion()}}>Add Answers</button>
-            <AddAanswer add = {this.state.add} addAans={this.AddAanswerToQuestion}/>
+            <AddAanswer add = {this.state.add} addAans={this.AddAanswerToQuestion} quest={this.props.quest.question_body} createAnswer = {this.createAnswer}/>
              { this.state.Answers.length > 2  ? this.renderless(): null}
              </div>
             </li>

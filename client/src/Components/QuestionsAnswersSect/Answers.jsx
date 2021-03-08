@@ -60,11 +60,10 @@ formatDate(isoDate){
 
     return (
       <>
+      <br></br>
+      <div className={styles.backgroundA}>
       <div>
         <div>
-        <hr/>
-      <h3 className = {styles.a}>Answer:</h3>
-
       </div>
       <p className={styles.answer}>{this.props.answers.body}</p>
       </div>
@@ -79,6 +78,7 @@ formatDate(isoDate){
       <button className={styles.buttonQ} onClick={this.Yes}> Yes </button> <p className={styles.helpNum}>({this.state.helpfulness})</p>
       <br></br>
       <br></br>
+      </div>
       </>
     )
   }

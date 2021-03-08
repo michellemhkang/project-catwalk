@@ -21,9 +21,26 @@ class QuestionsAnswersSect extends React.Component {
     this.rerender = this.rerender.bind(this);
     this.AddQuestion = this.AddQuestion.bind(this);
     this.SubmitQuestion = this.SubmitQuestion.bind(this)
+    this.less = this.less.bind(this)
+    this.lessQuestions = this.lessQuestions.bind(this)
   }
 
-  SubmitQuestion(question){
+  lessQuestions(){
+    var array = [];
+      array.push(this.state.QnADB[0])
+      array.push(this.state.QnADB[1])
+      this.setState({
+        QnAlist: array
+      })
+  }
+
+  less(){
+    return(
+    <button className={styles.lessQ} onClick={(event) => {this.lessQuestions()}}>Colapse questions</button>
+    )
+  }
+
+  SubmitQuestion(question, email, username){
     var today = new Date();
     var today = today.toISOString();
     var id = this.state.questId + 1
@@ -31,8 +48,8 @@ class QuestionsAnswersSect extends React.Component {
       question_id: id,
             question_body: question,
             question_date: today,
-            asker_name: "Ransom.Thiel83",
-            question_helpfulness: 30,
+            asker_name: username,
+            question_helpfulness: 0,
             reported: false,
             answers: {}
     }
@@ -59,7 +76,6 @@ class QuestionsAnswersSect extends React.Component {
       id: this.state.id
     }}).then(response => {
       var array = [];
-
       array.push(response.data.results[0]);
       array.push(response.data.results[1]);
       this.setState({
@@ -125,6 +141,9 @@ class QuestionsAnswersSect extends React.Component {
     this.setState({
       Filter: event.target.value
     })
+  if(event.target.value.length > 2 || event.target.value === ''){
+    this.SearchQnA()
+  }
 
   }
 
@@ -147,6 +166,7 @@ class QuestionsAnswersSect extends React.Component {
       <AddQustion Add={this.state.Add} AddQuestion={this.AddQuestion} SubmitQuestion ={this.SubmitQuestion}/>
       <button onClick={this.MoreQuestions} className={styles.MoreQue}>MORE ANSWERED QUESTIONS</button>
       <button onClick={(event)=>{this.AddQuestion()}} className={styles.Addque}>ADD A QUESTION</button>
+      {this.state.QnAlist.length > 2 ? this.less() : null}
       </div>
       <br></br>
       </>
