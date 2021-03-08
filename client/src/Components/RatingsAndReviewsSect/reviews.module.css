@@ -259,12 +259,9 @@
 /* NEW REVIEW STYLES */
 
 .newReview {
-  /* background-color: hsl(210, 16%, 90%); */
   background-color: white;
   color: black;
   padding: .5em;
-  /* height: 100%;
-  width: 100% */
 }
 
 .newReviewTitle {
@@ -295,12 +292,6 @@
   font-size: .8em;
 }
 
-/* .alignedRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-} */
-
 .center {
   align-items: center
 }
@@ -316,14 +307,6 @@
   margin-left: .5em;
   font-size: 1.2em;
 }
-
-/* .reviewInput {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: left;
-  margin-bottom: 10px;
-} */
 
 .reviewInput {
   display: flex;
@@ -406,17 +389,6 @@
   margin-top: .6em;
   flex-shrink: inherit;
 }
-
-/* .radioRow input[type=radio] {
-  display: block;
-  margin: 0 auto;
-  padding-right: 30px;
-}
-
-.radioRow label {
-  display: inline-block;
-  padding-right: 30px;
-} */
 
 .radioCatTitle {
   font-size: 1em;
