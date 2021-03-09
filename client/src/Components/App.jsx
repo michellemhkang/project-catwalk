@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 14931,
+      id: 14807,
       avgRating: 0,
       productInfo: {},
       styleInfo: []
@@ -28,16 +28,16 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-  this.setState({id: 14931})
+  this.setState({id: 14807})
   }
 
   render() {
     return (
       <div>
-        {/* <OverviewSect id={this.state.id} /> */}
+        <OverviewSect id={this.state.id} />
         <RelatedProductsSect id={this.state.id} changePage={this.changePage} avgRating={this.state.avgRating}/>
-        {/* <QuestionsAnswersSect id={this.state.id} /> */}
-        {/* <RatingsAndReviewsSect id={this.state.id} getAverageRating={this.getAverageRating} /> */}
+        <QuestionsAnswersSect id={this.state.id} />
+        <RatingsAndReviewsSect id={this.state.id} getAverageRating={this.getAverageRating} />
       </div>
     );
   }

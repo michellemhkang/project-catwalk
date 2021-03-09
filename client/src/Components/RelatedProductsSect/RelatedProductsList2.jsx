@@ -11,25 +11,25 @@ class RelatedProductsList2 extends React.Component {
     };
   }
 
-  componentDidUpdate() {
-    this.state.done++;
-    if(this.state.done < 3) {
-      var photoArr = [];
-      this.props.RelatedProductsList.forEach((item) => {
-        axios.get('/RelatedProducts/img', {params : {itemid: item}})
-        .then((res) => {
-          console.log(res.data)
-          // for (let i = 0; i < res.data.results.length; i++) {
-            photoArr.push(res.data.results[0].photos[0].url)
-          // }
-          if(photoArr.length === 3 ) {
-            this.setState({img: photoArr})
-          }
-        })
-      })
+  // componentDidUpdate() {
+  //   this.state.done++;
+  //   if(this.state.done < 3) {
+  //     var photoArr = [];
+  //     this.props.RelatedProductsList.forEach((item) => {
+  //       axios.get('/RelatedProducts/img', {params : {itemid: item}})
+  //       .then((res) => {
+  //         console.log(res.data)
+  //         // for (let i = 0; i < res.data.results.length; i++) {
+  //           photoArr.push(res.data.results[0].photos[0].url)
+  //         // }
+  //         if(photoArr.length === 3 ) {
+  //           this.setState({img: photoArr})
+  //         }
+  //       })
+  //     })
 
-    }
-  }
+  //   }
+  // }
 
 
 

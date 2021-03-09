@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from './RelatedProductsSect.module.css';
+import threetest from './threetest.module.css';
 
 
 class YourOutfitAddCard extends React.Component {
@@ -16,8 +16,11 @@ class YourOutfitAddCard extends React.Component {
 
   render() {
     return(
-      <li className={Styles.CardEntry} onClick={this.clickHandler}>
-        <div>Add to list</div>
+      <li className={threetest.carouselslide} onClick={this.clickHandler}>
+        <div className={threetest.entrycard}>
+          <div className={threetest.entrycategory}>Add to List</div>
+          <i class={["fas fa-plus fa-3x", threetest.addicon].join(' ')}></i>
+          </div>
       </li>
     )
   }

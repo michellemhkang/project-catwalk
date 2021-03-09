@@ -1,0 +1,210 @@
+
+
+.entrycard {
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+  background-color:lightgray;
+  text-decoration: none;
+  text-decoration-color: black;
+  /* background: pink; */
+  /* margin-left: 70px; */
+}
+
+.entrycard:hover {
+  cursor: pointer;
+  background-color: lightslategrey;
+}
+
+.carouselslide {
+  display:flex;
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  left:  0;
+  align-items: center;
+  /* transition: 1s ease-in; */
+  /* overflow:hidden; */
+}
+
+
+.listslider {
+  /* border: 1px solid black; */
+  height: 350px;
+  width: 600px;
+  /* background: green; */
+  padding: 0px;
+  list-style:none;
+  margin: 0px;
+  position: relative;
+  transition: 1s ease-in;
+  display: flex;
+  align-items:center;
+  /* overflow:hidden; */
+  /* right: 100px; */
+}
+
+.carouselholder {
+  /* background: blue; */
+  display: flex;
+  height: 100%;
+  /* position: relative; */
+  width: 80%;
+  /* padding: 10%; */
+  margin: 0px auto;
+  overflow:hidden;
+  /* justify-content: center; */
+  /* order:4; */
+}
+
+.leftbutton {
+  /* display:flex; */
+  float:left;
+  left: 50px;
+  max-width: 25px;
+  width:50px;
+  /* margin-right: 1000px; */
+  position: relative;
+  top:200px;
+  transform: translateY(-50%);
+  /* background: transparent; */
+  /* border: 0; */
+  /* left: -20px; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+}
+
+.leftbutton:hover {
+  color:plum;
+}
+
+.rightbutton{
+  /* display: flex; */
+  max-width: 25px;
+  width: 50px;
+  float:right;
+  right: 50px;
+  margin: 0px ;
+  position: relative;
+  bottom: 190px;
+  transform: translateY(-50%);
+  /* height: 100px; */
+  /* left: 1150px; */
+ /* background: transparent; */
+ /* border: 0; */
+ /* right: -20px;
+ order:3; */
+  /* justify-content: flex-end; */
+
+}
+
+.rightbutton:hover {
+  color:plum;
+}
+
+.onSale {
+  width:30%;
+  text-decoration: line-through;
+}
+
+.RelatedProductsHeader {
+  position: relative;
+  font-size: 40px;
+  left: 8%;
+  width: 85%;
+}
+
+.entrycardinfo{
+  /* background-color:lightgray; */
+  position: relative;
+  width:100%;
+  height:35%;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  /* align-content: flex-start; */
+  justify-content: space-evenly;
+  /* align-content: space-between; */
+  margin-bottom: 10px;
+}
+
+.entryimg {
+  position: relative;
+  width: 100%;
+  max-height: 50%;
+  object-fit: contain;
+  height: 50%;
+  /* background-color: lightgray; */
+}
+
+.entrycategory {
+  font-size: 18px;
+  font-weight:600;
+  position: relative;
+  /* left: 10px; */
+  display:flex;
+  justify-content: center;
+  margin:0 auto;
+  border-bottom:1px solid black;
+  margin-bottom: 10px;
+  background-color:lightblue;
+}
+
+.entryname{
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+  left: 7%;
+}
+
+.entryprice{
+  font-size: 18px;
+  position: relative;
+  left: 7%;
+  width: 30%;
+  float:left;
+}
+
+.entrysale{
+  font-size:18px;
+  position: relative;
+  width:30%;
+  left: 5%;
+  float:left;
+  color:red;
+}
+
+.entryrating{
+  position: relative;
+  left: 7%;
+}
+
+.carousel {
+  /* display: flex; */
+  /* background-color: pink; */
+  font-family: 'Open Sans',sans-serif;
+
+}
+
+/* .buttonspots {
+  background-color: green;
+  height:100%;
+  width: 100%;
+} */
+
+
+.addcard {
+  display:flex;
+  color:red;
+  justify-content: center;
+  /* align-items: center; */
+  /* height: 100%; */
+}
+
+.addicon {
+display: flex;
+color:plum;
+justify-content:center;
+align-items:center;
+height:75%;
+}

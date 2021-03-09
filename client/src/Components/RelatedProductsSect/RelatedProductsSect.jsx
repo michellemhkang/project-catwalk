@@ -1,7 +1,9 @@
 import React from 'react';
 import RelatedProductsList from './RelatedProductsList.jsx'
 import RelatedProductsList2 from './RelatedProductsList2.jsx'
+import RelatedProductsList3 from './RelatedProductsList3.jsx'
 import YourOutfitsList from './YourOutfitsList.jsx'
+import YourOutfitsList2 from './YourOutfitsList2.jsx'
 import axios from 'axios';
 
 class RelatedProductsSect extends React.Component {
@@ -18,8 +20,8 @@ class RelatedProductsSect extends React.Component {
   }
 
   addToYourOutfits() {
-    this.setState({YourOutfitsList: [...this.state.YourOutfitsList, {id: this.props.id, avgRating: this.props.avgRating}]})
-    console.log(this.state.YourOutfitsList)
+    this.setState({YourOutfitsList: [...this.state.YourOutfitsList, {id: this.props.id, rating: this.props.avgRating}]})
+    console.log('a', this.state.YourOutfitsList)
   }
 
   addToCache(obj) {
@@ -44,6 +46,7 @@ class RelatedProductsSect extends React.Component {
         this.state.previouslyCached.push(this.props.id)
         axios.get('/RelatedProducts', {params: {itemid: this.props.id}})
         .then((res) => {
+          console.log(res.data)
           this.setState({RelatedProductsList: res.data})
         })
       }
@@ -64,13 +67,17 @@ class RelatedProductsSect extends React.Component {
     //     })
     //   }
     // }
+    // {console.log('hello',this.state)}
     return(
     <div id="firstdiv">
       <h1>Related Products Section</h1>
-      <RelatedProductsList RelatedProductsList={this.state.RelatedProductsList} changePage={this.props.changePage} addToCache={this.addToCache}
-      cachedinfo={this.state.cachedinfo}/>
-      <YourOutfitsList YourOutfitsList={this.state.YourOutfitsList} addToYourOutfits={this.addToYourOutfits}/>
+      <RelatedProductsList3 RelatedProductsList={this.state.RelatedProductsList} changePage={this.props.changePage} addToCache={this.addToCache}
+     cachedinfo={this.state.cachedinfo}/>
+      <YourOutfitsList2 YourOutfitsList={this.state.YourOutfitsList} changePage={this.props.changePage} addToCache={this.addToCache}
+     cachedinfo={this.state.cachedinfo} addToYourOutfits={this.addToYourOutfits}/>
+     {/* <YourOutfitsList YourOutfitsList={this.state.YourOutfitsList} addToYourOutfits={this.addToYourOutfits}/> */}
     </div>
+    // <div>hello</div>
     )
   }
 }
