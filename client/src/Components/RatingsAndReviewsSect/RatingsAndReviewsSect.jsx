@@ -33,7 +33,6 @@ class RatingsAndReviewsSect extends React.Component {
 
     this.getReviews = this.getReviews.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
-    // this.handleAddReview = this.handleAddReview.bind(this);
     this.sendNewReview = this.sendNewReview.bind(this);
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -46,7 +45,6 @@ class RatingsAndReviewsSect extends React.Component {
       }
     })
     .then((response) => {
-      // console.log('data from server ', response.data.results)
       this.setState({
         reviewList: response.data.results,
         reviewCount: response.data.results.length
@@ -64,7 +62,6 @@ class RatingsAndReviewsSect extends React.Component {
       }
     })
     .then((response) => {
-      // console.log('metadata from server ', response.data)
       this.setState({
         characteristics: response.data.characteristics,
         recommended: response.data.recommended,
@@ -154,14 +151,12 @@ class RatingsAndReviewsSect extends React.Component {
       <div className={styles.reviewsContainer}>
         <h1 className={`${styles.row} ${styles.sectionTitle}`}>RATINGS AND REVIEWS</h1>
         <div className={styles.reviewsGrid}>
-          {/* <div className={styles.gridCol1}> */}
           <div className={styles.col}>
             <AvgRatings averageRating={this.state.averageRating}/>
             <AvgRecs recsPercentage={this.state.recsPercentage} />
             <RatingBreakdown totalRatings={this.state.totalRatings} ratings={this.state.ratings} />
             <CharacteristicsSummary characteristics={this.state.characteristics} />
           </div>
-          {/* <div className={styles.gridCol2}> */}
           <div className={styles.col}>
             <ReviewCount reviewCount={this.state.reviewCount}/>
             <List reviewList={this.state.reviewList}/>
@@ -174,7 +169,6 @@ class RatingsAndReviewsSect extends React.Component {
         <Modal show={this.state.showModal} handleClose={this.hideModal}>
           <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} handleClose={this.hideModal} />
         </Modal>
-        {/* {!this.state.addReview ? null : <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} addReview={this.state.addReview} />} */}
       </div>
     )
   }
