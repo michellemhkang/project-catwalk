@@ -2,8 +2,8 @@ import { shallow, configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 import sinon from 'sinon';
-import RatingsAndReviewsSect from '../client/src/Components/RatingsAndReviewsSect/RatingsAndReviewsSect.jsx';
-import styles from '../client/src/Components/RatingsAndReviewsSect/reviews.module.css';
+import RatingsAndReviewsSect from '../../client/src/Components/RatingsAndReviewsSect/RatingsAndReviewsSect.jsx';
+
 
 configure({ adapter: new Adapter() });
 
@@ -22,11 +22,6 @@ describe('<RatingsAndReviewsSect />', () => {
     const wrapper = shallow(<RatingsAndReviewsSect />);
     expect(RatingsAndReviewsSect.prototype.componentDidMount).toHaveProperty('callCount', 1);
   });
-
-  // it('allows us to receive props', () => {
-  //   const wrapper = shallow(<RatingsAndReviewsSect {...minProps} id="1234" />);
-  //   expect(wrapper.props().id).toBe('1234!');
-  // });
 });
 
 test("Modal open & closes onClick", () => {
@@ -37,13 +32,3 @@ test("Modal open & closes onClick", () => {
   expect(component.state().showModal).toBe(false);
 });
 
-// test('CheckboxWithLabel changes the text after click', () => {
-//   // Render a checkbox with label in the document
-//   const checkbox = shallow(<CheckboxWithLabel labelOn="On" labelOff="Off" />);
-
-//   expect(checkbox.text()).toEqual('Off');
-
-//   checkbox.find('input').simulate('change');
-
-//   expect(checkbox.text()).toEqual('On');
-// });
