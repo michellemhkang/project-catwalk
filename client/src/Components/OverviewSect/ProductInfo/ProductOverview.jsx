@@ -1,10 +1,10 @@
 import React from 'react';
 import FeatureChecklist from './FeatureChecklist.jsx';
 
-const ProductOverview = (props) => {
-
+const ProductOverview = ({slogan, description, features}) => {
+    console.log('product overview at stake');
     // console.log(props.features);
-    let featureList = props.features.map((feature, index) => {
+    let featureList = features.map((feature, index) => {
         // console.log(feature);
         // console.log(feature.feature);
         return <FeatureChecklist feature={feature.feature} key={index} />
@@ -12,8 +12,8 @@ const ProductOverview = (props) => {
 
     return (
         <div>
-            <h3>{props.productInfo.slogan}</h3>
-            <p>{props.productInfo.description}</p>
+            <h3>{slogan}</h3>
+            <p>{description}</p>
             <div>{featureList}</div>
             {/* <FeatureChecklist features={this.state.features} /> */}
         </div>

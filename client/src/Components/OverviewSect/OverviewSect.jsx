@@ -15,16 +15,21 @@ class OverviewSect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentId: this.props.id,
+      currentId: 14034,
       productInfo: {},
       productStyles: [],
-      productName: '',
-      productCategory: '',
-      productFeatures: [],
-      productDefaultPrice: null
+      // selectedStyleId: null
+      selectedStyleInfo: {},
+      // stylePhotos: [],
+      // productName: '',
+      // productCategory: '',
+      // productFeatures: [],
+      // productDefaultPrice: null
+      getRequests: 0
     };
     this.getProduct = this.getProduct.bind(this);
     this.getStyles = this.getStyles.bind(this);
+    this.setSelectedStyle = this.setSelectedStyle.bind(this);
   }
 
   getProduct(id) {
@@ -32,15 +37,16 @@ class OverviewSect extends React.Component {
       params: {product_id: id}
     })
     .then((response) => {
-      // console.log('getting product');
+      console.log('getting product');
       this.props.getProductInfo(response.data);
       // response.data should be an object
       this.setState({
-        productInfo: Object.assign(this.state.productInfo, response.data),
-        productName: response.data.name,
-        productCategory: response.data.category,
-        productFeatures: response.data.features,
-        productDefaultPrice: response.data.default_price
+        getRequests: this.state.getRequests + 1,
+        productInfo: Object.assign(this.state.productInfo, response.data)
+        // productName: response.data.name,
+        // productCategory: response.data.category,
+        // productFeatures: response.data.features,
+        // productDefaultPrice: response.data.default_price
       })
       // console.log(this.state.productInfo);
     })
@@ -59,12 +65,37 @@ class OverviewSect extends React.Component {
       // console.log(response.data.results);
       // response.data.results should be an array
       // console.log('default state productStyles', this.state.productStyles);
-      this.setState({productStyles: response.data.results});
+      this.setState({
+        getRequests: this.state.getRequests + 1,
+        productStyles: response.data.results
+      });
       // console.log('state changed productStyles', this.state.productStyles);
     })
     .catch((error) => {
       console.log(error);
     })
+  }
+
+  // could put filter fn in render, but would need a way to invoke fn that will pass selected style 
+  // info object back up to App
+  setSelectedStyle(id) {
+    // this.setState({
+    //   selectedStyleId: id
+    // })
+    // let selectedStyle;
+    if (this.state.productStyles.length !== 0) {
+      // console.log(this.state.productStyles);
+      this.state.productStyles.filter((style) => {
+        // sets the first 'selected' image to be where default property is present 
+        if (style['default?'] || style.style_id === id) {
+          this.setState({
+            selectedStyleInfo: style
+          })
+        }
+      })
+    }
+    this.props.getStyleInfo(this.state.selectedStyleInfo);
+    console.log(this.state.selectedStyleInfo);
   }
 
   componentDidMount() {
@@ -73,36 +104,80 @@ class OverviewSect extends React.Component {
     this.getStyles(this.state.currentId);
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.id !== this.props.id) {
-      this.getProduct(this.props.id);
-      this.getStyles(this.props.id);
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.id !== this.props.id) {
+  //     this.getProduct(this.props.id);
+  //     this.getStyles(this.props.id);
+  //   }
+  // }
 
   render() {
     console.log('rendered');
+    // console.log(this.state);
     // console.log(this.state.currentId);
     // this.getStyles(this.props.id);
 
-    // if (this.state.productName === '' || this.state.productCategory === '') {
-    //   this.getProduct(this.props.id);
-    //   this.getStyles(this.props.id);
+    const { currentId, productInfo, productStyles, selectedStyleInfo } = this.state;
+
+    // so renders only when there is info and we don't keep getting undefined
+    // if (Object.keys(productInfo).length === 0 || productStyles.length === 0) {
+    //   this.getProduct(14034);
+    //   this.getStyles(currentId);
+    //   console.log('hello');
+    //   console.log(productStyles);
     // }
-    
-    return (
-      <div className={styling.rowContainer}>
-        <ImageGallery styleInfo={this.state.productStyles}/>
-        <div className={styling.colContainer}> 
-          <ProductInfo name={this.state.productName} category={this.state.productCategory} />
-          <StyleSelector defaultPrice={this.state.productDefaultPrice} styles={this.state.productStyles} getSelectedStyle={this.props.getStyleInfo} />
-          <SizeSelector />
-          <QuantitySelector />
-          <AddToCart />
-          <ProductOverview productInfo={this.state.productInfo} features={this.state.productFeatures} />
+
+    // looking for a way to pass in only photos and names of the product's styles
+
+    // let onlyPhotos = [];
+    // for (let i = 0; i < this.state.productStyles.length; i++) {
+    //   let photoUrl = this.state.productStyles[i].photos[0].url
+    //   onlyPhotos.push(photoUrl);
+    // }
+
+    // const images = this.state.productStyles.map((style, index) => {
+    //   return <ImageGallery name={style.name} photos={style.photos} />
+    // })
+
+    // filter here for the selected style object, 
+    // and pass only the necessary properties to each child comp
+    // let selectedStyle;
+    // if (this.state.productStyles.length !== 0) {
+    //   this.state.productStyles.filter((style) => {
+    //     // sets the first 'selected' image to be where default property is present 
+    //     if (style['default?']) {
+    //       selectedStyle = style;
+    //     } else if (style.style_id === this.state.selectedStyleId) {
+    //       selectedStyle = style;
+    //     }
+    //   })
+    // }
+    // console.log(selectedStyle.photos);
+
+    // refactor so price goes to product info not style selector
+    // defaultPrice={this.state.productDefaultPrice} 
+
+    if (this.state.getRequests < 2) {
+      return (
+        <div>Loading</div>
+      )
+    } else {
+      return (
+        <div className={styling.rowContainer}>
+          {/* <ImageGallery photoUrls={onlyPhotos} />
+          {images} */}
+          {/* <ImageGallery photos={productInfo.photos} />  */}
+          <div className={styling.colContainer}>
+            <ProductInfo name={productInfo.name} category={productInfo.category} defaultPrice={productInfo.default_price} salePrice={selectedStyleInfo.sale_price} /> 
+            <StyleSelector styles={productStyles} setSelectedStyle={this.setSelectedStyle} />
+            <SizeSelector />
+            <QuantitySelector />
+            <AddToCart />
+            <ProductOverview slogan={productInfo.slogan} description={productInfo.description} features={productInfo.features} /> 
+          </div> 
         </div>
-      </div>
-    )
+      )
+    }
   }
 }
 

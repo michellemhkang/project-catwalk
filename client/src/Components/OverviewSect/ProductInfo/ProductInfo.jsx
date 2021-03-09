@@ -1,13 +1,22 @@
 import React from 'react';  
 import styling from './ProductInfo.module.css';
-// import Price from '../StyleSelector/Price.jsx';
+import Price from './Price.jsx';
 
-const ProductInfo = (props) => {
+const ProductInfo = ({category, name, defaultPrice, salePrice}) => {
+    console.log('product info at stake');
+    if (category !== undefined) {
+        return (
+            <div>
+                {/* DoYouSeeMe */}
+                {/* <h3>{props.category}</h3> */}
+                <h3 className={styling.category}>{category.toUpperCase()}</h3>
+                <h1 className={styling.name}>{name}</h1>
+                <Price defaultPrice={defaultPrice} salePrice={salePrice} />
+            </div>
+        )
+    }
     return (
-        <div>
-            <h3 className="category" className={styling.category}>{(props.category).toUpperCase()}</h3>
-            <h1 className="name" className={styling.name}>{props.name}</h1>
-        </div>
+        <div>Product Info Incoming</div>
     )
 }
 
