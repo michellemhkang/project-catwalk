@@ -38,11 +38,13 @@ render(){
     <>
   <div className ={styles.imageDiv}>
     <div className ={styles.qDiv}>
+      <h2 className={styles.askUrQ}>Ask Your Question</h2>
+      <p className={styles.subtext}>About the [product name]</p>
     <form onSubmit={(event)=>{ event.preventDefault(); this.props.SubmitQuestion(this.state.Question,this.state.email,this.state.username); this.props.AddQuestion();}}>
-    <button className={styles.Qbutton}> ✖ </button>
-      <input placeholder={'Question here'} value={this.state.Question} onChange={(event)=>{event.preventDefault(); this.QuestionTxt()}}></input>
-      <input value={this.state.email} placeholder={'Email'}onChange={(event)=>{event.preventDefault(); this.emailTxt()}}></input>
-      <input value={this.state.username} placeholder={'Username'}onChange={(event)=>{event.preventDefault(); this.UsernameTxt()}}></input>
+    <button className={styles.Qbutton} onClick={(event)=>{this.props.AddQuestion()}}> ✖ </button>
+      <textarea placeholder={'Question here'} value={this.state.Question} onChange={(event)=>{event.preventDefault(); this.QuestionTxt()}} className={styles.questionTextarea}></textarea>
+      <input className={styles.emailTextarea} value={this.state.email} placeholder={'Why did you like the product or not?'}onChange={(event)=>{event.preventDefault(); this.emailTxt()}}></input>
+      <input value={this.state.username} placeholder={'Example: jackson11!'}onChange={(event)=>{event.preventDefault(); this.UsernameTxt()}} maxLength={'60'}className={styles.usernameTextarea}></input>
       <button>Submit Question</button>
     </form>
     </div>

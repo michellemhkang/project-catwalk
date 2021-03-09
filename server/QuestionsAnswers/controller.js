@@ -16,6 +16,46 @@ getData: (req,res)=>{
     }
   }
   axios(options).then(response => {res.send(response.data) } )
+},
+
+helpQ: (req,res)=>{
+  let options = {
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/'+ req.body.body+'/helpful' ,
+    method: 'put',
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': key
+    }
 }
+axios(options).then(console.log('worked'))
+},
+
+helpA: (req,res)=>{
+  let options = {
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/'+ req.body.body+'/helpful' ,
+    method: 'put',
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': key
+    }
+}
+axios(options).then(console.log('worked'))
+
+},
+
+addAnswer:(req,res)=>{
+  console.log(req.body)
+  let options = {
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/'+ req.body.question_id+'/answers' ,
+    method: 'post',
+    data: req.body.obj,
+    headers: {
+      'Authorization': key
+    }
+}
+ axios(options).then((response)=>{response.data}).catch((err)=>{console.log(err)})
+
+}
+
 
 }

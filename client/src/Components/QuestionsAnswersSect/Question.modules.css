@@ -238,7 +238,7 @@ color: #494949 !important;
   display: inline;
   outline:none;
   font-size: 16px;
-
+  bottom: 250px;
  left: 84%;
  position:relative;
  left: 670px;
@@ -433,3 +433,34 @@ left: 200px;
   position: relative;
   top: 50px;
 }
+.questionTextarea{
+  position: relative;
+  max-width: 250px;
+  min-width: 250px;
+  width: 250px;
+  max-height: 250px;
+  min-height: 250px;
+  height: 250px;
+  bottom: 50px;
+}
+.emailTextarea{
+  position: relative;
+  margin: 10px;
+  bottom: 200px;
+}
+.usernameTextarea{
+  position: relative;
+  margin: 10px;
+  bottom: 200px;
+}
+.askUrQ{
+  position: relative;
+  left: 250px;
+  bottom: 40px;
+}
+.subtext{
+  position: relative;
+  bottom: 60px;
+  left: 150px;
+}
+

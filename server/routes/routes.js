@@ -20,7 +20,11 @@ projectCatwalk.get('/RelatedProducts/img', relatedProductsController.getImg)
 projectCatwalk.get('/RelatedProducts/ratings', relatedProductsController.getRating)
 
 projectCatwalk.get('/Q&A/data', questionsAnswersController.getData);
-projectCatwalk.get('/Q&A/data', questionsAnswersController.getData);
+projectCatwalk.put('/Questionhelpful', questionsAnswersController.helpQ);
+projectCatwalk.put('/Answerhelpful', questionsAnswersController.helpA)
+projectCatwalk.post('/addAnswer', questionsAnswersController.addAnswer)
+
+
 
 // this exports our middleware routing system
 module.exports.projectCatwalk = projectCatwalk;

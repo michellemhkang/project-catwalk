@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Question.modules.css'
 import Answers from './Answers.jsx'
 import AddAanswer from './AddAnswer.jsx'
+import axios from 'axios'
 
 class Question extends React.Component{
   constructor(props){
@@ -58,25 +59,21 @@ class Question extends React.Component{
   createAnswer(Abody,arrayOfphotos,email,username){
     var today = new Date();
     var today = today.toISOString();
-    console.log(arrayOfphotos)
+    console.log()
   var obj = {
       body: Abody,
-      date: today,
-      answerer_name: username,
-      helpfulness: 0,
-      photos: arrayOfphotos
+      name: username,
+      email: email,
+      photos: arrayOfphotos,
+
 }
+  axios.post('/addAnswer', {obj, question_id: this.props.quest.question_id}).then()
 
-  this.setState({
-    AnswersDB:[...this.state.AnswersDB, obj]
-
-  })
 
   }
 
   AddAanswerToQuestion(){
     var truth = !this.state.add;
-    console.log('here')
     this.setState({
       add: truth
     })
@@ -133,23 +130,19 @@ class Question extends React.Component{
 Yes(){
 
 if(!this.state.pushed ){
-var truth = !this.state.pushed
-var num = this.state.question_helpfulness + 1
-this.setState({
-  pushed: truth,
-  question_helpfulness: num
-})
+  var num = ++this.state.question_helpfulness
+  console.log(num)
+  axios.put('/Questionhelpful', {body: this.props.quest.question_id}).then( this.setState({
+    pushed: true,
+    question_helpfulness: num
+
+  }) )
+
 
 } else {
-  var truth = !this.state.pushed
-  var num = this.state.question_helpfulness - 1
-  this.setState({
-    pushed: truth,
-    question_helpfulness: num
-  })
 
+  // do nothing
 }
-
 
 }
   componentDidUpdate(prevProps, prevState){
@@ -164,7 +157,7 @@ this.setState({
 
 
   render(){
-    console.log(this.state.AnswersDB)
+
         return(
           <>
           <li className={styles.Qlist}>
@@ -177,6 +170,7 @@ this.setState({
             <button className={styles.buttonQ} onClick={this.Yes}> Yes </button>
             <p className={styles.help}> ({this.state.question_helpfulness}) </p>
             </div>
+            <hr></hr>
             {this.state.scroll? this.LoadAnswersScroll() : this.LoadAnswers()}
             <br></br>
             <div className={styles.questbuttons}>

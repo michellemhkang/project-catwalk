@@ -35,6 +35,7 @@ class AddAnswer extends React.Component {
   updateIMG(){
       var array = [];
       array.push(URL.createObjectURL(event.target.files[0]))
+      console.log(URL.createObjectURL(event.target.files[0]))
     this.setState({
       img: array
     })

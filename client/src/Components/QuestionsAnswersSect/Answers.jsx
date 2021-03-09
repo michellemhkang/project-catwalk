@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Question.modules.css'
 import Pictures from './Pictures.jsx'
+import axios from 'axios'
 
 class Answers extends React.Component{
   constructor(props){
@@ -39,25 +40,18 @@ formatDate(isoDate){
 
   Yes(){
     if(!this.state.pushed ){
-      var truth = !this.state.pushed
-      var num = this.state.helpfulness + 1
-      this.setState({
-        pushed: truth,
-        helpfulness: num
-      })
+      var num = ++this.state.helpfulness
+      axios.put('/Answerhelpful', {body: this.props.answers.id}).then(this.setState({
+        helpfulness: num,
+        pushed: true
+      }))
     } else {
-      var truth = !this.state.pushed
-      var num = this.state.helpfulness - 1
-      this.setState({
-        pushed: truth,
-        helpfulness: num
-      })
+
     }
   }
 
 
   render(){
-
     return (
       <>
       <br></br>
