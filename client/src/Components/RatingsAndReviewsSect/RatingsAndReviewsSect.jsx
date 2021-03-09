@@ -27,7 +27,7 @@ class RatingsAndReviewsSect extends React.Component {
       characteristics: {},
       ratings: {},
       recommended: {},
-      ratingsCount: 0,
+      totalRatings: 0,
       showModal: false,
     };
 
@@ -107,12 +107,6 @@ class RatingsAndReviewsSect extends React.Component {
     this.setState({recsPercentage: percentageRec});
     return percentageRec;
   }
-
-  // handleAddReview() {
-  //   this.setState({
-  //     showModal: true
-  //   })
-  // }
 
   calculateAvgAndPercent() {
     this.calculateAverageRating();

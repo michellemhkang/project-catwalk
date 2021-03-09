@@ -102,7 +102,6 @@ class WriteYourReview extends React.Component {
           </div>
         </div>
         </div>
-        {/* <div className={`${styles.row} ${styles.center} ${styles.inlineForm} ${styles.textInput}`}> */}
         <div className={`${styles.reviewInput} ${styles.textInput}`}>
           <div className={styles.reviewLabelCol}>Nickname:</div>
           <div className={styles.reviewInputCol}>
