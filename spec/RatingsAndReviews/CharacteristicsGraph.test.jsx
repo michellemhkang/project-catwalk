@@ -8,16 +8,17 @@ configure({ adapter: new Adapter() });
 
 describe('<CharacteristicsGraph />', () => {
   let characteristics = {Comfort: {id: 50015, value: "2.5283018867924528"}}
+  const wrapper = shallow(<CharacteristicGraph key={characteristics.Comfort.id} name={Object.keys(characteristics)[0]} value={characteristics.Comfort.value}/>);
+  const labels = ['Uncomfortable', 'Ok', 'Perfect']
+  const l = wrapper.find('.comparisonBarLabels');
 
   it('renders a child characteristics graph component', () => {
-    const wrapper = shallow(<CharacteristicGraph key={characteristics.Comfort.id} name={Object.keys(characteristics)[0]} value={characteristics.Comfort.value}/>);
-
-    const label = wrapper.find('.comparisonBarLabels');
-
     expect(wrapper.find(`.comparisonBarTitle`)).toBeDefined();
     expect(wrapper.find(`.comparisonBarLine`)).toBeDefined();
     expect(wrapper.find(`.comparisonTriangle`)).toBeDefined();
+  });
 
-    // expect(label.text()).toEqual(expect.stringContaining(Object.keys(characteristics)[0]));
+  it('displays the appropriate labels for the characteristic', () => {
+    expect(l.at(0).text()).toEqual(expect.stringContaining(labels[0]));
   });
 });
