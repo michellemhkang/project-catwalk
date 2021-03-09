@@ -1,9 +1,9 @@
 import React from 'react';
 import styling from './Image.module.css';
 
-const Image = () => {
+const Image = ({url}) => {
     return (
-        <img className="image-slide" className={styling.image} src={props.url}></img>
+        <img className="image-slide" className={styling.image} src={url}></img>
     )
 }
 

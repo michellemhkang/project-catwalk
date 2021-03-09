@@ -3,10 +3,10 @@ import Arrow from './Arrow.jsx';
 import Image from './Image.jsx';
 
 class ImageGallery extends React.Component {
-    constructor({photos}) {
+    constructor(props) {
         super(props)
         this.state = {
-            currentImage: photos[0].url
+            currentImageIndex: 0
         }
         this.previousSlide = this.previousSlide.bind(this);
         this.nextSlide = this.nextSlide.bind(this);
@@ -14,23 +14,23 @@ class ImageGallery extends React.Component {
 
     previousSlide() {
         const lastIndex = this.props.photos.length - 1;
-        const { currentImage } = this.state;
-        const shouldResetIndex = currentImage === 0;
-        const index = shouldResetIndex ? lastIndex : currentImage - 1; 
+        const { currentImageIndex } = this.state;
+        const shouldResetIndex = currentImageIndex === 0;
+        const index = shouldResetIndex ? lastIndex : currentImageIndex - 1; 
 
         this.setState({
-            currentImage: index
+            currentImageIndex: index
         })
     }
 
     nextSlide() {
         const lastIndex = this.props.photos.length - 1;
-        const { currentImage } = this.state;
-        const shouldResetIndex = currentImage === lastIndex;
-        const index = shouldResetIndex ? 0 : currentImage + 1; 
+        const { currentImageIndex } = this.state;
+        const shouldResetIndex = currentImageIndex === lastIndex;
+        const index = shouldResetIndex ? 0 : currentImageIndex + 1; 
 
         this.setState({
-            currentImage: index
+            currentImageIndex: index
         })  
     }
 
@@ -43,21 +43,22 @@ class ImageGallery extends React.Component {
         //     return <Image names={style.names} key={index} />
         // })
 
-        const { currentImage } = this.state
+        const { currentImageIndex } = this.state
+        const { name, photos } = this.props
 
         return (
             <div className="carousel">
                 <Arrow
                 direction="left"
-                handleClick={this.previousSlide}
-                style={this.props.name} />
+                clickFunction={this.previousSlide}
+                style={name} />
 
-                <Image url={this.state.currentImage} />
+                <Image url={photos[currentImageIndex].url} />
 
                 <Arrow
                 direction="right"
-                handleClick={this.nextSlide}
-                style={this.props.name} />
+                clickFunction={this.nextSlide}
+                style={name} />
             </div>
         )
     }

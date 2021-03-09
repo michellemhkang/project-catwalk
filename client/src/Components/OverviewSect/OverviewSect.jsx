@@ -18,14 +18,14 @@ class OverviewSect extends React.Component {
       currentId: 14034,
       productInfo: {},
       productStyles: [],
-      // selectedStyleId: null
       selectedStyleInfo: {},
+      getRequests: 0
+      // selectedStyleId: null
       // stylePhotos: [],
       // productName: '',
       // productCategory: '',
       // productFeatures: [],
       // productDefaultPrice: null
-      getRequests: 0
     };
     this.getProduct = this.getProduct.bind(this);
     this.getStyles = this.getStyles.bind(this);
@@ -37,7 +37,7 @@ class OverviewSect extends React.Component {
       params: {product_id: id}
     })
     .then((response) => {
-      console.log('getting product');
+      // console.log('getting product');
       this.props.getProductInfo(response.data);
       // response.data should be an object
       this.setState({
@@ -67,7 +67,10 @@ class OverviewSect extends React.Component {
       // console.log('default state productStyles', this.state.productStyles);
       this.setState({
         getRequests: this.state.getRequests + 1,
-        productStyles: response.data.results
+        productStyles: response.data.results,
+        // when get styles but no style is selected by the user's click,
+        // the selected style should be the first one 
+        selectedStyleInfo: response.data.results[0]
       });
       // console.log('state changed productStyles', this.state.productStyles);
     })
@@ -157,27 +160,34 @@ class OverviewSect extends React.Component {
     // refactor so price goes to product info not style selector
     // defaultPrice={this.state.productDefaultPrice} 
 
+    // DEBUGGING 101
+    // 1. Come up with a theory of what's wrong
+    // 2. Collect more evidence?
+    // 3. Come up with a fix for that theory (fix one thing at a time)
+    // 4. Test fix
+    // 5. If fixed, verify logic behind the fix
+    // 6. Else - go to step 1
+
     if (this.state.getRequests < 2) {
       return (
         <div>Loading</div>
       )
-    } else {
-      return (
-        <div className={styling.rowContainer}>
-          {/* <ImageGallery photoUrls={onlyPhotos} />
-          {images} */}
-          {/* <ImageGallery photos={productInfo.photos} />  */}
-          <div className={styling.colContainer}>
-            <ProductInfo name={productInfo.name} category={productInfo.category} defaultPrice={productInfo.default_price} salePrice={selectedStyleInfo.sale_price} /> 
-            <StyleSelector styles={productStyles} setSelectedStyle={this.setSelectedStyle} />
-            <SizeSelector />
-            <QuantitySelector />
-            <AddToCart />
-            <ProductOverview slogan={productInfo.slogan} description={productInfo.description} features={productInfo.features} /> 
-          </div> 
-        </div>
-      )
-    }
+    } 
+    return (
+      <div className={styling.rowContainer}>
+        {/* <ImageGallery photoUrls={onlyPhotos} />
+        {images} */}
+        <ImageGallery name={selectedStyleInfo.name} photos={selectedStyleInfo.photos} /> 
+        <div className={styling.colContainer}>
+          <ProductInfo name={productInfo.name} category={productInfo.category} defaultPrice={productInfo.default_price} salePrice={selectedStyleInfo.sale_price} /> 
+          <StyleSelector styles={productStyles} setSelectedStyle={this.setSelectedStyle} />
+          <SizeSelector />
+          <QuantitySelector />
+          <AddToCart />
+          <ProductOverview slogan={productInfo.slogan} description={productInfo.description} features={productInfo.features} /> 
+        </div> 
+      </div>
+    )
   }
 }
 
