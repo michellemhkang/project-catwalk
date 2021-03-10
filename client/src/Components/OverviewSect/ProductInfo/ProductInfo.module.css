@@ -4,3 +4,9 @@
 .name {
     display: flex;
 }
+.strikethrough {
+    text-decoration: line-through;
+}
+.salePrice {
+    color: red
+}

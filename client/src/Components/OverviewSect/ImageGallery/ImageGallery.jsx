@@ -1,18 +1,98 @@
 import React from 'react';
+import Arrow from './Arrow.jsx';
+import Image from './Image.jsx';
 
 class ImageGallery extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentImage: this.props.productInfo[0].photos[0].url
+            currentImageIndex: 0
         }
+        this.previousSlide = this.previousSlide.bind(this);
+        this.nextSlide = this.nextSlide.bind(this);
     }
+
+    previousSlide() {
+        const lastIndex = this.props.photos.length - 1;
+        const { currentImageIndex } = this.state;
+        const shouldResetIndex = currentImageIndex === 0;
+        const index = shouldResetIndex ? lastIndex : currentImageIndex - 1; 
+
+        this.setState({
+            currentImageIndex: index
+        })
+    }
+
+    nextSlide() {
+        const lastIndex = this.props.photos.length - 1;
+        const { currentImageIndex } = this.state;
+        const shouldResetIndex = currentImageIndex === lastIndex;
+        const index = shouldResetIndex ? 0 : currentImageIndex + 1; 
+
+        this.setState({
+            currentImageIndex: index
+        })  
+    }
+
     render() {
+        // const images = this.props.styleInfo.map((style, index) => {
+        //     return <Image photos={style.photos} key={index} />
+        // })
+
+        // const names = this.props.styleInfo.map((style, index) => {
+        //     return <Image names={style.names} key={index} />
+        // })
+
+        const { currentImageIndex } = this.state
+        const { name, photos } = this.props
+
         return (
-            <div>
-                <img src={this.state.currentImage}></img>
+            <div className="carousel">
+                <Arrow
+                direction="left"
+                clickFunction={this.previousSlide}
+                style={name} />
+
+                <Image url={photos[currentImageIndex].url} />
+
+                <Arrow
+                direction="right"
+                clickFunction={this.nextSlide}
+                style={name} />
             </div>
         )
     }
 }
+
 export default ImageGallery;
+
+// const ImageGallery = ({styleInfo}) => {
+//     return (
+//         styleInfo.map((style, key) => {
+//             return <Image style={style} key={key} />
+//         })
+//     );
+// };
+
+// export default ImageGallery;
+
+
+// class ImageGallery extends React.Component {
+//     constructor(props) {
+//         super(props)
+//         this.state = {
+//             test: 'test',
+//             currentImage: this.props.styleInfo[0].photos[0].url
+//         }
+//     }
+//     render() {
+//         return (
+//             <div>
+//                 {this.state.currentImage}
+//                 {/* <img src={this.state.currentImage}></img> */}
+//             </div>
+//         )
+//     }
+// }
+
+// export default ImageGallery;
