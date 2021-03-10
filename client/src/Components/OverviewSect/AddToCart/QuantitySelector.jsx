@@ -34,7 +34,7 @@ class QuantitySelector extends React.Component {
 
     render() {
 
-        const {skus, selectedSku} = this.props;
+        const {selectedSku} = this.props;
         const {showMenu, selectedQuantity} = this.state;
 
         // we want the quantity for whose size is equal to props selected size
@@ -62,13 +62,12 @@ class QuantitySelector extends React.Component {
         //     console.log('i here');
         // console.log(selectedSku);
 
-        if (selectedSku !== undefined) {
-            let isAtMax = selectedSku[1].quantity;
-            let maximum = isAtMax ? selectedSku[1].quantity : 15;            
-            let quantityOptions = [...Array(maximum)].map((i) => {
-                return <QuantityButton changeQuantity={this.changeQuantity} quantity={i} key={i} />
-            })
-        }
+        let isAtMax = selectedSku <= 15;
+        let maximum = isAtMax ? selectedSku : 15;            
+        let quantityOptions = [...Array(maximum)].map((quantity, i) => {
+            // console.log(i);
+            return <QuantityButton changeQuantity={this.changeQuantity} quantity={i + 1} key={i} />
+        })
 
 
         return (
@@ -76,8 +75,6 @@ class QuantitySelector extends React.Component {
                 <button onClick={this.showMenu}>
                     {selectedQuantity}
                 </button>
-
-
             {
                 showMenu
                 ? (

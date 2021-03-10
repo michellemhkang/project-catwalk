@@ -31,6 +31,7 @@ class SizeSelector extends React.Component {
 
     changeSelectedSize(size) {
         this.setState({currentlySelectedSize: size})
+        this.closeMenu();
     }
 
     render() {
@@ -77,12 +78,12 @@ class SizeSelector extends React.Component {
             return <SizeButton changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
         })
 
-        let chosenSku;
+        let selectedSku;
         if (currentlySelectedSize !== 'Select Size') {
             Object.entries(skus).filter((sku) => {
                 if (sku[1].size === currentlySelectedSize) {
-                    chosenSku = sku;
-                    // console.log(chosenSku);
+                    selectedSku = sku[1].quantity;
+                    // console.log(selectedSku);
                 }
             })
         }
@@ -111,7 +112,7 @@ class SizeSelector extends React.Component {
                 )
             }
             </div>
-            <QuantitySelector skus={skus} selectedSku={chosenSku} />
+            <QuantitySelector selectedSku={selectedSku} />
             </div>
         )
     }

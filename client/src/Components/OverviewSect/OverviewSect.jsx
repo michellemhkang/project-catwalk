@@ -15,7 +15,7 @@ class OverviewSect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentId: 14034,
+      currentId: this.props.id,
       productInfo: {},
       productStyles: [],
       selectedStyleInfo: {},
@@ -107,12 +107,12 @@ class OverviewSect extends React.Component {
     this.getStyles(this.state.currentId);
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.id !== this.props.id) {
-  //     this.getProduct(this.props.id);
-  //     this.getStyles(this.props.id);
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (prevProps.id !== this.props.id) {
+      this.getProduct(this.props.id);
+      this.getStyles(this.props.id);
+    }
+  }
 
   render() {
     console.log('rendered');

@@ -8,6 +8,7 @@ class SizeButton extends React.Component {
     }
     handleClick(size) {
         this.props.changeSelectedSize(size);
+        // this.props.closeMenu();
     }
     render() {
 
