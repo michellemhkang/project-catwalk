@@ -25,14 +25,7 @@ class NewEntry extends React.Component {
 
   goto(e) {
     e.stopPropagation()
-    // console.log('a', this._reactInternalFiber.child.memoizedProps.style.left.slice(0,this._reactInternalFiber.child.memoizedProps.style.left.length -2))
-    // console.log('b', Number(this._reactInternalFiber.sibling.child.memoizedProps.style.left.slice(0, this._reactInternalFiber.sibling.child.memoizedProps.style.left.length -2)))
-    // console.log(this._reactInternalFiber.sibling.child.memoizedProps.style.left)
-    // this._reactInternalFiber.child.memoizedProps.style.left = this._reactInternalFiber.sibling.child.memoizedProps.style.left;
-  // this.setState({currentleft: this.state.currentleft - 250})
-  // console.log('c',this.state.currentleft);
   this.props.changePage(this.props.entry.id)
-  // let actionbuttonicon = null
 }
 
 render() {

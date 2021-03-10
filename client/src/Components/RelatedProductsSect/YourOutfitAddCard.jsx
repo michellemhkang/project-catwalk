@@ -10,7 +10,6 @@ class YourOutfitAddCard extends React.Component {
   }
 
   clickHandler() {
-    // console.log('do the thing');
     this.props.addToYourOutfits(this.props.id);
   }
 

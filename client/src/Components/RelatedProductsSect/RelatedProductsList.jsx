@@ -39,8 +39,6 @@ class RelatedProductsList extends React.Component {
   }
 
   render() {
-    // console.log('list of products',this.props.RelatedProductsList)
-    // console.log('this', this)
     return(
       <div>
         <i className={["fas fa-angle-left fa-3x", RelatedProductsSection.leftbutton].join(' ')} onClick={this.leftbutton}></i>
