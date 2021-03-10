@@ -1,25 +1,46 @@
 .reviewsContainer {
   /* font-family: arial; */
-  font-family: 'Poppins', sans-serif;
-  font-size: .7em;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 1em;
   color: black;
   display: flex;
   flex-direction: column;
   width: 66%;
   height: 100%;
   margin: auto;
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.pointer:hover {
+  cursor: pointer;
 }
 
 .sectionTitle {
   margin: 0px;
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: lighter;
+}
+
+.button:focus {outline:0;}
+
+.dynamicUnderline:hover {
+  text-decoration: underline;
 }
 
 .reviewsGrid {
   display: grid;
   grid-template-columns: 33% 66%;
-  column-gap: 2em;
+  column-gap: 4em;
 }
 
 .gridCol1 {
@@ -33,7 +54,21 @@
 }
 
 .reviewCounter {
-  margin-top: 0px;
+  margin-top: 1.8em;
+  margin-right: 0.4em;
+  margin-bottom: 1.9em;
+}
+
+.sortText {
+  font-weight: bold;
+}
+
+.arrow {
+  font-weight: normal;
+}
+
+.sortText.pointer {
+  cursor: pointer;
 }
 
 .averageRating {
@@ -49,13 +84,25 @@
   margin-bottom: 0px;
 }
 
+.recText input {
+  margin: 0px 3px 0px 7px;
+}
+
+.recText input:hover {
+  cursor: pointer;
+}
+
+.recText label {
+  color: darkgray;
+}
+
 /* Ratings Breakdown Graph */
 
 .distribution {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 3px;
 }
 
 .ratingLabel {
@@ -64,40 +111,36 @@
   display: inline-flex;
   justify-content: flex-start;
   background-color: transparent;
-    color: #000;
-    line-height: 17px;
-    min-height: 0;
-    padding: 2px;
-    padding-bottom: 3px;
-    text-align: left;
-    text-decoration: underline;
-    white-space: unset;
+  color: #000;
+  text-align: left;
+  text-decoration: underline;
+  margin-bottom: 1em;
 }
 
 .barGraph {
   flex-grow: 1;
-  margin: 0 10px;
+  margin: 0em 0em 1em .8em;
   background-color: #ebedee;
   box-sizing: border-box;
-  height: .5em;
+  height: .4em;
 }
 
 .barFill {
-  height: .5em;
-  background-color: #2ada71;
+  height: .4em;
+  background-color: #f25c54;
 }
 
-.bar {width: 0%; height: 7px; padding-left: 10px; background-color: rgb(66, 63, 63);}
+.bar {
+  width: 0%;
+  height: 1em;
+  padding-left: 10px;
+  background-color:
+  rgb(66, 63, 63);
+}
 
-/* Characteristics Breakdown Graph */
-
-/* .comparisonBarWrapper {
-  position: relative;
-  display: block;
-} */
 
 .characteristicsContainer {
-  margin-top: 15px;
+  margin-top: .8em;
 }
 
 .comparisonBarWrapper {
@@ -111,7 +154,7 @@
 
 .comparisonBarTitle {
   font-size: 1em;
-  font-weight: bolder;
+  font-weight: bold;
   padding-bottom: 7px;
   margin-top: 5px;
 }
@@ -120,8 +163,8 @@
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 15px 7.5px 0 7.5px;
-  border-color: #2ada71 transparent transparent transparent;
+  border-width: 20px 10px 0 10px;
+  border-color: #f25c54 transparent transparent transparent;
   z-index: 10;
 }
 
@@ -129,23 +172,24 @@
   display: flex;
   justify-content: space-between;
   padding: 5px 0px;
-  font-size: .5em;
+  font-size: .9em;
 }
 
 .comparisonBarLine {
   background-color: #ebedee;
-  height: 5px;
+  height: .4em;
   overflow: visible;
   position: relative;
 }
 
 .comparisonTriangle {
-  margin-top: -3px;
+  margin-top: -.5em;
   position: absolute;
   left: 50%;
 }
 
 .reviewListEntry {
+  font-size: 1em;
   padding-top: 10px;
   border-bottom: 1px solid black;
 }
@@ -161,15 +205,22 @@
 }
 
 .nameDate {
-  font-size: .4em;
+  font-size: .8em;
   color: rgb(177, 180, 180);
+  /* color: #f25c54; */
   margin-right: 3px;
+  align-items: center
+}
+
+.gray {
+  color: darkgray;
 }
 
 .helpfulRow {
   display: flex;
   flex-direction: row;
   justify-content: left;
+  margin-bottom: 5px;
 }
 
 .helpfulText {
@@ -190,84 +241,124 @@
 }
 
 .button {
-  padding: 1em 2em 1em 2em;
+  padding: 1.5em 2em;
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
   font-weight: bold;
   margin-bottom: 10px;
+  transition: 0.3s;
 }
 
 .button:hover {
   cursor: pointer;
-  background-color: lightgray;
+  color: white;
+  background-color: black;
 }
 
 /* NEW REVIEW STYLES */
 
 .newReview {
-  background-color: lightgray;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
+  background-color: white;
+  color: black;
+  padding: .5em;
 }
 
 .newReviewTitle {
-  margin: 0px;
+  margin: 0em 0em 0em 0em;
   text-align: center;
+  font-weight: lighter;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.newReviewSubtitle {
+  font-size: .9em;
+  color: darkgray;
+  margin: 0;
+}
+
+.titleRow {
+  width: 100%;
 }
 
 .newReviewAbout {
   margin: 0px;
   text-align: center;
+  font-weight: lighter;
 }
 
-.star:hover{
-  color: red;
+.smallText {
+  font-size: .8em;
 }
 
-.alignedRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.center {
+  align-items: center
+}
+
+.center label {
+  margin-bottom: 5px;
 }
 
 .newStarRow {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 5px;
+  margin-left: .5em;
+  font-size: 1.2em;
 }
 
 .reviewInput {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: left;
-  margin-bottom: 10px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-input[type="text"] {
-  font-family: arial;
-  font-size: .8em;
-  font-weight: lighter;
+.reviewLabelCol {
+  width: 33%;
+  text-align: left;
+  margin: 1em 0em;
+}
+
+.reviewInputCol {
   width: 66%;
+  text-align: right;
+  margin: 1em 0em;
 }
 
-.nickname {
-  margin-right: 10px;
+.reviewInputCol > input[type="email"], input[type="text"], textarea {
+  width: 100%;
 }
 
-textarea {
-  font-family: arial;
+.reviewInputCol textarea {
+  min-height: 100px;
+}
+
+.sumAndBody {
+  border-bottom: 1px solid darkgray;
+}
+
+.textInput input[type="text"], input[type="email"], textarea {
   font-weight: lighter;
-  font-size: .8em;
+  font-size: .9em;
+  resize: none;
+  padding: 5px;
+  box-sizing: border-box;
+  border: none;
+  border: 1px solid #e6e7e8;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.textInput textarea:focus, input[type="email"]:focus, input[type=text]:focus {
+  outline: 1px solid #f25c54;
+}
+
+.textInput ::placeholder {
+  color: darkgray;
+  opacity: 1;
 }
 
 .inlineForm {
-  display: flex;
-  flex: row;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -277,40 +368,145 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: left;
+  border-top: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
+}
+
+.radioGroupTitle {
+  font-size: 1em;
+  font-weight: bolder;
+  margin: 0px;
+  margin-top: 1em;
 }
 
 .radioRow {
   display: flex;
   flex-direction: row;
-  font-size: .5em;
+  font-size: .8em;
   justify-content: left;
-  margin-bottom: 10px;
-}
-
-.radioRow input[type=radio] {
-  display: block;
-  margin: 0 auto;
-  padding-right: 30px;
-}
-
-.radioRow label {
-  display: inline-block;
-  padding-right: 30px;
+  align-items: center;
+  margin-bottom: 1em;
+  margin-top: .6em;
+  flex-shrink: inherit;
 }
 
 .radioCatTitle {
-  font-size: 2em;
-  font-weight: bolder;
-  margin: 0px;
-  padding-right: 40px;
+  font-size: 1em;
+  margin: 0px 0px 0px 3px;
+  padding-right: 10px;
+  width: 5em;
+  text-align: left;
+}
+
+.radioPair {
+  display: inline-block;
+  text-align: center;
+  width: 12em;
+}
+
+.radioPair label {
+  color: darkgray;
+}
+
+.radioPair input[type="radio"]:hover {
+  cursor: pointer;
+}
+
+.radioPair label {
+  display: block;
+  font-size: .95em;
+}
+
+.radioPair input[type="radio"]:checked+label, .recText input[type="radio"]:checked+label {
+  color: black;
 }
 
 .buttonRow {
   text-align: right;
   padding-top: 10px;
+  font-size: 1em;
 }
 
 .submitReviewButton {
   width: 25%;
-  padding: 10px;
+  padding: 1em 1.5em;
+}
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  top:0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modalContent {
+  position: absolute;
+  /* padding: 1.5em; */
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width: 50%; */
+  width: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,.5)!important;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2em;
+}
+
+.modalCloseButton {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border-style: none;
+  background-color: transparent;
+  padding: .6em;
+}
+
+.modalCloseButton:hover {
+  cursor: pointer;
+}
+
+.fadeIn {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.4s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* #2ada71 */
+
+@media only screen and (max-width: 768px) {
+  .reviewsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1em;
+    grid-row-gap: 1em;
+  }
+  .radioRow {
+    flex-flow: column;
+  }
+  .submitReviewButton {
+    display: block;
+    width: auto;
+  }
+  .radioCatTitle {
+    text-align: center;
+  }
 }

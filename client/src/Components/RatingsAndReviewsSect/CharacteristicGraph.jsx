@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './reviews.module.css';
 
 let CharacteristicGraph = ({name, value}) => {
-  // create object with key being name and labels as an array property at that key
   let labels = {
     Size: ['Too small', 'Perfect', 'Too Big'],
     Width: ['Too narrow', 'Perfect', 'Too wide'],
