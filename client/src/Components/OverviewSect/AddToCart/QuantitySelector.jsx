@@ -53,4 +53,4 @@ class QuantitySelector extends React.Component {
     }
 }
 
-export default QuantitySelector;
+export default QuantitySelector; 

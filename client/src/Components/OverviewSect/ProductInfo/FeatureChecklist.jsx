@@ -14,9 +14,9 @@ import React from 'react';
 //     }
 // }
 
-const FeatureChecklist = (props) => {
+const FeatureChecklist = ({feature}) => {
     return (
-        <li>{props.feature}</li>
+        <li>{feature}</li>
     )
 }
 
