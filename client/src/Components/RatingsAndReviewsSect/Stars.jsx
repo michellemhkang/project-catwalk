@@ -29,7 +29,7 @@ let Stars = (props) => {
   }
 
   return(
-    <span data-test="stars">
+    <span className={styles.row} data-test="stars">
     {renderRatingStars(rating)}
     </span>
   )
