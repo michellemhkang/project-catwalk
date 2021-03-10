@@ -20,8 +20,8 @@ class RelatedProductsSect extends React.Component {
   }
 
   addToYourOutfits() {
-    this.setState({YourOutfitsList: [...this.state.YourOutfitsList, {id: this.props.id, avgRating: this.props.avgRating}]})
-    console.log(this.state.YourOutfitsList)
+    this.setState({YourOutfitsList: [...this.state.YourOutfitsList, {id: this.props.id, rating: this.props.avgRating}]})
+    console.log('a', this.state.YourOutfitsList)
   }
 
   addToCache(obj) {
@@ -73,8 +73,8 @@ class RelatedProductsSect extends React.Component {
       <h1>Related Products Section</h1>
       <RelatedProductsList3 RelatedProductsList={this.state.RelatedProductsList} changePage={this.props.changePage} addToCache={this.addToCache}
      cachedinfo={this.state.cachedinfo}/>
-      <YourOutfitsList2 RelatedProductsList={this.state.YourOutfitsList} changePage={this.props.changePage} addToCache={this.addToCache}
-     cachedinfo={this.state.cachedinfo} />
+      <YourOutfitsList2 YourOutfitsList={this.state.YourOutfitsList} changePage={this.props.changePage} addToCache={this.addToCache}
+     cachedinfo={this.state.cachedinfo} addToYourOutfits={this.addToYourOutfits}/>
      {/* <YourOutfitsList YourOutfitsList={this.state.YourOutfitsList} addToYourOutfits={this.addToYourOutfits}/> */}
     </div>
     // <div>hello</div>
