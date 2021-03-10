@@ -2,7 +2,7 @@ import React from 'react';
 import FeatureChecklist from './FeatureChecklist.jsx';
 
 const ProductOverview = ({slogan, description, features}) => {
-    console.log('product overview at stake');
+    // console.log('product overview at stake');
     // console.log(props.features);
     let featureList = features.map((feature, index) => {
         // console.log(feature);

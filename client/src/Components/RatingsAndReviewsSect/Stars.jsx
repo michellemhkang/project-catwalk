@@ -23,7 +23,7 @@ let Stars = (props) => {
     }
 
     for (var i = stars.length; i < 5; i++) {
-      stars.push(<i className={`far fa-star`}></i>)
+      stars.push(<i className={`far fa-star`} key={5+i}></i>)
     }
     return stars;
   }

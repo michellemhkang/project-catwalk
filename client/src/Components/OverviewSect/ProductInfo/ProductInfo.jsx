@@ -1,9 +1,9 @@
-import React from 'react';  
+import React from 'react';
 import styling from './ProductInfo.module.css';
 import Price from './Price.jsx';
 
 const ProductInfo = ({category, name, defaultPrice, salePrice}) => {
-    console.log('product info at stake');
+    // console.log('product info at stake');
     if (category !== undefined) {
         return (
             <div>

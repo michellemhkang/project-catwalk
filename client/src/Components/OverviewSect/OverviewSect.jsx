@@ -15,7 +15,7 @@ class OverviewSect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentId: 14034,
+      currentId: this.props.id,
       productInfo: {},
       productStyles: [],
       selectedStyleInfo: {},
@@ -69,7 +69,7 @@ class OverviewSect extends React.Component {
         getRequests: this.state.getRequests + 1,
         productStyles: response.data.results,
         // when get styles but no style is selected by the user's click,
-        // the selected style should be the first one 
+        // the selected style should be the first one
         selectedStyleInfo: response.data.results[0]
       });
       // console.log('state changed productStyles', this.state.productStyles);
@@ -81,7 +81,7 @@ class OverviewSect extends React.Component {
     })
   }
 
-  // could put filter fn in render, but would need a way to invoke fn that will pass selected style 
+  // could put filter fn in render, but would need a way to invoke fn that will pass selected style
   // info object back up to App
   setSelectedStyle(id) {
     // this.setState({
@@ -91,7 +91,7 @@ class OverviewSect extends React.Component {
     if (this.state.productStyles.length !== 0) {
       // console.log(this.state.productStyles);
       this.state.productStyles.filter((style) => {
-        // sets the first 'selected' image to be where default property is present 
+        // sets the first 'selected' image to be where default property is present
         if (style['default?'] || style.style_id === id) {
           this.setState({
             selectedStyleInfo: style
@@ -102,20 +102,20 @@ class OverviewSect extends React.Component {
   }
 
   componentDidMount() {
-    console.log('component mounted');
+    // console.log('component mounted');
     this.getProduct(this.state.currentId);
     this.getStyles(this.state.currentId);
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.id !== this.props.id) {
-  //     this.getProduct(this.props.id);
-  //     this.getStyles(this.props.id);
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (prevProps.id !== this.props.id) {
+      this.getProduct(this.props.id);
+      this.getStyles(this.props.id);
+    }
+  }
 
   render() {
-    console.log('rendered');
+    // console.log('rendered');
     // console.log(this.state);
     // console.log(this.state.currentId);
     // this.getStyles(this.props.id);
@@ -142,12 +142,12 @@ class OverviewSect extends React.Component {
     //   return <ImageGallery name={style.name} photos={style.photos} />
     // })
 
-    // filter here for the selected style object, 
+    // filter here for the selected style object,
     // and pass only the necessary properties to each child comp
     // let selectedStyle;
     // if (this.state.productStyles.length !== 0) {
     //   this.state.productStyles.filter((style) => {
-    //     // sets the first 'selected' image to be where default property is present 
+    //     // sets the first 'selected' image to be where default property is present
     //     if (style['default?']) {
     //       selectedStyle = style;
     //     } else if (style.style_id === this.state.selectedStyleId) {
@@ -158,7 +158,7 @@ class OverviewSect extends React.Component {
     // console.log(selectedStyle.photos);
 
     // refactor so price goes to product info not style selector
-    // defaultPrice={this.state.productDefaultPrice} 
+    // defaultPrice={this.state.productDefaultPrice}
 
     // DEBUGGING 101
     // 1. Come up with a theory of what's wrong
@@ -172,20 +172,20 @@ class OverviewSect extends React.Component {
       return (
         <div>Loading</div>
       )
-    } 
+    }
     return (
       <div className={styling.rowContainer}>
         {/* <ImageGallery photoUrls={onlyPhotos} />
         {images} */}
-        <ImageGallery name={selectedStyleInfo.name} photos={selectedStyleInfo.photos} /> 
+        <ImageGallery name={selectedStyleInfo.name} photos={selectedStyleInfo.photos} />
         <div className={styling.colContainer}>
-          <ProductInfo name={productInfo.name} category={productInfo.category} defaultPrice={productInfo.default_price} salePrice={selectedStyleInfo.sale_price} /> 
+          <ProductInfo name={productInfo.name} category={productInfo.category} defaultPrice={productInfo.default_price} salePrice={selectedStyleInfo.sale_price} />
           <StyleSelector styles={productStyles} setSelectedStyle={this.setSelectedStyle} />
           <SizeSelector />
           <QuantitySelector />
           <AddToCart />
-          <ProductOverview slogan={productInfo.slogan} description={productInfo.description} features={productInfo.features} /> 
-        </div> 
+          <ProductOverview slogan={productInfo.slogan} description={productInfo.description} features={productInfo.features} />
+        </div>
       </div>
     )
   }
