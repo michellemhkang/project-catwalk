@@ -1,13 +1,16 @@
 import React from 'react';
+import SizeButton from './SizeButton.jsx';
 
 class SizeSelector extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            showMenu: false
+            showMenu: false,
+            currentlySelectedSize: 'Select Size'
         }
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
+        this.changeSelectedSize = this.changeSelectedSize.bind(this);
     }
 
     showMenu(e) {
@@ -17,17 +20,21 @@ class SizeSelector extends React.Component {
         })
     }
 
-    closeMenu() {
-
-        if (!this.dropdownMenu.contains(event.target)) {
+    closeMenu(e) {
+        if (!this.dropdownMenu.contains(e.target)) {
             this.setState({showMenu: false}, () => {
                 document.removeEventListener('click', this.closeMenu);
             })
         }
     }
 
+    changeSelectedSize(size) {
+        this.setState({currentlySelectedSize: size})
+    }
+
     render() {
 
+        const {showMenu, currentlySelectedSize} = this.state;
         const {skus} = this.props;
 
         // let sizeArr = [];
@@ -63,18 +70,21 @@ class SizeSelector extends React.Component {
         //     return <button key={index}>{sku[1]}</button>
         // })
 
+        // here, pair is another array where index 0 is the sku number (key)
+        // and index 1 is an object of size and quantity (property)
         let sizeOptions = Object.entries(skus).map((pair, index) => {
-            return <button key={index}>{pair[1].size}</button>
+            return <SizeButton changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
         })
 
         return (
             <div>
+            <div>
                 <button onClick={this.showMenu}>
-                    Size Selector
+                    {currentlySelectedSize}
                 </button>
 
             {
-                this.state.showMenu
+                showMenu
                 ? (
                     <div className="menu" ref={(element) => {this.dropdownMenu = element;}}>
                         {sizeOptions}
@@ -88,6 +98,7 @@ class SizeSelector extends React.Component {
                     null
                 )
             }
+            </div>
             </div>
         )
     }
