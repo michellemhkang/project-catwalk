@@ -34,6 +34,7 @@ class Characteristics extends React.Component {
             value="1"
             checked={this.state.Size === "1"}
             name="Size"
+            data-test="checkbox1"
           />
         </div>
         <div className={styles.radioPair}>
