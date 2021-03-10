@@ -181,7 +181,7 @@ class OverviewSect extends React.Component {
         <div className={styling.colContainer}>
           <ProductInfo name={productInfo.name} category={productInfo.category} defaultPrice={productInfo.default_price} salePrice={selectedStyleInfo.sale_price} /> 
           <StyleSelector styles={productStyles} setSelectedStyle={this.setSelectedStyle} />
-          <SizeSelector />
+          <SizeSelector skus={selectedStyleInfo.skus} />
           <QuantitySelector />
           <AddToCart />
           <ProductOverview slogan={productInfo.slogan} description={productInfo.description} features={productInfo.features} /> 
