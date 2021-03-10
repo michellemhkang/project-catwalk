@@ -1,5 +1,5 @@
 import React from 'react';
-import threetest from './threetest.module.css'
+import RelatedProductsSection from './RelatedProductsSection.module.css'
 
 
 class NewEntry extends React.Component {
@@ -8,10 +8,23 @@ class NewEntry extends React.Component {
     this.state = {
       currentleft: this.props.i*350
     };
-    this.clicker2 = this.clicker2.bind(this)
+    this.goto = this.goto.bind(this);
+    this.actionhandler = this.actionhandler.bind(this);
   }
 
-  clicker2() {
+  actionhandler(e){
+    e.stopPropagation()
+    if(this.props.cardType === 'Outfits') {
+      this.props.removeFromYourOutfits(this.props.entry.id)
+    }
+    if(this.props.cardType === 'Compare') {
+      console.log('Show Comparsion Modal')
+    }
+  }
+
+
+  goto(e) {
+    e.stopPropagation()
     // console.log('a', this._reactInternalFiber.child.memoizedProps.style.left.slice(0,this._reactInternalFiber.child.memoizedProps.style.left.length -2))
     // console.log('b', Number(this._reactInternalFiber.sibling.child.memoizedProps.style.left.slice(0, this._reactInternalFiber.sibling.child.memoizedProps.style.left.length -2)))
     // console.log(this._reactInternalFiber.sibling.child.memoizedProps.style.left)
@@ -19,54 +32,61 @@ class NewEntry extends React.Component {
   // this.setState({currentleft: this.state.currentleft - 250})
   // console.log('c',this.state.currentleft);
   this.props.changePage(this.props.entry.id)
+  // let actionbuttonicon = null
+}
+
+render() {
+  if(this.props.cardType === 'Outfits') {
+    var actionbuttonicon = "fas fa-times-circle"
+  }
+  if(this.props.cardType === 'Compare') {
+    var actionbuttonicon = "fas fa-star"
   }
 
-  render() {
-    console.log(this.props)
-    if(this.props.entry.sale !== null) {
+  if(this.props.entry.img === null) {
+    this.props.entry.img = 'https://www.acquia.com/sites/default/files/styles/legacy_inline_image/public/media/image/2021-01/404-Eevee-Cat.png?itok=H-2S3l4x'
+  }
+
+
+  if(this.props.entry.sale !== null) {
       return(
-        <li className={threetest.carouselslide} style={
+        <li className={RelatedProductsSection.carouselslide} style={
           {left: `${this.state.currentleft}px`}
         }>
-          <div className={threetest.entrycard} onClick={this.clicker2} href='#pagetop'>
-            {/* <div className={threetest.entryimgContainer}> */}
-            <div className={threetest.entrycategory}>{this.props.entry.category}</div>
-              <img className={threetest.entryimg} src={this.props.entry.img}></img>
-            {/* </div> */}
-            <div className={threetest.entrycardinfo}>
-
-            <div className={threetest.entryname}>{this.props.entry.name}</div>
-            <div className={threetest.pricing}>
-              <div className={[threetest.entryprice, threetest.onSale].join(' ')}>{`$${this.props.entry.price}`}</div>
-              <div className={threetest.entrysale}>{`$${this.props.entry.sale}`}</div>
+          <div className={RelatedProductsSection.entrycard} onClick={this.goto} href='#pagetop'>
+            <div className={RelatedProductsSection.cardtop}>
+              <div className={RelatedProductsSection.entrycategory}>{this.props.entry.category}</div>
+              <i className={[actionbuttonicon, RelatedProductsSection.actionbutton].join(' ')} onClick={this.actionhandler}></i>
             </div>
-
-            <div className={threetest.entryrating}>{`Rating: ${this.props.entry.rating}`}</div>
-            {/* <div>{this.props.entry.id}</div> */}
+              <img className={RelatedProductsSection.entryimg} src={this.props.entry.img}></img>
+            <div className={RelatedProductsSection.entrycardinfo}>
+            <div className={RelatedProductsSection.entryname}>{this.props.entry.name}</div>
+            <div className={RelatedProductsSection.pricing}>
+              <div className={[RelatedProductsSection.entryprice, RelatedProductsSection.onSale].join(' ')}>{`$${this.props.entry.price}`}</div>
+              <div className={RelatedProductsSection.entrysale}>{`$${this.props.entry.sale}`}</div>
+            </div>
+            <div className={RelatedProductsSection.entryrating}>{`Rating: ${this.props.entry.rating}`}</div>
             </div>
             </div>
         </li>
       )
     } else {
       return(
-        <li className={threetest.carouselslide} style={
+        <li className={RelatedProductsSection.carouselslide} style={
           {left: `${this.state.currentleft}px`}
         }>
-          <div className={threetest.entrycard} onClick={this.clicker2} href='#pagetop'>
-            {/* <div className={threetest.entryimgContainer}> */}
-            <div className={threetest.entrycategory}>{this.props.entry.category}</div>
-              <img className={threetest.entryimg} src={this.props.entry.img}></img>
-            {/* </div> */}
-            <div className={threetest.entrycardinfo}>
-
-            <div className={threetest.entryname}>{this.props.entry.name}</div>
-            <div className={threetest.pricing}>
-              <div className={threetest.entryprice}>{`$${this.props.entry.price}`}</div>
-              {/* <div className={threetest.entrysale}>{`$${this.props.entry.sale}`}</div> */}
+          <div className={RelatedProductsSection.entrycard} onClick={this.goto} href='#pagetop'>
+            <div className={RelatedProductsSection.cardtop}>
+              <div className={RelatedProductsSection.entrycategory}>{this.props.entry.category}</div>
+              <i className={[actionbuttonicon, RelatedProductsSection.actionbutton].join(' ')} onClick={this.actionhandler}></i>
             </div>
-
-            <div className={threetest.entryrating}>{`Rating: ${this.props.entry.rating}`}</div>
-            {/* <div>{this.props.entry.id}</div> */}
+              <img className={RelatedProductsSection.entryimg} src={this.props.entry.img}></img>
+            <div className={RelatedProductsSection.entrycardinfo}>
+            <div className={RelatedProductsSection.entryname}>{this.props.entry.name}</div>
+            <div className={RelatedProductsSection.pricing}>
+              <div className={RelatedProductsSection.entryprice}>{`$${this.props.entry.price}`}</div>
+            </div>
+            <div className={RelatedProductsSection.entryrating}>{`Rating: ${this.props.entry.rating}`}</div>
             </div>
             </div>
         </li>
@@ -76,3 +96,4 @@ class NewEntry extends React.Component {
 }
 
 export default NewEntry;
+

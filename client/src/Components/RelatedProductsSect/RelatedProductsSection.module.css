@@ -14,6 +14,7 @@
 .entrycard:hover {
   cursor: pointer;
   background-color: lightslategrey;
+  /* background-color:plum; */
 }
 
 .carouselslide {
@@ -53,7 +54,7 @@
   /* padding: 10%; */
   margin: 0px auto;
   overflow:hidden;
-  /* justify-content: center; */
+  /* justify-content: left; */
   /* order:4; */
 }
 
@@ -137,17 +138,43 @@
   /* background-color: lightgray; */
 }
 
+.cardtop{
+  display:flex;
+  background-color:lightblue;
+  margin-bottom: 10px;
+  border-bottom:1px solid black;
+}
+.actionbutton {
+  justify-content:end;
+  align-items:center;
+  position:relative;
+  height:100%;
+  /* color:plum; */
+}
+
+.actionbutton:hover {
+  color:plum;
+}
 .entrycategory {
   font-size: 18px;
   font-weight:600;
   position: relative;
   /* left: 10px; */
-  display:flex;
   justify-content: center;
   margin:0 auto;
-  border-bottom:1px solid black;
-  margin-bottom: 10px;
+}
+
+.addcardtop {
+  display:flex;
   background-color:lightblue;
+  margin-bottom: 10px;
+  border-bottom:1px solid black;
+  font-size: 18px;
+  font-weight:600;
+  position: relative;
+  /* left: 10px; */
+  justify-content: center;
+  margin:0 auto;
 }
 
 .entryname{

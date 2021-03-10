@@ -1,70 +1,57 @@
 import React from 'react';
-import Styles from './RelatedProductsSect.module.css'
+import RelatedProductsSection from './RelatedProductsSection.module.css'
+import axios from 'axios';
+import NewEntry from './NewEntry.jsx'
 import YourOutfitAddCard from './YourOutfitAddCard.jsx'
-import YourOutfitEntry from './YourOutfitEntry.jsx'
 
 class YourOutfitsList extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      YourOutfitsDisplayList: [],
-      YourOutfitsFullList: [],
-      currentViewStart: 0,
-      currentViewEnd: 4
+      currentListLeft: 0,
     };
-    this.leftbutton = this.leftbutton.bind(this);
-    this.rightbutton = this.rightbutton.bind(this);
+    this.leftbutton = this.leftbutton.bind(this)
+    this.rightbutton = this.rightbutton.bind(this)
+
   }
 
-  leftbutton(){
-    // console.log('hello')
-    if(this.state.currentViewStart > 0) {
-      this.setState({
-        currentViewStart: this.state.currentViewStart-1,
-        currentViewEnd: this.state.currentViewEnd-1
-      })
+  leftbutton() {
+    console.log(this.state.currentListLeft)
+    if(this.state.currentListLeft === 0) {
     } else {
-      console.log('already at the start')
+      this.setState({currentListLeft: this.state.currentListLeft + 350})
     }
-
   }
 
-  rightbutton(){
-    // this.setState({YourOutfitsDisplayList: this.state.YourOutfitsFullList.slice(this.state.currentViewStart+1,this.state.currentViewEnd+1)})
-    // console.log(this.state.YourOutfitsDisplayList)
-    if(this.state.currentViewEnd < this.state.YourOutfitsFullList.length) {
-      this.setState({
-        currentViewStart: this.state.currentViewStart+1,
-        currentViewEnd: this.state.currentViewEnd+1
-      })
+
+  rightbutton() {
+    if(this.state.currentListLeft <= -(this.props.YourOutfitsList.length*350 - 1150)) {
+      console.log(this.state.currentListLeft)
     } else {
-      console.log('already at the end')
+      this.setState({currentListLeft: this.state.currentListLeft - 350})
     }
-
   }
+
   render() {
-    {
-      if(this.props) {
-        // {console.log(this.state)}
-        this.state.YourOutfitsFullList = this.props.YourOutfitsList
-        this.state.YourOutfitsDisplayList = this.props.YourOutfitsList.slice(this.state.currentViewStart,this.state.currentViewEnd)
-      }
-    }
-    return (
-      <div className={Styles.head}>
-        <h2 id='YourOutfitsListTitle'>Your Outfits</h2>
-          <div className={Styles.leftArrow} onClick={this.leftbutton}>left</div>
-            <div id={Styles.theCara}>
-              <ul id={Styles.testcaraul}>
-                  <YourOutfitAddCard addToYourOutfits={this.props.addToYourOutfits}/>
-                   {this.state.YourOutfitsDisplayList.map((product,i) => <YourOutfitEntry key={i} outfitEntry={product}/> )}
-              </ul>
-            </div>
-           <div className={Styles.rightArrow} onClick={this.rightbutton}>right</div>
+    return(
+      <div>
+        <i className={["fas fa-angle-left fa-3x", RelatedProductsSection.leftbutton].join(' ')} onClick={this.leftbutton}></i>
+        <div className={RelatedProductsSection.carousel}>
+          <div className={RelatedProductsSection.RelatedProductsHeader}>Your Outfits</div>
+          <div className={RelatedProductsSection.carouselholder}>
+            <ul className={RelatedProductsSection.listslider} style={
+              {left: `${this.state.currentListLeft}px`}
+            }>
+              <YourOutfitAddCard addToYourOutfits={this.props.addToYourOutfits} id={this.props.id}/>
+            {this.props.YourOutfitsList.map((entry, i) => {
+              return <NewEntry key={i+1} entry={entry} i={i+1} changePage={this.props.changePage} removeFromYourOutfits={this.props.removeFromYourOutfits} cardType='Outfits'/>
+            })}
+            </ul>
+          </div>
+        </div>
+        <i className={["fas fa-angle-right fa-3x", RelatedProductsSection.rightbutton].join(' ')} onClick={this.rightbutton}></i>
       </div>
     )
   }
 }
-
 export default YourOutfitsList;
-

@@ -1,5 +1,5 @@
 import React from 'react';
-import threetest from './threetest.module.css';
+import RelatedProductsSection from './RelatedProductsSection.module.css';
 
 
 class YourOutfitAddCard extends React.Component {
@@ -10,16 +10,16 @@ class YourOutfitAddCard extends React.Component {
   }
 
   clickHandler() {
-    console.log('do the thing');
-    this.props.addToYourOutfits();
+    // console.log('do the thing');
+    this.props.addToYourOutfits(this.props.id);
   }
 
   render() {
     return(
-      <li className={threetest.carouselslide} onClick={this.clickHandler}>
-        <div className={threetest.entrycard}>
-          <div className={threetest.entrycategory}>Add to List</div>
-          <i class={["fas fa-plus fa-3x", threetest.addicon].join(' ')}></i>
+      <li className={RelatedProductsSection.carouselslide} onClick={this.clickHandler}>
+        <div className={RelatedProductsSection.entrycard}>
+          <div className={RelatedProductsSection.addcardtop}>Add to List</div>
+          <i className={["fas fa-plus fa-3x", RelatedProductsSection.addicon].join(' ')}></i>
           </div>
       </li>
     )
