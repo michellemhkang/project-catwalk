@@ -27,51 +27,51 @@ class Characteristics extends React.Component {
     return(
       <span className={styles.radioRow} onChange={this.handleInputChange}>
         <p className={styles.radioCatTitle}>Size:</p>
-        <label>
+        <div className={styles.radioPair}>
+          <label>A size too small </label>
           <input
             type="radio"
             value="1"
             checked={this.state.Size === "1"}
             name="Size"
           />
-          A size too small
-        </label>
-        <label>
+        </div>
+        <div className={styles.radioPair}>
+          <label>A 1/2 size too small </label>
           <input
             type="radio"
             value="2"
             checked={this.state.Size === "2"}
             name="Size"
           />
-          1/2 a size too small
-        </label>
-        <label>
+        </div>
+        <div className={styles.radioPair}>
+          <label>Perfect</label>
           <input
             type="radio"
             value="3"
             checked={this.state.Size === "3"}
             name="Size"
           />
-          Perfect
-        </label>
-        <label>
+        </div>
+        <div className={styles.radioPair}>
+          <label>A 1/2 size too big </label>
           <input
             type="radio"
             value="4"
             checked={this.state.Size === "4"}
             name="Size"
           />
-          1/2 a size too big
-        </label>
-        <label>
+        </div>
+        <div className={styles.radioPair}>
+          <label>A size too big </label>
           <input
             type="radio"
             value="5"
             checked={this.state.Size === "5"}
             name="Size"
           />
-          A size too big
-        </label>
+        </div>
       </span>
     )
   }
@@ -79,52 +79,52 @@ class Characteristics extends React.Component {
   renderWidthOptions() {
     return(
       <span className={styles.radioRow} onChange={this.handleInputChange}>
-         <p className={styles.radioCatTitle}>Width:</p>
-        <label>
+        <p className={styles.radioCatTitle}>Width:</p>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="1"
             checked={this.state.Width === "1"}
             name="Width"
           />
-          Too Narrow
-        </label>
-        <label>
+          <label>Too narrow</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="2"
             checked={this.state.Width === "2"}
             name="Width"
           />
-          Slightly Narrow
-        </label>
-        <label>
+          <label>Slightly Narrow</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="3"
             checked={this.state.Width === "3"}
             name="Width"
           />
-          Perfect
-        </label>
-        <label>
+            <label>Perfect</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="4"
             checked={this.state.Width === "4"}
             name="Width"
           />
-          Slightly wide
-        </label>
-        <label>
+           <label>Slightly wide</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="5"
             checked={this.state.Width === "5"}
             name="Width"
           />
-          Too wide
-        </label>
+          <label>Too wide</label>
+        </div>
       </span>
     )
   }
@@ -132,105 +132,106 @@ class Characteristics extends React.Component {
   renderComfortOptions() {
     return(
       <span className={styles.radioRow} onChange={this.handleInputChange}>
-         <p className={styles.radioCatTitle}>Comfort:</p>
-        <label>
+        <p className={styles.radioCatTitle}>Comfort:</p>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="1"
             checked={this.state.Comfort === "1"}
             name="Comfort"
           />
-          Uncomfortable
-        </label>
-        <label>
+          <label>Uncomfortable</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="2"
             checked={this.state.Comfort === "2"}
             name="Comfort"
           />
-          Slightly uncomfortable
-        </label>
-        <label>
+          <label>Slightly Uncomfortable</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="3"
             checked={this.state.Comfort === "3"}
             name="Comfort"
           />
-          Ok
-        </label>
-        <label>
+            <label>Ok</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="4"
             checked={this.state.Comfort === "4"}
             name="Comfort"
           />
-          Comfortable
-        </label>
-        <label>
+           <label>Comfortable</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="5"
             checked={this.state.Comfort === "5"}
             name="Comfort"
           />
-          Perfect
-        </label>
+          <label>Perfect</label>
+        </div>
       </span>
     )
   }
 
+
   renderQualityOptions() {
     return(
       <span className={styles.radioRow} onChange={this.handleInputChange}>
-         <p className={styles.radioCatTitle}>Quality:</p>
-        <label>
+        <p className={styles.radioCatTitle}>Quality:</p>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="1"
             checked={this.state.Quality === "1"}
             name="Quality"
           />
-          Poor
-        </label>
-        <label>
+          <label>Poor</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="2"
             checked={this.state.Quality === "2"}
             name="Quality"
           />
-          Below Average
-        </label>
-        <label>
+          <label>Below Average</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="3"
             checked={this.state.Quality === "3"}
             name="Quality"
           />
-          What I expected
-        </label>
-        <label>
+            <label>Ok</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="4"
             checked={this.state.Quality === "4"}
             name="Quality"
           />
-          Pretty great
-        </label>
-        <label>
+           <label>Pretty Great</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="5"
             checked={this.state.Quality === "5"}
             name="Quality"
           />
-          Perfect
-        </label>
+          <label>Perfect</label>
+        </div>
       </span>
     )
   }
@@ -238,52 +239,52 @@ class Characteristics extends React.Component {
   renderLengthOptions() {
     return(
       <span className={styles.radioRow} onChange={this.handleInputChange}>
-         <p className={styles.radioCatTitle}>Length:</p>
-        <label>
+        <p className={styles.radioCatTitle}>Length:</p>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="1"
             checked={this.state.Length === "1"}
             name="Length"
           />
-          Runs short
-        </label>
-        <label>
+          <label>Runs Short</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="2"
             checked={this.state.Length === "2"}
             name="Length"
           />
-          Runs slightly short
-        </label>
-        <label>
+          <label>Runs Slightly Short</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="3"
             checked={this.state.Length === "3"}
             name="Length"
           />
-          Perfect
-        </label>
-        <label>
+            <label>Perfect</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="4"
             checked={this.state.Length === "4"}
             name="Length"
           />
-          Runs slightly long
-        </label>
-        <label>
+           <label>Runs Slightly Long</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="5"
             checked={this.state.Length === "5"}
             name="Length"
           />
-          Runs long
-        </label>
+          <label>Runs Long</label>
+        </div>
       </span>
     )
   }
@@ -291,52 +292,52 @@ class Characteristics extends React.Component {
   renderFitOptions() {
     return(
       <span className={styles.radioRow} onChange={this.handleInputChange}>
-         <p className={styles.radioCatTitle}>Fit:</p>
-        <label>
+        <p className={styles.radioCatTitle}>Fit:</p>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="1"
             checked={this.state.Fit === "1"}
             name="Fit"
           />
-          Runs tight
-        </label>
-        <label>
+          <label>Runs Tight</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="2"
             checked={this.state.Fit === "2"}
             name="Fit"
           />
-          Runs slightly tight
-        </label>
-        <label>
+          <label>Runs Slightly Tight</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="3"
             checked={this.state.Fit === "3"}
             name="Fit"
           />
-          Perfect
-        </label>
-        <label>
+            <label>Perfect</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="4"
             checked={this.state.Fit === "4"}
             name="Fit"
           />
-          Runs slightly long
-        </label>
-        <label>
+           <label>Runs Slightly Long</label>
+        </div>
+        <div className={styles.radioPair}>
           <input
             type="radio"
             value="5"
             checked={this.state.Fit === "5"}
             name="Fit"
           />
-          Runs long
-        </label>
+          <label>Runs Long</label>
+        </div>
       </span>
     )
   }
@@ -344,7 +345,6 @@ class Characteristics extends React.Component {
   render() {
     return (
       <div className={styles.radioGroup}>
-        <p>Characteristics</p>
         {this.props.characteristics.Size ? this.renderSizeOptions() : null}
         {this.props.characteristics.Width ? this.renderWidthOptions() : null}
         {this.props.characteristics.Comfort ? this.renderComfortOptions() : null}
