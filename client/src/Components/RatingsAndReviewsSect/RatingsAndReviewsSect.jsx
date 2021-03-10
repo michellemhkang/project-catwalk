@@ -8,6 +8,9 @@ import AvgRatings from './AvgRatings.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';
 import AddReviewButton from './AddReviewButton.jsx';
 import WriteYourReview from './WriteYourReview.jsx';
+import RatingBreakdown from './RatingBreakdown.jsx';
+import CharacteristicsSummary from './CharacteristicsSummary.jsx';
+import Modal from './Modal.jsx';
 import dummyReviewListData from './dummyData/dummyReviewListData.js';
 import styles from './reviews.module.css';
 
@@ -21,16 +24,18 @@ class RatingsAndReviewsSect extends React.Component {
       currentProductId: this.props.id,
       averageRating: '',
       recsPercentage: 0,
-      addReview: false,
       characteristics: {},
       ratings: {},
       recommended: {},
+      totalRatings: 0,
+      showModal: false,
     };
 
     this.getReviews = this.getReviews.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
-    this.handleAddReview = this.handleAddReview.bind(this);
     this.sendNewReview = this.sendNewReview.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   getReviews(id) {
@@ -40,7 +45,6 @@ class RatingsAndReviewsSect extends React.Component {
       }
     })
     .then((response) => {
-      // console.log('data from server ', response.data.results)
       this.setState({
         reviewList: response.data.results,
         reviewCount: response.data.results.length
@@ -58,7 +62,6 @@ class RatingsAndReviewsSect extends React.Component {
       }
     })
     .then((response) => {
-      // console.log('metadata from server ', response.data)
       this.setState({
         characteristics: response.data.characteristics,
         recommended: response.data.recommended,
@@ -70,35 +73,23 @@ class RatingsAndReviewsSect extends React.Component {
     });
   }
 
-  // calculateAverageRating() {
-  //   let ratingsTotal = 0;
-  //   let recsTotal = 0;
-  //   this.state.reviewList.forEach(review => {
-  //     ratingsTotal += review.rating;
-  //     if (review.recommend) {
-  //       recsTotal += review.recommend
-  //     }
-  //   });
-
-  //   let averageRating = Math.round((ratingsTotal / this.state.reviewList.length) * 10) / 10;
-  //   let recsPercentage = recsTotal / this.state.reviewList.length * 100;
-  //   this.setState({averageRating: averageRating, recsPercentage: recsPercentage});
-  // }
 
   calculateAverageRating() {
-    let totalRatings = 0;
+    let count = 0;
     let avg = 0;
+
+    if (!this.state.ratings) {
+      this.setState({averageRating: avg})
+    }
 
     for (var key in this.state.ratings) {
       this.state.ratings[key] = Number(this.state.ratings[key]);
-      totalRatings += this.state.ratings[key]
+      count += this.state.ratings[key]
       avg += (this.state.ratings[key] * Number(key))
     }
 
-    avg /= totalRatings;
-    avg = Math.round(avg * 10)/10
-    console.log('what is avg', avg)
-    console.log('what is obj', this.state.ratings)
+    this.setState({totalRatings: count})
+    avg = Math.round(avg/count * 10) / 10
     this.setState({averageRating: avg})
     this.props.getAverageRating(avg);
     return avg;
@@ -114,12 +105,6 @@ class RatingsAndReviewsSect extends React.Component {
     return percentageRec;
   }
 
-  handleAddReview() {
-    this.setState({
-      addReview: !this.state.addReview
-    })
-  }
-
   calculateAvgAndPercent() {
     this.calculateAverageRating();
     this.calculatePercentageRecommended();
@@ -133,21 +118,28 @@ class RatingsAndReviewsSect extends React.Component {
       data: reviewData
     })
     .then(response => {
-      console.log(response.data)
+      console.log(response.data);
+      this.hideModal();
     })
     .catch(error => {
       console.error(error)
     })
   }
 
+  showModal = () => {
+    this.setState({showModal: !this.state.showModal});
+  };
+
+  hideModal() {
+    this.setState({showModal: !this.state.showModal});
+  };
+
   componentDidMount() {
-    // move this into render function so that every time the app id state changes, it will fetch new data
     this.getReviews(this.state.currentProductId);
     this.getMetadata(this.state.currentProductId);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // check whether id has changed and re-fetch data
     if (prevProps.id !== this.props.id) {
       this.getReviews(this.props.id);
       this.getMetadata(this.props.id);
@@ -157,22 +149,26 @@ class RatingsAndReviewsSect extends React.Component {
   render() {
     return(
       <div className={styles.reviewsContainer}>
-        <h1 className={styles.sectionTitle}>RATINGS AND REVIEWS</h1>
+        <h1 className={`${styles.row} ${styles.sectionTitle}`}>RATINGS AND REVIEWS</h1>
         <div className={styles.reviewsGrid}>
-          <div className={styles.gridCol1}>
+          <div className={styles.col}>
             <AvgRatings averageRating={this.state.averageRating}/>
             <AvgRecs recsPercentage={this.state.recsPercentage} />
+            <RatingBreakdown totalRatings={this.state.totalRatings} ratings={this.state.ratings} />
+            <CharacteristicsSummary characteristics={this.state.characteristics} />
           </div>
-          <div className={styles.gridCol2}>
+          <div className={styles.col}>
             <ReviewCount reviewCount={this.state.reviewCount}/>
             <List reviewList={this.state.reviewList}/>
             <span className={styles.listButtons}>
               <MoreReviewsButton />
-              <AddReviewButton handleAddReview={this.handleAddReview}/>
+              <AddReviewButton showModal={this.showModal} handleAddReview={this.handleAddReview}/>
             </span>
           </div>
         </div>
-        {!this.state.addReview ? null : <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} addReview={this.state.addReview} />}
+        <Modal show={this.state.showModal} handleClose={this.hideModal}>
+          <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} handleClose={this.hideModal} />
+        </Modal>
       </div>
     )
   }

@@ -52,12 +52,7 @@ class RelatedProductsList3 extends React.Component {
             }>
             {this.props.RelatedProductsList.map((box, i) => {
               return <NewEntry key={i} entry={box} i={i} changePage={this.props.changePage}/>
-
             })}
-
-
-
-
             </ul>
           </div>
         </div>

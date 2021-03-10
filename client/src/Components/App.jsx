@@ -12,15 +12,16 @@ class App extends React.Component {
       id: 14807,
       avgRating: 0,
       productInfo: {},
-      styleInfo: []
+      styleInfo: {}
     };
     this.changePage = this.changePage.bind(this);
     this.getAverageRating = this.getAverageRating.bind(this);
+    this.getProductInfo = this.getProductInfo.bind(this);
+    this.getStyleInfo = this.getStyleInfo.bind(this);
   };
 
   changePage(newid) {
-    this.setState({id: newid })
-    // console.log(this.state);
+    this.setState({id: newid})
   }
 
   getAverageRating(average) {
@@ -31,10 +32,18 @@ class App extends React.Component {
   this.setState({id: 14807})
   }
 
+  getProductInfo(someInfo) {
+    this.setState({productInfo: someInfo})
+  }
+
+  getStyleInfo(styleInfo) {
+    this.setState({styleInfo: styleInfo})
+  }
+
   render() {
     return (
       <div>
-        <OverviewSect id={this.state.id} />
+        <OverviewSect id={this.state.id} getProductInfo={this.getProductInfo} getStyleInfo={this.getStyleInfo} />
         <RelatedProductsSect id={this.state.id} changePage={this.changePage} avgRating={this.state.avgRating}/>
         <QuestionsAnswersSect id={this.state.id} />
         <RatingsAndReviewsSect id={this.state.id} getAverageRating={this.getAverageRating} />
@@ -42,4 +51,5 @@ class App extends React.Component {
     );
   }
 }
+
 export default App;

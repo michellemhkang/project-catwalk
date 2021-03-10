@@ -56,56 +56,66 @@ class WriteYourReview extends React.Component {
   render() {
     return (
       <>
-      <div className={styles.newReview}>
-        <h3 className={styles.newReviewTitle}>WRITE YOUR REVIEW</h3>
-        <h4 className={styles.newReviewAbout}>About the product</h4>
-        <span className={styles.alignedRow}>
-          Rating:
+      <div className={`${styles.newReview} ${styles.col}`}>
+          <h3 className={styles.newReviewTitle}>WRITE YOUR REVIEW</h3>
+          <h5 className={`${styles.newReviewTitle} ${styles.newReviewSubtitle}`}>Share Your Experience</h5>
+        <span className={`${styles.row} ${styles.center}`}>
+          <p className={styles.smallText}>Rating:</p>
           <NewStarRating handleRatingChange={this.handleRatingChange}/>
         </span>
-        <span className={styles.alignedRow}>
-          <p>Do you recommend this product?</p>
-          <div onChange={this.handleRecommendChange}>
-              <label>
+        <span className={`${styles.row} ${styles.center}`}>
+          <p className={styles.smallText}>Do you recommend this product?</p>
+          <div className={`${styles.center} ${styles.recText}`} required onChange={this.handleRecommendChange}>
                 <input
                   type="radio"
                   value="true"
                   checked={this.state.recommend === "true"}
                 />
-                Yes
-            </label>
-            <label>
+              <label className={styles.smallText}> Yes</label>
                 <input
                   type="radio"
                   value="false"
                   checked={this.state.recommend === "false"}
                 />
-                No
-            </label>
+               <label className={styles.smallText}> No </label>
           </div>
-         </span>
+        </span>
         <Characteristics updateCharacteristic={this.updateCharacteristic} characteristics={this.props.characteristics} />
-        <div className={styles.reviewInput}>
-            Review Summary:
+        <div className={styles.sumAndBody}>
+        <div className={`${styles.reviewInput} ${styles.textInput}`}>
+          <div className={styles.reviewLabelCol}>Review Summary:</div>
+          <div className={styles.reviewInputCol}>
             <input type="text" placeholder="Example: 'Best Purchase Ever!'" value={this.state.summary} name="summary" onChange={this.handleFormChange} />
+            </div>
         </div>
-        <div className={styles.reviewInput}>
-          Review Body:
-          <textarea
-            cols="30" rows="5"
-            placeholder="'Why did you like the product or not?'"
-            value={this.state.body}
-            name="body" onChange={this.handleFormChange}
-          />
+        <div className={`${styles.reviewInput} ${styles.textInput}`}>
+        <div className={styles.reviewLabelCol}>Review Body:</div>
+          <div className={styles.reviewInputCol}>
+            <textarea
+              placeholder="'Why did you like the product or not?'"
+              value={this.state.body}
+              minLength="50"
+              maxLength="1000"
+              required
+              name="body" onChange={this.handleFormChange}
+            />
+          </div>
         </div>
-        <div className={styles.inlineForm}>
-            Nickname:
-            <input className={styles.nickname} type="text" placeholder="Nickname" name="nickname" value={this.state.nickname} onChange={this.handleFormChange} />
-            Email:
-            <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleFormChange} />
+        </div>
+        <div className={`${styles.reviewInput} ${styles.textInput}`}>
+          <div className={styles.reviewLabelCol}>Nickname:</div>
+          <div className={styles.reviewInputCol}>
+            <input type="text" placeholder="Nickname" name="nickname" value={this.state.nickname} required onChange={this.handleFormChange} />
+          </div>
+        </div>
+        <div className={`${styles.reviewInput} ${styles.textInput}`}>
+          <div className={styles.reviewLabelCol}>Email:</div>
+          <div className={styles.reviewInputCol}>
+            <input type="email" placeholder="Email" value={this.state.email} required name="email" onChange={this.handleFormChange} />
+          </div>
         </div>
         <div className={styles.buttonRow}>
-      <button className={`${styles.button} ${styles.submitReviewButton}`} onClick={this.handleSubmit}>Submit</button>
+      <button className={`${styles.button} ${styles.submitReviewButton}`} onClick={this.handleSubmit}>SUBMIT</button>
      </div>
       </div>
 
