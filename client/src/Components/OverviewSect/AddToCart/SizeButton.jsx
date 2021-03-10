@@ -3,9 +3,7 @@ import React from 'react';
 class SizeButton extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        }
+        this.state = {}
         this.handleClick = this.handleClick.bind(this);
     }
     handleClick(size) {

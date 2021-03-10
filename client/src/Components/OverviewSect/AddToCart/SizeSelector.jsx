@@ -1,5 +1,6 @@
 import React from 'react';
 import SizeButton from './SizeButton.jsx';
+import QuantitySelector from './QuantitySelector.jsx';
 
 class SizeSelector extends React.Component {
     constructor(props) {
@@ -76,6 +77,17 @@ class SizeSelector extends React.Component {
             return <SizeButton changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
         })
 
+        let chosenSku;
+        if (currentlySelectedSize !== 'Select Size') {
+            Object.entries(skus).filter((sku) => {
+                if (sku[1].size === currentlySelectedSize) {
+                    chosenSku = sku;
+                    // console.log(chosenSku);
+                }
+            })
+        }
+
+
         return (
             <div>
             <div>
@@ -99,6 +111,7 @@ class SizeSelector extends React.Component {
                 )
             }
             </div>
+            <QuantitySelector skus={skus} selectedSku={chosenSku} />
             </div>
         )
     }

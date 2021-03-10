@@ -34,49 +34,51 @@ class OverviewSect extends React.Component {
 
   getProduct(id) {
     axios.get('/overview/products/:', {
-      params: {product_id: id}
+      params: { product_id: id }
     })
-    .then((response) => {
-      // console.log('getting product');
-      this.props.getProductInfo(response.data);
-      // response.data should be an object
-      this.setState({
-        getRequests: this.state.getRequests + 1,
-        productInfo: Object.assign(this.state.productInfo, response.data)
-        // productName: response.data.name,
-        // productCategory: response.data.category,
-        // productFeatures: response.data.features,
-        // productDefaultPrice: response.data.default_price
+      .then((response) => {
+        // console.log('getting product');
+        this.props.getProductInfo(response.data);
+        // response.data should be an object
+        this.setState({
+          getRequests: this.state.getRequests + 1,
+          productInfo: Object.assign(this.state.productInfo, response.data)
+          // productName: response.data.name,
+          // productCategory: response.data.category,
+          // productFeatures: response.data.features,
+          // productDefaultPrice: response.data.default_price
+        })
+        // console.log(this.state.productInfo);
       })
-      // console.log(this.state.productInfo);
-    })
-    .catch((error) => {
-      // console.log('Here is an error');
-      console.log(error);
-    })
+      .catch((error) => {
+        // console.log('Here is an error');
+        console.log(error);
+      })
   }
 
   getStyles(id) {
     axios.get('/overview/styles', {
-      params: {product_id: id}
+      params: { product_id: id }
     })
-    .then((response) => {
-      // console.log('getting styles');
-      // console.log(response.data.results);
-      // response.data.results should be an array
-      // console.log('default state productStyles', this.state.productStyles);
-      this.setState({
-        getRequests: this.state.getRequests + 1,
-        productStyles: response.data.results,
-        // when get styles but no style is selected by the user's click,
-        // the selected style should be the first one 
-        selectedStyleInfo: response.data.results[0]
-      });
-      // console.log('state changed productStyles', this.state.productStyles);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+      .then((response) => {
+        // console.log('getting styles');
+        // console.log(response.data.results);
+        // response.data.results should be an array
+        // console.log('default state productStyles', this.state.productStyles);
+        this.setState({
+          getRequests: this.state.getRequests + 1,
+          productStyles: response.data.results,
+          // when get styles but no style is selected by the user's click,
+          // the selected style should be the first one 
+          selectedStyleInfo: response.data.results[0]
+        });
+        // console.log('state changed productStyles', this.state.productStyles);
+        this.props.getStyleInfo(this.state.selectedStyleInfo);
+        // console.log(this.state.selectedStyleInfo);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
   // could put filter fn in render, but would need a way to invoke fn that will pass selected style 
@@ -97,8 +99,6 @@ class OverviewSect extends React.Component {
         }
       })
     }
-    this.props.getStyleInfo(this.state.selectedStyleInfo);
-    console.log(this.state.selectedStyleInfo);
   }
 
   componentDidMount() {
@@ -172,20 +172,19 @@ class OverviewSect extends React.Component {
       return (
         <div>Loading</div>
       )
-    } 
+    }
     return (
       <div className={styling.rowContainer}>
         {/* <ImageGallery photoUrls={onlyPhotos} />
         {images} */}
-        <ImageGallery name={selectedStyleInfo.name} photos={selectedStyleInfo.photos} /> 
+        <ImageGallery name={selectedStyleInfo.name} photos={selectedStyleInfo.photos} />
         <div className={styling.colContainer}>
-          <ProductInfo name={productInfo.name} category={productInfo.category} defaultPrice={productInfo.default_price} salePrice={selectedStyleInfo.sale_price} /> 
+          <ProductInfo name={productInfo.name} category={productInfo.category} defaultPrice={productInfo.default_price} salePrice={selectedStyleInfo.sale_price} />
           <StyleSelector styles={productStyles} setSelectedStyle={this.setSelectedStyle} />
           <SizeSelector skus={selectedStyleInfo.skus} />
-          <QuantitySelector />
           <AddToCart />
-          <ProductOverview slogan={productInfo.slogan} description={productInfo.description} features={productInfo.features} /> 
-        </div> 
+          <ProductOverview slogan={productInfo.slogan} description={productInfo.description} features={productInfo.features} />
+        </div>
       </div>
     )
   }
