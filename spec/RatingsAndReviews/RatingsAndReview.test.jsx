@@ -3,7 +3,6 @@ import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 import sinon from 'sinon';
 import RatingsAndReviewsSect from '../../client/src/Components/RatingsAndReviewsSect/RatingsAndReviewsSect.jsx';
-import styles from '../../client/src/Components/RatingsAndReviewsSect/reviews.module.css';
 
 configure({ adapter: new Adapter() });
 
