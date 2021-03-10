@@ -25,8 +25,8 @@ class IndividualStar extends React.Component {
     return (
       <div>
       {this.props.starNum <= this.props.hoverIndex
-        ? <i className="fas fa-star" value={this.props.starNum} onClick={this.handleClick} onMouseEnter={this.handleHover} onMouseLeave={this.handleLeave}></i>
-        : <i className="far fa-star" value={this.props.starNum} onClick={this.handleClick} onMouseEnter={this.handleHover}></i>
+        ? <i className={`${styles.pointer} fas fa-star`} value={this.props.starNum} onClick={this.handleClick} onMouseEnter={this.handleHover} onMouseLeave={this.handleLeave}></i>
+        : <i className={`${styles.pointer} far fa-star`} value={this.props.starNum} onClick={this.handleClick} onMouseEnter={this.handleHover}></i>
       }
       </div>
     )
