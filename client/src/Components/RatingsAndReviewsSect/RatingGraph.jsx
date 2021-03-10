@@ -6,7 +6,7 @@ let RatingGraph = ({numberOfRatings, rating, totalRatings}) => {
 
   return (
     <div className={styles.distribution}>
-      <div className={styles.ratingLabel}>{rating} STARS</div>
+      <div className={styles.ratingLabel}>{rating} stars</div>
       <div className={styles.barGraph}>
         <div className={styles.barFill} style={{width: percentage + '%'}}>
         </div>
