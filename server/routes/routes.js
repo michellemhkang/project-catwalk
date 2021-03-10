@@ -23,6 +23,7 @@ projectCatwalk.get('/Q&A/data', questionsAnswersController.getData);
 projectCatwalk.put('/Questionhelpful', questionsAnswersController.helpQ);
 projectCatwalk.put('/Answerhelpful', questionsAnswersController.helpA)
 projectCatwalk.post('/addAnswer', questionsAnswersController.addAnswer)
+projectCatwalk.post('/addQuestion',questionsAnswersController.addQuestion )
 
 
 

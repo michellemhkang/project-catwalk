@@ -63,6 +63,7 @@ formatDate(isoDate){
       </div>
       <br></br>
         {this.props.answers.photos.map((url,i)=>{
+          console.log(url)
           return <Pictures url={url} key={i}/>
         })}
         <br></br>

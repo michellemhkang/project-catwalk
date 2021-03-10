@@ -55,7 +55,19 @@ addAnswer:(req,res)=>{
 }
  axios(options).then((response)=>{response.data}).catch((err)=>{console.log(err)})
 
-}
+},
 
+addQuestion: (req,res)=>{
+  console.log(req.body)
+  let options = {
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions' ,
+    method: 'post',
+    data: req.body,
+    headers: {
+      'Authorization': key
+    }
+}
+ axios(options).then((response)=>{console.log('here')}).catch((err)=>{console.log(err)})
+}
 
 }

@@ -46,6 +46,7 @@ font-family: 'Open Sans',sans-serif;
   display: inline;
   outline:none;
   font-size: 16px;
+  margin-left: 5px;
 }
 .buttonQ:hover{
   text-decoration:none;
@@ -227,8 +228,8 @@ color: #494949 !important;
   background-color: white;
   margin: 0 auto;
   padding: 20px;
-  width: 30%;
-  height: 25%;
+  width: 33%;
+  height: 30%;
   overflow: hidden;
 }
 .Qbutton{
@@ -238,10 +239,10 @@ color: #494949 !important;
   display: inline;
   outline:none;
   font-size: 16px;
-  bottom: 250px;
+  bottom: 350px;
  left: 84%;
  position:relative;
- left: 670px;
+ left: 750px;
 
 }
 .Qbutton:hover{
@@ -342,7 +343,7 @@ transition: all 0.4s ease 0s;
   overflow-x: hidden;
 
   position: relative;
-  max-width:510px;
+  max-width:530px;
   max-height: 450px;
   left:200px;
   word-wrap: break-word;
@@ -410,7 +411,7 @@ left: 200px;
 .typeB{
   border:groove;
   padding: 10px;
-  height: 275px;
+  height: 335px;
   background-color: rgb(236, 236, 236);
 }
 
@@ -447,6 +448,7 @@ left: 200px;
   position: relative;
   margin: 10px;
   bottom: 200px;
+  width: 230px;
 }
 .usernameTextarea{
   position: relative;
@@ -462,5 +464,10 @@ left: 200px;
   position: relative;
   bottom: 60px;
   left: 150px;
+}
+.SubmitQ{
+  position: relative;
+  right: 200px;
+  bottom: 100px;
 }
 

@@ -49,6 +49,7 @@ class Question extends React.Component{
 
             { this.state.Answers.map((answers,i) =>{
               if(answers !== undefined){
+                console.log(answers)
                 return <><Answers answers={answers} key ={i}/></>
               }
             })}
@@ -59,7 +60,7 @@ class Question extends React.Component{
   createAnswer(Abody,arrayOfphotos,email,username){
     var today = new Date();
     var today = today.toISOString();
-    console.log()
+
   var obj = {
       body: Abody,
       name: username,
@@ -131,7 +132,7 @@ Yes(){
 
 if(!this.state.pushed ){
   var num = ++this.state.question_helpfulness
-  console.log(num)
+
   axios.put('/Questionhelpful', {body: this.props.quest.question_id}).then( this.setState({
     pushed: true,
     question_helpfulness: num
@@ -169,6 +170,7 @@ if(!this.state.pushed ){
             <p className={styles.helpfulQ}>Helpful? </p>
             <button className={styles.buttonQ} onClick={this.Yes}> Yes </button>
             <p className={styles.help}> ({this.state.question_helpfulness}) </p>
+            <button className={styles.buttonQ}>Report</button>
             </div>
             <hr></hr>
             {this.state.scroll? this.LoadAnswersScroll() : this.LoadAnswers()}

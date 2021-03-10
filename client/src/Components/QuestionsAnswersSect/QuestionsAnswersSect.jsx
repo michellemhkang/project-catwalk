@@ -8,12 +8,10 @@ class QuestionsAnswersSect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.id,
       QnAlist: [],
       QnADB: [],
       Filter:'',
-      Add: false,
-      questId: 11212
+      Add: false
     };
     this.changefilter = this.changefilter.bind(this);
     this.MoreQuestions = this.MoreQuestions.bind(this);
@@ -41,26 +39,15 @@ class QuestionsAnswersSect extends React.Component {
   }
 
   SubmitQuestion(question, email, username){
-    var today = new Date();
-    var today = today.toISOString();
-    var id = this.state.questId + 1
+
     var NewQuestion = {
-      question_id: id,
-            question_body: question,
-            question_date: today,
-            asker_name: username,
-            question_helpfulness: 0,
-            reported: false,
-            answers: {}
+            body: question,
+            name: username,
+            email: email,
+            product_id:this.props.id
     }
 
-
-    this.setState({
-      QnAlist:[...this.state.QnAlist, NewQuestion],
-      QnADB: [...this.state.QnADB, NewQuestion],
-      questId: id
-    })
-
+    axios.post('/addQuestion', NewQuestion)
   }
 
 
@@ -73,7 +60,7 @@ class QuestionsAnswersSect extends React.Component {
 
   rerender(){
     axios.get('/Q&A/data',{ params: {
-      id: this.state.id
+      id: this.props.id
     }}).then(response => {
       var array = [];
       array.push(response.data.results[0]);
@@ -126,7 +113,7 @@ class QuestionsAnswersSect extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    if(prevProps.id !== this.state.id){
+    if(prevProps.id !== this.props.id){
       this.rerender()
     }
 
@@ -149,7 +136,7 @@ class QuestionsAnswersSect extends React.Component {
 
 
   render() {
-
+    console.log(this.props.id)
     return(
       <>
       <div className={styles.tittle}>
