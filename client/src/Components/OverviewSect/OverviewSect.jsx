@@ -73,6 +73,8 @@ class OverviewSect extends React.Component {
         selectedStyleInfo: response.data.results[0]
       });
       // console.log('state changed productStyles', this.state.productStyles);
+      this.props.getStyleInfo(this.state.selectedStyleInfo);
+      // console.log(this.state.selectedStyleInfo);
     })
     .catch((error) => {
       console.log(error);
@@ -97,8 +99,6 @@ class OverviewSect extends React.Component {
         }
       })
     }
-    this.props.getStyleInfo(this.state.selectedStyleInfo);
-    console.log(this.state.selectedStyleInfo);
   }
 
   componentDidMount() {
