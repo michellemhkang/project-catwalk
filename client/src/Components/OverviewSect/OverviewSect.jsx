@@ -58,30 +58,30 @@ class OverviewSect extends React.Component {
 
   getStyles(id) {
     axios.get('/overview/styles', {
-      params: { product_id: id }
+      params: {product_id: id}
     })
-      .then((response) => {
-        // console.log('getting styles');
-        // console.log(response.data.results);
-        // response.data.results should be an array
-        // console.log('default state productStyles', this.state.productStyles);
-        this.setState({
-          getRequests: this.state.getRequests + 1,
-          productStyles: response.data.results,
-          // when get styles but no style is selected by the user's click,
-          // the selected style should be the first one 
-          selectedStyleInfo: response.data.results[0]
-        });
-        // console.log('state changed productStyles', this.state.productStyles);
-        this.props.getStyleInfo(this.state.selectedStyleInfo);
-        // console.log(this.state.selectedStyleInfo);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+    .then((response) => {
+      // console.log('getting styles');
+      // console.log(response.data.results);
+      // response.data.results should be an array
+      // console.log('default state productStyles', this.state.productStyles);
+      this.setState({
+        getRequests: this.state.getRequests + 1,
+        productStyles: response.data.results,
+        // when get styles but no style is selected by the user's click,
+        // the selected style should be the first one
+        selectedStyleInfo: response.data.results[0]
+      });
+      // console.log('state changed productStyles', this.state.productStyles);
+      this.props.getStyleInfo(this.state.selectedStyleInfo);
+      // console.log(this.state.selectedStyleInfo);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
-  // could put filter fn in render, but would need a way to invoke fn that will pass selected style 
+  // could put filter fn in render, but would need a way to invoke fn that will pass selected style
   // info object back up to App
   setSelectedStyle(id) {
     // this.setState({
@@ -91,7 +91,7 @@ class OverviewSect extends React.Component {
     if (this.state.productStyles.length !== 0) {
       // console.log(this.state.productStyles);
       this.state.productStyles.filter((style) => {
-        // sets the first 'selected' image to be where default property is present 
+        // sets the first 'selected' image to be where default property is present
         if (style['default?'] || style.style_id === id) {
           this.setState({
             selectedStyleInfo: style
@@ -102,7 +102,7 @@ class OverviewSect extends React.Component {
   }
 
   componentDidMount() {
-    console.log('component mounted');
+    // console.log('component mounted');
     this.getProduct(this.state.currentId);
     this.getStyles(this.state.currentId);
   }
@@ -115,7 +115,7 @@ class OverviewSect extends React.Component {
   }
 
   render() {
-    console.log('rendered');
+    // console.log('rendered');
     // console.log(this.state);
     // console.log(this.state.currentId);
     // this.getStyles(this.props.id);
@@ -142,12 +142,12 @@ class OverviewSect extends React.Component {
     //   return <ImageGallery name={style.name} photos={style.photos} />
     // })
 
-    // filter here for the selected style object, 
+    // filter here for the selected style object,
     // and pass only the necessary properties to each child comp
     // let selectedStyle;
     // if (this.state.productStyles.length !== 0) {
     //   this.state.productStyles.filter((style) => {
-    //     // sets the first 'selected' image to be where default property is present 
+    //     // sets the first 'selected' image to be where default property is present
     //     if (style['default?']) {
     //       selectedStyle = style;
     //     } else if (style.style_id === this.state.selectedStyleId) {
@@ -158,7 +158,7 @@ class OverviewSect extends React.Component {
     // console.log(selectedStyle.photos);
 
     // refactor so price goes to product info not style selector
-    // defaultPrice={this.state.productDefaultPrice} 
+    // defaultPrice={this.state.productDefaultPrice}
 
     // DEBUGGING 101
     // 1. Come up with a theory of what's wrong
