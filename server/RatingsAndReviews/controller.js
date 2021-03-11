@@ -9,7 +9,7 @@ module.exports = {
       params: {
         product_id: productId,
         page: 1,
-        sort: 'relevant'
+        sort: 'newest'
       },
       headers: {Authorization: API_KEY}
     }

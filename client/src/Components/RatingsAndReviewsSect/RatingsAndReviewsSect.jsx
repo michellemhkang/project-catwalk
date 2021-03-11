@@ -20,6 +20,7 @@ class RatingsAndReviewsSect extends React.Component {
     super(props);
     this.state = {
       reviewList: [],
+      reviewListDisplay: [],
       reviewCount: '',
       currentProductId: this.props.id,
       averageRating: '',
@@ -33,6 +34,7 @@ class RatingsAndReviewsSect extends React.Component {
 
     this.getReviews = this.getReviews.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
+    this.updateDisplayList = this.updateDisplayList.bind(this);
     this.sendNewReview = this.sendNewReview.bind(this);
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -73,6 +75,27 @@ class RatingsAndReviewsSect extends React.Component {
     });
   }
 
+  updateDisplayList() {
+    let currentDisplayLength = this.state.reviewListDisplay.length;
+
+    if (currentDisplayLength < 2) {
+      this.setState({
+        reviewListDisplay: [this.state.reviewList[0], this.state.reviewList[1]]
+      })
+    } else if (currentDisplayLength === this.state.reviewList.length) {
+      return;
+    } else {
+      let nextReviews = [];
+      for (let i = currentDisplayLength; i < currentDisplayLength + 2; i++) {
+        if (this.state.reviewList[i]) {
+          nextReviews.push(this.state.reviewList[i])
+        }
+      }
+      this.setState({
+        reviewListDisplay: [...this.state.reviewListDisplay, ...nextReviews]
+      })
+    }
+  }
 
   calculateAverageRating() {
     let count = 0;
@@ -161,7 +184,7 @@ class RatingsAndReviewsSect extends React.Component {
             <ReviewCount reviewCount={this.state.reviewCount}/>
             <List reviewList={this.state.reviewList}/>
             <span className={styles.listButtons}>
-              <MoreReviewsButton />
+              <MoreReviewsButton updateDisplayList={this.updateDisplayList}/>
               <AddReviewButton showModal={this.showModal} handleAddReview={this.handleAddReview}/>
             </span>
           </div>
