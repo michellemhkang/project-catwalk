@@ -50,7 +50,7 @@ class RatingsAndReviewsSect extends React.Component {
       this.setState({
         reviewList: response.data.results,
         reviewCount: response.data.results.length
-      })
+      }, this.updateDisplayList)
     })
     .catch(error => {
       console.error(error)
@@ -182,7 +182,7 @@ class RatingsAndReviewsSect extends React.Component {
           </div>
           <div className={styles.col}>
             <ReviewCount reviewCount={this.state.reviewCount}/>
-            <List reviewList={this.state.reviewList}/>
+            <List reviewList={this.state.reviewListDisplay}/>
             <span className={styles.listButtons}>
               <MoreReviewsButton updateDisplayList={this.updateDisplayList}/>
               <AddReviewButton showModal={this.showModal} handleAddReview={this.handleAddReview}/>
