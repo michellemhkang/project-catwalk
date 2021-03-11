@@ -17,28 +17,3 @@ let RatingGraph = ({numberOfRatings, rating, totalRatings}) => {
 
 
 export default RatingGraph;
-
-// `styles.bar-${rating}`
-
-{/* <div>
-<div className={styles.graphRow}>
-  <div className={styles.graphBackground}>
-    {rating + ' stars'}
-    <div className={styles.bar} style={{width: percentage + '%'}}></div>
-  </div>
-</div>
-<div className={styles.graphBetween}></div>
-</div> */}
-
-
-
-{/* <div>
-      <div className={styles.ratingSide}>
-        <div>{rating} stars</div>
-      </div>
-      <div className={styles.ratingMiddle}>
-        <div className={styles.barContainer}>
-          <div className={styles.bar} style={{width: percentage + '%'}}></div>
-        </div>
-      </div>
-    </div> */}

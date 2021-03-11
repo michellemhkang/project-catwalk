@@ -30,7 +30,7 @@ let ReviewListEntry = ({review}) => {
     <div className={styles.reviewListEntry}>
       <span className={styles.starsAndDate}>
         <Stars rating={review.rating}/>
-        <span className={styles.nameDate}>{review.reviewer_name}, {formatDate(review.date)}</span>
+        <span className={styles.nameDate} data-test="username">{review.reviewer_name}, {formatDate(review.date)}</span>
       </span>
       <h4 className={styles.reviewTitle}>{review.summary}</h4>
       <h5 className={styles.reviewBody}>{review.body}</h5>
