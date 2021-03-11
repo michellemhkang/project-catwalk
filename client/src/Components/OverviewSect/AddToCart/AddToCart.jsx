@@ -1,4 +1,5 @@
 import React from 'react';
+import styling from './Buttons.module.css';
 
 class AddToCart extends React.Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class AddToCart extends React.Component {
     }
     render() {
         return (
-            <button>Add to Cart</button>
+            <button className={styling.button}>Add to Cart</button>
         )
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import styling from './Buttons.module.css';
 
 class SizeButton extends React.Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class SizeButton extends React.Component {
     render() {
 
         return (
-            <button onClick={() => this.handleClick(this.props.size)}>{this.props.size}</button>
+            <button className={styling.button} onClick={() => this.handleClick(this.props.size)}>{this.props.size}</button>
         )
     }
 }

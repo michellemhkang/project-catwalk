@@ -1,6 +1,7 @@
 import React from 'react';
 import SizeButton from './SizeButton.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
+import styling from './Buttons.module.css';
 
 class SizeSelector extends React.Component {
     constructor(props) {
@@ -75,7 +76,7 @@ class SizeSelector extends React.Component {
         // here, pair is another array where index 0 is the sku number (key)
         // and index 1 is an object of size and quantity (property)
         let sizeOptions = Object.entries(skus).map((pair, index) => {
-            return <SizeButton changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
+            return <SizeButton className={styling.button} changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
         })
 
         let selectedSku;
@@ -92,7 +93,7 @@ class SizeSelector extends React.Component {
         return (
             <div>
             <div>
-                <button onClick={this.showMenu}>
+                <button className={styling.button} onClick={this.showMenu}>
                     {currentlySelectedSize}
                 </button>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import styling from './Buttons.module.css';
 
 class QuantityButton extends React.Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class QuantityButton extends React.Component {
     render() {
 
         return (
-            <button onClick={() => this.handleClick(this.props.quantity)}>{this.props.quantity}</button>
+            <button className={styling.button} onClick={() => this.handleClick(this.props.quantity)}>{this.props.quantity}</button>
         )
     }
 }

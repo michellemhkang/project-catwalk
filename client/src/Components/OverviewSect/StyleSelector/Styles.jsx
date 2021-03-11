@@ -4,9 +4,7 @@ import styling from './Styles.module.css';
 class Styles extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-
-        }
+        this.state = {}
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -17,6 +15,7 @@ class Styles extends React.Component {
         // console.log(e.target.alt);
         // this.props.changeStyle(e.target.alt);
         this.props.changeStyle(id, name);
+        this.addClass('selected');
         // this.props.reset();
     }
 

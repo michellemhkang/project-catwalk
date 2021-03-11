@@ -174,16 +174,18 @@ class OverviewSect extends React.Component {
       )
     }
     return (
-      <div className={styling.rowContainer}>
-        {/* <ImageGallery photoUrls={onlyPhotos} />
-        {images} */}
-        <ImageGallery name={selectedStyleInfo.name} photos={selectedStyleInfo.photos} />
-        <div className={styling.colContainer}>
-          <ProductInfo name={productInfo.name} category={productInfo.category} defaultPrice={productInfo.default_price} salePrice={selectedStyleInfo.sale_price} />
-          <StyleSelector styles={productStyles} setSelectedStyle={this.setSelectedStyle} />
-          <SizeSelector skus={selectedStyleInfo.skus} />
-          <AddToCart />
-          <ProductOverview slogan={productInfo.slogan} description={productInfo.description} features={productInfo.features} />
+      <div className={styling.overviewContainer}>
+        <div className={styling.rowContainer}>
+          {/* <ImageGallery photoUrls={onlyPhotos} />
+          {images} */}
+          <ImageGallery name={selectedStyleInfo.name} photos={selectedStyleInfo.photos} />
+          <div className={styling.colContainer}>
+            <ProductInfo name={productInfo.name} category={productInfo.category} defaultPrice={productInfo.default_price} salePrice={selectedStyleInfo.sale_price} />
+            <StyleSelector styles={productStyles} setSelectedStyle={this.setSelectedStyle} />
+            <SizeSelector skus={selectedStyleInfo.skus} />
+            <AddToCart />
+            <ProductOverview slogan={productInfo.slogan} description={productInfo.description} features={productInfo.features} />
+          </div>
         </div>
       </div>
     )

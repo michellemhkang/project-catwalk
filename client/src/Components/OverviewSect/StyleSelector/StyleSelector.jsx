@@ -1,5 +1,6 @@
 import React from 'react';
 import Styles from './Styles.jsx';
+import styling from './Styles.module.css';
 // import Price from './Price.jsx';
 // import axios from 'axios';
 
@@ -73,7 +74,7 @@ class StyleSelector extends React.Component {
             <div>
                 {/* <Price defaultPrice={this.props.defaultPrice} salePrice={this.state.selectedStyleSalePrice} /> */}
                 <h3>Style &gt; {this.state.selectedStyleName}</h3>
-                <div>{stylesInfo}</div>
+                <div className={styling.thumbnails}>{stylesInfo}</div>
             </div>
         )
     }

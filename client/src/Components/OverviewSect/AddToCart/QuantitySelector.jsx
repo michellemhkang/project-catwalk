@@ -1,5 +1,6 @@
 import React from 'react';
 import QuantityButton from './QuantityButton.jsx';
+import styling from './Buttons.module.css';
 
 class QuantitySelector extends React.Component {
     constructor(props) {
@@ -72,7 +73,7 @@ class QuantitySelector extends React.Component {
 
         return (
             <div>
-                <button onClick={this.showMenu}>
+                <button className={styling.button} onClick={this.showMenu}>
                     {selectedQuantity}
                 </button>
             {
