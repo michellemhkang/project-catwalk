@@ -34,26 +34,26 @@ class OverviewSect extends React.Component {
 
   getProduct(id) {
     axios.get('/overview/products/:', {
-      params: {product_id: id}
+      params: { product_id: id }
     })
-    .then((response) => {
-      // console.log('getting product');
-      this.props.getProductInfo(response.data);
-      // response.data should be an object
-      this.setState({
-        getRequests: this.state.getRequests + 1,
-        productInfo: Object.assign(this.state.productInfo, response.data)
-        // productName: response.data.name,
-        // productCategory: response.data.category,
-        // productFeatures: response.data.features,
-        // productDefaultPrice: response.data.default_price
+      .then((response) => {
+        // console.log('getting product');
+        this.props.getProductInfo(response.data);
+        // response.data should be an object
+        this.setState({
+          getRequests: this.state.getRequests + 1,
+          productInfo: Object.assign(this.state.productInfo, response.data)
+          // productName: response.data.name,
+          // productCategory: response.data.category,
+          // productFeatures: response.data.features,
+          // productDefaultPrice: response.data.default_price
+        })
+        // console.log(this.state.productInfo);
       })
-      // console.log(this.state.productInfo);
-    })
-    .catch((error) => {
-      // console.log('Here is an error');
-      console.log(error);
-    })
+      .catch((error) => {
+        // console.log('Here is an error');
+        console.log(error);
+      })
   }
 
   getStyles(id) {
@@ -181,8 +181,7 @@ class OverviewSect extends React.Component {
         <div className={styling.colContainer}>
           <ProductInfo name={productInfo.name} category={productInfo.category} defaultPrice={productInfo.default_price} salePrice={selectedStyleInfo.sale_price} />
           <StyleSelector styles={productStyles} setSelectedStyle={this.setSelectedStyle} />
-          <SizeSelector />
-          <QuantitySelector />
+          <SizeSelector skus={selectedStyleInfo.skus} />
           <AddToCart />
           <ProductOverview slogan={productInfo.slogan} description={productInfo.description} features={productInfo.features} />
         </div>

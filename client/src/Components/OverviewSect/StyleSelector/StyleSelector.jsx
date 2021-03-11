@@ -20,7 +20,7 @@ class StyleSelector extends React.Component {
             // selectedStylePhoto: this.props.productStyles[0].photos[0].url
             // styleInfo: {},
             // selectedStyleInfo: {},
-            selectedStyleName: '',
+            selectedStyleName: this.props.styles[0].name,
             // selectedStyleId: null
             // selectedStyleDefaultPrice: null,
             // selectedStyleSalePrice: null,
