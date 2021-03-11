@@ -13,7 +13,8 @@ class Question extends React.Component{
     question_helpfulness: 0,
     pushed: false,
     add: false,
-    scroll: false
+    scroll: false,
+    reported: false
 
     }
     this.addAns= this.addAns.bind(this)
@@ -26,11 +27,24 @@ class Question extends React.Component{
     this.LoadAnswersScroll = this.LoadAnswersScroll.bind(this)
     this.LoadAnswers = this.LoadAnswers.bind(this)
     this.createAnswer = this.createAnswer.bind(this)
+    this.report = this.report.bind(this)
   }
+
+  report(){
+    if(!this.state.reported){
+    axios.put('/reportQ', {question_id: this.props.quest.question_id}).then('worked')
+    this.setState({
+      reported: true
+    })
+    } else {
+
+    }
+  }
+
   LoadAnswers(){
     return(
       <div className={styles.AnswersDiv}>
-            <h3 className = {styles.a}>Answers:</h3>
+            <h4 className = {styles.a}>Answers:</h4>
 
             { this.state.Answers.map((answers,i) =>{
               if(answers !== undefined){
@@ -45,7 +59,7 @@ class Question extends React.Component{
   LoadAnswersScroll(){
     return(
       <div className={styles.AnswersDivScroll}>
-            <h3 className = {styles.a}>Answers:</h3>
+            <h4 className = {styles.a}>Answers:</h4>
 
             { this.state.Answers.map((answers,i) =>{
               if(answers !== undefined){
@@ -65,7 +79,7 @@ class Question extends React.Component{
       body: Abody,
       name: username,
       email: email,
-      photos: arrayOfphotos,
+      photos: arrayOfphotos
 
 }
   axios.post('/addAnswer', {obj, question_id: this.props.quest.question_id}).then()
@@ -162,7 +176,7 @@ if(!this.state.pushed ){
         return(
           <>
           <li className={styles.Qlist}>
-            <h3 className={styles.quest}>Question : </h3>
+            <h4 className={styles.quest}>Question : </h4>
             <div className={styles.questContainer}>
             <p className={styles.questBody}>  {this.props.quest.question_body}  </p>
             </div>
@@ -170,9 +184,9 @@ if(!this.state.pushed ){
             <p className={styles.helpfulQ}>Helpful? </p>
             <button className={styles.buttonQ} onClick={this.Yes}> Yes </button>
             <p className={styles.help}> ({this.state.question_helpfulness}) </p>
-            <button className={styles.buttonQ}>Report</button>
+            <button className={styles.buttonQ} onClick={(event)=>{event.preventDefault(); this.report()}}>Report</button>
             </div>
-            <hr></hr>
+            <hr className={styles.Qhr}></hr>
             {this.state.scroll? this.LoadAnswersScroll() : this.LoadAnswers()}
             <br></br>
             <div className={styles.questbuttons}>

@@ -56,12 +56,12 @@ class AddAnswer extends React.Component {
               <p>{this.props.quest}</p>
               <input value={this.state.email} placeholder={'Email'}onChange={(event)=>{event.preventDefault(); this.emailTxt()}}></input>
       <input value={this.state.username} placeholder={'Username'}onChange={(event)=>{event.preventDefault(); this.UsernameTxt()}}></input>
-              <textarea className={styles.AnswerInput} value={this.state.text} onChange={(event)=>{this.updatetxt()}}></textarea>
+              <textarea className={styles.AnswerInput} value={this.state.text} placeholder={'question....'} onChange={(event)=>{this.updatetxt()}}></textarea>
               <button className={styles.SubmitAnswerbtn}>Submit</button>
               <input type={'file'} onChange={this.updateIMG} />
               <div className={styles.imagePreviewDiv}>
-                <img src={this.state.img} className={styles.imagePreviewPic}></img>
-                <span className={styles.imagePreviewDivtext}>image Preview</span>
+                {this.state.img !== null?<img src={this.state.img} className={styles.imagePreviewPic}></img>: <span className={styles.imagePreviewDivtext}>image Preview</span>}
+
               </div>
             </form>
           </div>

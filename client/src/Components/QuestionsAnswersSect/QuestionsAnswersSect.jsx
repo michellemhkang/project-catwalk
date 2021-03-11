@@ -136,9 +136,10 @@ class QuestionsAnswersSect extends React.Component {
 
 
   render() {
-    console.log(this.props.id)
+
     return(
       <>
+      <hr className={styles.Qhr}></hr>
       <div className={styles.tittle}>
         <h1>Customer Questions & Answers</h1>
       </div>
@@ -156,6 +157,7 @@ class QuestionsAnswersSect extends React.Component {
       {this.state.QnAlist.length > 2 ? this.less() : null}
       </div>
       <br></br>
+      <hr className={styles.Qhr}></hr>
       </>
     )
   }

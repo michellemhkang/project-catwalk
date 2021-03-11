@@ -38,7 +38,7 @@ render(){
     <>
   <div className ={styles.imageDiv}>
     <div className ={styles.qDiv}>
-
+    <div className={styles.typeB}>
       <h2 className={styles.askUrQ}>Ask Your Question</h2>
       <p className={styles.subtext}>About the [product name]</p>
     <form >
@@ -48,6 +48,7 @@ render(){
       <input value={this.state.username} placeholder={'Example: jackson11!'}onChange={(event)=>{event.preventDefault(); this.UsernameTxt()}} maxLength={'60'}className={styles.usernameTextarea}></input>
       <button className={styles.SubmitQ} onClick={(event)=>{ event.preventDefault(); this.props.SubmitQuestion(this.state.Question,this.state.email,this.state.username); this.props.AddQuestion();}}>Submit Question</button>
     </form>
+    </div>
     </div>
   </div>
     </>

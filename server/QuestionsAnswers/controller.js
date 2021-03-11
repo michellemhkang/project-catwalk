@@ -68,6 +68,30 @@ addQuestion: (req,res)=>{
     }
 }
  axios(options).then((response)=>{console.log('here')}).catch((err)=>{console.log(err)})
+},
+ReoportQ: (req,res)=>{
+
+  let options = {
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/'+ req.body.question_id+'/report' ,
+    method: 'put',
+    headers: {
+      'Authorization': key
+    }
+}
+ axios(options)
+
+},
+ReoportA:  (req,res)=>{
+
+  let options = {
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/'+ req.body.answers_id+'/report' ,
+    method: 'put',
+    headers: {
+      'Authorization': key
+    }
+}
+ axios(options)
+
 }
 
 }

@@ -8,11 +8,23 @@ class Answers extends React.Component{
     super(props)
     this.state={
       helpfulness: this.props.answers.helpfulness,
-      pushed: false
-
+      pushed: false,
+      reported: false
     }
     this.Yes = this.Yes.bind(this)
     this.formatDate = this.formatDate.bind(this);
+    this.reported = this.reported.bind(this);
+  }
+  reported(){
+    if(!this.state.reported){
+      axios.put('/reportA', {answers_id:this.props.answers.id }).then('worked')
+      this.setState({
+        reported: true
+      })
+      } else {
+
+      }
+
   }
 
 
@@ -52,6 +64,7 @@ formatDate(isoDate){
 
 
   render(){
+
     return (
       <>
       <br></br>
@@ -62,15 +75,18 @@ formatDate(isoDate){
       <p className={styles.answer}>{this.props.answers.body}</p>
       </div>
       <br></br>
+        <div className={styles.photosDiv}>
         {this.props.answers.photos.map((url,i)=>{
           console.log(url)
           return <Pictures url={url} key={i}/>
         })}
-        <br></br>
-        <br></br>
+        </div>
+        <div className={styles.userbyAdiv}>
       <p className={styles.userbyA}>by {this.props.answers.answerer_name} on {this.formatDate(this.props.answers.date.toString())} </p>
       <p className={styles.help} >| Helpful? </p>
       <button className={styles.buttonQ} onClick={this.Yes}> Yes </button> <p className={styles.helpNum}>({this.state.helpfulness})</p>
+      <button className={styles.buttonQ}>Report</button>
+      </div>
       <br></br>
       <br></br>
       </div>
