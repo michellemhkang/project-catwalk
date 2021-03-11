@@ -105,13 +105,13 @@ class WriteYourReview extends React.Component {
         <div className={`${styles.reviewInput} ${styles.textInput}`}>
           <div className={styles.reviewLabelCol}>Nickname:</div>
           <div className={styles.reviewInputCol}>
-            <input type="text" placeholder="Nickname" name="nickname" value={this.state.nickname} required onChange={this.handleFormChange} />
+            <input type="text" placeholder="Nickname" data-test="nicknameField" name="nickname" value={this.state.nickname} required onChange={this.handleFormChange} />
           </div>
         </div>
         <div className={`${styles.reviewInput} ${styles.textInput}`}>
           <div className={styles.reviewLabelCol}>Email:</div>
           <div className={styles.reviewInputCol}>
-            <input type="email" placeholder="Email" value={this.state.email} required name="email" onChange={this.handleFormChange} />
+            <input type="email" placeholder="Email" value={this.state.email} required name="email" data-test="emailField" onChange={this.handleFormChange} />
           </div>
         </div>
         <div className={styles.buttonRow}>
