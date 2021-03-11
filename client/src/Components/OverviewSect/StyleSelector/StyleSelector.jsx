@@ -67,7 +67,7 @@ class StyleSelector extends React.Component {
         // console.log('props:', this.props.styles);
         const stylesInfo = this.props.styles.map((style, index) => {
             // console.log('style:', style);
-            return <Styles name={style.name} photos={style.photos} id={style.style_id} key={index} changeStyle={this.changeStyle} /> 
+            return <Styles selectedStyleName={this.state.selectedStyleName} name={style.name} photos={style.photos} id={style.style_id} key={index} changeStyle={this.changeStyle} /> 
         })
 
         return (
