@@ -27,7 +27,7 @@ class AddToCart extends React.Component {
 
     render() {
         return (
-            <button onClick={this.handleClick} className={styling.button}>Add to Cart</button>
+            <button onClick={this.handleClick} className={styling.addButton}>Add to Cart</button>
         )
     }
 }

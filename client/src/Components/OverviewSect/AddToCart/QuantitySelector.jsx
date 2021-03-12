@@ -17,27 +17,27 @@ class QuantitySelector extends React.Component {
 
     showMenu(e) {
         e.preventDefault();
-        this.setState({showMenu: true}, () => {
+        this.setState({ showMenu: true }, () => {
             document.addEventListener('click', this.closeMenu);
         })
     }
 
     closeMenu(e) {
         if (!this.dropdownMenu.contains(e.target)) {
-            this.setState({showMenu: false}, () => {
+            this.setState({ showMenu: false }, () => {
                 document.removeEventListener('click', this.closeMenu);
             })
         }
     }
 
     changeQuantity(quantity) {
-        this.setState({selectedQuantity: quantity});
+        this.setState({ selectedQuantity: quantity });
     }
 
     render() {
 
-        const {selectedSku, quantityAvailable} = this.props;
-        const {showMenu, selectedQuantity} = this.state;
+        const { selectedSku, quantityAvailable } = this.props;
+        const { showMenu, selectedQuantity } = this.state;
 
         // we want the quantity for whose size is equal to props selected size
         // let quantityOptions = Object.entries(skus).filter((pair, index) => {
@@ -77,45 +77,34 @@ class QuantitySelector extends React.Component {
 
 
         return (
-            <div>
-                <div>
-                    <button className={styling.button} onClick={this.showMenu}>
-                        {
-                            selectedQuantity === null
-                            ? (
-                                <div>
-                                    <i className={'fas fa-minus'} />
-                                    <i className={'fas fa-angle-down fa-fw'} />
-                                </div>
-                            )
-                            : (
-                                <div>
-                                    {selectedQuantity}
-                                    <i className={'fas fa-angle-down fa-fw'} />
-                                </div>
-                            )
-                        }
-                        {/* {displayQuantity} */}
-                        {/* <i className={'fas fa-angle-down fa-fw'} /> */}
+            <div className={styling.colContainer}>
+
+                <div className={styling.rowContainer}>
+                    <button className={styling.quantityButton} onClick={this.showMenu}>
+                        {selectedQuantity === null ? (
+                            <div>
+                                <i className={'fas fa-minus'} />
+                                <i className={'fas fa-angle-down fa-fw'} />
+                            </div>
+                        ) : (
+                            <div>
+                                {selectedQuantity}
+                                <i className={'fas fa-angle-down fa-fw'} />
+                            </div>
+                        )}
                     </button>
-                {
-                    showMenu
-                    ? (
-                        <div className="menu" ref={(element) => {this.dropdownMenu = element;}}>
-                            {/* <QuantityButton quantityOptions={selectedSku.quantity} /> */}
+                    {showMenu ? (
+                        <div className="menu" ref={(element) => { this.dropdownMenu = element; }}>
                             {quantityOptions}
-                            {/* <button>1</button>
-                            <button>2</button>
-                            <button>3</button>
-                            <button>4</button> */}
                         </div>
-                    )
-                    : (
+                    ) : (
                         null
-                    )
-                }
+                    )}
                 </div>
+
                 <AddToCart selectedSku={selectedSku} quantity={this.state.selectedQuantity} />
+
+
             </div>
         )
     }

@@ -94,30 +94,30 @@ class SizeSelector extends React.Component {
 
 
         return (
-            <div>
-            <div>
-                <button className={styling.button} onClick={this.showMenu}>
-                    {currentlySelectedSize}
-                    <i className={'fas fa-angle-down fa-fw'}></i>
-                </button>
+            <div className={styling.rowContainer}>
+                <div>
+                    <button className={styling.sizeButton} onClick={this.showMenu}>
+                        {currentlySelectedSize}
+                        <i className={'fas fa-angle-down fa-fw'}></i>
+                    </button>
 
-            {
-                showMenu
-                ? (
-                    <div className="menu" ref={(element) => {this.dropdownMenu = element;}}>
-                        {sizeOptions}
-                        {/* <button>XS</button>
-                        <button>S</button>
-                        <button>M</button>
-                        <button>L</button> */}
-                    </div>
-                )
-                : (
-                    null
-                )
-            }
-            </div>
-            <QuantitySelector selectedSku={selectedSku} quantity={quantityAvailable} />
+                {
+                    showMenu
+                    ? (
+                        <div className="menu" ref={(element) => {this.dropdownMenu = element;}}>
+                            {sizeOptions}
+                            {/* <button>XS</button>
+                            <button>S</button>
+                            <button>M</button>
+                            <button>L</button> */}
+                        </div>
+                    )
+                    : (
+                        null
+                    )
+                }
+                </div>
+                <QuantitySelector selectedSku={selectedSku} quantity={quantityAvailable} />
             </div>
         )
     }
