@@ -1,8 +1,16 @@
+.thumbnailContainer {
+    display: flex;
+    flex-flow: row wrap;
+    /* flex-basis: 90%; */
+    width: 500px;
+    /* width: 100%; */
+    /* height: 100px; */
+}
 .thumbnail {
     border-radius: 50%;
     height: 90px;
     width: 90px;
-    margin: 15px;
+    margin: 10px;
     transition: 0.3s;
     object-fit: cover;
     padding: 1.5px;
@@ -10,7 +18,7 @@
 }
 .thumbnail:hover {
     cursor: pointer;
-    border: 4px solid;
+    border: 3px solid;
     /* background-color: black !important; */
     transform: scale(1.1);
 }
@@ -18,15 +26,10 @@
     border-radius: 50%;
     height: 90px;
     width: 90px;
-    margin: 15px;
+    margin: 10px;
     transition: 0.3s;
     object-fit: cover;
     padding: 1.5px;
-    border: 4px solid;
+    border: 3px solid;
     /* background-color: black !important; */
-  }
-.thumbnails {
-    display: flex;
-    width: 400px;
-    flex-wrap: wrap;
 }

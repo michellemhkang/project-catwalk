@@ -1,13 +1,21 @@
+.overviewContainer {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+}
 .colContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
 }
 .rowContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 50px;
 }
-.overviewContainer {
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+.productOverviewContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
 }
