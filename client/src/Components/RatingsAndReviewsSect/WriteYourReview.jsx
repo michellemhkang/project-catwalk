@@ -59,7 +59,7 @@ class WriteYourReview extends React.Component {
       <>
       <div className={`${styles.newReview} ${styles.col}`}>
           <h3 className={styles.newReviewTitle}>WRITE YOUR REVIEW</h3>
-          <h5 className={`${styles.newReviewTitle} ${styles.newReviewSubtitle}`}>Share Your Experience</h5>
+          <h5 className={`${styles.newReviewTitle} ${styles.newReviewSubtitle}`}>Share Your Experience About "{this.props.productName}"</h5>
         <span className={`${styles.row} ${styles.center}`}>
           <p className={styles.smallText}>Rating:</p>
           <NewStarRating handleRatingChange={this.handleRatingChange}/>
