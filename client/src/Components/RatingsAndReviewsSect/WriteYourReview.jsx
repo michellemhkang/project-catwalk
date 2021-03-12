@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './reviews.module.css';
 import NewStarRating from './NewStarRating.jsx';
 import Characteristics from './Characteristics.jsx'
@@ -118,7 +119,6 @@ class WriteYourReview extends React.Component {
       <button className={`${styles.button} ${styles.submitReviewButton}`} onClick={this.handleSubmit}>SUBMIT</button>
      </div>
       </div>
-
      </>
     )
   }

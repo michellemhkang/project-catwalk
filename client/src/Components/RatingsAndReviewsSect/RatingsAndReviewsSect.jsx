@@ -11,9 +11,7 @@ import WriteYourReview from './WriteYourReview.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import CharacteristicsSummary from './CharacteristicsSummary.jsx';
 import Modal from './Modal.jsx';
-import dummyReviewListData from './dummyData/dummyReviewListData.js';
 import styles from './reviews.module.css';
-
 
 class RatingsAndReviewsSect extends React.Component {
   constructor(props) {
@@ -77,29 +75,6 @@ class RatingsAndReviewsSect extends React.Component {
     });
   }
 
-  // updateDisplayList() {
-  //   let currentDisplayLength = this.state.reviewListDisplay.length;
-
-  //   if (currentDisplayLength < 2) {
-  //     this.setState({
-  //       reviewListDisplay: [this.state.reviewList[0], this.state.reviewList[1]]
-  //     })
-  //   } else if (currentDisplayLength === this.state.reviewList.length) {
-  //     return;
-  //   } else {
-  //     let nextReviews = [];
-  //     for (let i = currentDisplayLength; i < currentDisplayLength + 2; i++) {
-  //       if (this.state.reviewList[i]) {
-  //         nextReviews.push(this.state.reviewList[i])
-  //       }
-  //     }
-  //     this.setState({
-  //       reviewListDisplay: [...this.state.reviewListDisplay, ...nextReviews]
-  //     })
-  //   }
-  // }
-
-  // this version loads four upon intitial render and adds two
   updateDisplayList() {
     let currentDisplayLength = this.state.reviewListDisplay.length;
     if (currentDisplayLength < 4) {
@@ -221,8 +196,6 @@ class RatingsAndReviewsSect extends React.Component {
   }
 
   render() {
-    console.log('actual data ', this.state.reviewList)
-    console.log('display data ', this.state.reviewListDisplay);
     return(
       <div className={styles.reviewsContainer}>
         <h1 className={`${styles.row} ${styles.sectionTitle}`}>RATINGS AND REVIEWS</h1>

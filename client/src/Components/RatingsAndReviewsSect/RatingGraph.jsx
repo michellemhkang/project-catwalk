@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './reviews.module.css';
 
 let RatingGraph = ({numberOfRatings, rating, totalRatings}) => {
@@ -14,6 +15,5 @@ let RatingGraph = ({numberOfRatings, rating, totalRatings}) => {
     </div>
   )
 }
-
 
 export default RatingGraph;

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './reviews.module.css';
 
 let CharacteristicGraph = ({name, value}) => {
@@ -27,6 +28,5 @@ let CharacteristicGraph = ({name, value}) => {
     </div>
   )
 }
-
 
 export default CharacteristicGraph;
