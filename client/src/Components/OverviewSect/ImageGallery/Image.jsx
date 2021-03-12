@@ -1,12 +1,19 @@
 import React from 'react';
 import styling from './ImageGallery.module.css';
 
-const Image = ({url}) => {
-    return (
-        <div className={styling.image}>
-            <img className="image-slide" className={styling.image} src={url} />
+const Image = ({url, slide}) => {
+        if (slide) {
+            return (
+            <div>
+                <img className={styling.image.slide} src={url} />
+            </div>
+            )
+        }
+        return (
+        <div>
+            <img className={styling.image} src={url} />
         </div>
-    )
+        )
 }
 
 export default Image;

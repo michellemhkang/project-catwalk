@@ -1,6 +1,7 @@
 import React from 'react';
 import styling from './Buttons.module.css';
 import axios from 'axios';
+import FavoriteButton from './FavoriteButton.jsx';
 
 class AddToCart extends React.Component {
     constructor(props) {
@@ -27,7 +28,10 @@ class AddToCart extends React.Component {
 
     render() {
         return (
-            <button onClick={this.handleClick} className={styling.addButton}>Add to Cart</button>
+            <div>
+                <button onClick={this.handleClick} className={styling.addButton}>Add to Cart</button>
+       
+            </div>
         )
     }
 }

@@ -7,7 +7,8 @@ class ImageGallery extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentImageIndex: 0
+            currentImageIndex: 0,
+            slide: false
         }
         this.previousSlide = this.previousSlide.bind(this);
         this.nextSlide = this.nextSlide.bind(this);
@@ -20,7 +21,8 @@ class ImageGallery extends React.Component {
         const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
 
         this.setState({
-            currentImageIndex: index
+            currentImageIndex: index,
+            slide: true
         })
     }
 
@@ -31,7 +33,8 @@ class ImageGallery extends React.Component {
         const index = shouldResetIndex ? 0 : currentImageIndex + 1;
 
         this.setState({
-            currentImageIndex: index
+            currentImageIndex: index,
+            slide: true
         })
     }
 
@@ -54,7 +57,7 @@ class ImageGallery extends React.Component {
                 clickFunction={this.previousSlide}
                 style={name} />
 
-                <Image url={photos[currentImageIndex].url} />
+                <Image slide={this.state.slide} url={photos[currentImageIndex].url} />
 
                 <Arrow
                 direction="right"
