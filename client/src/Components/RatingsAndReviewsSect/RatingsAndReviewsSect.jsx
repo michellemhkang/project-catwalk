@@ -113,6 +113,9 @@ class RatingsAndReviewsSect extends React.Component {
       this.setState({
         reviewListDisplay: [...reviews]
       })
+      if (this.state.reviewList.length === this.state.reviewListDisplay.length) {
+        this.setState({showMoreReviews: !this.state.showMoreReviews})
+      }
     } else if (currentDisplayLength === this.state.reviewList.length) {
       window.removeEventListener('scroll', this.showMoreOnScroll, false);
       this.setState({showMoreReviews: !this.state.showMoreReviews})
@@ -233,8 +236,8 @@ class RatingsAndReviewsSect extends React.Component {
             <ReviewCount reviewCount={this.state.reviewCount}/>
             <List reviewList={this.state.reviewListDisplay}/>
             <span className={styles.listButtons}>
-              <MoreReviewsButton reviewCount={this.state.reviewCount} showMoreReviews={this.state.showMoreReviews} updateDisplayList={this.updateDisplayList}/>
               <AddReviewButton showModal={this.showModal} handleAddReview={this.handleAddReview}/>
+              <MoreReviewsButton reviewCount={this.state.reviewCount} showMoreReviews={this.state.showMoreReviews} updateDisplayList={this.updateDisplayList}/>
             </span>
           </div>
         </div>
