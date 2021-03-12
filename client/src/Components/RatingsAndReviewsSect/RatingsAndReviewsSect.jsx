@@ -105,10 +105,11 @@ class RatingsAndReviewsSect extends React.Component {
     if (currentDisplayLength < 4) {
       this.setState({
         reviewListDisplay: [this.state.reviewList[0], this.state.reviewList[1], this.state.reviewList[2], this.state.reviewList[3]]
-      }, window.addEventListener('scroll', this.showMoreOnScroll))
+      })
     } else if (currentDisplayLength === this.state.reviewList.length) {
       return;
     } else {
+      window.addEventListener('scroll', this.showMoreOnScroll);
       let nextReviews = [];
       for (let i = currentDisplayLength; i < currentDisplayLength + 2; i++) {
         if (this.state.reviewList[i]) {
