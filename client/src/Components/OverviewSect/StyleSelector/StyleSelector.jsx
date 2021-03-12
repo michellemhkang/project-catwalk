@@ -73,7 +73,7 @@ class StyleSelector extends React.Component {
         return (
             <div>
                 {/* <Price defaultPrice={this.props.defaultPrice} salePrice={this.state.selectedStyleSalePrice} /> */}
-                <h3>Style &gt; {this.state.selectedStyleName}</h3>
+                <h3 className={styling.styleName}>Style &gt; {this.state.selectedStyleName}</h3>
                 {/* <div className={styling.thumbnails}>
                     <div>
                         {stylesInfo}
