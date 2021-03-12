@@ -38,6 +38,7 @@ class RatingsAndReviewsSect extends React.Component {
     this.sendNewReview = this.sendNewReview.bind(this);
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+    this.showMoreOnScroll = this.showMoreOnScroll.bind(this);
   }
 
   getReviews(id) {
@@ -75,13 +76,36 @@ class RatingsAndReviewsSect extends React.Component {
     });
   }
 
+  // updateDisplayList() {
+  //   let currentDisplayLength = this.state.reviewListDisplay.length;
+
+  //   if (currentDisplayLength < 2) {
+  //     this.setState({
+  //       reviewListDisplay: [this.state.reviewList[0], this.state.reviewList[1]]
+  //     })
+  //   } else if (currentDisplayLength === this.state.reviewList.length) {
+  //     return;
+  //   } else {
+  //     let nextReviews = [];
+  //     for (let i = currentDisplayLength; i < currentDisplayLength + 2; i++) {
+  //       if (this.state.reviewList[i]) {
+  //         nextReviews.push(this.state.reviewList[i])
+  //       }
+  //     }
+  //     this.setState({
+  //       reviewListDisplay: [...this.state.reviewListDisplay, ...nextReviews]
+  //     })
+  //   }
+  // }
+
+  // this version loads four upon intitial render and adds two
   updateDisplayList() {
     let currentDisplayLength = this.state.reviewListDisplay.length;
 
-    if (currentDisplayLength < 2) {
+    if (currentDisplayLength < 4) {
       this.setState({
-        reviewListDisplay: [this.state.reviewList[0], this.state.reviewList[1]]
-      })
+        reviewListDisplay: [this.state.reviewList[0], this.state.reviewList[1], this.state.reviewList[2], this.state.reviewList[3]]
+      }, window.addEventListener('scroll', this.showMoreOnScroll))
     } else if (currentDisplayLength === this.state.reviewList.length) {
       return;
     } else {
@@ -96,6 +120,12 @@ class RatingsAndReviewsSect extends React.Component {
       })
     }
   }
+
+  showMoreOnScroll(){
+    if (window.innerHeight + document.documentElement.scrollTop === document.scrollingElement.scrollHeight) {
+        this.updateDisplayList();
+    }
+}
 
   calculateAverageRating() {
     let count = 0;
