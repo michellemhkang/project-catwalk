@@ -2,14 +2,27 @@
     margin-left: 20px;
 }
 .category {
-    display: flex;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 8px;
 }
 .name {
-    display: flex;
+    font-size: 45px;
+    font-weight: bolder;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
-.strikethrough {
+.defaultPrice {
+    margin-top: 10px;
+    font-size: 18px;
+}
+.defaultStrikethrough {
+    margin-top: 10px;
+    font-size: 18px;
     text-decoration: line-through;
 }
 .salePrice {
-    color: red
+    margin-top: 10px;
+    font-size: 18px;
+    color: red;
 }
