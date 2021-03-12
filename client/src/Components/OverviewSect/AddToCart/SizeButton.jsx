@@ -7,14 +7,15 @@ class SizeButton extends React.Component {
         this.state = {}
         this.handleClick = this.handleClick.bind(this);
     }
-    handleClick(size) {
-        this.props.changeSelectedSize(size);
+    handleClick(e) {
+        e.preventDefault();
+        this.props.changeSelectedSize(this.props.size);
         // this.props.closeMenu();
     }
     render() {
 
         return (
-            <button className={styling.button} onClick={() => this.handleClick(this.props.size)}>{this.props.size}</button>
+            <button className={styling.button} onClick={this.handleClick}>{this.props.size}</button>
         )
     }
 }

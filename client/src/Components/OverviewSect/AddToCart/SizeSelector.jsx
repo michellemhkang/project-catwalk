@@ -23,6 +23,7 @@ class SizeSelector extends React.Component {
     }
 
     closeMenu(e) {
+        e.preventDefault();
         if (!this.dropdownMenu.contains(e.target)) {
             this.setState({showMenu: false}, () => {
                 document.removeEventListener('click', this.closeMenu);
@@ -32,7 +33,7 @@ class SizeSelector extends React.Component {
 
     changeSelectedSize(size) {
         this.setState({currentlySelectedSize: size})
-        this.closeMenu();
+        // this.closeMenu();
     }
 
     render() {
@@ -80,10 +81,12 @@ class SizeSelector extends React.Component {
         })
 
         let selectedSku;
+        let quantityAvailable;
         if (currentlySelectedSize !== 'Select Size') {
             Object.entries(skus).filter((sku) => {
                 if (sku[1].size === currentlySelectedSize) {
-                    selectedSku = sku[1].quantity;
+                    selectedSku = sku[0];
+                    quantityAvailable = sku[1].quantity;
                     // console.log(selectedSku);
                 }
             })
@@ -95,6 +98,7 @@ class SizeSelector extends React.Component {
             <div>
                 <button className={styling.button} onClick={this.showMenu}>
                     {currentlySelectedSize}
+                    <i className={'fas fa-angle-down fa-fw'}></i>
                 </button>
 
             {
@@ -106,14 +110,14 @@ class SizeSelector extends React.Component {
                         <button>S</button>
                         <button>M</button>
                         <button>L</button> */}
-                    </div>    
+                    </div>
                 )
                 : (
                     null
                 )
             }
             </div>
-            <QuantitySelector selectedSku={selectedSku} />
+            <QuantitySelector selectedSku={selectedSku} quantity={quantityAvailable} />
             </div>
         )
     }
