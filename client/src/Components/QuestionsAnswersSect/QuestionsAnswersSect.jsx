@@ -47,7 +47,7 @@ class QuestionsAnswersSect extends React.Component {
             product_id:this.props.id
     }
 
-    axios.post('/addQuestion', NewQuestion)
+    axios.post('/addQuestion', NewQuestion).then(this.rerender());
   }
 
 

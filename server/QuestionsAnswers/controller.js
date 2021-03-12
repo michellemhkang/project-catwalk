@@ -8,7 +8,7 @@ module.exports = {
 
 getData: (req,res)=>{
   let options = {
-    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions?product_id=' + req.query.id,
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions?product_id=' + req.query.id+'&count=69',
     method: 'GET',
     headers: {
       'User-Agent': 'request',
