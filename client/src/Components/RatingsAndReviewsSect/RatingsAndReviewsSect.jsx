@@ -21,15 +21,16 @@ class RatingsAndReviewsSect extends React.Component {
     this.state = {
       reviewList: [],
       reviewListDisplay: [],
-      reviewCount: '',
+      reviewCount: 0,
       currentProductId: this.props.id,
-      averageRating: '',
+      averageRating: 0,
       recsPercentage: 0,
       characteristics: {},
       ratings: {},
       recommended: {},
       totalRatings: 0,
       showModal: false,
+      showMoreReviews: true
     };
 
     this.getReviews = this.getReviews.bind(this);
@@ -103,10 +104,18 @@ class RatingsAndReviewsSect extends React.Component {
     let currentDisplayLength = this.state.reviewListDisplay.length;
 
     if (currentDisplayLength < 4) {
+      let reviews = [];
+      for (let i = 0; i < 4; i++) {
+        if (this.state.reviewList[i]) {
+          reviews.push(this.state.reviewList[i])
+        }
+      }
       this.setState({
-        reviewListDisplay: [this.state.reviewList[0], this.state.reviewList[1], this.state.reviewList[2], this.state.reviewList[3]]
+        reviewListDisplay: [...reviews]
       })
     } else if (currentDisplayLength === this.state.reviewList.length) {
+      window.removeEventListener('scroll', this.showMoreOnScroll, false);
+      this.setState({showMoreReviews: !this.state.showMoreReviews})
       return;
     } else {
       window.addEventListener('scroll', this.showMoreOnScroll);
@@ -195,12 +204,21 @@ class RatingsAndReviewsSect extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.id !== this.props.id) {
-      this.getReviews(this.props.id);
-      this.getMetadata(this.props.id);
+      this.setState({
+        reviewListDisplay: [],
+        showMoreReviews: true
+      }, ()=>{this.getReviews(this.props.id);
+        this.getMetadata(this.props.id);})
     }
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.showMoreOnScroll, false);
+  }
+
   render() {
+    console.log('actual data ', this.state.reviewList)
+    console.log('display data ', this.state.reviewListDisplay);
     return(
       <div className={styles.reviewsContainer}>
         <h1 className={`${styles.row} ${styles.sectionTitle}`}>RATINGS AND REVIEWS</h1>
@@ -215,7 +233,7 @@ class RatingsAndReviewsSect extends React.Component {
             <ReviewCount reviewCount={this.state.reviewCount}/>
             <List reviewList={this.state.reviewListDisplay}/>
             <span className={styles.listButtons}>
-              <MoreReviewsButton updateDisplayList={this.updateDisplayList}/>
+              <MoreReviewsButton reviewCount={this.state.reviewCount} showMoreReviews={this.state.showMoreReviews} updateDisplayList={this.updateDisplayList}/>
               <AddReviewButton showModal={this.showModal} handleAddReview={this.handleAddReview}/>
             </span>
           </div>

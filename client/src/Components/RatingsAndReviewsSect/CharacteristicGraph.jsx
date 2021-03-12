@@ -12,6 +12,7 @@ let CharacteristicGraph = ({name, value}) => {
   }
 
   return (
+    !value ? null :
     <div className={styles.comparisonBarWrapper}>
       <div className={styles.comparisonBarTitle}>{name}</div>
       <div className={styles.comparisonBarLine}>
