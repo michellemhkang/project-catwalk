@@ -1,0 +1,37 @@
+.container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  max-height: 400px;
+  margin-bottom: 50px;
+}
+.rowContainer {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+.colContainer {
+  display: flex;
+  /* justify-content: center; */
+  flex-flow: column wrap;
+  max-width: 400px;
+  margin-right: 80px;
+}
+.slogan {
+  font-size: 20px;
+  font-weight: bold;
+}
+.description {
+  color: rgb(51, 49, 49)
+}
+.featureChecklist {
+  max-height: 140px;
+  border-left: 1px solid black;
+  padding-left: 40px;
+  padding-top: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.feature {
+  padding-left: 10px;
+}

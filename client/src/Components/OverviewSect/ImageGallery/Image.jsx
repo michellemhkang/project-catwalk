@@ -1,9 +1,11 @@
 import React from 'react';
-import styling from './Image.module.css';
+import styling from './ImageGallery.module.css';
 
 const Image = ({url}) => {
     return (
-        <img className="image-slide" className={styling.image} src={url}></img>
+        <div className={styling.image}>
+            <img className="image-slide" className={styling.image} src={url} />
+        </div>
     )
 }
 

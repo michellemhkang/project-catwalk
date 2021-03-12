@@ -1,6 +1,7 @@
 import React from 'react';
 import Arrow from './Arrow.jsx';
 import Image from './Image.jsx';
+import styling from './ImageGallery.module.css';
 
 class ImageGallery extends React.Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class ImageGallery extends React.Component {
         const lastIndex = this.props.photos.length - 1;
         const { currentImageIndex } = this.state;
         const shouldResetIndex = currentImageIndex === 0;
-        const index = shouldResetIndex ? lastIndex : currentImageIndex - 1; 
+        const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
 
         this.setState({
             currentImageIndex: index
@@ -27,11 +28,11 @@ class ImageGallery extends React.Component {
         const lastIndex = this.props.photos.length - 1;
         const { currentImageIndex } = this.state;
         const shouldResetIndex = currentImageIndex === lastIndex;
-        const index = shouldResetIndex ? 0 : currentImageIndex + 1; 
+        const index = shouldResetIndex ? 0 : currentImageIndex + 1;
 
         this.setState({
             currentImageIndex: index
-        })  
+        })
     }
 
     render() {
@@ -47,7 +48,7 @@ class ImageGallery extends React.Component {
         const { name, photos } = this.props
 
         return (
-            <div className="carousel">
+            <div className={styling.gallery}>
                 <Arrow
                 direction="left"
                 clickFunction={this.previousSlide}

@@ -1,4 +1,5 @@
 import React from 'react';
+import styling from './ProductOverview.module.css';
 
 // class FeatureChecklist extends React.Component {
 //     constructor(props) {
@@ -16,7 +17,13 @@ import React from 'react';
 
 const FeatureChecklist = ({feature}) => {
     return (
-        <li>{feature}</li>
+        <div>
+            <i className={'fas fa-check'} />
+            <span className={styling.feature}>
+                {feature}
+            </span>
+
+        </div>
     )
 }
 
