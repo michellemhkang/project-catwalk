@@ -34,7 +34,7 @@ class QuestionsAnswersSect extends React.Component {
 
   less(){
     return(
-    <button className={styles.lessQ} onClick={(event) => {this.lessQuestions()}}>Colapse questions</button>
+    <button className={styles.lessQ} onClick={(event) => {this.lessQuestions()}}>Collapse questions</button>
     )
   }
 

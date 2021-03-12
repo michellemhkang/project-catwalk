@@ -49,7 +49,7 @@ class AddAnswer extends React.Component {
     return (<>
       <div className={styles.imageDiv}>
         <div className={`${styles.qDiv} ${styles.fadeIn}`}>
-          <div className={`${styles.typeB} ${styles.fadeIn}`}>
+          <div className={styles.typeB }>
             <form onSubmit={(event) => { event.preventDefault(); this.props.createAnswer( this.state.text , this.state.img, this.state.email, this.state.username) }}>
               <button onClick={(event) => { this.props.addAans() }} className={styles.addX}> ✖ </button>
               <h4> Responding To:</h4>
