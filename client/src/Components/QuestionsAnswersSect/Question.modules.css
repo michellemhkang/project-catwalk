@@ -92,16 +92,12 @@ outline:none;
 .a{
     display: inline;
     position: relative;
-
-
 }
 .answer{
   position: relative;
   display: inline;
   left: 36px;
   top: 35px
-
-
 }
 .imageDiv{
   position: fixed;
@@ -115,7 +111,21 @@ outline:none;
   backdrop-filter: blur(4px);
 
 }
-
+.fadeIn{
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.3s;
+}
+@keyframes fadeInOpacity {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
 
 .imageModal{
   position: relative;

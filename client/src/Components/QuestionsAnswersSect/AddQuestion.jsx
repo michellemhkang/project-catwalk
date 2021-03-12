@@ -37,7 +37,7 @@ render(){
   return(
     <>
   <div className ={styles.imageDiv}>
-    <div className ={styles.qDiv}>
+    <div className ={`${styles.qDiv} ${styles.fadeIn}`}>
     <div className={styles.typeB}>
       <h2 className={styles.askUrQ}>Ask Your Question</h2>
       <p className={styles.subtext}>About the [product name]</p>
