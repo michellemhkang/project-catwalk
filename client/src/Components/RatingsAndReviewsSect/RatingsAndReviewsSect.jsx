@@ -102,7 +102,6 @@ class RatingsAndReviewsSect extends React.Component {
   // this version loads four upon intitial render and adds two
   updateDisplayList() {
     let currentDisplayLength = this.state.reviewListDisplay.length;
-
     if (currentDisplayLength < 4) {
       let reviews = [];
       for (let i = 0; i < 4; i++) {
@@ -112,10 +111,12 @@ class RatingsAndReviewsSect extends React.Component {
       }
       this.setState({
         reviewListDisplay: [...reviews]
-      })
-      if (this.state.reviewList.length === this.state.reviewListDisplay.length) {
-        this.setState({showMoreReviews: !this.state.showMoreReviews})
-      }
+        }, () => {
+          if (this.state.reviewList.length === this.state.reviewListDisplay.length) {
+            this.setState({showMoreReviews: !this.state.showMoreReviews})
+          }
+        }
+      )
     } else if (currentDisplayLength === this.state.reviewList.length) {
       window.removeEventListener('scroll', this.showMoreOnScroll, false);
       this.setState({showMoreReviews: !this.state.showMoreReviews})
