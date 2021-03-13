@@ -1,11 +1,11 @@
 import React from 'react';
-import Arrow from './Arrow.jsx';
-import Image from './Image.jsx';
 import styling from './ImageGallery.module.css';
+import Image from './Image.jsx';
+import Arrow from './Arrow.jsx';
 
 class ImageGallery extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             currentImageIndex: 0,
             slide: false
@@ -24,7 +24,6 @@ class ImageGallery extends React.Component {
             currentImageIndex: index,
             slide: true
         })
-        // this.setState({slide: false})
     }
 
     nextSlide() {
@@ -37,29 +36,20 @@ class ImageGallery extends React.Component {
             currentImageIndex: index,
             slide: true
         })
-        // this.setState({slide: false})
     }
 
     render() {
-        // const images = this.props.styleInfo.map((style, index) => {
-        //     return <Image photos={style.photos} key={index} />
-        // })
 
-        // const names = this.props.styleInfo.map((style, index) => {
-        //     return <Image names={style.names} key={index} />
-        // })
-
-        const { currentImageIndex } = this.state
-        const { name, photos } = this.props
+        const { currentImageIndex } = this.state;
+        const { name, photos } = this.props;
 
         return (
             <div className={styling.gallery}>
 
                 <div className={styling.arrow}>
                     <Arrow
-                    direction="left"
-                    clickFunction={this.previousSlide}
-                    style={name} />
+                        direction="left"
+                        clickFunction={this.previousSlide} />
                 </div>
 
                 <div className={styling.image}>
@@ -68,9 +58,8 @@ class ImageGallery extends React.Component {
 
                 <div className={styling.arrow}>
                     <Arrow
-                    direction="right"
-                    clickFunction={this.nextSlide}
-                    style={name} />
+                        direction="right"
+                        clickFunction={this.nextSlide} />
                 </div>
 
             </div>
@@ -79,34 +68,3 @@ class ImageGallery extends React.Component {
 }
 
 export default ImageGallery;
-
-// const ImageGallery = ({styleInfo}) => {
-//     return (
-//         styleInfo.map((style, key) => {
-//             return <Image style={style} key={key} />
-//         })
-//     );
-// };
-
-// export default ImageGallery;
-
-
-// class ImageGallery extends React.Component {
-//     constructor(props) {
-//         super(props)
-//         this.state = {
-//             test: 'test',
-//             currentImage: this.props.styleInfo[0].photos[0].url
-//         }
-//     }
-//     render() {
-//         return (
-//             <div>
-//                 {this.state.currentImage}
-//                 {/* <img src={this.state.currentImage}></img> */}
-//             </div>
-//         )
-//     }
-// }
-
-// export default ImageGallery;

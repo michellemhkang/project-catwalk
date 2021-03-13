@@ -1,13 +1,13 @@
 import React from 'react';
-import styling from './Buttons.module.css';
 import axios from 'axios';
-import FavoriteButton from './FavoriteButton.jsx';
+import styling from './Buttons.module.css';
 import SizeSelector from './SizeSelector.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
+import FavoriteButton from './FavoriteButton.jsx';
 
 class AddToCart extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             clicked: false,
             selectedSku: null,
@@ -19,24 +19,17 @@ class AddToCart extends React.Component {
         this.selectQuantity = this.selectQuantity.bind(this);
     }
 
-    selectSku(sku){
-        console.log(sku);
-        this.setState({selectedSku: sku})
+    selectSku(sku) {
+        this.setState({ selectedSku: sku })
     }
 
     selectQuantity(quantity) {
-        console.log(quantity);
-        this.setState({selectedQuantity: quantity})
+        this.setState({ selectedQuantity: quantity })
     }
 
     handleClick() {
-        // clearTimeout(timeout);
-        // event.stopPropagation();
         this.postToCart(this.state.selectedSku);
-        this.setState({
-            clicked: true
-        })
-        // let timeout = setTimeout(this.setState({clicked: false}), 5000);
+        this.setState({ clicked: true })
     }
 
     postToCart(sku_id) {
@@ -45,7 +38,6 @@ class AddToCart extends React.Component {
                 console.log(response.data);
             })
             .catch((error) => {
-                // console.log('HELLO????');
                 console.log(error);
             })
     }
@@ -58,18 +50,12 @@ class AddToCart extends React.Component {
 
             <div className={styling.buttonContainer}>
 
-            {/* <div className={styling.colContainer}> */}
-
                 <div className={styling.row1Container}>
-                    {/* <div className={styling.colContainer}></div> */}
                     <SizeSelector skus={this.props.skus} selectSku={this.selectSku} selectQuantity={this.selectQuantity} />
                     <QuantitySelector quantityAvailable={this.state.selectedQuantity} />
-
-                {/* <div className={styling.rowContainer}> */}
                 </div>
 
                 <div className={styling.row2Container}>
-
                     <div>
                         <button onClick={this.handleClick} className={styling.addButton}>
                             {clicked ? (
@@ -85,9 +71,7 @@ class AddToCart extends React.Component {
                             )}
                         </button>
                     </div>
-
                     <FavoriteButton />
-
                 </div>
 
             </div>
