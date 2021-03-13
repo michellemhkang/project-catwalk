@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  background-color: black;
+  margin-bottom: 2em;
+}
+
+#pagetop {
+  color: white;
+  font-family: 'Open Sans', helvetica;
+  font-size: 2em;
+  font-weight: lighter;
+  margin-left: 30px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  color: white;
+  border-style: none;
+  margin-right: 30px;
+}
+
+.searchField {
+  border-style: none;
+  border-bottom: 2px solid white;
+  background-color: transparent;
+  max-height: 1em;
+  margin-left: .5em;
+}
