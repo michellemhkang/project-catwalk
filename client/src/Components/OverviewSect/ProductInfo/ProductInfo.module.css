@@ -4,8 +4,9 @@
 }
 .category {
     font-size: 18px;
-    font-weight: lighter;
+    font-weight: 100;
     margin-bottom: 8px;
+    /* color:rgb(80, 80, 80) */
 }
 .name {
     font-size: 45px;
@@ -17,7 +18,7 @@
     margin-top: 18px;
     font-size: 18px;
     margin-bottom: 30px;
-    color:rgb(51, 49, 49)
+    color:rgb(56, 56, 56)
 }
 .defaultStrikethrough {
     margin-top: 18px;

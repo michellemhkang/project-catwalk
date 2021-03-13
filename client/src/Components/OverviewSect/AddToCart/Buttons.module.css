@@ -25,7 +25,7 @@
     background-color: transparent;
     border-style: solid;
     border-width: 1px;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 18px;
     margin-bottom: 10px;
     margin-left: 10px;
@@ -57,7 +57,7 @@
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 18px;
   margin-bottom: 10px;
   margin-left: 10px;
@@ -76,12 +76,12 @@
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 18px;
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 25px;
-  width: 200px;
+  width: 300px;
   height: 65px;
   transition: 0.3s;
 }
@@ -113,13 +113,13 @@
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  font-weight: bold;
+  font-weight: 600;
   /* margin-bottom: 10px; */
   transition: 0.3s;
   display: inline;
   overflow: hidden;
   position: relative;
-  margin-right: 100px;
+  margin-right: 200px;
   /* z-index: 1; */
 }
 .button:hover {

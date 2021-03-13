@@ -9,7 +9,7 @@ class SizeSelector extends React.Component {
         super(props)
         this.state = {
             showMenu: false,
-            currentlySelectedSize: 'Select Size'
+            currentlySelectedSize: 'SELECT SIZE'
         }
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
@@ -83,7 +83,7 @@ class SizeSelector extends React.Component {
 
         let selectedSku;
         let quantityAvailable;
-        if (currentlySelectedSize !== 'Select Size') {
+        if (currentlySelectedSize !== 'SELECT SIZE') {
             Object.entries(skus).filter((sku) => {
                 if (sku[1].size === currentlySelectedSize) {
                     selectedSku = sku[0];
@@ -105,7 +105,7 @@ class SizeSelector extends React.Component {
                     <div>
                         <button className={styling.sizeButton} onClick={this.showMenu}>
                             {currentlySelectedSize}
-                            <i className={'fas fa-angle-down fa-fw'}></i>
+                            <i className={'fas fa-angle-down fa-fw'} />
                         </button>
 
                     {
