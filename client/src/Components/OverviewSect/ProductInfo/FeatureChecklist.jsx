@@ -20,7 +20,7 @@ const FeatureChecklist = ({feature, value}) => {
         <div>
             <i className={'fas fa-check'} />
             <span className={styling.feature}>
-                {feature}: {value}
+                {feature}:          {       value}
             </span>
 
         </div>

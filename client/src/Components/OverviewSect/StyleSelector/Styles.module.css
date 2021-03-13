@@ -22,7 +22,7 @@
 }
 .thumbnail:hover {
     cursor: pointer;
-    border-bottom: 4.5px solid;
+    border-bottom: 5px solid #fca311;
     /* border: 3px solid; */
     /* background-color: black !important; */
     transform: scale(1.1);
@@ -35,7 +35,7 @@
     transition: 0.3s;
     object-fit: cover;
     /* padding: 1.5px; */
-    border-bottom: 4.5px solid;
+    border-bottom: 5px solid #fca311;
     /* border: 3px solid; */
     /* background-color: black !important; */
 }

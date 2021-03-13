@@ -30,7 +30,12 @@ class AddToCart extends React.Component {
         return (
             <div className={styling.row2Container}>
                 <div>
-                    <button onClick={this.handleClick} className={styling.addButton}>Add to Cart</button>
+                    <button onClick={this.handleClick} className={styling.addButton}>
+                        <div>
+                            Add To Cart
+                            <i className={'far fa-check'} />
+                        </div>
+                    </button>
                 </div>
 
                 <div>

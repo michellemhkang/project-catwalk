@@ -83,7 +83,7 @@ class QuantitySelector extends React.Component {
                     <button className={styling.quantityButton} onClick={this.showMenu}>
                         {selectedQuantity === null ? (
                             <div>
-                                <i className={'fas fa-minus'} />
+                                <i className={'fas fa-minus fa-fw'} />
                                 <i className={'fas fa-angle-down fa-fw'} />
                             </div>
                         ) : (
