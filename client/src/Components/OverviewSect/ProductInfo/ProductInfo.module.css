@@ -2,33 +2,37 @@
     margin-left: 20px;
     height: 140px;
 }
+
 .category {
     font-size: 18px;
     font-weight: 100;
     margin-bottom: 8px;
-    /* color:rgb(80, 80, 80) */
 }
+
 .name {
     font-size: 45px;
     font-weight: bolder;
     margin-top: 10px;
     margin-bottom: 22px;
 }
+
 .defaultPrice {
-    margin-top: 18px;
+    color:rgb(56, 56, 56);
     font-size: 18px;
+    margin-top: 18px;
     margin-bottom: 30px;
-    color:rgb(56, 56, 56)
 }
+
 .defaultStrikethrough {
-    margin-top: 18px;
-    font-size: 18px;
-    margin-bottom: 30px;
     text-decoration: line-through;
-}
-.salePrice {
-    margin-top: 18px;
     font-size: 18px;
+    margin-top: 18px;
     margin-bottom: 30px;
+}
+
+.salePrice {
     color: red;
+    font-size: 18px;
+    margin-top: 18px;
+    margin-bottom: 30px;
 }
