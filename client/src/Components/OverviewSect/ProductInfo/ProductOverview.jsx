@@ -1,5 +1,6 @@
 import React from 'react';
 import FeatureChecklist from './FeatureChecklist.jsx';
+import styling from './ProductOverview.module.css';
 
 const ProductOverview = ({slogan, description, features}) => {
     // console.log('product overview at stake');
@@ -7,15 +8,28 @@ const ProductOverview = ({slogan, description, features}) => {
     let featureList = features.map((feature, index) => {
         // console.log(feature);
         // console.log(feature.feature);
-        return <FeatureChecklist feature={feature.feature} key={index} />
+        return <FeatureChecklist feature={feature.feature} value={feature.value} key={index} />
     })
 
     return (
-        <div>
-            <h3>{slogan}</h3>
-            <p>{description}</p>
-            <div>{featureList}</div>
-            {/* <FeatureChecklist features={this.state.features} /> */}
+        <div className={styling.container} >
+
+            <div className={styling.rowContainer}>
+
+                <div className={styling.colContainer}>
+                    <div className={styling.textContainer}>
+                        <h3 className={styling.slogan}>{slogan}</h3>
+                        <p className={styling.description}>{description}</p>
+                    </div>
+
+                </div>
+
+                <div className={styling.featureChecklist}>
+                    {featureList}
+                </div>
+
+            </div>
+
         </div>
     )
 }

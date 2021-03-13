@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './reviews.module.css';
 import NewStarRating from './NewStarRating.jsx';
 import Characteristics from './Characteristics.jsx'
@@ -58,7 +59,7 @@ class WriteYourReview extends React.Component {
       <>
       <div className={`${styles.newReview} ${styles.col}`}>
           <h3 className={styles.newReviewTitle}>WRITE YOUR REVIEW</h3>
-          <h5 className={`${styles.newReviewTitle} ${styles.newReviewSubtitle}`}>Share Your Experience</h5>
+          <h5 className={`${styles.newReviewTitle} ${styles.newReviewSubtitle}`}>Share Your Experience About "{this.props.productName}"</h5>
         <span className={`${styles.row} ${styles.center}`}>
           <p className={styles.smallText}>Rating:</p>
           <NewStarRating handleRatingChange={this.handleRatingChange}/>
@@ -105,20 +106,19 @@ class WriteYourReview extends React.Component {
         <div className={`${styles.reviewInput} ${styles.textInput}`}>
           <div className={styles.reviewLabelCol}>Nickname:</div>
           <div className={styles.reviewInputCol}>
-            <input type="text" placeholder="Nickname" name="nickname" value={this.state.nickname} required onChange={this.handleFormChange} />
+            <input type="text" placeholder="Nickname" data-test="nicknameField" name="nickname" value={this.state.nickname} required onChange={this.handleFormChange} />
           </div>
         </div>
         <div className={`${styles.reviewInput} ${styles.textInput}`}>
           <div className={styles.reviewLabelCol}>Email:</div>
           <div className={styles.reviewInputCol}>
-            <input type="email" placeholder="Email" value={this.state.email} required name="email" onChange={this.handleFormChange} />
+            <input type="email" placeholder="Email" value={this.state.email} required name="email" data-test="emailField" onChange={this.handleFormChange} />
           </div>
         </div>
         <div className={styles.buttonRow}>
       <button className={`${styles.button} ${styles.submitReviewButton}`} onClick={this.handleSubmit}>SUBMIT</button>
      </div>
       </div>
-
      </>
     )
   }

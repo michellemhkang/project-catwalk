@@ -1,8 +1,8 @@
 import React from 'react';
+
 import styles from './reviews.module.css';
 
 let Stars = (props) => {
-
   let rating;
   props.rating ? rating = props.rating : rating = props.averageRating;
 
@@ -29,7 +29,7 @@ let Stars = (props) => {
   }
 
   return(
-    <span>
+    <span className={styles.row} data-test="stars">
     {renderRatingStars(rating)}
     </span>
   )

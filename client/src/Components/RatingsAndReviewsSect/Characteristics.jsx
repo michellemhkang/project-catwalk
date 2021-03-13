@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './reviews.module.css';
 
 class Characteristics extends React.Component {
@@ -28,49 +29,49 @@ class Characteristics extends React.Component {
       <span className={styles.radioRow} onChange={this.handleInputChange}>
         <p className={styles.radioCatTitle}>Size:</p>
         <div className={styles.radioPair}>
-          <label>A size too small </label>
           <input
             type="radio"
             value="1"
             checked={this.state.Size === "1"}
             name="Size"
           />
+          <label>A Size Too Small</label>
         </div>
         <div className={styles.radioPair}>
-          <label>A 1/2 size too small </label>
           <input
             type="radio"
             value="2"
             checked={this.state.Size === "2"}
             name="Size"
           />
+          <label>A 1/2 Size Too Small</label>
         </div>
         <div className={styles.radioPair}>
-          <label>Perfect</label>
           <input
             type="radio"
             value="3"
             checked={this.state.Size === "3"}
             name="Size"
           />
+            <label>Perfect</label>
         </div>
         <div className={styles.radioPair}>
-          <label>A 1/2 size too big </label>
           <input
             type="radio"
             value="4"
             checked={this.state.Size === "4"}
             name="Size"
           />
+           <label>A 1/2 Size Too Big</label>
         </div>
         <div className={styles.radioPair}>
-          <label>A size too big </label>
           <input
             type="radio"
             value="5"
             checked={this.state.Size === "5"}
             name="Size"
           />
+          <label>A Size Too Big</label>
         </div>
       </span>
     )
@@ -181,7 +182,6 @@ class Characteristics extends React.Component {
       </span>
     )
   }
-
 
   renderQualityOptions() {
     return(

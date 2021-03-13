@@ -6,7 +6,7 @@ const ProductInfo = ({category, name, defaultPrice, salePrice}) => {
     // console.log('product info at stake');
     if (category !== undefined) {
         return (
-            <div>
+            <div className={styling.container}>
                 {/* DoYouSeeMe */}
                 {/* <h3>{props.category}</h3> */}
                 <h3 className={styling.category}>{category.toUpperCase()}</h3>

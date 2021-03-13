@@ -2,3 +2,6 @@ node_modules
 config.js
 /client/dist/bundle.js
 fecproj.pem
+spec/.DS_Store
+Key.pem
+
