@@ -40,7 +40,7 @@ render(){
     <div className ={`${styles.qDiv} ${styles.fadeIn}`}>
     <div className={styles.typeB}>
       <h2 className={styles.askUrQ}>Ask Your Question</h2>
-      <p className={styles.subtext}>About the [product name]</p>
+      <p className={styles.subtext}>About the {this.props.pName}</p>
     <form >
     <button className={styles.Qbutton} onClick={(event)=>{this.props.AddQuestion()}}> ✖ </button>
       <textarea placeholder={'Question here'} value={this.state.Question} onChange={(event)=>{event.preventDefault(); this.QuestionTxt()}} className={styles.questionTextarea}></textarea>

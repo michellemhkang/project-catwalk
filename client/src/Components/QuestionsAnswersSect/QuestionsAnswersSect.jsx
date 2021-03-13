@@ -151,7 +151,7 @@ class QuestionsAnswersSect extends React.Component {
       </div>
       <div className={styles.pagebody}>
       <QnAlist QnAlist ={this.state.QnAlist} />
-      <AddQustion Add={this.state.Add} AddQuestion={this.AddQuestion} SubmitQuestion={this.SubmitQuestion}/>
+      <AddQustion Add={this.state.Add} AddQuestion={this.AddQuestion} SubmitQuestion={this.SubmitQuestion} pName={this.props.productInfo.name}/>
       <button onClick={this.MoreQuestions} className={styles.MoreQue}>MORE ANSWERED QUESTIONS</button>
       <button onClick={(event)=>{this.AddQuestion()}} className={styles.Addque}>ADD A QUESTION</button>
       {this.state.QnAlist.length > 2 ? this.less() : null}

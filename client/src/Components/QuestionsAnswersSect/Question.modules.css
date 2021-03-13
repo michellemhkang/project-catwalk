@@ -8,7 +8,7 @@ height: 20%;
 .quest{
   display: inline;
   position: relative;
-  left: 100px;
+  left: 5%;
 
 
 }
@@ -44,7 +44,7 @@ height: 20%;
   border: none;
   background: none;
   text-decoration:underline;
-  display: inline;
+  display: inline-flex;
   outline:none;
   font-size: 16px;
   margin-left: 5px;
@@ -82,7 +82,9 @@ outline:none;
   max-height:160px;
   width: auto;
   height: auto;
-  display: inline;
+
+  display: inline-flex ;
+
 }
 .image:hover{
   transform: scale(1.2);
@@ -95,15 +97,16 @@ outline:none;
 }
 .answer{
   position: relative;
-  display: inline;
-  left: 36px;
-  top: 35px
+  display: inline-flex;
+  left: 5%;
+  top: 35px;
+
 }
 .imageDiv{
   position: fixed;
   z-index: 1;
-  left: 0;
-  top:0;
+  left: 0%;
+  top:0%;
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -134,10 +137,10 @@ outline:none;
   margin: 0 auto;
   padding: 20px;
   width: 70%;
-
+  display: flex;
 }
 .imageM{
-  display: block;
+  display: inline-flex;
   margin-left: auto;
   margin-right: auto;
 
@@ -149,11 +152,11 @@ outline:none;
   padding: 0;
   border: none;
   background: none;
-  display: inline;
+  display: inline-flex;
   outline:none;
   font-size: 16px;
 
-  left: 30%;
+  left: 27%;
  position:relative;
 
 }
@@ -163,7 +166,7 @@ outline:none;
 
 .addAnswerBtn{
   position: relative;
-  left: 150px;
+  left: 10%;
   padding: 1.5em 2em;
   background-color: transparent;
   border-style: solid;
@@ -171,6 +174,7 @@ outline:none;
   font-weight: bold;
   margin-bottom: 10px;
   transition: 0.3s;
+  display: inline-flex;
 
 }
 .addAnswerBtn:hover{
@@ -235,9 +239,9 @@ transition: 0.3s;
   margin: 0 auto;
   padding: 20px;
   width: 33%;
-  height: 30%;
+  height: 33%;
   overflow: hidden;
-
+  display: flex;
 }
 .Qbutton{
   padding: 0;
@@ -247,10 +251,10 @@ transition: 0.3s;
   outline:none;
   font-size: 16px;
   font-size: 16px;
-  bottom: 369px;
- left: 84%;
+  bottom: 135px;
+ left: 100%;
  position:relative;
- left: 750px;
+
 
 }
 .Qbutton:hover{
@@ -266,13 +270,15 @@ transition: 0.3s;
 .tittle{
   width: 1000px;
     position: relative;
-    left: 500px;
+    left: 20%;
     font-family: 'Open Sans',sans-serif;
+    display: flex;
 }
 .searchborderQ{
   width: 1000px;
     position: relative;
-    left: 500px;
+    left: 20%;
+    display: flex;
 }
 .formsearch{
   width: 581px;
@@ -280,10 +286,10 @@ transition: 0.3s;
 }
 
 .questBody{
-display: inline;
+display: inline-flex;
 
 position: relative;
-left: 100px;
+left: 8%;
 font-size: large;
 
 }
@@ -302,7 +308,7 @@ font-size: large;
 }
 .MoreQue{
   position: relative;
-  left: 200px;
+  left: 15%;
   padding: 1.5em 2em;
 background-color: transparent;
 border-style: solid;
@@ -310,6 +316,7 @@ border-width: 1px;
 font-weight: bold;
 margin-bottom: 10px;
 transition: 0.3s;
+display: inline-flex;
 }
 .MoreQue:hover{
   cursor: pointer;
@@ -320,7 +327,7 @@ transition: 0.3s;
 
 .Addque{
   position: relative;
-  left: 287px;
+  left: 18%;
   padding: 1.5em 2em;
 background-color: transparent;
 border-style: solid;
@@ -328,6 +335,7 @@ border-width: 1px;
 font-weight: bold;
 margin-bottom: 10px;
 transition: 0.3s;
+display: inline-flex;
 }
 
 .Addque:hover{
@@ -338,7 +346,7 @@ transition: 0.3s;
 .AnswersDiv{
   position: relative;
   max-width:55%;
-  left:200px;
+  left:15%;
   word-wrap: break-word;
   margin-top: 30px;
 }
@@ -348,10 +356,11 @@ transition: 0.3s;
   position: relative;
   max-width:55%;
   max-height: 450px;
-  left:200px;
+  left:15%;
   word-wrap: break-word;
   margin-top: 30px;
 }
+
 
 .questContainer{
   display: inline;
@@ -359,6 +368,7 @@ transition: 0.3s;
   margin-top: 5px;
 word-wrap: break-word;
 width: 800px;
+
 }
 
 hr {
@@ -401,24 +411,26 @@ left: 200px;
   border-style: solid;
   border-width: 1px;
   background-color: rgb(255, 255, 255);
+
 }
 .AnswerInput{
   position: relative;
   left: 100px;
-  width: 550px;
-  max-width: 550px;
-  min-width: 550px ;
-  height: 50px;
-  max-height: 50px;
-  min-height: 50px;
+  width: 100%;
+  max-width: 65%;
+  min-width: 65% ;
+  height: 60px;
+  max-height: 60px;
+  min-height: 60px;
   margin: 10px;
 
 }
 .typeB{
   border:groove;
   padding: 10px;
-  height: 335px;
+  height: 90%;
   background-color: rgb(236, 236, 236);
+  width: 100%;
 }
 
 .imagePreviewPic{
@@ -462,31 +474,36 @@ left: 200px;
   min-height: 250px;
   height: 250px;
   bottom: 50px;
+  display: flex;
 }
 .emailTextarea{
   position: relative;
   margin: 10px;
   bottom: 200px;
   width: 230px;
+  left: 35%;
 }
 .usernameTextarea{
   position: relative;
   margin: 10px;
   bottom: 200px;
+  left: 40%
 }
 .askUrQ{
   position: relative;
-  left: 250px;
+  left: 35%;
   bottom: 30px;
+  display: flex;
 }
 .subtext{
   position: relative;
   bottom: 50px;
-  left: 150px;
+  left: 36%;
+  display: flex;
 }
 .SubmitQ{
   position: relative;
-  left: 570px;
+  left: 18%;
   bottom: 100px;
   padding: 1.5em 2em;
   background-color: white;
@@ -495,6 +512,7 @@ left: 200px;
   font-weight: bold;
   margin-bottom: 10px;
   transition: 0.3s;
+  display: inline-flex;
 
 
 }
@@ -528,4 +546,18 @@ left: 200px;
   margin-top: 10px;
   margin-bottom: 10px;
 
+}
+.Flexcontainter{
+  display: flex;
+}
+
+.EmailA{
+  position: relative;
+  left:10%;
+
+}
+.UsernameA{
+  position: relative;
+  left:10%;
+  margin: 20px;
 }
