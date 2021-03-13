@@ -28,9 +28,9 @@ class App extends React.Component {
     this.setState({avgRating: average})
   }
 
-  componentDidMount() {
-  this.setState({id: 14034})
-  }
+  // componentDidMount() {
+  // this.setState({id: 14034})
+  // }
 
   getProductInfo(someInfo) {
     this.setState({productInfo: someInfo})
