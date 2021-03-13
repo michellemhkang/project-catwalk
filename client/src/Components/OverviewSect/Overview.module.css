@@ -1,19 +1,20 @@
 .overviewContainer {
     font-family: 'Open Sans',sans-serif;
 }
+
 .colContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
+
 .rowContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: stretch;
     margin-top: 50px;
-    /* width: 100px; */
 }
+
 .productOverviewContainer {
     display: flex;
     justify-content: center;
