@@ -3,6 +3,7 @@ import SizeButton from './SizeButton.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
 import styling from './Buttons.module.css';
 import FavoriteButton from './FavoriteButton.jsx';
+import AddToCart from './AddToCart.jsx';
 
 class SizeSelector extends React.Component {
     constructor(props) {
@@ -133,10 +134,14 @@ class SizeSelector extends React.Component {
 
                     {/* </div> */}
 
-                    <QuantitySelector selectedSku={selectedSku} quantity={quantityAvailable} />
+                    <QuantitySelector selectedSku={selectedSku} quantityAvailable={quantityAvailable} />
 
                 </div>
-                <FavoriteButton />
+
+                <div className={styling.row2Container}>
+                    <AddToCart />
+                </div>
+
                 </div>
             </div>
         )

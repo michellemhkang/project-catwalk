@@ -2,6 +2,8 @@ import React from 'react';
 import styling from './Buttons.module.css';
 import axios from 'axios';
 import FavoriteButton from './FavoriteButton.jsx';
+import SizeSelector from './SizeSelector.jsx';
+import QuantitySelector from './QuantitySelector.jsx';
 
 class AddToCart extends React.Component {
     constructor(props) {
