@@ -14,9 +14,6 @@ projectCatwalk.post('/reviews', reviewsController.sendReview);
 
 //Related products and your outfit requests
 projectCatwalk.get('/RelatedProducts', relatedProductsController.getIds);
-// projectCatwalk.get('/RelatedProducts/prods', relatedProductsController.getProds)
-// projectCatwalk.get('/RelatedProducts/img', relatedProductsController.getImg)
-// projectCatwalk.get('/RelatedProducts/ratings', relatedProductsController.getRating)
 
 projectCatwalk.get('/Q&A/data', questionsAnswersController.getData);
 projectCatwalk.put('/Questionhelpful', questionsAnswersController.helpQ);
@@ -29,7 +26,8 @@ projectCatwalk.put('/reportA', questionsAnswersController.ReoportA)
 
 
 projectCatwalk.get('/overview/products/:', overviewController.getProducts);
-projectCatwalk.get('/overview/styles', overviewController.getStyles)
+projectCatwalk.get('/overview/styles', overviewController.getStyles);
+projectCatwalk.post('/cart', overviewController.postToCart);
 
 // this exports our middleware routing system
 module.exports.projectCatwalk = projectCatwalk;

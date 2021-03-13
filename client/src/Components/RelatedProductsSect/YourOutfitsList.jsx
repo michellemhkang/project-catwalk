@@ -12,11 +12,11 @@ class YourOutfitsList extends React.Component {
     };
     this.leftbutton = this.leftbutton.bind(this)
     this.rightbutton = this.rightbutton.bind(this)
-
   }
 
+
+
   leftbutton() {
-    console.log(this.state.currentListLeft)
     if(this.state.currentListLeft === 0) {
     } else {
       this.setState({currentListLeft: this.state.currentListLeft + 350})
@@ -26,7 +26,6 @@ class YourOutfitsList extends React.Component {
 
   rightbutton() {
     if(this.state.currentListLeft <= -(this.props.YourOutfitsList.length*350 - 1150)) {
-      console.log(this.state.currentListLeft)
     } else {
       this.setState({currentListLeft: this.state.currentListLeft - 350})
     }

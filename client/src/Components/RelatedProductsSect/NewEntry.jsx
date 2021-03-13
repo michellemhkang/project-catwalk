@@ -25,7 +25,13 @@ class NewEntry extends React.Component {
 
   goto(e) {
     e.stopPropagation()
-  this.props.changePage(this.props.entry.id)
+    if(this.props.cardType === 'Compare'){
+      this.props.loadtimes();
+      this.props.changePage(this.props.entry.id);
+    }
+    if(this.props.cardType === 'Outfits') {
+      this.props.changePage(this.props.entry.id);
+    }
 }
 
 render() {

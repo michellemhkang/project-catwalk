@@ -17,7 +17,7 @@ class YourOutfitAddCard extends React.Component {
     return(
       <li className={RelatedProductsSection.carouselslide} onClick={this.clickHandler}>
         <div className={RelatedProductsSection.entrycard}>
-          <div className={RelatedProductsSection.addcardtop}>Add to List</div>
+          <div className={RelatedProductsSection.addcardtop}>Add to list</div>
           <i className={["fas fa-plus fa-3x", RelatedProductsSection.addicon].join(' ')}></i>
           </div>
       </li>

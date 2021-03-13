@@ -7,15 +7,19 @@
   background-color:lightgray;
   text-decoration: none;
   text-decoration-color: black;
+  transition: ease 1s;
   /* background: pink; */
   /* margin-left: 70px; */
 }
 
 .entrycard:hover {
+  transition: ease 1s;
   cursor: pointer;
   background-color: lightslategrey;
   /* background-color:plum; */
 }
+
+
 
 .carouselslide {
   display:flex;
@@ -52,10 +56,11 @@
   /* position: relative; */
   width: 80%;
   /* padding: 10%; */
-  margin: 0px auto;
+  margin: 0px 10%;
   overflow:hidden;
-  /* justify-content: left; */
+  /* justify-content: space-around; */
   /* order:4; */
+  /* left: 100px; */
 }
 
 .leftbutton {
@@ -68,6 +73,7 @@
   position: relative;
   top:200px;
   transform: translateY(-50%);
+  transition: ease 1s;
   /* background: transparent; */
   /* border: 0; */
   /* left: -20px; */
@@ -77,6 +83,7 @@
 
 .leftbutton:hover {
   color:plum;
+  transition: ease 1s;
 }
 
 .rightbutton{
@@ -89,6 +96,7 @@
   position: relative;
   bottom: 190px;
   transform: translateY(-50%);
+  transition: ease 1s;
   /* height: 100px; */
   /* left: 1150px; */
  /* background: transparent; */
@@ -101,6 +109,7 @@
 
 .rightbutton:hover {
   color:plum;
+  transition: ease 1s;
 }
 
 .onSale {
@@ -149,11 +158,14 @@
   align-items:center;
   position:relative;
   height:100%;
+  transition: ease 1s;
+
   /* color:plum; */
 }
 
 .actionbutton:hover {
   color:plum;
+  transition: ease .5s;
 }
 .entrycategory {
   font-size: 18px;
@@ -228,4 +240,13 @@ color:plum;
 justify-content:center;
 align-items:center;
 height:75%;
+}
+
+.loadingCat {
+  width:100%;
+  height:300px;
+  display: flex;
+  justify-content: center;
+  transition: ease-in-out;
+  object-fit: contain;
 }

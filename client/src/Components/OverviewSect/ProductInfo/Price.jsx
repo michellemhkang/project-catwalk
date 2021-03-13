@@ -2,16 +2,17 @@ import React from 'react';
 import styling from './ProductInfo.module.css';
 
 const Price = ({defaultPrice, salePrice}) => {
+
     if (salePrice) {
         return (
             <div>
-                <p className={styling.strikethrough}>${defaultPrice}</p>
-                <p className={styling.salePrice}>${salePrice}</p>
+                <span className={styling.defaultStrikethrough}>${defaultPrice}</span>
+                <span className={styling.salePrice}>        ${salePrice}</span>
             </div>
         )
     }
     return (
-        <p>${defaultPrice}</p>
+        <p className={styling.defaultPrice}>${defaultPrice}</p>
     )
 }
 
