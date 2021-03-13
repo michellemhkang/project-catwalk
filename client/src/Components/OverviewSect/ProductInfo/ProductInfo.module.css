@@ -1,8 +1,9 @@
 .container {
     margin-left: 20px;
+    height: 140px;
 }
 .category {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: lighter;
     margin-bottom: 8px;
 }
@@ -10,19 +11,23 @@
     font-size: 45px;
     font-weight: bolder;
     margin-top: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 22px;
 }
 .defaultPrice {
-    margin-top: 10px;
+    margin-top: 18px;
     font-size: 18px;
+    margin-bottom: 30px;
+    color:rgb(51, 49, 49)
 }
 .defaultStrikethrough {
-    margin-top: 10px;
+    margin-top: 18px;
     font-size: 18px;
+    margin-bottom: 30px;
     text-decoration: line-through;
 }
 .salePrice {
-    margin-top: 10px;
+    margin-top: 18px;
     font-size: 18px;
+    margin-bottom: 30px;
     color: red;
 }

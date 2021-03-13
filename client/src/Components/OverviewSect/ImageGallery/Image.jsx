@@ -5,7 +5,7 @@ const Image = ({url, slide}) => {
         if (slide) {
             return (
             <div>
-                <img className={styling.image.slide} src={url} />
+                <img className={styling.imageSlide} src={url} />
             </div>
             )
         }

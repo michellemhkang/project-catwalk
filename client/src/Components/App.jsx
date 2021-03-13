@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './test.module.css';
 import RelatedProductsSect from './RelatedProductsSect/RelatedProductsSect.jsx';
 import RatingsAndReviewsSect from './RatingsAndReviewsSect/RatingsAndReviewsSect.jsx';
 import QuestionsAnswersSect from './QuestionsAnswersSect/QuestionsAnswersSect.jsx';
@@ -28,9 +27,9 @@ class App extends React.Component {
     this.setState({avgRating: average})
   }
 
-  componentDidMount() {
-  this.setState({id: 14034})
-  }
+  // componentDidMount() {
+  // this.setState({id: 14034})
+  // }
 
   getProductInfo(someInfo) {
     this.setState({productInfo: someInfo})

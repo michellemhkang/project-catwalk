@@ -24,6 +24,7 @@ class ImageGallery extends React.Component {
             currentImageIndex: index,
             slide: true
         })
+        // this.setState({slide: false})
     }
 
     nextSlide() {
@@ -36,6 +37,7 @@ class ImageGallery extends React.Component {
             currentImageIndex: index,
             slide: true
         })
+        // this.setState({slide: false})
     }
 
     render() {
@@ -52,17 +54,25 @@ class ImageGallery extends React.Component {
 
         return (
             <div className={styling.gallery}>
-                <Arrow
-                direction="left"
-                clickFunction={this.previousSlide}
-                style={name} />
 
-                <Image slide={this.state.slide} url={photos[currentImageIndex].url} />
+                <div className={styling.arrow}>
+                    <Arrow
+                    direction="left"
+                    clickFunction={this.previousSlide}
+                    style={name} />
+                </div>
 
-                <Arrow
-                direction="right"
-                clickFunction={this.nextSlide}
-                style={name} />
+                <div className={styling.image}>
+                    <Image slide={this.state.slide} url={photos[currentImageIndex].url} />
+                </div>
+
+                <div className={styling.arrow}>
+                    <Arrow
+                    direction="right"
+                    clickFunction={this.nextSlide}
+                    style={name} />
+                </div>
+
             </div>
         )
     }

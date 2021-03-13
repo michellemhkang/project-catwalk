@@ -79,7 +79,7 @@ class QuantitySelector extends React.Component {
         return (
             <div className={styling.colContainer}>
 
-                <div className={styling.rowContainer}>
+                <div className={styling.row1Container}>
                     <button className={styling.quantityButton} onClick={this.showMenu}>
                         {selectedQuantity === null ? (
                             <div>

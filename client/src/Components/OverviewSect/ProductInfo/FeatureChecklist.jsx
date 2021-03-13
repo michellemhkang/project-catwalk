@@ -15,12 +15,12 @@ import styling from './ProductOverview.module.css';
 //     }
 // }
 
-const FeatureChecklist = ({feature}) => {
+const FeatureChecklist = ({feature, value}) => {
     return (
         <div>
             <i className={'fas fa-check'} />
             <span className={styling.feature}>
-                {feature}
+                {feature}: {value}
             </span>
 
         </div>

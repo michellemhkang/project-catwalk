@@ -3,36 +3,70 @@
     flex-flow: row wrap;
     /* flex-basis: 90%; */
     width: 500px;
+    height: 250px;
+    margin-left: 15px;
+    margin-top: 15px;
     /* width: 100%; */
     /* height: 100px; */
+    /* position: absolute; */
 }
 .thumbnail {
-    border-radius: 50%;
+    /* border-radius: 50%; */
     height: 90px;
     width: 90px;
     margin: 10px;
     transition: 0.3s;
     object-fit: cover;
-    padding: 1.5px;
-    border: 1.5px solid;
+    /* padding: 1.5px; */
+    /* border: 1.5px solid; */
 }
 .thumbnail:hover {
     cursor: pointer;
-    border: 3px solid;
+    border-bottom: 4.5px solid;
+    /* border: 3px solid; */
     /* background-color: black !important; */
     transform: scale(1.1);
 }
-.selected {
-    border-radius: 50%;
+.selectedThumbnail {
+    /* border-radius: 50%; */
     height: 90px;
     width: 90px;
     margin: 10px;
     transition: 0.3s;
     object-fit: cover;
-    padding: 1.5px;
-    border: 3px solid;
+    /* padding: 1.5px; */
+    border-bottom: 4.5px solid;
+    /* border: 3px solid; */
     /* background-color: black !important; */
 }
-.styleName {
+.textContainer {
+    display: flex;
+    margin-top: 20px;
     margin-left: 20px;
+}
+.style {
+    /* margin-top: 30px;
+    margin-left: 20px; */
+    flex: 1;
+    font-weight: 800;
+
+    width: 20px;
+    /* display: block; */
+    /* margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px; */
+}
+.selectedName {
+    /* margin-top: 30px;
+    font-weight: lighter; */
+    display: flex;
+    font-weight: 100;
+    /* margin-top: 40px; */
+    margin-right: 320px;
+    /* display: block; */
+    /* margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px; */
 }

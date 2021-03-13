@@ -8,7 +8,7 @@ const ProductOverview = ({slogan, description, features}) => {
     let featureList = features.map((feature, index) => {
         // console.log(feature);
         // console.log(feature.feature);
-        return <FeatureChecklist feature={feature.feature} key={index} />
+        return <FeatureChecklist feature={feature.feature} value={feature.value} key={index} />
     })
 
     return (
@@ -17,8 +17,11 @@ const ProductOverview = ({slogan, description, features}) => {
             <div className={styling.rowContainer}>
 
                 <div className={styling.colContainer}>
-                    <h3 className={styling.slogan}>{slogan}</h3>
-                    <p className={styling.description}>{description}</p>
+                    <div className={styling.textContainer}>
+                        <h3 className={styling.slogan}>{slogan}</h3>
+                        <p className={styling.description}>{description}</p>
+                    </div>
+
                 </div>
 
                 <div className={styling.featureChecklist}>

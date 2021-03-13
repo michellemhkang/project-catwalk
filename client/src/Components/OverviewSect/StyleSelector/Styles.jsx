@@ -21,7 +21,7 @@ class Styles extends React.Component {
     render() {
 
         const isSelected = this.props.selectedStyleName === this.props.name;
-        const className = isSelected ? styling.selected : styling.thumbnail;
+        const className = isSelected ? styling.selectedThumbnail : styling.thumbnail;
 
         return (
             <div>

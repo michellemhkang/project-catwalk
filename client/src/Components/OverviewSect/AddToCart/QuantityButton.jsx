@@ -13,7 +13,11 @@ class QuantityButton extends React.Component {
     render() {
 
         return (
-            <button className={styling.button} onClick={() => this.handleClick(this.props.quantity)}>{this.props.quantity}</button>
+            <div className={styling.quantityOptionsList}>
+                <div>
+                    <button className={styling.button} onClick={() => this.handleClick(this.props.quantity)}>{this.props.quantity}</button>
+                </div>
+            </div>
         )
     }
 }

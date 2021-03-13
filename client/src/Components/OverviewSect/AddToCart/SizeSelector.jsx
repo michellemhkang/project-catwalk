@@ -78,7 +78,7 @@ class SizeSelector extends React.Component {
         // here, pair is another array where index 0 is the sku number (key)
         // and index 1 is an object of size and quantity (property)
         let sizeOptions = Object.entries(skus).map((pair, index) => {
-            return <SizeButton className={styling.button} changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
+            return <SizeButton changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
         })
 
         let selectedSku;
@@ -95,9 +95,12 @@ class SizeSelector extends React.Component {
 
 
         return (
-            <div className={styling.rowContainer}>
 
-                <div className={styling.colContainer}>
+            <div className={styling.buttonContainer}>
+
+            <div className={styling.row1Container}>
+
+                {/* <div className={styling.colContainer}> */}
 
                     <div>
                         <button className={styling.sizeButton} onClick={this.showMenu}>
@@ -122,12 +125,12 @@ class SizeSelector extends React.Component {
                     }
                     </div>
 
-                    <FavoriteButton />
 
-                </div>
+                {/* </div> */}
 
                 <QuantitySelector selectedSku={selectedSku} quantity={quantityAvailable} />
 
+            </div>
             </div>
         )
     }
