@@ -49,14 +49,14 @@ class AddAnswer extends React.Component {
     return (<>
       <div className={styles.imageDiv}>
         <div className={`${styles.qDiv} ${styles.fadeIn}`}>
-          <div className={`${styles.typeB} ${styles.fadeIn}`}>
+          <div className={styles.typeB }>
             <form onSubmit={(event) => { event.preventDefault(); this.props.createAnswer( this.state.text , this.state.img, this.state.email, this.state.username) }}>
               <button onClick={(event) => { this.props.addAans() }} className={styles.addX}> ✖ </button>
               <h4> Responding To:</h4>
               <p>{this.props.quest}</p>
-              <input value={this.state.email} placeholder={'Email'}onChange={(event)=>{event.preventDefault(); this.emailTxt()}}></input>
-      <input value={this.state.username} placeholder={'Username'}onChange={(event)=>{event.preventDefault(); this.UsernameTxt()}}></input>
-              <textarea className={styles.AnswerInput} value={this.state.text} placeholder={'question....'} onChange={(event)=>{this.updatetxt()}}></textarea>
+              <input className={styles.EmailA} value={this.state.email} placeholder={'Email'}onChange={(event)=>{event.preventDefault(); this.emailTxt()}}></input>
+      <input className={styles.UsernameA}  value={this.state.username} placeholder={'Username'}onChange={(event)=>{event.preventDefault(); this.UsernameTxt()}}></input>
+              <textarea className={styles.AnswerInput} value={this.state.text} placeholder={'Response...'} onChange={(event)=>{this.updatetxt()}}></textarea>
               <button className={styles.SubmitAnswerbtn}>Submit</button>
               <input type={'file'} onChange={this.updateIMG} />
               <div className={styles.imagePreviewDiv}>

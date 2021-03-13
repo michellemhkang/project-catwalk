@@ -70,14 +70,11 @@ formatDate(isoDate){
       <br></br>
       <div className={styles.backgroundA}>
       <div>
-        <div>
-      </div>
       <p className={styles.answer}>{this.props.answers.body}</p>
       </div>
       <br></br>
         <div className={styles.photosDiv}>
         {this.props.answers.photos.map((url,i)=>{
-          console.log(url)
           return <Pictures url={url} key={i}/>
         })}
         </div>

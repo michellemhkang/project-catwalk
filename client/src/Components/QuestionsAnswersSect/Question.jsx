@@ -63,7 +63,7 @@ class Question extends React.Component{
 
             { this.state.Answers.map((answers,i) =>{
               if(answers !== undefined){
-                console.log(answers)
+
                 return <><Answers answers={answers} key ={i}/></>
               }
             })}
@@ -96,7 +96,7 @@ class Question extends React.Component{
 
   renderload(){
     return(
-      <button className={styles.load}onClick={this.addAns} >Load more answers</button>
+      <button className={styles.load}onClick={this.addAns} >Load More Answers</button>
     )
   }
 
@@ -176,7 +176,9 @@ if(!this.state.pushed ){
         return(
           <>
           <li className={styles.Qlist}>
+            <div className={styles.Flexcontainter}>
             <h4 className={styles.quest}>Question : </h4>
+            </div>
             <div className={styles.questContainer}>
             <p className={styles.questBody}>  {this.props.quest.question_body}  </p>
             </div>
