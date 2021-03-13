@@ -1,0 +1,45 @@
+.container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  max-height: 400px;
+  margin-bottom: 50px;
+}
+.rowContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+.colContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column wrap;
+  /* max-width: 700px; */
+  margin-right: 10px;
+}
+.textContainer {
+  margin-right: 80px;
+  margin-left: 100px;
+  width: 600px;
+}
+.slogan {
+  font-size: 20px;
+  font-weight: bold;
+}
+.description {
+  color: rgb(51, 49, 49)
+}
+.featureChecklist {
+  max-height: 140px;
+  border-left: 2px solid #14213dc9;
+  padding-left: 40px;
+  padding-top: 25px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  margin-right: 200px;
+}
+.feature {
+  padding-left: 10px;
+  font-weight: 100;
+  color:rgba(44, 42, 42, 0.972)
+}

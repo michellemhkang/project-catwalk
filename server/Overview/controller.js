@@ -45,5 +45,28 @@ module.exports = {
                 // console.log('Good luck with this error');
                 console.log(err);
             });
+    },
+
+    postToCart: (req, res) => {
+        let data = JSON.stringify({ "sku_id": req.body.sku_id });
+        let options = {
+            method: 'post',
+            url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/cart',
+            headers: {
+                'Authorization': 'f721138e7c178a4ca4a796beed488d55bad5f3d3',
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+        axios(options)
+            .then((response) => {
+                // console.log(req.body.sku_id); // this is the correct sku
+                // console.log(JSON.stringify(response.data)); // this is 'created'
+                res.status(201).send('CREATED');
+            })
+            .catch((error) => {
+                // console.log(req.body.params.sku_id);
+                console.log(error);
+            })
     }
 }

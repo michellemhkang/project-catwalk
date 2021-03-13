@@ -1,43 +1,57 @@
 import React from 'react';
 import SizeButton from './SizeButton.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
+import styling from './Buttons.module.css';
+import FavoriteButton from './FavoriteButton.jsx';
+import AddToCart from './AddToCart.jsx';
 
 class SizeSelector extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             showMenu: false,
-            currentlySelectedSize: 'Select Size'
+            currentlySelectedSize: 'SELECT SIZE'
         }
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
-        this.changeSelectedSize = this.changeSelectedSize.bind(this);
+        // this.changeSelectedSize = this.changeSelectedSize.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     showMenu(e) {
         e.preventDefault();
-        this.setState({showMenu: true}, () => {
+        this.setState({ showMenu: true }, () => {
             document.addEventListener('click', this.closeMenu);
         })
     }
 
     closeMenu(e) {
-        if (!this.dropdownMenu.contains(e.target)) {
-            this.setState({showMenu: false}, () => {
-                document.removeEventListener('click', this.closeMenu);
-            })
-        }
+        e.preventDefault();
+        // if (!this.dropdownMenu.contains(e.target)) {
+        this.setState({ showMenu: false }, () => {
+            document.removeEventListener('click', this.closeMenu);
+        })
+        // }
     }
 
-    changeSelectedSize(size) {
-        this.setState({currentlySelectedSize: size})
-        this.closeMenu();
+    handleClick(size, sku, quantity) {
+        // e.preventDefault();
+        this.setState({ currentlySelectedSize: size });
+        this.props.selectSku(sku);
+        this.props.selectQuantity(quantity);
+        // this.changeSelectedSize(this.state.currentlySelectedSize);
+        // this.props.closeMenu();
     }
+
+    // changeSelectedSize(size) {
+    //     this.setState({ currentlySelectedSize: size })
+    //     // this.closeMenu();
+    // }
 
     render() {
 
-        const {showMenu, currentlySelectedSize} = this.state;
-        const {skus} = this.props;
+        const { showMenu, currentlySelectedSize } = this.state;
+        const { skus } = this.props;
 
         // let sizeArr = [];
         // for (var key in skus) {
@@ -75,14 +89,17 @@ class SizeSelector extends React.Component {
         // here, pair is another array where index 0 is the sku number (key)
         // and index 1 is an object of size and quantity (property)
         let sizeOptions = Object.entries(skus).map((pair, index) => {
-            return <SizeButton changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
+            return <button onClick={() => this.handleClick(pair[1].size, pair[0], pair[1].quantity)} className={styling.option} key={index}>{pair[1].size}</button>
+            // return <SizeButton changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
         })
 
         let selectedSku;
-        if (currentlySelectedSize !== 'Select Size') {
+        let quantityAvailable;
+        if (currentlySelectedSize !== 'SELECT SIZE') {
             Object.entries(skus).filter((sku) => {
                 if (sku[1].size === currentlySelectedSize) {
-                    selectedSku = sku[1].quantity;
+                    selectedSku = sku[0];
+                    quantityAvailable = sku[1].quantity;
                     // console.log(selectedSku);
                 }
             })
@@ -90,30 +107,31 @@ class SizeSelector extends React.Component {
 
 
         return (
-            <div>
-            <div>
-                <button onClick={this.showMenu}>
-                    {currentlySelectedSize}
-                </button>
 
-            {
-                showMenu
-                ? (
-                    <div className="menu" ref={(element) => {this.dropdownMenu = element;}}>
-                        {sizeOptions}
-                        {/* <button>XS</button>
-                        <button>S</button>
-                        <button>M</button>
-                        <button>L</button> */}
-                    </div>    
-                )
-                : (
-                    null
-                )
-            }
+            <div className={styling.sizeOptionsList} >
+
+                <div >
+                    <button className={styling.sizeButton} onClick={this.showMenu}>
+                        {currentlySelectedSize}
+                        <i className={'fas fa-angle-down fa-fw'} />
+                    </button>
+                </div>
+
+                <div >
+                    {showMenu ? (
+                        // ref={(element) => { this.dropdownMenu = element; }}
+                        <div className={styling.sizeDropdown}>
+                            {sizeOptions}
+                        </div>
+                    ) : (
+                        null
+                    )}
+                </div>
+
+
             </div>
-            <QuantitySelector selectedSku={selectedSku} />
-            </div>
+
+
         )
     }
 }

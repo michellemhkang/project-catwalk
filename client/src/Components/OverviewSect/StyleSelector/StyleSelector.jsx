@@ -1,5 +1,6 @@
 import React from 'react';
 import Styles from './Styles.jsx';
+import styling from './Styles.module.css';
 // import Price from './Price.jsx';
 // import axios from 'axios';
 
@@ -66,14 +67,25 @@ class StyleSelector extends React.Component {
         // console.log('props:', this.props.styles);
         const stylesInfo = this.props.styles.map((style, index) => {
             // console.log('style:', style);
-            return <Styles name={style.name} photos={style.photos} id={style.style_id} key={index} changeStyle={this.changeStyle} /> 
+            return <Styles selectedStyleName={this.state.selectedStyleName} name={style.name} photos={style.photos} id={style.style_id} key={index} changeStyle={this.changeStyle} />
         })
 
         return (
             <div>
                 {/* <Price defaultPrice={this.props.defaultPrice} salePrice={this.state.selectedStyleSalePrice} /> */}
-                <h3>Style &gt; {this.state.selectedStyleName}</h3>
-                <div>{stylesInfo}</div>
+                <div className={styling.textContainer}>
+                    <div className={styling.style}>STYLE    &gt;</div>
+                    <div className={styling.selectedName}>
+                        {this.state.selectedStyleName}
+                    </div>
+                </div>
+
+                {/* <div className={styling.thumbnails}>
+                    <div>
+                        {stylesInfo}
+                    </div>
+                </div> */}
+                <div className={styling.thumbnailContainer}>{stylesInfo}</div>
             </div>
         )
     }
