@@ -45,8 +45,8 @@ class App extends React.Component {
       <div>
         <OverviewSect id={this.state.id} getProductInfo={this.getProductInfo} getStyleInfo={this.getStyleInfo} />
         <RelatedProductsSect id={this.state.id} changePage={this.changePage} avgRating={this.state.avgRating} productInfo={this.state.productInfo} styleInfo={this.state.styleInfo} />
-        <QuestionsAnswersSect id={this.state.id} />
-        <RatingsAndReviewsSect id={this.state.id} getAverageRating={this.getAverageRating} productName={this.state.productInfo.name}/>
+        <QuestionsAnswersSect id={this.state.id} productInfo={this.state.productInfo}/>
+        <RatingsAndReviewsSect id={this.state.id} getAverageRating={this.getAverageRating} />
       </div>
     );
   }

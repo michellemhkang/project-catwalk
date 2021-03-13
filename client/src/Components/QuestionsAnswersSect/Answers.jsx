@@ -1,17 +1,30 @@
 import React from 'react'
 import styles from './Question.modules.css'
 import Pictures from './Pictures.jsx'
+import axios from 'axios'
 
 class Answers extends React.Component{
   constructor(props){
     super(props)
     this.state={
       helpfulness: this.props.answers.helpfulness,
-      pushed: false
-
+      pushed: false,
+      reported: false
     }
     this.Yes = this.Yes.bind(this)
     this.formatDate = this.formatDate.bind(this);
+    this.reported = this.reported.bind(this);
+  }
+  reported(){
+    if(!this.state.reported){
+      axios.put('/reportA', {answers_id:this.props.answers.id }).then('worked')
+      this.setState({
+        reported: true
+      })
+      } else {
+
+      }
+
   }
 
 
@@ -39,41 +52,41 @@ formatDate(isoDate){
 
   Yes(){
     if(!this.state.pushed ){
-      var truth = !this.state.pushed
-      var num = this.state.helpfulness + 1
-      this.setState({
-        pushed: truth,
-        helpfulness: num
-      })
+      var num = ++this.state.helpfulness
+      axios.put('/Answerhelpful', {body: this.props.answers.id}).then(this.setState({
+        helpfulness: num,
+        pushed: true
+      }))
     } else {
-      var truth = !this.state.pushed
-      var num = this.state.helpfulness - 1
-      this.setState({
-        pushed: truth,
-        helpfulness: num
-      })
+
     }
   }
 
 
   render(){
 
-
-
-
     return (
       <>
+      <br></br>
+      <div className={styles.backgroundA}>
       <div>
-      <h2 className = {styles.a}>A:</h2> <p className={styles.answer}>{this.props.answers.body}</p>
+      <p className={styles.answer}>{this.props.answers.body}</p>
       </div>
+      <br></br>
+        <div className={styles.photosDiv}>
         {this.props.answers.photos.map((url,i)=>{
           return <Pictures url={url} key={i}/>
         })}
-        <br></br>
+        </div>
+        <div className={styles.userbyAdiv}>
       <p className={styles.userbyA}>by {this.props.answers.answerer_name} on {this.formatDate(this.props.answers.date.toString())} </p>
       <p className={styles.help} >| Helpful? </p>
-      <button className={styles.button} onClick={this.Yes}> Yes </button> <p className={styles.helpNum}>({this.state.helpfulness})</p>
+      <button className={styles.buttonQ} onClick={this.Yes}> Yes </button> <p className={styles.helpNum}>({this.state.helpfulness})</p>
+      <button className={styles.buttonQ}>Report</button>
+      </div>
       <br></br>
+      <br></br>
+      </div>
       </>
     )
   }

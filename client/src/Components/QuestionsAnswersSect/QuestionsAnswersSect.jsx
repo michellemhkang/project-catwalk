@@ -8,8 +8,7 @@ class QuestionsAnswersSect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.id,
-      QnAlist:[],
+      QnAlist: [],
       QnADB: [],
       Filter:'',
       Add: false
@@ -20,27 +19,35 @@ class QuestionsAnswersSect extends React.Component {
     this.rerender = this.rerender.bind(this);
     this.AddQuestion = this.AddQuestion.bind(this);
     this.SubmitQuestion = this.SubmitQuestion.bind(this)
+    this.less = this.less.bind(this)
+    this.lessQuestions = this.lessQuestions.bind(this)
   }
 
-  SubmitQuestion(question){
-    var today = new Date();
-    var today = today.toISOString();
+  lessQuestions(){
+    var array = [];
+      array.push(this.state.QnADB[0])
+      array.push(this.state.QnADB[1])
+      this.setState({
+        QnAlist: array
+      })
+  }
+
+  less(){
+    return(
+    <button className={styles.lessQ} onClick={(event) => {this.lessQuestions()}}>Collapse questions</button>
+    )
+  }
+
+  SubmitQuestion(question, email, username){
+
     var NewQuestion = {
-      question_id: this.state.QnADB[0].question_id + 1,
-            question_body: question,
-            question_date: today,
-            asker_name: "Ransom.Thiel83",
-            question_helpfulness: 30,
-            reported: false,
-            answers: {}
+            body: question,
+            name: username,
+            email: email,
+            product_id:this.props.id
     }
-    NewQuestion
 
-    this.setState({
-      QnAlist:[...this.state.QnAlist, NewQuestion],
-      QnADB: [...this.state.QnADB, NewQuestion]
-    })
-
+    axios.post('/addQuestion', NewQuestion).then(this.rerender());
   }
 
 
@@ -53,7 +60,7 @@ class QuestionsAnswersSect extends React.Component {
 
   rerender(){
     axios.get('/Q&A/data',{ params: {
-      id: this.state.id
+      id: this.props.id
     }}).then(response => {
       var array = [];
       array.push(response.data.results[0]);
@@ -89,19 +96,29 @@ class QuestionsAnswersSect extends React.Component {
   MoreQuestions(){
       var array = []
       var currentLength = this.state.QnAlist.length
+    console.log(this.state.QnAlist[currentLength - 1].question_id)
+    console.log(this.state.QnADB[currentLength-1].question_id)
 
-    while(currentLength < this.state.QnAlist.length + 2 ){
-      if(this.state.QnADB[currentLength] !== undefined){
+    while(currentLength < this.state.QnAlist.length + 2){
+      if(this.state.QnADB[currentLength] !== undefined ){
         array.push(this.state.QnADB[currentLength])
       }
       currentLength++
     }
-
+      console.log('list',this.state.QnAlist)
+      console.log('db',this.state.QnADB)
     this.setState({
       QnAlist: [...this.state.QnAlist, ...array]
     })
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if(prevProps.id !== this.props.id){
+      this.rerender()
+    }
+
+
+  }
 
   componentDidMount(){
     this.rerender();
@@ -111,6 +128,9 @@ class QuestionsAnswersSect extends React.Component {
     this.setState({
       Filter: event.target.value
     })
+  if(event.target.value.length > 2 || event.target.value === ''){
+    this.SearchQnA()
+  }
 
   }
 
@@ -119,16 +139,25 @@ class QuestionsAnswersSect extends React.Component {
 
     return(
       <>
-      <h1>Questions Answers Section</h1>
-
-      <form  onSubmit={(event)=>{event.preventDefault(); this.SearchQnA()}}>
+      <hr className={styles.Qhr}></hr>
+      <div className={styles.tittle}>
+        <h1>Customer Questions & Answers</h1>
+      </div>
+      <div className ={styles.searchborderQ}>
+      <form className={styles.formsearch} onSubmit={(event)=>{event.preventDefault(); this.SearchQnA()}}>
         <input value={this.state.Filter} placeholder={'HAVE A QUESTION? SEARCH FOR ANSWERS...'} onChange={(event)=>{event.preventDefault(); this.changefilter()}} className={styles.SearchQnA} ></input>
-        <button className={styles.searhGlass}> Q </button>
+        <button className={styles.searhGlass}> 🔍 </button>
       </form>
+      </div>
+      <div className={styles.pagebody}>
       <QnAlist QnAlist ={this.state.QnAlist} />
-      <AddQustion Add={this.state.Add} AddQuestion={this.AddQuestion} SubmitQuestion ={this.SubmitQuestion}/>
-      <button onClick={this.MoreQuestions}>MORE ANSWERED QUESTIONS</button>
-      <button onClick={(event)=>{this.AddQuestion()}}>ADD A QUESTION</button>
+      <AddQustion Add={this.state.Add} AddQuestion={this.AddQuestion} SubmitQuestion={this.SubmitQuestion} pName={this.props.productInfo.name}/>
+      <button onClick={this.MoreQuestions} className={styles.MoreQue}>MORE ANSWERED QUESTIONS</button>
+      <button onClick={(event)=>{this.AddQuestion()}} className={styles.Addque}>ADD A QUESTION</button>
+      {this.state.QnAlist.length > 2 ? this.less() : null}
+      </div>
+      <br></br>
+      <hr className={styles.Qhr}></hr>
       </>
     )
   }

@@ -16,7 +16,14 @@ projectCatwalk.post('/reviews', reviewsController.sendReview);
 projectCatwalk.get('/RelatedProducts', relatedProductsController.getIds);
 
 projectCatwalk.get('/Q&A/data', questionsAnswersController.getData);
-projectCatwalk.get('/Q&A/data', questionsAnswersController.getData);
+projectCatwalk.put('/Questionhelpful', questionsAnswersController.helpQ);
+projectCatwalk.put('/Answerhelpful', questionsAnswersController.helpA)
+projectCatwalk.post('/addAnswer', questionsAnswersController.addAnswer)
+projectCatwalk.post('/addQuestion',questionsAnswersController.addQuestion )
+projectCatwalk.put('/reportQ', questionsAnswersController.ReoportQ)
+projectCatwalk.put('/reportA', questionsAnswersController.ReoportA)
+
+
 
 projectCatwalk.get('/overview/products/:', overviewController.getProducts);
 projectCatwalk.get('/overview/styles', overviewController.getStyles);

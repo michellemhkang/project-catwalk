@@ -17,9 +17,9 @@ class Modal extends React.Component {
     }
     return <>
     <div className ={styles.imageDiv} >
-      <div className ={styles.imageModal}>
+      <div className ={`${styles.imageModal} ${styles.fadeIn}`}>
       <button onClick={(event)=>{this.props.selectModal() }} className={styles.Mbutton} > ✖ </button>
-      <a onClick={(event)=>{this.props.selectModal() }}><img className={styles.imageM} src={this.props.url} /></a>
+      <div className={styles.borderDiv}><div className={styles.container}><img className={styles.imageM} src={this.props.url} /></div></div>
       </div>
       </div>
       </>

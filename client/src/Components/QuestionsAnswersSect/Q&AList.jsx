@@ -1,5 +1,7 @@
 import React from 'react'
 import Question from './Question.jsx'
+import styles from './Question.modules.css';
+
 
 class QnAlist extends React.Component{
   constructor(props){
@@ -9,15 +11,16 @@ class QnAlist extends React.Component{
     }
   }
   render(){
-
     return (
       <>
-        <ul>
+        <div className={styles.List}>
+        <ul >
         {this.props.QnAlist.map((quest,i) => {
-          return <Question quest={quest} key={i}/>
+          return <Question quest={quest} key={i} />
         })}
         </ul>
         <br></br>
+        </div>
       </>
 
     )
