@@ -28,15 +28,17 @@ class SizeSelector extends React.Component {
     closeMenu(e) {
         e.preventDefault();
         // if (!this.dropdownMenu.contains(e.target)) {
-            this.setState({ showMenu: false }, () => {
-                document.removeEventListener('click', this.closeMenu);
-            })
+        this.setState({ showMenu: false }, () => {
+            document.removeEventListener('click', this.closeMenu);
+        })
         // }
     }
 
-    handleClick(size) {
+    handleClick(size, sku, quantity) {
         // e.preventDefault();
-        this.setState({ currentlySelectedSize: size })
+        this.setState({ currentlySelectedSize: size });
+        this.props.selectSku(sku);
+        this.props.selectQuantity(quantity);
         // this.changeSelectedSize(this.state.currentlySelectedSize);
         // this.props.closeMenu();
     }
@@ -87,7 +89,7 @@ class SizeSelector extends React.Component {
         // here, pair is another array where index 0 is the sku number (key)
         // and index 1 is an object of size and quantity (property)
         let sizeOptions = Object.entries(skus).map((pair, index) => {
-            return <button onClick={() => this.handleClick(pair[1].size)} className={styling.option} key={index}>{pair[1].size}</button>
+            return <button onClick={() => this.handleClick(pair[1].size, pair[0], pair[1].quantity)} className={styling.option} key={index}>{pair[1].size}</button>
             // return <SizeButton changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
         })
 
@@ -106,44 +108,30 @@ class SizeSelector extends React.Component {
 
         return (
 
-            <div className={styling.buttonContainer}>
+            <div className={styling.sizeOptionsList} >
 
-                <div className={styling.colContainer}>
+                <div >
+                    <button className={styling.sizeButton} onClick={this.showMenu}>
+                        {currentlySelectedSize}
+                        <i className={'fas fa-angle-down fa-fw'} />
+                    </button>
+                </div>
 
-                <div className={styling.row1Container}>
-
-                    {/* <div className={styling.colContainer}> */}
-
-                    <div>
-                        <button className={styling.sizeButton} onClick={this.showMenu}>
-                            {currentlySelectedSize}
-                            <i className={'fas fa-angle-down fa-fw'} />
-                        </button>
-
-                        <div className={styling.sizeOptionsList}>
-                        {showMenu ? (
-                            // ref={(element) => { this.dropdownMenu = element; }}
-                            <div>
-                                {sizeOptions}
-                            </div>
-                        ) : (
-                            null
-                        )}
+                <div >
+                    {showMenu ? (
+                        // ref={(element) => { this.dropdownMenu = element; }}
+                        <div className={styling.sizeDropdown}>
+                            {sizeOptions}
                         </div>
-                    </div>
-
-                    {/* </div> */}
-
-                    <QuantitySelector selectedSku={selectedSku} quantityAvailable={quantityAvailable} />
-
+                    ) : (
+                        null
+                    )}
                 </div>
 
-                <div className={styling.row2Container}>
-                    <AddToCart />
-                </div>
 
-                </div>
             </div>
+
+
         )
     }
 }

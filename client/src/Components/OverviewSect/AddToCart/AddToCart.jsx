@@ -9,16 +9,30 @@ class AddToCart extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            clicked: false
+            clicked: false,
+            selectedSku: null,
+            selectedQuantity: null
         }
         this.handleClick = this.handleClick.bind(this);
         this.postToCart = this.postToCart.bind(this);
+        this.selectSku = this.selectSku.bind(this);
+        this.selectQuantity = this.selectQuantity.bind(this);
+    }
+
+    selectSku(sku){
+        console.log(sku);
+        this.setState({selectedSku: sku})
+    }
+
+    selectQuantity(quantity) {
+        console.log(quantity);
+        this.setState({selectedQuantity: quantity})
     }
 
     handleClick() {
         // clearTimeout(timeout);
         // event.stopPropagation();
-        this.postToCart(this.props.selectedSku);
+        this.postToCart(this.state.selectedSku);
         this.setState({
             clicked: true
         })
@@ -42,26 +56,38 @@ class AddToCart extends React.Component {
 
         return (
 
-            <div className={styling.row2Container}>
+            <div className={styling.buttonContainer}>
 
-                <div>
-                    <button onClick={this.handleClick} className={styling.addButton}>
-                        {clicked ? (
-                            <div>
-                                <span>ADDED TO BAG</span>
-                                <i className={'fas fa-check fa-fw'} />
-                            </div>
-                        ) : (
-                            <div>
-                                <span>ADD TO BAG</span>
-                                <i className={'fas fa-plus fa-fw'} />
-                            </div>
-                        )}
-                    </button>
+            {/* <div className={styling.colContainer}> */}
+
+                <div className={styling.row1Container}>
+                    {/* <div className={styling.colContainer}></div> */}
+                    <SizeSelector skus={this.props.skus} selectSku={this.selectSku} selectQuantity={this.selectQuantity} />
+                    <QuantitySelector quantityAvailable={this.state.selectedQuantity} />
+
+                {/* <div className={styling.rowContainer}> */}
                 </div>
 
-                <div>
+                <div className={styling.row2Container}>
+
+                    <div>
+                        <button onClick={this.handleClick} className={styling.addButton}>
+                            {clicked ? (
+                                <div>
+                                    <span>ADDED TO BAG</span>
+                                    <i className={'fas fa-check fa-fw'} />
+                                </div>
+                            ) : (
+                                <div>
+                                    <span>ADD TO BAG</span>
+                                    <i className={'fas fa-plus fa-fw'} />
+                                </div>
+                            )}
+                        </button>
+                    </div>
+
                     <FavoriteButton />
+
                 </div>
 
             </div>

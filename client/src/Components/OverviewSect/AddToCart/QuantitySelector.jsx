@@ -25,9 +25,9 @@ class QuantitySelector extends React.Component {
 
     closeMenu(e) {
         // if (!this.dropdownMenu.contains(e.target)) {
-            this.setState({ showMenu: false }, () => {
-                document.removeEventListener('click', this.closeMenu);
-            })
+        this.setState({ showMenu: false }, () => {
+            document.removeEventListener('click', this.closeMenu);
+        })
         // }
     }
 
@@ -74,7 +74,7 @@ class QuantitySelector extends React.Component {
         let maximum = isAtMax ? quantityAvailable : 15;
         let quantityOptions = [...Array(maximum)].map((quantity, i) => {
             // return <button>hello</button>
-            return <button quantity={i+1} onClick={() => this.handleClick(i+1)} className={styling.quantityOption} key={i}>{i+1}</button>
+            return <button quantity={i + 1} onClick={() => this.handleClick(i + 1)} className={styling.quantityOption} key={i}>{i + 1}</button>
             // <button className={styling.button} onClick={() => this.handleClick(this.props.quantity)}>{this.props.quantity}</button>
 
             // console.log(i);
@@ -86,39 +86,39 @@ class QuantitySelector extends React.Component {
 
 
         return (
-            <div className={styling.colContainer}>
+            // <div className={styling.colContainer}>
 
-                <div className={styling.row1Container}>
-                    <div className={styling.quantityOptionsList}>
-                    <button className={styling.quantityButton} onClick={this.showMenu}>
-                        {selectedQuantity === null ? (
-                            <div>
-                                <i className={'fas fa-minus fa-fw'} />
-                                <i className={'fas fa-angle-down fa-fw'} />
+            <div className={styling.row1Container}>
+
+                <div className={styling.quantityOptionsList}>
+
+                    <div>
+                        <button className={styling.quantityButton} onClick={this.showMenu}>
+                            {selectedQuantity === null ? (
+                                <div>
+                                    <i className={'fas fa-minus fa-fw'} />
+                                    <i className={'fas fa-angle-down fa-fw'} />
+                                </div>
+                            ) : (
+                                <div>
+                                    {selectedQuantity}
+                                    <i className={'fas fa-angle-down fa-fw'} />
+                                </div>
+                            )}
+                        </button>
+                    </div>
+
+                    <div>
+                        {showMenu ? (
+                            <div className={styling.quantityDropdown} >
+                                {quantityOptions}
                             </div>
                         ) : (
-                            <div>
-                                {selectedQuantity}
-                                <i className={'fas fa-angle-down fa-fw'} />
-                            </div>
+                            null
                         )}
-                    </button>
-                    {/* // className={styling.quantityOptionsList} */}
-                    <div className={styling.quantityDropdown}>
-                    {showMenu ? (
-                        <div>
-                            {quantityOptions}
-                        </div>
-                    ) : (
-                        null
-                    )}
                     </div>
-                    </div>
-
+                    
                 </div>
-
-                <AddToCart selectedSku={selectedSku} quantity={this.state.selectedQuantity} />
-
 
             </div>
         )
