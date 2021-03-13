@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest RelatedProducts.test.jsx",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
     "start": "nodemon server/server.js",
-    "webpack": "npx webpack --watch"
+    "webpack": "npx webpack --watch",
+    "webpack-prod": "npx webpack -production"
   },
   "repository": {
     "type": "git",
