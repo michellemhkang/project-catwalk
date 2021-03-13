@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Stars from './Stars.jsx';
 import styles from './reviews.module.css';
 
@@ -27,7 +28,7 @@ let ReviewListEntry = ({review}) => {
   }
 
   return (
-    <div className={styles.reviewListEntry}>
+    <div className={`${styles.reviewListEntry} ${styles.fadeIn}`}>
       <span className={styles.starsAndDate}>
         <Stars rating={review.rating}/>
         <span className={styles.nameDate} data-test="username">{review.reviewer_name}, {formatDate(review.date)}</span>

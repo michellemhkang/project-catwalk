@@ -11,31 +11,33 @@ import WriteYourReview from './WriteYourReview.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import CharacteristicsSummary from './CharacteristicsSummary.jsx';
 import Modal from './Modal.jsx';
-import dummyReviewListData from './dummyData/dummyReviewListData.js';
 import styles from './reviews.module.css';
-
 
 class RatingsAndReviewsSect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reviewList: [],
-      reviewCount: '',
+      reviewListDisplay: [],
+      reviewCount: 0,
       currentProductId: this.props.id,
-      averageRating: '',
+      averageRating: 0,
       recsPercentage: 0,
       characteristics: {},
       ratings: {},
       recommended: {},
       totalRatings: 0,
       showModal: false,
+      showMoreReviews: true
     };
 
     this.getReviews = this.getReviews.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
+    this.updateDisplayList = this.updateDisplayList.bind(this);
     this.sendNewReview = this.sendNewReview.bind(this);
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+    this.showMoreOnScroll = this.showMoreOnScroll.bind(this);
   }
 
   getReviews(id) {
@@ -48,7 +50,7 @@ class RatingsAndReviewsSect extends React.Component {
       this.setState({
         reviewList: response.data.results,
         reviewCount: response.data.results.length
-      })
+      }, this.updateDisplayList)
     })
     .catch(error => {
       console.error(error)
@@ -73,6 +75,46 @@ class RatingsAndReviewsSect extends React.Component {
     });
   }
 
+  updateDisplayList() {
+    let currentDisplayLength = this.state.reviewListDisplay.length;
+    if (currentDisplayLength < 4) {
+      let reviews = [];
+      for (let i = 0; i < 4; i++) {
+        if (this.state.reviewList[i]) {
+          reviews.push(this.state.reviewList[i])
+        }
+      }
+      this.setState({
+        reviewListDisplay: [...reviews]
+        }, () => {
+          if (this.state.reviewList.length === this.state.reviewListDisplay.length) {
+            this.setState({showMoreReviews: !this.state.showMoreReviews})
+          }
+        }
+      )
+    } else if (currentDisplayLength === this.state.reviewList.length) {
+      window.removeEventListener('scroll', this.showMoreOnScroll, false);
+      this.setState({showMoreReviews: !this.state.showMoreReviews})
+      return;
+    } else {
+      window.addEventListener('scroll', this.showMoreOnScroll);
+      let nextReviews = [];
+      for (let i = currentDisplayLength; i < currentDisplayLength + 2; i++) {
+        if (this.state.reviewList[i]) {
+          nextReviews.push(this.state.reviewList[i])
+        }
+      }
+      this.setState({
+        reviewListDisplay: [...this.state.reviewListDisplay, ...nextReviews]
+      })
+    }
+  }
+
+  showMoreOnScroll(){
+    if (window.innerHeight + document.documentElement.scrollTop === document.scrollingElement.scrollHeight) {
+        this.updateDisplayList();
+    }
+}
 
   calculateAverageRating() {
     let count = 0;
@@ -141,9 +183,16 @@ class RatingsAndReviewsSect extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.id !== this.props.id) {
-      this.getReviews(this.props.id);
-      this.getMetadata(this.props.id);
+      this.setState({
+        reviewListDisplay: [],
+        showMoreReviews: true
+      }, ()=>{this.getReviews(this.props.id);
+        this.getMetadata(this.props.id);})
     }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.showMoreOnScroll, false);
   }
 
   render() {
@@ -159,15 +208,15 @@ class RatingsAndReviewsSect extends React.Component {
           </div>
           <div className={styles.col}>
             <ReviewCount reviewCount={this.state.reviewCount}/>
-            <List reviewList={this.state.reviewList}/>
+            <List reviewList={this.state.reviewListDisplay}/>
             <span className={styles.listButtons}>
-              <MoreReviewsButton />
               <AddReviewButton showModal={this.showModal} handleAddReview={this.handleAddReview}/>
+              <MoreReviewsButton reviewCount={this.state.reviewCount} showMoreReviews={this.state.showMoreReviews} updateDisplayList={this.updateDisplayList}/>
             </span>
           </div>
         </div>
         <Modal show={this.state.showModal} handleClose={this.hideModal}>
-          <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} handleClose={this.hideModal} />
+          <WriteYourReview characteristics={this.state.characteristics} sendNewReview={this.sendNewReview} handleClose={this.hideModal} productName={this.props.productName} />
         </Modal>
       </div>
     )
