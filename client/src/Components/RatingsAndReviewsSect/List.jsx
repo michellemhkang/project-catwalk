@@ -1,5 +1,7 @@
 import React from 'react';
+
 import ReviewListEntry from './ReviewListEntry.jsx';
+import styles from './reviews.module.css';
 
 let List = ({reviewList}) => {
   return (

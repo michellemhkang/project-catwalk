@@ -1,6 +1,7 @@
 let express = require('express');
-let API_KEY = require('../../config.js');
 const axios = require('axios');
+
+let API_KEY = require('../../config.js');
 
 module.exports = {
   getReviews: (req, res) => {
@@ -9,7 +10,8 @@ module.exports = {
       params: {
         product_id: productId,
         page: 1,
-        sort: 'relevant'
+        sort: 'newest',
+        count: 20
       },
       headers: {Authorization: API_KEY}
     }

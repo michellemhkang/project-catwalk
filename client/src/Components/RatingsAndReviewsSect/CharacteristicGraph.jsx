@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './reviews.module.css';
 
 let CharacteristicGraph = ({name, value}) => {
@@ -12,6 +13,7 @@ let CharacteristicGraph = ({name, value}) => {
   }
 
   return (
+    !value ? null :
     <div className={styles.comparisonBarWrapper}>
       <div className={styles.comparisonBarTitle}>{name}</div>
       <div className={styles.comparisonBarLine}>
@@ -26,6 +28,5 @@ let CharacteristicGraph = ({name, value}) => {
     </div>
   )
 }
-
 
 export default CharacteristicGraph;

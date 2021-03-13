@@ -28,7 +28,7 @@ describe('<RatingsAndReviewsSect />', () => {
       sinon.spy(RatingsAndReviewsSect.prototype, 'componentDidUpdate');
       const wrapper = shallow(<RatingsAndReviewsSect  id={previousId} />);
       wrapper.setProps({ id: '14321' });
-      expect(RatingsAndReviewsSect.prototype.componentDidUpdate).toHaveProperty('callCount', 1);
+      expect(RatingsAndReviewsSect.prototype.componentDidUpdate).toHaveProperty('callCount', 2);
   });
 });
 
