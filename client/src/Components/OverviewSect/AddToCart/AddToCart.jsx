@@ -14,10 +14,13 @@ class AddToCart extends React.Component {
     }
 
     handleClick() {
+        // clearTimeout(timeout);
+        // event.stopPropagation();
         this.postToCart(this.props.selectedSku);
         this.setState({
             clicked: true
         })
+        // let timeout = setTimeout(this.setState({clicked: false}), 5000);
     }
 
     postToCart(sku_id) {
@@ -39,27 +42,21 @@ class AddToCart extends React.Component {
 
             <div className={styling.row2Container}>
 
-
-                { clicked ? (
-                    <div>
-                        <button onClick={this.handleClick} className={styling.addButton}>
+                <div>
+                    <button onClick={this.handleClick} className={styling.addButton}>
+                        {clicked ? (
                             <div>
                                 <span>ADDED TO BAG</span>
                                 <i className={'fas fa-check fa-fw'} />
                             </div>
-                        </button>
-                    </div>
-                ) : (
-                    <div>
-                        <button onClick={this.handleClick} className={styling.addButton}>
+                        ) : (
                             <div>
                                 <span>ADD TO BAG</span>
                                 <i className={'fas fa-plus fa-fw'} />
                             </div>
-                        </button>
+                        )}
+                    </button>
                 </div>
-                )}
-
 
                 <div>
                     <FavoriteButton />

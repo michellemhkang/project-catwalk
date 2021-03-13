@@ -12,7 +12,8 @@ class QuantitySelector extends React.Component {
         }
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
-        this.changeQuantity = this.changeQuantity.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        // this.changeQuantity = this.changeQuantity.bind(this);
     }
 
     showMenu(e) {
@@ -23,16 +24,20 @@ class QuantitySelector extends React.Component {
     }
 
     closeMenu(e) {
-        if (!this.dropdownMenu.contains(e.target)) {
+        // if (!this.dropdownMenu.contains(e.target)) {
             this.setState({ showMenu: false }, () => {
                 document.removeEventListener('click', this.closeMenu);
             })
-        }
+        // }
     }
 
-    changeQuantity(quantity) {
+    handleClick(quantity) {
         this.setState({ selectedQuantity: quantity });
     }
+
+    // changeQuantity(quantity) {
+    //     this.setState({ selectedQuantity: quantity });
+    // }
 
     render() {
 
@@ -68,8 +73,12 @@ class QuantitySelector extends React.Component {
         let isAtMax = quantityAvailable <= 15;
         let maximum = isAtMax ? quantityAvailable : 15;
         let quantityOptions = [...Array(maximum)].map((quantity, i) => {
+            // return <button>hello</button>
+            return <button quantity={i+1} onClick={() => this.handleClick(i+1)} className={styling.quantityOption} key={i}>{i+1}</button>
+            // <button className={styling.button} onClick={() => this.handleClick(this.props.quantity)}>{this.props.quantity}</button>
+
             // console.log(i);
-            return <QuantityButton changeQuantity={this.changeQuantity} quantity={i + 1} key={i} />
+            // return <QuantityButton changeQuantity={this.changeQuantity} quantity={i + 1} key={i} />
         })
 
         // const defaultDisplay = className={'far fa-window-minimize'};
@@ -80,6 +89,7 @@ class QuantitySelector extends React.Component {
             <div className={styling.colContainer}>
 
                 <div className={styling.row1Container}>
+                    <div className={styling.quantityOptionsList}>
                     <button className={styling.quantityButton} onClick={this.showMenu}>
                         {selectedQuantity === null ? (
                             <div>
@@ -93,13 +103,18 @@ class QuantitySelector extends React.Component {
                             </div>
                         )}
                     </button>
+                    {/* // className={styling.quantityOptionsList} */}
+                    <div className={styling.quantityDropdown}>
                     {showMenu ? (
-                        <div className="menu" ref={(element) => { this.dropdownMenu = element; }}>
+                        <div>
                             {quantityOptions}
                         </div>
                     ) : (
                         null
                     )}
+                    </div>
+                    </div>
+
                 </div>
 
                 <AddToCart selectedSku={selectedSku} quantity={this.state.selectedQuantity} />

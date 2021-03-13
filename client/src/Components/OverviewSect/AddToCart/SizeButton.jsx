@@ -15,10 +15,10 @@ class SizeButton extends React.Component {
     render() {
 
         return (
-            <div className={styling.sizeOptionsList}>
-                <div>
-                    <button className={styling.button} onClick={this.handleClick}>{this.props.size}</button>
-                </div>
+            <div>
+                {/* <div> */}
+                    <option value={this.props.size} className={styling.button} onClick={this.handleClick}>{this.props.size}</option>
+                {/* </div> */}
             </div>
         )
     }

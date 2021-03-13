@@ -13,34 +13,42 @@ class SizeSelector extends React.Component {
         }
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
-        this.changeSelectedSize = this.changeSelectedSize.bind(this);
+        // this.changeSelectedSize = this.changeSelectedSize.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     showMenu(e) {
         e.preventDefault();
-        this.setState({showMenu: true}, () => {
+        this.setState({ showMenu: true }, () => {
             document.addEventListener('click', this.closeMenu);
         })
     }
 
     closeMenu(e) {
         e.preventDefault();
-        if (!this.dropdownMenu.contains(e.target)) {
-            this.setState({showMenu: false}, () => {
+        // if (!this.dropdownMenu.contains(e.target)) {
+            this.setState({ showMenu: false }, () => {
                 document.removeEventListener('click', this.closeMenu);
             })
-        }
+        // }
     }
 
-    changeSelectedSize(size) {
-        this.setState({currentlySelectedSize: size})
-        // this.closeMenu();
+    handleClick(size) {
+        // e.preventDefault();
+        this.setState({ currentlySelectedSize: size })
+        // this.changeSelectedSize(this.state.currentlySelectedSize);
+        // this.props.closeMenu();
     }
+
+    // changeSelectedSize(size) {
+    //     this.setState({ currentlySelectedSize: size })
+    //     // this.closeMenu();
+    // }
 
     render() {
 
-        const {showMenu, currentlySelectedSize} = this.state;
-        const {skus} = this.props;
+        const { showMenu, currentlySelectedSize } = this.state;
+        const { skus } = this.props;
 
         // let sizeArr = [];
         // for (var key in skus) {
@@ -78,7 +86,8 @@ class SizeSelector extends React.Component {
         // here, pair is another array where index 0 is the sku number (key)
         // and index 1 is an object of size and quantity (property)
         let sizeOptions = Object.entries(skus).map((pair, index) => {
-            return <SizeButton changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
+            return <button onClick={() => this.handleClick(pair[1].size)} className={styling.option} key={index}>{pair[1].size}</button>
+            // return <SizeButton changeSelectedSize={this.changeSelectedSize} size={pair[1].size} key={index} />
         })
 
         let selectedSku;
@@ -98,9 +107,11 @@ class SizeSelector extends React.Component {
 
             <div className={styling.buttonContainer}>
 
-            <div className={styling.row1Container}>
+                <div className={styling.colContainer}>
 
-                {/* <div className={styling.colContainer}> */}
+                <div className={styling.row1Container}>
+
+                    {/* <div className={styling.colContainer}> */}
 
                     <div>
                         <button className={styling.sizeButton} onClick={this.showMenu}>
@@ -108,29 +119,25 @@ class SizeSelector extends React.Component {
                             <i className={'fas fa-angle-down fa-fw'} />
                         </button>
 
-                    {
-                        showMenu
-                        ? (
-                            <div className="menu" ref={(element) => {this.dropdownMenu = element;}}>
+                        <div className={styling.sizeOptionsList}>
+                        {showMenu ? (
+                            // ref={(element) => { this.dropdownMenu = element; }}
+                            <div>
                                 {sizeOptions}
-                                {/* <button>XS</button>
-                                <button>S</button>
-                                <button>M</button>
-                                <button>L</button> */}
                             </div>
-                        )
-                        : (
+                        ) : (
                             null
-                        )
-                    }
+                        )}
+                        </div>
                     </div>
 
+                    {/* </div> */}
 
-                {/* </div> */}
+                    <QuantitySelector selectedSku={selectedSku} quantity={quantityAvailable} />
 
-                <QuantitySelector selectedSku={selectedSku} quantity={quantityAvailable} />
-
-            </div>
+                </div>
+                <FavoriteButton />
+                </div>
             </div>
         )
     }
