@@ -53,7 +53,7 @@ module.exports = {
             method: 'post',
             url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/cart',
             headers: {
-                'Authorization': 'f721138e7c178a4ca4a796beed488d55bad5f3d3',
+                'Authorization': API_KEY,
                 'Content-Type': 'application/json'
             },
             data: data
