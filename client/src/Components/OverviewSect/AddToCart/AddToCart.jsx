@@ -44,15 +44,16 @@ class AddToCart extends React.Component {
 
     render() {
 
-        const { clicked } = this.state;
+        const { skus } = this.props;
+        const { clicked, selectedSku, selectedQuantity } = this.state;
 
         return (
 
             <div className={styling.buttonContainer}>
 
                 <div className={styling.row1Container}>
-                    <SizeSelector skus={this.props.skus} selectSku={this.selectSku} selectQuantity={this.selectQuantity} />
-                    <QuantitySelector quantityAvailable={this.state.selectedQuantity} />
+                    <SizeSelector skus={skus} selectSku={this.selectSku} selectQuantity={this.selectQuantity} />
+                    <QuantitySelector quantityAvailable={selectedQuantity} />
                 </div>
 
                 <div className={styling.row2Container}>
