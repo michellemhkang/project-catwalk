@@ -8,7 +8,7 @@ module.exports = {
 
     // make an axios request to Atelier API
     let options = {
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${req.query.itemid}/related`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/products/${req.query.itemid}/related`,
       method: 'GET',
       headers: {
         'User-Agent': 'request',
@@ -24,7 +24,7 @@ module.exports = {
         oneObj.id = item;
         // console.log('I am', item, oneObj);
         axios({
-          url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${item}`,
+          url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/products/${item}`,
           method: 'GET',
           headers: {
             'User-Agent': 'request',

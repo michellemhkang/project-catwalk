@@ -7,7 +7,7 @@ module.exports = {
     var theData = [];
 
     let options = {
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${req.query.itemid}/related`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/products/${req.query.itemid}/related`,
       method: 'GET',
       headers: {
         'User-Agent': 'request',
@@ -21,7 +21,7 @@ module.exports = {
         oneObj.id = item;
 
         axios({
-          url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${item}`,
+          url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/products/${item}`,
           method: 'GET',
           headers: {
             'User-Agent': 'request',
@@ -34,7 +34,7 @@ module.exports = {
           oneObj.features = response2.data.features;
 
           axios({
-            url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${item}/styles`,
+            url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/products/${item}/styles`,
             method: 'GET',
             headers: {
               'User-Agent': 'request',
@@ -45,7 +45,7 @@ module.exports = {
             oneObj.sale = response3.data.results[0].sale_price;
 
             axios({
-              url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/meta?product_id=${item}`,
+              url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/reviews/meta?product_id=${item}`,
               method: 'GET',
               headers: {
                 'User-Agent': 'request',

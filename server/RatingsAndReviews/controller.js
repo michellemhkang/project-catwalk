@@ -16,7 +16,7 @@ module.exports = {
       headers: {Authorization: API_KEY}
     }
 
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews', options)
+    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/reviews', options)
     .then(response => {
       res.status(200).send(response.data)
     })
@@ -35,7 +35,7 @@ module.exports = {
       headers: {Authorization: API_KEY}
     }
 
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/meta', options)
+    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/reviews/meta', options)
     .then(response => {
       res.status(200).send(response.data)
     })
@@ -49,7 +49,7 @@ module.exports = {
     let reviewData = req.body;
     axios({
       method: 'post',
-      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/reviews/',
       data: reviewData,
       headers: {Authorization: API_KEY}
     })

@@ -8,7 +8,7 @@ module.exports = {
 
 getData: (req,res)=>{
   let options = {
-    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions?product_id=' + req.query.id+'&count=69',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/qa/questions?product_id=' + req.query.id+'&count=69',
     method: 'GET',
     headers: {
       'User-Agent': 'request',
@@ -20,7 +20,7 @@ getData: (req,res)=>{
 
 helpQ: (req,res)=>{
   let options = {
-    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/'+ req.body.body+'/helpful' ,
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/qa/questions/'+ req.body.body+'/helpful' ,
     method: 'put',
     headers: {
       'User-Agent': 'request',
@@ -32,7 +32,7 @@ axios(options).then(console.log('worked'))
 
 helpA: (req,res)=>{
   let options = {
-    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/'+ req.body.body+'/helpful' ,
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/qa/answers/'+ req.body.body+'/helpful' ,
     method: 'put',
     headers: {
       'User-Agent': 'request',
@@ -46,7 +46,7 @@ axios(options).then(console.log('worked'))
 addAnswer:(req,res)=>{
   console.log(req.body)
   let options = {
-    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/'+ req.body.question_id+'/answers' ,
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/qa/questions/'+ req.body.question_id+'/answers' ,
     method: 'post',
     data: req.body.obj,
     headers: {
@@ -60,7 +60,7 @@ addAnswer:(req,res)=>{
 addQuestion: (req,res)=>{
   console.log(req.body)
   let options = {
-    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions' ,
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/qa/questions' ,
     method: 'post',
     data: req.body,
     headers: {
@@ -72,7 +72,7 @@ addQuestion: (req,res)=>{
 ReoportQ: (req,res)=>{
 
   let options = {
-    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/'+ req.body.question_id+'/report' ,
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/qa/questions/'+ req.body.question_id+'/report' ,
     method: 'put',
     headers: {
       'Authorization': key
@@ -84,7 +84,7 @@ ReoportQ: (req,res)=>{
 ReoportA:  (req,res)=>{
 
   let options = {
-    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/'+ req.body.answers_id+'/report' ,
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/qa/answers/'+ req.body.answers_id+'/report' ,
     method: 'put',
     headers: {
       'Authorization': key

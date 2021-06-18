@@ -23,8 +23,6 @@ projectCatwalk.post('/addQuestion',questionsAnswersController.addQuestion )
 projectCatwalk.put('/reportQ', questionsAnswersController.ReoportQ)
 projectCatwalk.put('/reportA', questionsAnswersController.ReoportA)
 
-
-
 projectCatwalk.get('/overview/products/:', overviewController.getProducts);
 projectCatwalk.get('/overview/styles', overviewController.getStyles);
 projectCatwalk.post('/cart', overviewController.postToCart);

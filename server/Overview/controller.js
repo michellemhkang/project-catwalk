@@ -6,7 +6,7 @@ module.exports = {
     getProducts: (req, res) => {
         let options = {
             method: 'GET',
-            url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${req.query.product_id}`,
+            url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/products/${req.query.product_id}`,
             headers: {
                 'Authorization': API_KEY
             }
@@ -30,7 +30,7 @@ module.exports = {
 
     getStyles: (req, res) => {
         let options = {
-            url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${req.query.product_id}/styles`,
+            url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/products/${req.query.product_id}/styles`,
             headers: {
                 'Authorization': API_KEY
             }
@@ -51,7 +51,7 @@ module.exports = {
         let data = JSON.stringify({ "sku_id": req.body.sku_id });
         let options = {
             method: 'post',
-            url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/cart',
+            url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/cart',
             headers: {
                 'Authorization': API_KEY,
                 'Content-Type': 'application/json'
