@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest RelatedProducts.test.jsx",
+    "test": "jest ProductInfo.test.jsx",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
     "start": "nodemon server/server.js",
