@@ -11,7 +11,6 @@
     width: 90px;
     height: 90px;
     margin: 10px;
-    transition: 0.3s;
     object-fit: cover;
 }
 
@@ -19,6 +18,7 @@
     cursor: pointer;
     border-bottom: 5px solid #fca311;
     transform: scale(1.1);
+    transition: 0.05s;
 }
 
 .selectedThumbnail {
