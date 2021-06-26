@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marcogarcia96/project-catwalk.git"
+    "url": "git+https://github.com/michellemhkang/project-catwalk.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/marcogarcia96/project-catwalk/issues"
+    "url": "https://github.com/michellemhkang/project-catwalk/issues"
   },
-  "homepage": "https://github.com/marcogarcia96/project-catwalk#readme",
+  "homepage": "https://github.com/michellemhkang/project-catwalk#readme",
   "devDependencies": {
     "@babel/core": "^7.13.1",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
