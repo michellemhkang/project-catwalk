@@ -3,6 +3,8 @@
 ## About
 The Product Overview module of an e-commerce retail application that renders live product data from "Atelier" API.
 
+![](https://media.giphy.com/media/Pc6sETjTnhKEsiPp8M/giphy.gif)
+
 ## Features
 - Clean, minimalist interface with hoverable button effects and fade-in transitions
 - Dynamic sizes and quantities based on inventory in backend API
