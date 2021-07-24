@@ -11,7 +11,7 @@ The Product Overview module of an e-commerce retail application that renders liv
 ## Technologies
 - React
 - CSS Modules
-- Flexbox, CSS3
+- CSS3, Flexbox
 - HTML
 - Axios
 - Nodemon, Express

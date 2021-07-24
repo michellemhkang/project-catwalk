@@ -5,6 +5,10 @@
   align-items: stretch;
 }
 
+.row1Container {
+  margin-right: 35px;
+}
+
 .buttonContainer {
   margin-bottom: 80px;
   margin-left: 15px;
@@ -63,7 +67,6 @@
   height: 65px;
   position: relative;
   z-index: 1;
-
 }
 
 .quantityDropdown {
