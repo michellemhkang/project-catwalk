@@ -3,7 +3,7 @@
 ## About
 The Product Overview module of an e-commerce retail application that renders live product data from "Atelier" API.
 
-![](file:///Users/michellekang/Downloads/ezgif.com-gif-maker.gif)
+![](demo.gif)
 
 ## Features
 - Clean, minimalist interface with hoverable button effects and fade-in transitions
